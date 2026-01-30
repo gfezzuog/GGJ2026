@@ -1,15 +1,13 @@
-[gd_scene format=3 uid="uid://y3au2qdelj71"]
+[gd_scene load_steps=2 format=3 uid="uid://y3au2qdelj71"]
+
+[ext_resource type="Script" uid="uid://d3f5h3ljixxyo" path="res://Scripts/Levels/level_test.gd" id="1_3dwym"]
 
 [node name="LevelTest" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+script = ExtResource("1_3dwym")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 128.0
-offset_top = 64.0
-offset_right = 1088.0
-offset_bottom = 1024.0
+offset_top = 61.0
+offset_right = 1094.0
+offset_bottom = 1027.0
 color = Color(0.851769, 0.8517689, 0.85176885, 1)
