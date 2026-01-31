@@ -109,7 +109,12 @@ func _on_mask_dragged(value: bool, dragged_mask: Mask):
 		
 		old_mask_layer_parent.remove_mask()
 		remove_mask()
+		SignalBus.mask_disabled.emit(dragged_mask, old_mask_layer_parent.layer_number)
 		
 		if old_mask:
 			old_mask_layer_parent.add_mask(old_mask)
+			SignalBus.mask_disabled.emit(old_mask, layer_number)
+			SignalBus.mask_enabled.emit(old_mask, old_mask_layer_parent.layer_number)
+		
 		add_mask(dragged_mask)
+		SignalBus.mask_enabled.emit(dragged_mask, layer_number)

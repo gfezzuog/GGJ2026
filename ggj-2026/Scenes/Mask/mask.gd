@@ -2,23 +2,12 @@ class_name  Mask extends TextureRect
 
 signal mask_dragged(value: bool, mask: Mask)
 
-<<<<<<< HEAD
-
-@export var coords: Array[Vector2i] = []
-=======
 const SQUARE_SIZE = 46
 const CANVAS_SIZE = 966
 const CANVAS_SQUARES_PER_SIDE = 21
 
-## Gli array dentro la shape rappresentano le righe, i valori dentro gli array sono gli indici ddelle 
-## colonne in cui è attiva la mashera. Esempio di maschera(* dove c'è la maschera, 0 dove non c'è):
-## [0 * *]
-## [0 0 0]
-## [0 * 0]
-## La shape è quindi [[1,2], [], [1]]
-@export var shape: Array[Array] = []
+@export var coords: Array[Vector2i] = []
 @export var coord_position: Vector2i = Vector2i(0, 0)
->>>>>>> origin/anna
 @export var layer: int = 0
 var layer_parent: LayerMenuRow = null
 var dragged: bool = false
@@ -29,6 +18,7 @@ var activated: bool = false
 func _ready() -> void:
 	 # Genera texture e assegnala
 	texture = generate_texture([Vector2i(0,0), Vector2i(4,8), Vector2i(4,9)])
+
 
 func _process(_delta: float) -> void:
 	if hovered and Input.is_action_just_pressed("click") and not dragged:
@@ -53,8 +43,9 @@ func generate_texture(mask: Array[Vector2i]) -> ImageTexture:
 	for i in range(0, mask.size()):
 		rectangle(image, mask[i][0]*SQUARE_SIZE, mask[i][1]*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE, Color.BLACK)
 	# Crea texture a partire dall'immagine
-	var texture = ImageTexture.create_from_image(image)
-	return texture
+	var new_texture = ImageTexture.create_from_image(image)
+	return new_texture
+
 
 # Funzione che disegna un rettangolo
 func rectangle(image_screen:Image, pos_x:int, pos_y:int, width:int, height:int, color:Color) -> void: 
