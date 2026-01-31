@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://fuw2gcnxtofr"]
+[gd_scene load_steps=6 format=3 uid="uid://fuw2gcnxtofr"]
 
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
 [ext_resource type="Texture2D" uid="uid://dw1xhg66jfu6y" path="res://Assets/Placeholder/UI/Eye.png" id="2_dbhnm"]
 [ext_resource type="Texture2D" uid="uid://cybpfg16atbrk" path="res://Assets/Placeholder/UI/livello_1_-_layer_0_rosa_layer_1_blu_con_spine_in_rosso_layer_2_giallo_porta_verde.webp" id="3_hbla2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urd4n"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
@@ -17,7 +14,6 @@ size = Vector2(429, 80)
 [node name="LayerMenuRow" type="PanelContainer"]
 offset_right = 429.0
 offset_bottom = 80.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_urd4n")
 script = ExtResource("1_urd4n")
 
 [node name="LayerMenuRow" type="HBoxContainer" parent="."]
