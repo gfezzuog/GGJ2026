@@ -3,48 +3,31 @@ extends VBoxContainer
 
 @export var number_layer = 3
 @export var dragged_dimension := Vector2(20, 20)
-@export var mask_textures: Array[Texture] = []
+var mask_textures: Array
 var layers_row: Array[LayerMenuRow] = []
 
 
 func _ready() -> void:
 	for i in range(number_layer):
+		print("SIAMO CREANDO")
 		var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
 		var row = packed_scene.instantiate()
 		row.layer_number = get_child_count()
-		if i < mask_textures.size():
-			var texture = mask_textures[i]
-			var packed_mask: PackedScene = load("res://Scenes/Mask/Mask.tscn")
-			var new_mask: Mask = packed_mask.instantiate()
-			new_mask.texture = texture
-			new_mask.mask_dragged.connect(_on_mask_dragged)
-			row.add_mask(new_mask)
 		add_child(row)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		if number_layer >= 0 and layers_row.size() != number_layer:
-			var difference: int = number_layer - layers_row.size()
-			if difference > 0:
-				for i in range(difference + 1):
-					var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
-					var row: LayerMenuRow = packed_scene.instantiate()
-					layers_row.push_back(row)
-					row.layer_number = layers_row.size() - 1
-					if mask_textures.size() >= layers_row.size():
-						var texture = mask_textures[layers_row.size() - 1]
-						var packed_mask: PackedScene = load("res://Scenes/Mask/Mask.tscn")
-						var new_mask: Mask = packed_mask.instantiate()
-						new_mask.texture = texture
-						row.add_mask(new_mask)
-					add_child(row)
-			else:
-				for i in range(-difference):
-					var child = layers_row.pop_back()
-					if child is LayerMenuRow:
-						remove_child(child)
+func create_masks():
+	print("STiamo in mask")
+	for i in range(mask_textures.size()):
+		var coordinates: Array = mask_textures[i]
+		if coordinates != []:
+			var packed_mask: PackedScene = load("res://Scenes/Mask/Mask.tscn")
+			var new_mask: Mask = packed_mask.instantiate()
+			var texture = new_mask.generate_texture(coordinates)
+			new_mask.texture = texture
+			new_mask.coords = coordinates
+			var row = get_child(i + 1)
+			row.add_mask(new_mask)
 
 
 func _on_mask_dragged(value: bool, mask: Mask):

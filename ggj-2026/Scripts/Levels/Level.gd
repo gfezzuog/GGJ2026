@@ -13,9 +13,21 @@ func _ready():
 	#change_mask(mask)
 	for child in $HBoxContainer/Canvas/Objs.get_children():
 		place_object(child)
-		
+	
+	$LayersMenu.mask_textures = [[], [], []]
+	
+	var pippo: LevelInfo = load("res://Resources/level_resource.tres")
+	var pippi = pippo.get_level_info(1)
+	var masks = pippi["masks"]
+	for mask in masks:
+		var coordinates: Array[Vector2i]
+		for coord in mask["coordinates"]:
+			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
+		$LayersMenu.mask_textures[1] = coordinates
+	$LayersMenu.create_masks()
 	# collega segnale su maschera abilitata
 	SignalBus.connect("mask_enabled", applyMask)
+
 
 func change_mask(mask):
 	#for child in $Objs.get_children():
@@ -35,6 +47,7 @@ func init_grid():
 		for x in GRID_SIZE:
 			row.append(null)
 		grid.append(row)
+
 
 func place_object(obj) -> bool:
 	if ((obj.pos[0] + obj.size[0] >= GRID_SIZE) or (obj.pos[1] + obj.size[1] >= GRID_SIZE)):

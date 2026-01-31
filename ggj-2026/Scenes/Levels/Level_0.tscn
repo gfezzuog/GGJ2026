@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bn552bcbw1hxe"]
+[gd_scene load_steps=11 format=4 uid="uid://bn552bcbw1hxe"]
 
 [ext_resource type="Script" uid="uid://cfcoeuf5if1bu" path="res://Scripts/Levels/Level.gd" id="1_03ysy"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="5_15f3f"]
 [ext_resource type="Texture2D" uid="uid://cqyw5blwvgto5" path="res://Assets/red_panda_92x92.png" id="6_3qm25"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="6_d8tld"]
+[ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="8_ssf0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
 size = Vector2(196.25, 40)
@@ -52,7 +53,7 @@ offset_right = 966.0
 offset_bottom = 966.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas"]
-position = Vector2(264, 667)
+position = Vector2(227, 665)
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/Canvas/StaticBody2D"]
 offset_right = 197.0
@@ -103,3 +104,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 966)
 layout_mode = 2
 color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+
+[node name="LayersMenu" parent="." instance=ExtResource("8_ssf0w")]
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 17.0
+offset_right = 1785.0
+offset_bottom = 961.0
