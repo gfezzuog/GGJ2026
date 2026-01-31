@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdqi57vchkvhl"]
+
+[ext_resource type="Script" uid="uid://cvlkvn03fsnb7" path="res://Scenes/LayersMenu/layer_menu.gd" id="1_emsh5"]
+
+[node name="LayersMenu" type="VBoxContainer"]
+offset_right = 479.0
+offset_bottom = 164.0
+script = ExtResource("1_emsh5")
+dragged_dimension = null
+
+[node name="Node" type="Node" parent="."]
