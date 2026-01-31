@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgtkvkh8eklqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3p4"]
+bg_color = Color(0.5689727, 0.56897277, 0.5689727, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[node name="LevelTab" type="Panel"]
+custom_minimum_size = Vector2(180, 45)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1629.0
+offset_bottom = -1039.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ly3p4")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -11.5
+offset_right = 176.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Prova.jpg"
+
+[node name="X" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.5294118)
+text = "X"
