@@ -26,13 +26,6 @@ offset_bottom = 53.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="."]
-offset_left = 438.0
-offset_top = 947.0
-offset_right = 625.0
-offset_bottom = 1018.0
-text = "Vai al livello dopo"
-
 [node name="LevelContainer" type="HBoxContainer" parent="."]
 offset_top = 146.0
 offset_right = 1917.0

@@ -1,38 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn552bcbw1hxe"]
+[gd_scene load_steps=6 format=3 uid="uid://bn552bcbw1hxe"]
 
-[ext_resource type="Script" uid="uid://c3aq6eddfyrwj" path="res://Scenes/Levels/level_0.gd" id="1_lc16p"]
+[ext_resource type="Script" uid="uid://cfcoeuf5if1bu" path="res://Scripts/Levels/Level.gd" id="1_03ysy"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
+[ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_fmbw1"]
+[ext_resource type="PackedScene" uid="uid://3w4xouxyjsd1" path="res://Scenes/Door/Door.tscn" id="3_clgyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
 size = Vector2(196.25, 40)
 
 [node name="Level0" type="Node"]
-script = ExtResource("1_lc16p")
+script = ExtResource("1_03ysy")
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(80, 288)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -735.0
+offset_top = -483.0
+offset_right = 735.0
+offset_bottom = 483.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 60
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="Canvas" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(966, 966)
+layout_mode = 2
+
+[node name="Sfondo" type="ColorRect" parent="HBoxContainer/Canvas"]
+custom_minimum_size = Vector2(966, 966)
+layout_mode = 0
+
+[node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("2_fmbw1")]
+layout_mode = 0
+offset_right = 966.0
+offset_bottom = 966.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas"]
+position = Vector2(264, 667)
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Canvas/StaticBody2D"]
 offset_right = 197.0
 offset_bottom = 40.0
+color = Color(0.40784314, 0.22352941, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/StaticBody2D"]
 position = Vector2(98.875, 20)
 shape = SubResource("RectangleShape2D_03ysy")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(285, 272)
+[node name="StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/Canvas"]
+position = Vector2(469, 651)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Canvas/StaticBody2D2"]
 offset_right = 197.0
 offset_bottom = 40.0
+color = Color(0.73503196, 0.19188327, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/StaticBody2D2"]
 position = Vector2(98.875, 20)
 shape = SubResource("RectangleShape2D_03ysy")
 
-[node name="Player" parent="." instance=ExtResource("2_03ysy")]
-position = Vector2(149, 266)
+[node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("2_03ysy")]
+position = Vector2(333, 645)
+
+[node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("3_clgyd")]
+position = Vector2(623, 600)
+
+[node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Layers"]
+custom_minimum_size = Vector2(0, 966)
+layout_mode = 2
 
 [node name="Objs" type="Node" parent="."]
