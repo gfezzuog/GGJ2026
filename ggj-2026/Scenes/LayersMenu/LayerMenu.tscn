@@ -1,13 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdqi57vchkvhl"]
+[gd_scene load_steps=2 format=3 uid="uid://cdqi57vchkvhl"]
 
 [ext_resource type="Script" uid="uid://cvlkvn03fsnb7" path="res://Scenes/LayersMenu/layer_menu.gd" id="1_emsh5"]
-[ext_resource type="Texture2D" uid="uid://dd88c2y8jduq8" path="res://Assets/Placeholder/UI/livello_1_-_con_maschera.webp" id="2_emsh5"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="3_brppa"]
 
 [node name="LayersMenu" type="VBoxContainer"]
 offset_right = 1150.0
 offset_bottom = 522.0
 script = ExtResource("1_emsh5")
-mask_textures = Array[Texture]([ExtResource("2_emsh5"), ExtResource("3_brppa")])
 
 [node name="Node" type="Node2D" parent="."]
