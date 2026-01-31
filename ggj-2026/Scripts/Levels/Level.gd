@@ -1,4 +1,4 @@
-@tool
+#@tool
 class_name Level extends Control
 
 const GRID_SIZE := 21
@@ -9,10 +9,14 @@ var grid := []
 
 func _ready():
 	init_grid()
-	var mask : Array[Vector2i] = $Mask.get_mask_coords()
-	change_mask(mask)
-	for child in $Objs.get_children():
+	#var mask : Array[Vector2i] = $Mask.get_mask_coords()
+	#change_mask(mask)
+	for child in $HBoxContainer/Canvas/Objs.get_children():
 		place_object(child)
+	
+	# collega segnale su maschera abilitata
+	SignalBus.connect("mask_enabled", applyMask)
+
 
 func change_mask(mask):
 	#for child in $Objs.get_children():
@@ -33,23 +37,54 @@ func init_grid():
 			row.append(null)
 		grid.append(row)
 
-func place_object(obj) -> bool:
 
-	obj.position = obj.pos * GRID_SIZE
+func place_object(obj) -> bool:
+	if ((obj.pos[0] + obj.size[0] >= GRID_SIZE) or (obj.pos[1] + obj.size[1] >= GRID_SIZE)):
+		printerr("stai posizionando un oggetto fuori dalla griglia")
+		pass
+		
+	obj.position = obj.pos * CELL_SIZE
+	obj.get_child(0).position = -obj.position
+	
 	for i in obj.size.x:
-		print("valore di i ", i)
+		#print("valore di i ", i)
 		for j in obj.size.y:
-			print("valore di j ", j)
+			#print("valore di j ", j)
 			grid[obj.pos.x + i][obj.pos.y + j] = obj
 	for i in obj.size.x:
 		for j in obj.size.y:#grid.insert(obj.pos.x, obj.size.x)
 			print(grid[obj.pos.x + i][obj.pos.y + j])
-	print(grid)	#print(mask)
+	#print(grid)	#print(mask)
 	return true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		for child in $Objs.get_children():
-			child.position = child.pos * GRID_SIZE
+#func _process(_delta: float) -> void:
+	#if Engine.is_editor_hint():
+		#for child in $Objs.get_children():
+			#child.position = child.pos * GRID_SIZE
+
+# Level si connette al segnale mask_enabled che ci passa la maschera, e il layer su cui e' attiva
+func applyMask(mask: Mask, layer: int):
+	var objectsThatMustBeRemoved = []
+	for coord in mask.coords:
+		
+		var ob = grid[coord.x][coord.y]
+		#print("layer di apply mask")
+		#print(layer)
+		if (ob.layer == layer):
+			if ob not in objectsThatMustBeRemoved:
+				objectsThatMustBeRemoved.append(ob)
+	
+		# qua sotto e' se grid contiene liste
+		#var objects = grid[coord.x][coord.y]
+		#print(objects)
+		#for ob in objects:
+			#if (ob.layer == layer):
+				#if ob not in objectsThatMustBeRemoved:
+					#objectsThatMustBeRemoved.append(ob)
+					
+	for ob in objectsThatMustBeRemoved:
+		ob.applyMask(mask.coords)
+	
+	

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ug3iyg462q0m"
-valid=false
+uid="uid://dv6mhx06w0dvm"
+path="res://.godot/imported/completo.png-c89460e73cf9b5703ef47d723d70455a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Level_1/6.jpg"
+source_file="res://Assets/Level_1/completo.png"
+dest_files=["res://.godot/imported/completo.png-c89460e73cf9b5703ef47d723d70455a.ctex"]
 
 [params]
 

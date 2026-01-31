@@ -16,8 +16,9 @@ var activated: bool = false
 
 
 func _ready() -> void:
+	pass
 	 # Genera texture e assegnala
-	texture = generate_texture([Vector2i(0,0), Vector2i(4,8), Vector2i(4,9)])
+	#texture = generate_texture([Vector2i(0,0), Vector2i(4,8), Vector2i(4,9)])
 
 
 func _process(_delta: float) -> void:

@@ -6,32 +6,51 @@ var mask_disabled: bool = false : set = _set_disabled
 var mask_entered: bool = false
 var mask: Mask
 var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
+var in_visibility_icon = false
+@onready var visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon
 
 
 func _ready() -> void:
 	$LayerMenuRow/Area2D/CollisionShape2D.shape.size = size
 	$LayerMenuRow/Area2D.position = size / 2
+	if mask:
+		visibilityIcon.show()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
-		$LayerMenuRow/TextDisplay/LayerNumber.text = "Layer " + str(layer_number)
+		$LayerMenuRow/TextDisplay/VBoxContainer/LayerNumber.text = "Layer " + str(layer_number)
 		$LayerMenuRow/Area2D/CollisionShape2D.shape.size = size
 		$LayerMenuRow/Area2D.position = size / 2
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click") and in_visibility_icon:
+		mask_disabled = not mask_disabled
+
+
 func _set_layer_number(new_value: int) -> void:
 	layer_number = new_value
-	$LayerMenuRow/TextDisplay/LayerNumber.text = "Layer " + str(layer_number)
+	$LayerMenuRow/TextDisplay/VBoxContainer/LayerNumber.text = "Layer " + str(layer_number)
 
 
 func _set_disabled(new_value: bool) -> void:
 	mask_disabled = new_value
 	if new_value:
 		$LayerMenuRow/MaskDisplay/Disable.show()
+		visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.hide()
+		if mask:
+			visibilityIcon.show()
+			SignalBus.mask_disabled.emit(mask, mask.layer)
 	else:
 		$LayerMenuRow/MaskDisplay/Disable.hide()
+		visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.hide()
+		if mask:
+			visibilityIcon.show()
+			SignalBus.mask_enabled.emit(mask, mask.layer)
 
 
 func get_mask() -> Mask:
@@ -44,14 +63,17 @@ func add_mask(new_mask: Mask) -> void:
 		$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
 		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
+		mask.layer = self.layer_number
 		mask.layer_parent = self
 		mask.mouse_entered.connect(_on_mask_mouse_entered)
 		mask.mouse_exited.connect(_on_mask_mouse_exited)
+		if visibilityIcon:
+			visibilityIcon.show()
 
 
 func remove_mask():
 	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count():
-		mask_disabled = false
+		#mask_disabled = false
 		mask.mouse_entered.disconnect(_on_mask_mouse_entered)
 		mask.mouse_exited.disconnect(_on_mask_mouse_exited)
 		var child = $LayerMenuRow/MaskDisplay/PanelContainer.get_child(0)
@@ -60,6 +82,8 @@ func remove_mask():
 		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
 		mask.layer_parent = null
 		mask = null
+		if visibilityIcon:
+			visibilityIcon.hide()
 
 
 func _on_mask_mouse_entered() -> void:
@@ -109,12 +133,26 @@ func _on_mask_dragged(value: bool, dragged_mask: Mask):
 		
 		old_mask_layer_parent.remove_mask()
 		remove_mask()
-		SignalBus.mask_disabled.emit(dragged_mask, old_mask_layer_parent.layer_number)
+		if !old_mask_layer_parent.mask_disabled:
+			SignalBus.mask_disabled.emit(dragged_mask, old_mask_layer_parent.layer_number)
 		
 		if old_mask:
 			old_mask_layer_parent.add_mask(old_mask)
-			SignalBus.mask_disabled.emit(old_mask, layer_number)
-			SignalBus.mask_enabled.emit(old_mask, old_mask_layer_parent.layer_number)
+			if not mask_disabled:
+				SignalBus.mask_disabled.emit(old_mask, layer_number)
+			if !old_mask_layer_parent.mask_disabled:
+				SignalBus.mask_enabled.emit(old_mask, old_mask_layer_parent.layer_number)
 		
 		add_mask(dragged_mask)
-		SignalBus.mask_enabled.emit(dragged_mask, layer_number)
+		if not mask_disabled:
+			SignalBus.mask_enabled.emit(dragged_mask, layer_number)
+
+
+func _on_visibility_icon_mouse_entered() -> void:
+	in_visibility_icon = true
+	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+
+
+func _on_visibility_icon_mouse_exited() -> void:
+	in_visibility_icon = false
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

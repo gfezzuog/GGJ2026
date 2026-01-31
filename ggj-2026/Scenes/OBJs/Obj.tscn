@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjynrusb8f2yu"]
+
+[ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="1_0up5g"]
+[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="2_hkyhf"]
+
+[node name="Obj" type="Node2D"]
+script = ExtResource("1_0up5g")
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hkyhf")

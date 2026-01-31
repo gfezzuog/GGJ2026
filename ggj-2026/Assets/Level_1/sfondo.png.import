@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pflauwkb62hr"
-valid=false
+uid="uid://byy0kseb0m3mx"
+path="res://.godot/imported/sfondo.png-6b074eeccd3863169076722ea81cd9fb.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Level_1/4.jpg"
+source_file="res://Assets/Level_1/sfondo.png"
+dest_files=["res://.godot/imported/sfondo.png-6b074eeccd3863169076722ea81cd9fb.ctex"]
 
 [params]
 
