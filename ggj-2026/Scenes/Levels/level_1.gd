@@ -31,6 +31,7 @@ func _ready() -> void:
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
 		$LayersMenu.mask_textures[1] = coordinates
+		#$LayersMenu.layers_row[1].mask.disabled = true
 	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.

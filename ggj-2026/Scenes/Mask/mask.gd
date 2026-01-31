@@ -23,9 +23,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if hovered and Input.is_action_just_pressed("click") and not dragged:
+		print("MASK: Inizia il drag")
 		dragged = true
 		mask_dragged.emit(true, self)
 	if Input.is_action_just_released("click") and dragged:
+		print("MASK: Finisce il drag")
 		dragged = false
 		mask_dragged.emit(false, self)
 
@@ -57,7 +59,9 @@ func rectangle(image_screen:Image, pos_x:int, pos_y:int, width:int, height:int, 
 
 func _on_mouse_entered() -> void:
 	hovered = true
+	print("MOUSE ENTRATO")
 
 
 func _on_mouse_exited() -> void:
 	hovered = false
+	print("MOUSE USCITO")

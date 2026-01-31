@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://fuw2gcnxtofr"]
+[gd_scene load_steps=8 format=3 uid="uid://fuw2gcnxtofr"]
 
+[ext_resource type="StyleBox" uid="uid://dtueudd02m8a1" path="res://Scenes/LayersMenu/LayerMenuRowBox.tres" id="1_atvwj"]
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
 [ext_resource type="Texture2D" uid="uid://dw1xhg66jfu6y" path="res://Assets/Placeholder/UI/Eye.png" id="2_dbhnm"]
 [ext_resource type="Texture2D" uid="uid://cybpfg16atbrk" path="res://Assets/Placeholder/UI/livello_1_-_layer_0_rosa_layer_1_blu_con_spine_in_rosso_layer_2_giallo_porta_verde.webp" id="3_hbla2"]
@@ -7,7 +8,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.12721047, 0, 0.7215379, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atvwj"]
 size = Vector2(429, 80)
@@ -16,6 +17,7 @@ size = Vector2(429, 80)
 offset_right = 429.0
 offset_bottom = 80.0
 size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_atvwj")
 script = ExtResource("1_urd4n")
 
 [node name="LayerMenuRow" type="HBoxContainer" parent="."]
@@ -48,6 +50,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 [node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
 [node name="TextDisplay" type="VBoxContainer" parent="LayerMenuRow"]

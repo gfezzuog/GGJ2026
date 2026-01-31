@@ -103,6 +103,7 @@ offset_bottom = 966.0
 
 [node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("3_hs11j")]
 position = Vector2(326, 605)
+gravity = 900.0
 
 [node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("4_o5ofx")]
 position = Vector2(23, 733)
