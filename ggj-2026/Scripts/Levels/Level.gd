@@ -42,6 +42,8 @@ func place_object(obj) -> bool:
 		pass
 		
 	obj.position = obj.pos * CELL_SIZE
+	obj.get_child(0).position = -obj.position
+	
 	for i in obj.size.x:
 		#print("valore di i ", i)
 		for j in obj.size.y:

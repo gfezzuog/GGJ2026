@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://haj41r0xs3f7"
-valid=false
+uid="uid://c5datb28w56b0"
+path="res://.godot/imported/2.png-af0f7961dc6eb901381c6cdd90750965.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Level_1/2.jpg"
+source_file="res://Assets/Level_1/2.png"
+dest_files=["res://.godot/imported/2.png-af0f7961dc6eb901381c6cdd90750965.ctex"]
 
 [params]
 

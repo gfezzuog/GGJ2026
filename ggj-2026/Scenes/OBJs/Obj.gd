@@ -24,9 +24,10 @@ var collisionShapes: Array[CollisionShape2D] = []
 #var areasCreated = false
 const SQUARE_SIZE = 46
 
-func _ready() -> void:
-	createCollisionShapes(collisionInfo)
-	applyMask( [Vector2i(4,16), Vector2i(4,17)] )
+
+#func _ready() -> void:
+#	createCollisionShapes(collisionInfo)
+#	applyMask( [Vector2i(4,16), Vector2i(4,17)] )
 
 # Funzione che prende in input una matrice tipo [ [1, 0], [1, 1] ]
 # e crea una collision shape per ogni "1", organizzate come indica la matrice.
@@ -38,11 +39,11 @@ func createCollisionShapes(collisionsInfo: Array[int]) -> void:
 		for j in range(0, size[1]):
 			# se in posizione (i,j) c'e' un "1" crea la shape. visto che non e' una
 			# matrice ma un array, corrisponde alla posizione  i*size[1]+j
-			if (collisionsInfo[i*size[1]+j] == 1):
+			if (collisionsInfo[j*size[0]+i] == 1):
 				# Crea area
 				var body:= StaticBody2D.new()
-				body.position.y += SQUARE_SIZE/2.0 + i*SQUARE_SIZE
-				body.position.x += SQUARE_SIZE/2.0 + j*SQUARE_SIZE
+				body.position.y += SQUARE_SIZE/2.0 + j*SQUARE_SIZE
+				body.position.x += SQUARE_SIZE/2.0 + i*SQUARE_SIZE
 
 				# Crea collision shape
 				var collisionShape = CollisionShape2D.new()
