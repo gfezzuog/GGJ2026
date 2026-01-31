@@ -29,9 +29,9 @@ func _set_layer_number(new_value: int) -> void:
 func _set_disabled(new_value: bool) -> void:
 	mask_disabled = new_value
 	if new_value:
-		$LayerMenuRow/MaskDisplay/Disable.hide()
-	else:
 		$LayerMenuRow/MaskDisplay/Disable.show()
+	else:
+		$LayerMenuRow/MaskDisplay/Disable.hide()
 
 
 func get_mask() -> Mask:
@@ -45,17 +45,21 @@ func add_mask(new_mask: Mask) -> void:
 		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
 		mask.layer_parent = self
+		mask.mouse_entered.connect(_on_mask_mouse_entered)
+		mask.mouse_exited.connect(_on_mask_mouse_exited)
 
 
 func remove_mask():
 	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count():
 		mask_disabled = false
+		mask.mouse_entered.disconnect(_on_mask_mouse_entered)
+		mask.mouse_exited.disconnect(_on_mask_mouse_exited)
 		var child = $LayerMenuRow/MaskDisplay/PanelContainer.get_child(0)
 		$LayerMenuRow/MaskDisplay/PanelContainer.remove_child(child)
 		$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 0.0
 		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
-		mask = null
 		mask.layer_parent = null
+		mask = null
 
 
 func _on_mask_mouse_entered() -> void:
@@ -108,6 +112,4 @@ func _on_mask_dragged(value: bool, dragged_mask: Mask):
 		
 		if old_mask:
 			old_mask_layer_parent.add_mask(old_mask)
-		add_mask(mask)
-		
-		mask.mask_dragged.disconnect(_on_mask_dragged)
+		add_mask(dragged_mask)
