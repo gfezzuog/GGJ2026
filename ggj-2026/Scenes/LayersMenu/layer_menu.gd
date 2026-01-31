@@ -2,7 +2,7 @@
 extends VBoxContainer
 
 @export var number_layer = 3
-@export var dragged_dimension := Vector2(80, 80)
+@export var dragged_dimension := Vector2(20, 20)
 @export var mask_textures: Array[Texture] = []
 var layers_row: Array[LayerMenuRow] = []
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 		var row = packed_scene.instantiate()
 		row.layer_number = get_child_count()
 		if i < mask_textures.size():
-			var texture = mask_textures[layers_row.size() - 1]
+			var texture = mask_textures[i]
 			var packed_mask: PackedScene = load("res://Scenes/Mask/Mask.tscn")
 			var new_mask: Mask = packed_mask.instantiate()
 			new_mask.texture = texture

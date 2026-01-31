@@ -8,24 +8,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
 size = Vector2(196.25, 40)
 
-[node name="Level0" type="Node"]
+[node name="Level0" type="Control"]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 script = ExtResource("1_03ysy")
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchors_preset = 8
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -735.0
-offset_top = -483.0
-offset_right = 735.0
-offset_bottom = 483.0
+offset_left = -763.0
+offset_right = 763.0
+offset_bottom = 966.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 30
 
 [node name="Canvas" type="Control" parent="HBoxContainer"]
 custom_minimum_size = Vector2(966, 966)
@@ -71,11 +74,12 @@ position = Vector2(333, 645)
 position = Vector2(623, 600)
 
 [node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(646, 0)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/Layers"]
 custom_minimum_size = Vector2(0, 966)
 layout_mode = 2
+color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 
 [node name="Objs" type="Node" parent="."]

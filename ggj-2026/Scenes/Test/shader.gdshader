@@ -1,24 +1,30 @@
 shader_type canvas_item;
 
-uniform vec2 mask_center_uv = vec2(0.5);
-uniform vec2 mask_size_uv = vec2(0.2, 0.2); // sostituisce il cerchio, ora rettangolo
-uniform bool hide = false;
+const int MAX_RECTS = 8;
+
+uniform vec4 rects[MAX_RECTS]; // xy=center_uv, zw=size_uv
+uniform int rect_count = 0;
 
 void fragment() {
     vec4 tex = texture(TEXTURE, UV);
+    float alpha_mask = 0.0;
 
-    if (hide) {
-        // Calcolo rettangolo: UV compreso tra min e max
-        vec2 delta = UV - mask_center_uv;
-        vec2 half_size = mask_size_uv * 0.5;
+    for (int i = 0; i < MAX_RECTS; i++) {
+        if (i >= rect_count) {
+            break;
+        }
 
-        // mask = 1 dentro il rettangolo, 0 fuori
-        float mask_x = step(-half_size.x, delta.x) * step(delta.x, half_size.x);
-        float mask_y = step(-half_size.y, delta.y) * step(delta.y, half_size.y);
-        float mask = mask_x * mask_y;
+        vec2 center = rects[i].xy;
+        vec2 size = rects[i].zw * 0.5;
+        vec2 delta = UV - center;
 
-        tex.a *= (1.0 - mask);
+        float inside =
+            step(-size.x, delta.x) * step(delta.x, size.x) *
+            step(-size.y, delta.y) * step(delta.y, size.y);
+
+        alpha_mask = max(alpha_mask, inside);
     }
 
+    tex.a *= (1.0 - alpha_mask);
     COLOR = tex;
 }
