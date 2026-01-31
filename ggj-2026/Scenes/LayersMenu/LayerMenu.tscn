@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dd88c2y8jduq8" path="res://Assets/Placeholder/UI/livello_1_-_con_maschera.webp" id="2_emsh5"]
 
 [node name="LayersMenu" type="VBoxContainer"]
-offset_right = 479.0
+offset_right = 800.0
 offset_bottom = 164.0
 script = ExtResource("1_emsh5")
 mask_textures = Array[Texture]([ExtResource("2_emsh5")])
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node2D" parent="."]

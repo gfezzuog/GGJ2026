@@ -5,7 +5,7 @@ class_name LayerMenuRow extends PanelContainer
 var mask_disabled: bool = false : set = _set_disabled
 var mask_entered: bool = false
 var mask: Mask
-var box_hovered_packed = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
+var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
 
 
 func _ready() -> void:
@@ -82,9 +82,7 @@ func _on_resized() -> void:
 ## Quando entra un area(una maschera) controlla che non sia la sua maschera, se non lo è sta ricevendo quella mmaschera
 ## e quindi si connette al suo segnale di fine dragging
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("AREA ENTRATA")
 	var dragged_mask = area.get_parent()
-	var box_hovered = box_hovered_packed.instatiate()
 	add_theme_stylebox_override("panel", box_hovered)
 	if mask == null or mask != dragged_mask:
 		mask_entered = true
@@ -92,9 +90,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	print("AREA USCITA")
 	mask_entered = false
-	add_theme_stylebox_override("panel", null)
+	add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	var dragged_mask = area.get_parent()
 	dragged_mask.reference_mask.mask_dragged.disconnect(_on_mask_dragged)
 

@@ -4,19 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dw1xhg66jfu6y" path="res://Assets/Placeholder/UI/Eye.png" id="2_dbhnm"]
 [ext_resource type="Texture2D" uid="uid://cybpfg16atbrk" path="res://Assets/Placeholder/UI/livello_1_-_layer_0_rosa_layer_1_blu_con_spine_in_rosso_layer_2_giallo_porta_verde.webp" id="3_hbla2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urd4n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urd4n"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atvwj"]
-size = Vector2(479, 80)
+size = Vector2(429, 80)
 
 [node name="LayerMenuRow" type="PanelContainer"]
-offset_right = 427.0
+offset_right = 429.0
 offset_bottom = 80.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_urd4n")
+theme_override_styles/panel = SubResource("StyleBoxFlat_urd4n")
 script = ExtResource("1_urd4n")
 
 [node name="LayerMenuRow" type="HBoxContainer" parent="."]
@@ -80,13 +81,14 @@ layout_mode = 2
 text = "Layer 0"
 
 [node name="Area2D" type="Area2D" parent="LayerMenuRow"]
-position = Vector2(213.5, 40)
+position = Vector2(214.5, 40)
 collision_layer = 16
 collision_mask = 8
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LayerMenuRow/Area2D"]
 shape = SubResource("RectangleShape2D_atvwj")
 
-[connection signal="resized" from="LayerMenuRow" to="LayerMenuRow" method="_on_resized"]
-[connection signal="area_entered" from="LayerMenuRow/Area2D" to="LayerMenuRow" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="LayerMenuRow/Area2D" to="LayerMenuRow" method="_on_area_2d_area_exited"]
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="area_entered" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_exited"]
