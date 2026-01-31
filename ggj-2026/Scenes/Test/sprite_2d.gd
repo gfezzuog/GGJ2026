@@ -1,11 +1,12 @@
 extends Sprite2D
 
 @onready var mat := material as ShaderMaterial
+var effect_active := true
+
 @export var area_path: NodePath
 @onready var area := get_node(area_path) as Node2D
 
-var effect_active := true
-@export var rect_size := Vector2(50, 50) # grandezza della zona in pixel
+@export var areas: Array[Area2D]
 
 func _process(_delta):
 
