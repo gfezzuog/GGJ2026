@@ -27,8 +27,8 @@ func _ready() -> void:
 	# Inizializza tab
 	_initiateLevelTabs()
 	
-	# TEMP: se clicchi sul pulsante vai al livello dopo
-	$Button.pressed.connect(_goToNextLevel)
+	# Connetti i segnali
+	SignalBus.connect("doorReached", _goToNextLevel)
 	
 	pass
 
