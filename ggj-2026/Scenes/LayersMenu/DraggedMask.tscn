@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dr6d78wt3yqr4" path="res://Scenes/LayersMenu/dragged_mask.gd" id="1_4jca5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feuuc"]
+size = Vector2(5, 5)
 
 [node name="DraggedMask" type="TextureRect"]
+top_level = true
 expand_mode = 1
 script = ExtResource("1_4jca5")
 
