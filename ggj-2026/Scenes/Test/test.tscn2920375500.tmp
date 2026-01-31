@@ -3,19 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="1_kr3tn"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_v7cj3"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="3_v7cj3"]
-[ext_resource type="Script" uid="uid://cppxbv4tvsam0" path="res://Scenes/Test/sprite_2d.gd" id="4_83r8m"]
+[ext_resource type="Script" uid="uid://c1frekwax521n" path="res://Scenes/Test/Shader_test.gd" id="4_83r8m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11af6"]
 size = Vector2(127.733055, 123.97138)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfjqq"]
 shader = ExtResource("3_v7cj3")
-shader_parameter/mask_center_uv = Vector2(0.5, 0.5)
-shader_parameter/mask_size_uv = Vector2(0.2, 0.2)
-shader_parameter/hide = false
+shader_parameter/mask_top_left = Vector2(0, 0)
+shader_parameter/mask_bottom_right = Vector2(0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_83r8m"]
-size = Vector2(146.99998, 134.99997)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpuyy"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -42,13 +40,11 @@ texture = ExtResource("1_kr3tn")
 material = SubResource("ShaderMaterial_vfjqq")
 position = Vector2(158, -53)
 texture = ExtResource("1_kr3tn")
-script = ExtResource("4_83r8m")
-area_path = NodePath("../Area2D")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(115, -91)
+position = Vector2(95.999985, -85)
+scale = Vector2(5.3158484, 5.042466)
+script = ExtResource("4_83r8m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -1)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_83r8m")
+shape = SubResource("RectangleShape2D_fpuyy")
