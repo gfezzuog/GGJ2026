@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn552bcbw1hxe"]
+
+[ext_resource type="Script" uid="uid://c3aq6eddfyrwj" path="res://Scenes/Levels/level_0.gd" id="1_lc16p"]
+[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
+size = Vector2(196.25, 40)
+
+[node name="Level0" type="Node"]
+script = ExtResource("1_lc16p")
+metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(80, 288)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 197.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(98.875, 20)
+shape = SubResource("RectangleShape2D_03ysy")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(285, 272)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_right = 197.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(98.875, 20)
+shape = SubResource("RectangleShape2D_03ysy")
+
+[node name="Player" parent="." instance=ExtResource("2_03ysy")]
+position = Vector2(149, 266)
+
+[node name="Objs" type="Node" parent="."]
