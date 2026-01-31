@@ -23,6 +23,6 @@ func _init() -> void:
 			var coordinates = mask["coordinates"]
 			var new_coordinates: Array[Vector2]
 			for coordinate in coordinates:
-				new_coordinates.append(Vector2(coordinate[0], coordinate[1]))
+				new_coordinates.append(Vector2i(coordinate[0], coordinate[1]))
 			mask["coordinates"] = new_coordinates
 		#print(masks)
