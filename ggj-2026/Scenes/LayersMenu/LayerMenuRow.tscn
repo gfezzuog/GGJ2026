@@ -2,21 +2,28 @@
 
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
 [ext_resource type="Texture2D" uid="uid://dw1xhg66jfu6y" path="res://Assets/Placeholder/UI/Eye.png" id="2_dbhnm"]
-[ext_resource type="PackedScene" uid="uid://kw5l4wybgne4" path="res://Scenes/Mask/Mask.tscn" id="3_atvwj"]
 [ext_resource type="Texture2D" uid="uid://cybpfg16atbrk" path="res://Assets/Placeholder/UI/livello_1_-_layer_0_rosa_layer_1_blu_con_spine_in_rosso_layer_2_giallo_porta_verde.webp" id="3_hbla2"]
-[ext_resource type="Texture2D" uid="uid://dd88c2y8jduq8" path="res://Assets/Placeholder/UI/livello_1_-_con_maschera.webp" id="5_cqoqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urd4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
 bg_color = Color(1, 1, 1, 1)
 
-[node name="LayerMenuRow" type="HBoxContainer"]
-offset_right = 352.0
-offset_bottom = 100.0
-theme_override_constants/separation = 20
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atvwj"]
+size = Vector2(479, 80)
+
+[node name="LayerMenuRow" type="PanelContainer"]
+offset_right = 427.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urd4n")
 script = ExtResource("1_urd4n")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="LayerMenuRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -24,58 +31,62 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 40
 
-[node name="VisibilityIcon" type="TextureRect" parent="MarginContainer"]
+[node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_dbhnm")
 expand_mode = 1
 
-[node name="LayerDisplay" type="MarginContainer" parent="."]
+[node name="LayerDisplay" type="MarginContainer" parent="LayerMenuRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Texture" type="TextureRect" parent="LayerDisplay"]
+[node name="Texture" type="TextureRect" parent="LayerMenuRow/LayerDisplay"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_hbla2")
 expand_mode = 1
 
-[node name="MaskDisplay" type="MarginContainer" parent="."]
+[node name="MaskDisplay" type="MarginContainer" parent="LayerMenuRow"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MaskDisplay"]
+[node name="PanelContainer" type="PanelContainer" parent="LayerMenuRow/MaskDisplay"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 
-[node name="Mask" parent="MaskDisplay/PanelContainer" instance=ExtResource("3_atvwj")]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_cqoqi")
-expand_mode = 1
-
-[node name="Disable" type="ColorRect" parent="MaskDisplay"]
+[node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
 visible = false
 layout_mode = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
-[node name="TextDisplay" type="VBoxContainer" parent="."]
+[node name="TextDisplay" type="VBoxContainer" parent="LayerMenuRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.0
 alignment = 1
 
-[node name="Normal" type="Label" parent="TextDisplay"]
+[node name="Normal" type="Label" parent="LayerMenuRow/TextDisplay"]
 layout_mode = 2
 text = "100% Normal"
 
-[node name="LayerNumber" type="Label" parent="TextDisplay"]
+[node name="LayerNumber" type="Label" parent="LayerMenuRow/TextDisplay"]
 layout_mode = 2
 text = "Layer 0"
 
-[connection signal="mouse_entered" from="MaskDisplay/PanelContainer/Mask" to="." method="_on_mask_mouse_entered"]
-[connection signal="mouse_exited" from="MaskDisplay/PanelContainer/Mask" to="." method="_on_mask_mouse_exited"]
+[node name="Area2D" type="Area2D" parent="LayerMenuRow"]
+position = Vector2(213.5, 40)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LayerMenuRow/Area2D"]
+shape = SubResource("RectangleShape2D_atvwj")
+
+[connection signal="resized" from="LayerMenuRow" to="LayerMenuRow" method="_on_resized"]
+[connection signal="area_entered" from="LayerMenuRow/Area2D" to="LayerMenuRow" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="LayerMenuRow/Area2D" to="LayerMenuRow" method="_on_area_2d_area_exited"]

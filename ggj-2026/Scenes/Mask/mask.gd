@@ -11,6 +11,7 @@ signal mask_dragged(value: bool, mask: Mask)
 @export var shape: Array[Array] = []
 @export var coord_position: Vector2i = Vector2i(0, 0)
 @export var layer: int = 0
+var layer_parent: LayerMenuRow = null
 var dragged: bool = false
 var hovered: bool = false
 var activated: bool = false
@@ -35,3 +36,11 @@ func get_mask_coords() -> Array[Vector2i]:
 			coords.push_back(Vector2i(coord_position.x + row, coord_position.y + column))
 	
 	return coords
+
+
+func _on_mouse_entered() -> void:
+	hovered = true
+
+
+func _on_mouse_exited() -> void:
+	hovered = false
