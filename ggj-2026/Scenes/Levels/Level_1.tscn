@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=28 format=4 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -21,6 +21,24 @@ size = Vector2(368, 184)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngxpw"]
 size = Vector2(322, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trw0a"]
+size = Vector2(138, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjcye"]
+size = Vector2(138, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_557vl"]
+size = Vector2(46, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjj3e"]
+size = Vector2(92, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxyq8"]
+size = Vector2(92, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6jrw"]
+size = Vector2(92, 92)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tjcye"]
 resource_local_to_scene = true
@@ -87,7 +105,7 @@ offset_bottom = 966.0
 position = Vector2(326, 605)
 
 [node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("4_o5ofx")]
-position = Vector2(23, 732)
+position = Vector2(23, 733)
 
 [node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
@@ -122,6 +140,48 @@ position = Vector2(185, 204)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D2"]
 position = Vector2(-24, 26)
 shape = SubResource("RectangleShape2D_ngxpw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D3"]
+position = Vector2(-116, 670)
+shape = SubResource("RectangleShape2D_trw0a")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D4"]
+position = Vector2(22, 694)
+shape = SubResource("RectangleShape2D_tjcye")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D5"]
+position = Vector2(113, 716)
+shape = SubResource("RectangleShape2D_557vl")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D6"]
+position = Vector2(182, 670)
+shape = SubResource("RectangleShape2D_tjj3e")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D7"]
+position = Vector2(274, 693)
+shape = SubResource("RectangleShape2D_qxyq8")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D8"]
+position = Vector2(365, 716)
+shape = SubResource("RectangleShape2D_q6jrw")
 
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
