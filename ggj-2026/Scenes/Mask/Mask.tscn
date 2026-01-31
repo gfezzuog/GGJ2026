@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://du8t64nbtpjmu" path="res://Scenes/Mask/mask.gd" id="1_1trjf"]
 
 [node name="Mask" type="TextureRect"]
+custom_minimum_size = Vector2(966, 966)
 expand_mode = 1
 script = ExtResource("1_1trjf")
 
