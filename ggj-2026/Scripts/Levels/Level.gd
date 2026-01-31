@@ -14,6 +14,7 @@ func _ready():
 	for child in $Objs.get_children():
 		place_object(child)
 
+
 func change_mask(mask):
 	#for child in $Objs.get_children():
 	print(grid)	#print(mask)
@@ -32,6 +33,7 @@ func init_grid():
 		for x in GRID_SIZE:
 			row.append(null)
 		grid.append(row)
+
 
 func place_object(obj) -> bool:
 
