@@ -12,12 +12,17 @@ class_name Obj extends Node2D
 @export var layer: int = 0
 
 
-# NON FUNZIONA per forme concave ma tanto non serve piu
+# Funzione che prende in input una matrice tipo [ [1, 0], [1, 1] ]
+# e crea una collision shape per ogni "1", organizzate come indica la matrice.
+# Poi salva le collision shape in un'altra matrice, mettendo "null" dove
+# c'erano degli "0"
+
 # Matrice contenente le aree 2D che genero dentro _ready
 #var areas: Array[Array] = [[]]
+
 #var areasCreated = false
-#const SQUARE_SIZE = 46
-#func _process(delta: float) -> void:
+const SQUARE_SIZE = 46
+#func _(delta: float) -> void:
 	#if (!areasCreated):
 		#print("creating area")
 		#areasCreated = true
