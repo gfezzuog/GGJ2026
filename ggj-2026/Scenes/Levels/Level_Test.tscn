@@ -14,4 +14,3 @@ color = Color(0.851769, 0.8517689, 0.85176885, 1)
 [node name="Objs" type="Node" parent="."]
 
 [node name="PandaTest" parent="Objs" instance=ExtResource("2_fxr55")]
-position = Vector2(0, 0)
