@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn552bcbw1hxe"]
 
-[ext_resource type="Script" uid="uid://c3aq6eddfyrwj" path="res://Scenes/Levels/level_0.gd" id="1_lc16p"]
+[ext_resource type="Script" uid="uid://cfcoeuf5if1bu" path="res://Scripts/Levels/Level.gd" id="1_03ysy"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
 size = Vector2(196.25, 40)
 
 [node name="Level0" type="Node"]
-script = ExtResource("1_lc16p")
+script = ExtResource("1_03ysy")
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
