@@ -9,7 +9,6 @@ var layers_row: Array[LayerMenuRow] = []
 
 func _ready() -> void:
 	for i in range(number_layer):
-		print("SIAMO CREANDO")
 		var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
 		var row = packed_scene.instantiate()
 		row.layer_number = i
@@ -17,7 +16,6 @@ func _ready() -> void:
 
 
 func create_masks():
-	print("Stiamo in mask")
 	for i in range(mask_textures.size()):
 		var coordinates: Array = mask_textures[i]
 		if coordinates != []:
@@ -28,6 +26,7 @@ func create_masks():
 			new_mask.coords = coordinates
 			var row = get_child(i + 1)
 			row.add_mask(new_mask)
+			new_mask.mask_dragged.connect(_on_mask_dragged)
 
 
 func _on_mask_dragged(value: bool, mask: Mask):
