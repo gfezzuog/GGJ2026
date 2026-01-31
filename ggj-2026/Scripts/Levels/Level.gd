@@ -14,17 +14,6 @@ func _ready():
 	for child in $HBoxContainer/Canvas/Objs.get_children():
 		place_object(child)
 	
-	$LayersMenu.mask_textures = [[], [], []]
-	
-	var pippo: LevelInfo = load("res://Resources/level_resource.tres")
-	var pippi = pippo.get_level_info(1)
-	var masks = pippi["masks"]
-	for mask in masks:
-		var coordinates: Array[Vector2i]
-		for coord in mask["coordinates"]:
-			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
-		$LayersMenu.mask_textures[1] = coordinates
-	$LayersMenu.create_masks()
 	# collega segnale su maschera abilitata
 	SignalBus.connect("mask_enabled", applyMask)
 
@@ -79,11 +68,21 @@ func place_object(obj) -> bool:
 func applyMask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
-		var objects = grid[coord.x][coord.y]
-		for ob in objects:
-			if (ob.layer == layer):
-				if ob not in objectsThatMustBeRemoved:
-					objectsThatMustBeRemoved.append(ob)
+		
+		var ob = grid[coord.x][coord.y]
+		#print("layer di apply mask")
+		#print(layer)
+		if (ob.layer == layer):
+			if ob not in objectsThatMustBeRemoved:
+				objectsThatMustBeRemoved.append(ob)
+	
+		# qua sotto e' se grid contiene liste
+		#var objects = grid[coord.x][coord.y]
+		#print(objects)
+		#for ob in objects:
+			#if (ob.layer == layer):
+				#if ob not in objectsThatMustBeRemoved:
+					#objectsThatMustBeRemoved.append(ob)
 					
 	for ob in objectsThatMustBeRemoved:
 		ob.applyMask(mask.coords)

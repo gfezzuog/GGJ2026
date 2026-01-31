@@ -6,8 +6,9 @@ func _ready() -> void:
 	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
 	var level1 = levelInfo.get_level_info(1)
-	print(level1["masks"])
+	#print(level1["masks"])
 	
+	# Crea collisioni degli oggetti nascondibili con maschere
 	var objects = level1["objects"]
 	for obj in objects:
 		var name = obj["name"]
@@ -20,7 +21,16 @@ func _ready() -> void:
 		print(node)
 		print(matrix)
 		node.createCollisionShapes(matrix)
-		
-		
+	
+	# Crea maschera
+	$LayersMenu.mask_textures = [[], [], []]
+	
+	var masks = level1["masks"]
+	for mask in masks:
+		var coordinates: Array[Vector2i]
+		for coord in mask["coordinates"]:
+			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
+		$LayersMenu.mask_textures[1] = coordinates
+	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.

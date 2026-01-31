@@ -63,6 +63,7 @@ func add_mask(new_mask: Mask) -> void:
 		$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
 		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
+		mask.layer = self.layer_number
 		mask.layer_parent = self
 		mask.mouse_entered.connect(_on_mask_mouse_entered)
 		mask.mouse_exited.connect(_on_mask_mouse_exited)

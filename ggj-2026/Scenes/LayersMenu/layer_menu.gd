@@ -12,12 +12,12 @@ func _ready() -> void:
 		print("SIAMO CREANDO")
 		var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
 		var row = packed_scene.instantiate()
-		row.layer_number = get_child_count()
+		row.layer_number = i
 		add_child(row)
 
 
 func create_masks():
-	print("STiamo in mask")
+	print("Stiamo in mask")
 	for i in range(mask_textures.size()):
 		var coordinates: Array = mask_textures[i]
 		if coordinates != []:

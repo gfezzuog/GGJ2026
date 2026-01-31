@@ -13,6 +13,7 @@
 size = Vector2(196.25, 40)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssf0w"]
+resource_local_to_scene = true
 shader = ExtResource("6_d8tld")
 shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/rect_count = 0
