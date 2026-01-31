@@ -1,4 +1,4 @@
-class_name Level extends Node
+class_name Level extends Control
 	
 static var levelName: String = "Level"
 
