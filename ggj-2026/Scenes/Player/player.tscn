@@ -1,18 +1,76 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo0grlbvum03a"]
+[gd_scene load_steps=11 format=3 uid="uid://bo0grlbvum03a"]
 
 [ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://Scripts/Player/player.gd" id="1_a3d8c"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="1_uvnfx"]
+[ext_resource type="Texture2D" uid="uid://c3pbrkxvt62wa" path="res://Assets/Player/idle_0.PNG" id="3_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://bldvns6q6r0k7" path="res://Assets/Player/idle_1.PNG" id="4_htcer"]
+[ext_resource type="Texture2D" uid="uid://c5o534he8fs2y" path="res://Assets/Player/walk_0.PNG" id="5_dd0ac"]
+[ext_resource type="Texture2D" uid="uid://bg3a11j5tgjlb" path="res://Assets/Player/jump_0.PNG" id="5_gk6dx"]
+[ext_resource type="Texture2D" uid="uid://ln17eq6xrxku" path="res://Assets/Player/walk_1.PNG" id="6_0u5uq"]
+[ext_resource type="Texture2D" uid="uid://daodesqyjkxc6" path="res://Assets/Player/jump_1.PNG" id="6_jhyir"]
+[ext_resource type="Texture2D" uid="uid://uw8op58q5xpi" path="res://Assets/Player/jump_2.PNG" id="7_74mp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
-size = Vector2(46, 92)
+size = Vector2(46, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dd0ac"]
+animations = [{
+"frames": [{
+"duration": 150.0,
+"texture": ExtResource("5_gk6dx")
+}],
+"loop": true,
+"name": &"die",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 150.0,
+"texture": ExtResource("7_74mp2")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("3_mtuoh")
+}, {
+"duration": 3.0,
+"texture": ExtResource("4_htcer")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("6_jhyir")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("5_dd0ac")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_0u5uq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 24.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_a3d8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_a3d8c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.5000015, 0.5)
-scale = Vector2(0.3671875, 0.7109375)
-texture = ExtResource("1_uvnfx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_dd0ac")
+animation = &"jump"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
