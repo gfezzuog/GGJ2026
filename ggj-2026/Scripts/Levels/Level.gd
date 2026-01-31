@@ -16,6 +16,7 @@ func _ready():
 	
 	# collega segnale su maschera abilitata
 	SignalBus.connect("mask_enabled", applyMask)
+	SignalBus.connect("mask_disabled", disableMask)
 
 
 func change_mask(mask):
@@ -39,7 +40,7 @@ func init_grid():
 
 
 func place_object(obj) -> bool:
-	if ((obj.pos[0] + obj.size[0] >= GRID_SIZE) or (obj.pos[1] + obj.size[1] >= GRID_SIZE)):
+	if ((obj.pos[0] + obj.size[0] > GRID_SIZE) or (obj.pos[1] + obj.size[1] > GRID_SIZE)):
 		printerr("stai posizionando un oggetto fuori dalla griglia")
 		pass
 		
@@ -88,3 +89,12 @@ func applyMask(mask: Mask, layer: int):
 		ob.applyMask(mask.coords)
 	
 	
+func disableMask(mask: Mask, layer: int):
+	var objectsThatMustBeRemoved = []
+	for coord in mask.coords:
+		var ob = grid[coord.x][coord.y]
+		if (ob.layer == layer):
+			if ob not in objectsThatMustBeRemoved:
+				objectsThatMustBeRemoved.append(ob)
+	for ob in objectsThatMustBeRemoved:
+		ob.disableMask(mask.coords)
