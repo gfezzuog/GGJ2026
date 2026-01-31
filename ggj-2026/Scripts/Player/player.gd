@@ -9,6 +9,15 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+		if collider.collision_layer & (1 << 1):
+			print("MORTO COJONS")
+			#game_over()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
