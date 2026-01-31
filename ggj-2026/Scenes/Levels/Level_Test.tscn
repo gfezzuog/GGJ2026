@@ -17,4 +17,4 @@ color = Color(0.851769, 0.8517689, 0.85176885, 1)
 [node name="PandaTest" parent="Objs" instance=ExtResource("2_fxr55")]
 
 [node name="Mask" parent="." instance=ExtResource("3_i62qn")]
-shape = Array[Array]([[Vector2i(0, 0), null], [null, null]])
+coords = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1)])
