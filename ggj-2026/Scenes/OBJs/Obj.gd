@@ -62,8 +62,9 @@ func createCollisionShapes(collisionsInfo: Array[int]) -> void:
 			else:
 				collisionShapes.append(null)
 	
-	#applyMask( [Vector2i(14,11)] )
-	
+	#applyMask( [Vector2i(7,14), Vector2i(8,14), Vector2i(9,14), Vector2i(10,14), Vector2i(11,14),
+	#			Vector2i(7,15), Vector2i(8,15), Vector2i(9,15), Vector2i(10,15), Vector2i(11,15), Vector2i(12,15)] )
+
 	
 # Funzione che riceve tutte le coordinate di una maschera, le passa allo shader,
 # e una per una le usa per disabilitare le collisioni
@@ -76,6 +77,7 @@ func applyMask(maskCoords: Array[Vector2i]):
 	# questo e' da passare allo shader
 	var rect_data: Array[Vector4] = []
 	
+	print("collision shape size: ", collisionShapesForShader.size())
 	for collisionShape in collisionShapesForShader:
 		var local = to_local(collisionShape.global_position)
 		local = collisionShape.global_position - Vector2(139,0)
@@ -115,13 +117,17 @@ func applyMask(maskCoords: Array[Vector2i]):
 # dell'oggetto. Poi, se le coordinate ottenute "cadono" dentro l'oggetto, vengono disattivate
 # le relative collisioni
 func disableCollision(x, y):
+	print(self)
+	print("coordinate: " + str(x) + " " + str(y))
+	print("pos 0: ", pos[0])
+	print("pos 1: ", pos[1])
 	#14,11
 	# pos di spine e' 8,10
 	var xLocal = x - pos[0]  # 6 -> colonna
 	var yLocal = y - pos[1]  # 1 -> riga
 
 	# se le coordinate cadono dentro l'oggetto
-	if (xLocal < size[0] and yLocal < size[1]):		# CORRETTO
+	if (xLocal >= 0 and xLocal < size[0] and yLocal >= 0 and yLocal < size[1]):		# CORRETTO
 		#print("sono dentro l'oggetto")
 		
 		# se in quelle coordinate c'e' una collision shape
@@ -138,4 +144,37 @@ func disableCollision(x, y):
 			collisionShape.disabled = true
 		
 
-			
+func disableMask(maskCoords: Array[Vector2i]):
+	# Abilita collisioni
+	for coord in maskCoords:
+		#print(coord)
+		enableCollision(coord.x, coord.y)
+	
+	collisionShapesForShader = []
+	
+	# questo e' da passare allo shader
+	var rect_data: Array[Vector4] = []
+
+	# Aggiorniamo lo shader
+	print("aggiorniamo lo shader")
+	print(rect_data)
+	if ($Sprite2D.material):
+		$Sprite2D.material.set_shader_parameter("rect_count", rect_data.size())
+		$Sprite2D.material.set_shader_parameter("rects", rect_data)
+
+func enableCollision(x, y):
+
+	var xLocal = x - pos[0]  # 6 -> colonna
+	var yLocal = y - pos[1]  # 1 -> riga
+
+	# se le coordinate cadono dentro l'oggetto
+	if (xLocal >= 0 and xLocal < size[0] and yLocal >= 0 and yLocal < size[1]):		# CORRETTO
+		#print("sono dentro l'oggetto")
+		
+		# se in quelle coordinate c'e' una collision shape
+		#print("collision shapes:", collisionShapes)
+		var collisionShape: CollisionShape2D = collisionShapes[yLocal*size[0] + xLocal] # deve fare 14
+
+		if (collisionShape != null):
+			print("la collision esiste")
+			collisionShape.disabled = false
