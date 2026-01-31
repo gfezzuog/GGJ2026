@@ -97,9 +97,9 @@
 		"objects": [
 			{
 				"name":"tentacolo-pesce-intero",
-				"shape": [10,1],
+				"shape": [9,1],
 				"matrix":[
-					1,1,1,1,1,1,1,1,1,1
+					1,1,1,0,0,1,1,1,1
 				]
 			},
 			{
