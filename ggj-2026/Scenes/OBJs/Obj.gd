@@ -62,8 +62,9 @@ func createCollisionShapes(collisionsInfo: Array[int]) -> void:
 			else:
 				collisionShapes.append(null)
 	
-	#applyMask( [Vector2i(0,8)] )
-	
+	#applyMask( [Vector2i(7,14), Vector2i(8,14), Vector2i(9,14), Vector2i(10,14), Vector2i(11,14),
+	#			Vector2i(7,15), Vector2i(8,15), Vector2i(9,15), Vector2i(10,15), Vector2i(11,15), Vector2i(12,15)] )
+
 	
 # Funzione che riceve tutte le coordinate di una maschera, le passa allo shader,
 # e una per una le usa per disabilitare le collisioni
@@ -76,6 +77,7 @@ func applyMask(maskCoords: Array[Vector2i]):
 	# questo e' da passare allo shader
 	var rect_data: Array[Vector4] = []
 	
+	print("collision shape size: ", collisionShapesForShader.size())
 	for collisionShape in collisionShapesForShader:
 		var local = to_local(collisionShape.global_position)
 		local = collisionShape.global_position - Vector2(139,0)
