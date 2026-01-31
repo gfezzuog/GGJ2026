@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn552bcbw1hxe"]
+[gd_scene load_steps=10 format=4 uid="uid://bn552bcbw1hxe"]
 
 [ext_resource type="Script" uid="uid://cfcoeuf5if1bu" path="res://Scripts/Levels/Level.gd" id="1_03ysy"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_fmbw1"]
 [ext_resource type="PackedScene" uid="uid://3w4xouxyjsd1" path="res://Scenes/Door/Door.tscn" id="3_clgyd"]
+[ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="5_15f3f"]
+[ext_resource type="Texture2D" uid="uid://cqyw5blwvgto5" path="res://Assets/red_panda_92x92.png" id="6_3qm25"]
+[ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="6_d8tld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03ysy"]
 size = Vector2(196.25, 40)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssf0w"]
+shader = ExtResource("6_d8tld")
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
 
 [node name="Level0" type="Control"]
 physics_interpolation_mode = 0
@@ -68,10 +76,24 @@ position = Vector2(98.875, 20)
 shape = SubResource("RectangleShape2D_03ysy")
 
 [node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("2_03ysy")]
-position = Vector2(333, 645)
+position = Vector2(326, 605)
 
 [node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("3_clgyd")]
 position = Vector2(623, 600)
+
+[node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
+
+[node name="Obj" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("5_15f3f")
+size = Vector2i(2, 2)
+pos = Vector2i(4, 16)
+collisionInfo = Array[int]([1, 0, 1, 1])
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/Obj"]
+material = SubResource("ShaderMaterial_ssf0w")
+texture = ExtResource("6_3qm25")
+centered = false
 
 [node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(646, 0)
@@ -81,5 +103,3 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 966)
 layout_mode = 2
 color = Color(0.8474744, 0.84747446, 0.84747446, 1)
-
-[node name="Objs" type="Node" parent="."]
