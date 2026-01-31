@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dihaup48o0hb2"]
+[gd_scene load_steps=9 format=4 uid="uid://dihaup48o0hb2"]
 
 [ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="1_kr3tn"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_v7cj3"]
@@ -10,12 +10,14 @@ size = Vector2(127.733055, 123.97138)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfjqq"]
 shader = ExtResource("3_v7cj3")
-shader_parameter/mask_center_uv = Vector2(0.5, 0.5)
-shader_parameter/mask_size_uv = Vector2(0.2, 0.2)
-shader_parameter/hide = false
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83r8m"]
 size = Vector2(146.99998, 134.99997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfjqq"]
+size = Vector2(103, 113)
 
 [node name="Node2D" type="Node2D"]
 
@@ -38,17 +40,23 @@ texture = ExtResource("1_kr3tn")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("areas")]
 material = SubResource("ShaderMaterial_vfjqq")
 position = Vector2(158, -53)
 texture = ExtResource("1_kr3tn")
 script = ExtResource("4_83r8m")
-area_path = NodePath("../Area2D")
+areas = [NodePath("../Area2D"), NodePath("../Area2D2")]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(115, -91)
+position = Vector2(66, -120)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, -1)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_83r8m")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(236, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_vfjqq")

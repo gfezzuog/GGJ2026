@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dko31yqepyse5"]
+[gd_scene load_steps=0 format=3 uid="uid://dko31yqepyse5"]
 
 [node name="Grid" type="GridContainer"]
 custom_minimum_size = Vector2(966, 966)
