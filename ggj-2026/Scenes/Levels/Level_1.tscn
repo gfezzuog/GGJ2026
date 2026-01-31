@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=16 format=3 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://udsi23o5dc1s" path="res://Assets/Level_1/4.png" id="8_hs11j"]
 [ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
 [ext_resource type="Texture2D" uid="uid://beyg7hi6g02q8" path="res://Assets/Level_1/7.png" id="10_o5ofx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
+size = Vector2(368, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngxpw"]
+size = Vector2(322, 92)
 
 [node name="Level1" type="Control"]
 physics_interpolation_mode = 0
@@ -77,6 +83,25 @@ centered = false
 [node name="Sprite2D4" type="Sprite2D" parent="HBoxContainer/Canvas/FixedSprites"]
 texture = ExtResource("10_o5ofx")
 centered = false
+
+[node name="FixedCollisionShapes" type="Control" parent="HBoxContainer/Canvas"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_8nmnw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D2"]
+position = Vector2(-24, 26)
+shape = SubResource("RectangleShape2D_ngxpw")
 
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
