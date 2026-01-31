@@ -3,53 +3,71 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_force: float = 250.0
 @export var gravity: float = 900
+
 @onready var animation = $AnimatedSprite2D
-@onready var walking = false
-@onready var jumping = false
-@onready var falling = false
+@onready var walkAudio = $WalkAudio
+@onready var actionAudio = $ActionAudio
+@onready var landAudio = $LandAudio
+
+@export var w_audio : AudioStream
+@export var j_audio : AudioStream
+@export var f_audio : AudioStream
+
+var was_on_floor := false
+var prev_velocity_y := 0.0
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity and handle falling state.
+	# SALVO LA VELOCITÀ PRIMA DEL MOVIMENTO
+	prev_velocity_y = velocity.y
+
+	# GRAVITÀ
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		falling = true
-	elif is_on_floor():
-		falling = false
 
-	# Handle jump.
+	# JUMP (ONE SHOT GARANTITO)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
-		jumping = true
-		
-	# Get the input direction and handle the movement/deceleration
+		actionAudio.stop()
+		actionAudio.stream = j_audio
+		actionAudio.play()
+
+	# MOVIMENTO ORIZZONTALE
 	var direction := Input.get_axis("left", "right")
-	if direction:
-		walking = true
+	if direction != 0:
 		velocity.x = direction * speed
 	else:
-		walking = false
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
-	
-	#handle animations and states
-	if jumping:
-		animation.play("jump")
-	elif falling:
-		animation.play("fall")
-		if direction > 0:
-			animation.flip_h = false
+
+	# ANIMAZIONI
+	if not is_on_floor():
+		if velocity.y < 0:
+			animation.play("jump")
 		else:
-			animation.flip_h = true
-	elif walking and direction > 0 and not jumping:
-		animation.flip_h = false
-		animation.play("walk")
-	elif walking and direction < 0 and not jumping:
-		animation.flip_h = true
+			animation.play("fall")
+	elif direction != 0:
 		animation.play("walk")
 	else:
 		animation.play("idle")
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if jumping:
-		jumping = false # Replace with function body.
+	if direction < 0:
+		animation.flip_h = true
+	elif direction > 0:
+		animation.flip_h = false
+
+	# AUDIO WALK
+	if direction != 0 and is_on_floor():
+		if not walkAudio.playing:
+			walkAudio.stream = w_audio
+			walkAudio.play()
+	else:
+		walkAudio.stop()
+
+	# AUDIO LANDING — SOLO TRANSIZIONE REALE
+	var on_floor_now := is_on_floor()
+	if on_floor_now and not was_on_floor and prev_velocity_y > 0:
+		landAudio.stream = f_audio
+		landAudio.play()
+
+	was_on_floor = on_floor_now
