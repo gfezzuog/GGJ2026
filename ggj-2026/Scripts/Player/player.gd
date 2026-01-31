@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 
 		if collider.collision_layer & (1 << 1):
 			print("MORTO COJONS")
-			#game_over()
+			#game_over() #placeholder
 	
 	# Add the gravity.
 	if not is_on_floor():
