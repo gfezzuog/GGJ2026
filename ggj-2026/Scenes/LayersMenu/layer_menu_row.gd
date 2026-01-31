@@ -5,7 +5,8 @@ class_name LayerMenuRow extends PanelContainer
 var mask_disabled: bool = false : set = _set_disabled
 var mask_entered: bool = false
 var mask: Mask
-var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
+var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBoxHovered.tres")
+var box_normal = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
 var in_visibility_icon = false
 @onready var visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon
 
@@ -88,10 +89,10 @@ func remove_mask():
 
 func _on_mask_mouse_entered() -> void:
 	var style_box: StyleBoxFlat = $LayerMenuRow/MaskDisplay/PanelContainer.get_theme_stylebox("panel")
-	style_box.border_width_bottom = 2
-	style_box.border_width_left = 2
-	style_box.border_width_right = 2
-	style_box.border_width_top = 2
+	style_box.border_width_bottom = 8
+	style_box.border_width_left = 8
+	style_box.border_width_right = 8
+	style_box.border_width_top = 8
 
 
 func _on_mask_mouse_exited() -> void:
@@ -119,7 +120,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	mask_entered = false
-	add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	add_theme_stylebox_override("panel", box_normal)
 	var dragged_mask = area.get_parent()
 	dragged_mask.reference_mask.mask_dragged.disconnect(_on_mask_dragged)
 
