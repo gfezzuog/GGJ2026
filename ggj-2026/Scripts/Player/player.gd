@@ -19,9 +19,13 @@ func _ready() -> void:
 	print(position)
 	
 
-func game_over() -> void:
+func _do_game_over() -> void:
 	#print("MORTO COJONS")
 	SignalBus.emit_signal("game_over")
+
+
+func game_over():
+	call_deferred("_do_game_over")
 
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		if collider == null:
 			continue
 		
-		if collider.collision_layer & (1 << 1):
+		if collider.collision_layer & (2):
 			game_over()
 			pass
 			#game_over() #placeholder
