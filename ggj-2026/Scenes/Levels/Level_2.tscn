@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://d6qqpoaqagm4"]
 
-[ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_npaxn"]
+[ext_resource type="Script" uid="uid://cliohxxeylmyn" path="res://Scenes/Levels/level_2.gd" id="1_cexhq"]
 [ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="3_q5gq6"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="4_duc5e"]
@@ -191,7 +191,7 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-script = ExtResource("1_npaxn")
+script = ExtResource("1_cexhq")
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
