@@ -58,10 +58,10 @@ func rectangle(image_screen:Image, pos_x:int, pos_y:int, width:int, height:int, 
 
 
 func _on_mouse_entered() -> void:
-	print("MASK: mouse entrato")
 	hovered = true
+	print("MOUSE ENTRATO")
 
 
 func _on_mouse_exited() -> void:
-	print("MASK: mouse uscito")
 	hovered = false
+	print("MOUSE USCITO")

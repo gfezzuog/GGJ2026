@@ -50,6 +50,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 [node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
 [node name="TextDisplay" type="VBoxContainer" parent="LayerMenuRow"]

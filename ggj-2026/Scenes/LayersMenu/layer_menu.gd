@@ -26,6 +26,7 @@ func create_masks():
 			new_mask.coords = coordinates
 			var row = get_child(i + 1)
 			row.add_mask(new_mask)
+			row.mask_disabled = true
 			new_mask.mask_dragged.connect(_on_mask_dragged)
 
 

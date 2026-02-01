@@ -129,24 +129,29 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 ## è stata rilasciata
 func _on_mask_dragged(value: bool, dragged_mask: Mask):
 	if value == false:
-		var old_mask_layer_parent: LayerMenuRow = dragged_mask.layer_parent
+		var dragged_mask_old_layer_parent: LayerMenuRow = dragged_mask.layer_parent
+		var dragged_old_parent_disabled = dragged_mask_old_layer_parent.mask_disabled
 		var old_mask = mask
 		
-		old_mask_layer_parent.remove_mask()
+		dragged_mask_old_layer_parent.remove_mask()
 		remove_mask()
-		if !old_mask_layer_parent.mask_disabled:
-			SignalBus.mask_disabled.emit(dragged_mask, old_mask_layer_parent.layer_number)
+		if !dragged_mask_old_layer_parent.mask_disabled:
+			SignalBus.mask_disabled.emit(dragged_mask, dragged_mask_old_layer_parent.layer_number)
 		
 		if old_mask:
-			old_mask_layer_parent.add_mask(old_mask)
+			dragged_mask_old_layer_parent.add_mask(old_mask)
 			if not mask_disabled:
 				SignalBus.mask_disabled.emit(old_mask, layer_number)
-			if !old_mask_layer_parent.mask_disabled:
-				SignalBus.mask_enabled.emit(old_mask, old_mask_layer_parent.layer_number)
+				dragged_mask_old_layer_parent.mask_disabled = false
+				#SignalBus.mask_enabled.emit(old_mask, dragged_mask_old_layer_parent.layer_number)
+			#if !dragged_mask_old_layer_parent.mask_disabled:
+			#	SignalBus.mask_enabled.emit(old_mask, dragged_mask_old_layer_parent.layer_number)
 		
 		add_mask(dragged_mask)
-		if not mask_disabled:
-			SignalBus.mask_enabled.emit(dragged_mask, layer_number)
+		mask_disabled = dragged_old_parent_disabled
+		
+		#if not mask_disabled:
+		#	SignalBus.mask_enabled.emit(dragged_mask, layer_number)
 
 
 func _on_visibility_icon_mouse_entered() -> void:
