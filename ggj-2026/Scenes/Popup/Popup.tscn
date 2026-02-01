@@ -16,6 +16,7 @@ corner_radius_bottom_left = 20
 script = ExtResource("1_cqdh6")
 
 [node name="Content" type="Node2D" parent="."]
+visible = false
 position = Vector2(-243, -85)
 
 [node name="Ombra" type="Panel" parent="Content"]
