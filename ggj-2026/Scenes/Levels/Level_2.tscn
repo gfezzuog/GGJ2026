@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://Assets/Level_2/sfondo_2.png" id="2_ooxlk"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="3_q5gq6"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="4_duc5e"]
-[ext_resource type="Script" uid="uid://ciximxt6hemft" path="res://Scripts/Door/door.gd" id="5_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://dkvojj73t83yg" path="res://Assets/Level_2/layerbloccato.png" id="5_npaxn"]
 [ext_resource type="Texture2D" uid="uid://c4a48w2ctvl75" path="res://Assets/Level_2/spine_sx.png" id="6_0jitg"]
-[ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://Assets/porta_transp.png" id="6_cexhq"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="6_luow5"]
-[ext_resource type="Script" path="res://Scenes/OBJs/Dang_Obj.gd" id="6_npaxn"]
+[ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://Scenes/OBJs/Dang_Obj.gd" id="6_npaxn"]
 [ext_resource type="Texture2D" uid="uid://bmjgc1bb0umno" path="res://Assets/Level_2/black.png" id="7_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://Assets/Level_2/spine_dx.png" id="7_rujef"]
 [ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://Assets/Level_2/lancette.png" id="8_rujef"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="9_0jitg"]
+[ext_resource type="Script" uid="uid://dpfak0vst4lcw" path="res://Scenes/Levels/door_obj.gd" id="13_q5gq6"]
+[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="14_duc5e"]
 [ext_resource type="Texture2D" uid="uid://h7b3smp6i74j" path="res://Assets/Level_2/layer_0.png" id="14_e0h1s"]
 [ext_resource type="Texture2D" uid="uid://bn3wwy3wsw08d" path="res://Assets/Level_2/layer_1.png" id="14_p6wrx"]
 [ext_resource type="Texture2D" uid="uid://dsnxj2e40q3av" path="res://Assets/Level_2/layer_2.png" id="15_e0h1s"]
@@ -166,8 +166,8 @@ shader = ExtResource("9_0jitg")
 shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/rect_count = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xng3"]
-size = Vector2(46, 92)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oixtd"]
+size = Vector2(97, 28)
 
 [node name="Level2" type="Control"]
 physics_interpolation_mode = 0
@@ -197,13 +197,12 @@ offset_bottom = 40.0
 texture = ExtResource("2_ooxlk")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("3_q5gq6")]
-visible = false
 layout_mode = 0
 offset_right = 966.0
 offset_bottom = 966.0
 
 [node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("4_duc5e")]
-position = Vector2(395, 599)
+position = Vector2(664, 337)
 
 [node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
@@ -557,22 +556,26 @@ material = SubResource("ShaderMaterial_rujef")
 texture = ExtResource("8_rujef")
 centered = false
 
-[node name="Door" type="Node2D" parent="HBoxContainer/Canvas"]
-position = Vector2(23, 733)
-script = ExtResource("5_ck0i2")
+[node name="Door" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("13_q5gq6")
+size = Vector2i(2, 1)
+pos = Vector2i(12, 11)
+layer = 1
+metadata/_custom_type_script = "uid://bulblyecrkaha"
 
-[node name="Area2D" type="Area2D" parent="HBoxContainer/Canvas/Door"]
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/Door"]
+visible = false
+texture = ExtResource("14_duc5e")
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/Canvas/Objs/Door"]
+visible = false
+collision_layer = 5
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/Door/Area2D"]
-position = Vector2(552, -182)
-shape = SubResource("RectangleShape2D_6xng3")
-
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Door/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/Objs/Door/Area2D"]
 visible = false
-position = Vector2(-1.0000012, 5.375003)
-scale = Vector2(0.79999995, 0.8616505)
-texture = ExtResource("6_cexhq")
+position = Vector2(610, 528)
+shape = SubResource("RectangleShape2D_oixtd")
 
 [node name="LayersMenu" parent="." instance=ExtResource("16_qjwmo")]
 unique_name_in_owner = true
@@ -584,4 +587,4 @@ offset_bottom = 872.0
 number_layer = 4
 layers_preview = Array[Texture]([ExtResource("14_e0h1s"), ExtResource("14_p6wrx"), ExtResource("15_e0h1s"), ExtResource("16_ooxlk")])
 
-[connection signal="body_entered" from="HBoxContainer/Canvas/Door/Area2D" to="HBoxContainer/Canvas/Door" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HBoxContainer/Canvas/Objs/Door/Area2D" to="HBoxContainer/Canvas/Objs/Door" method="_on_area_2d_body_entered"]
