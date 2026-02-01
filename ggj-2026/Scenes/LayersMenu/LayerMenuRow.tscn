@@ -65,6 +65,7 @@ texture = ExtResource("4_hbla2")
 centered = false
 
 [node name="MaskDisplay" type="MarginContainer" parent="LayerMenuRow"]
+visible = false
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -110,6 +111,7 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 0
 
 [node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,6 +120,7 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="VisibilityIconDisabled" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
