@@ -4,6 +4,8 @@ extends Level
 func _ready() -> void:
 	super()
 	
+	print("LayersMenu position: ", $LayersMenu.position)
+	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
 	var level1 = levelInfo.get_level_info(0)
 	#print(level1["masks"])
