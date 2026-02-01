@@ -1,0 +1,149 @@
+[gd_scene load_steps=18 format=3 uid="uid://d6qqpoaqagm4"]
+
+[ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_npaxn"]
+[ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
+[ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="3_q5gq6"]
+[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="4_duc5e"]
+[ext_resource type="Script" uid="uid://ciximxt6hemft" path="res://Scripts/Door/door.gd" id="5_ck0i2"]
+[ext_resource type="Texture2D" uid="uid://c4a48w2ctvl75" path="res://Assets/Level_2/spine_sx.png" id="6_0jitg"]
+[ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://Assets/porta_transp.png" id="6_cexhq"]
+[ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="6_luow5"]
+[ext_resource type="Texture2D" uid="uid://bmjgc1bb0umno" path="res://Assets/Level_2/black.png" id="7_ck0i2"]
+[ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://Assets/Level_2/spine_dx.png" id="7_rujef"]
+[ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://Assets/Level_2/lancette.png" id="8_rujef"]
+[ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="16_qjwmo"]
+[ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://Assets/Level_1/layer_0.png" id="17_xh4rd"]
+[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://Assets/Level_1/layer_1.png" id="18_gbysp"]
+[ext_resource type="Texture2D" uid="uid://sd8he6hsiyne" path="res://Assets/Level_1/layer_2.png" id="19_sfgnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
+size = Vector2(313, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xng3"]
+size = Vector2(46, 92)
+
+[node name="Level2" type="Control"]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_npaxn")
+metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -821.0
+offset_right = 821.0
+offset_bottom = 966.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Canvas" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(966, 966)
+layout_mode = 2
+
+[node name="Sfondo" type="TextureRect" parent="HBoxContainer/Canvas"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_inorh")
+
+[node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("3_q5gq6")]
+layout_mode = 0
+offset_right = 966.0
+offset_bottom = 966.0
+
+[node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("4_duc5e")]
+position = Vector2(23, 747)
+
+[node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
+anchors_preset = 0
+
+[node name="FixedCollisionShapes" type="Control" parent="HBoxContainer/Canvas"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+visible = false
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D"]
+position = Vector2(-28.5, 0)
+shape = SubResource("RectangleShape2D_8nmnw")
+
+[node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
+
+[node name="spine_sx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("6_luow5")
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine_sx"]
+texture = ExtResource("6_0jitg")
+centered = false
+
+[node name="spine_dx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("6_luow5")
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine_dx"]
+texture = ExtResource("7_rujef")
+centered = false
+
+[node name="Obj" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("6_luow5")
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="black" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/Obj"]
+texture = ExtResource("7_ck0i2")
+centered = false
+
+[node name="lancette" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("6_luow5")
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/lancette"]
+texture = ExtResource("8_rujef")
+centered = false
+
+[node name="Door" type="Node2D" parent="HBoxContainer/Canvas"]
+position = Vector2(23, 733)
+script = ExtResource("5_ck0i2")
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/Canvas/Door"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/Door/Area2D"]
+position = Vector2(552, -182)
+shape = SubResource("RectangleShape2D_6xng3")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Door/Area2D"]
+visible = false
+position = Vector2(-1.0000012, 5.375003)
+scale = Vector2(0.79999995, 0.8616505)
+texture = ExtResource("6_cexhq")
+
+[node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(646, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Layers"]
+custom_minimum_size = Vector2(0, 966)
+layout_mode = 2
+color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+
+[node name="LayersMenu" parent="." instance=ExtResource("16_qjwmo")]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 469.0
+offset_right = 1641.0
+offset_bottom = 953.0
+layers_preview = Array[Texture]([ExtResource("17_xh4rd"), ExtResource("18_gbysp"), ExtResource("19_sfgnv")])
+
+[connection signal="body_entered" from="HBoxContainer/Canvas/Door/Area2D" to="HBoxContainer/Canvas/Door" method="_on_area_2d_body_entered"]
