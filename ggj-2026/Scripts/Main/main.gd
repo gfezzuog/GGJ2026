@@ -46,6 +46,9 @@ func _ready() -> void:
 	SignalBus.connect("doorReached", _goToNextLevel)
 	SignalBus.connect("game_over", _on_game_over)
 	
+	#print("apro un popup")
+	#SignalBus.open_popup.emit("Stai iniziando un livello")
+	
 func _on_game_over():
 	print("Game over → reload livello")
 	_reloadCurrentLevel()
@@ -84,6 +87,9 @@ func _goToNextLevel() -> void:
 	
 	# se hai finito
 	if (currentLevelIndex > levels.size() -1):
+		currentLevel.queue_free()
+		var tabs = $LevelTabs.get_children()
+		tabs[currentLevelIndex - 1].queue_free()
 		finishGame()
 	else:
 		print("loading level " + str(currentLevelIndex))
@@ -95,7 +101,7 @@ func _goToNextLevel() -> void:
 		if (currentLevel != null):
 			currentLevel.queue_free()
 			# distruggi tab
-			#tabs[0].queue_free()
+			#tabs[0].queue_free() 
 			tabs[currentLevelIndex - 1].queue_free()
 		
 		# istanzia nuovo livello come figlio del container per i livelli
@@ -111,4 +117,5 @@ func _goToNextLevel() -> void:
 
 func finishGame():
 	print("hai vinto")
+	SignalBus.open_popup.emit("Hai vinto!!!!!")
 	pass

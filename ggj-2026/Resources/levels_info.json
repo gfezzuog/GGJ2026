@@ -180,7 +180,7 @@
 		"masks" : [
 			{
 				"id":"2",
-				"starting-layer": 3,
+				"starting-layer": 0,
 				"coordinates": [
 					[10,11],[11,11],[12,11],
 					[10,12],[11,12],[12,12],

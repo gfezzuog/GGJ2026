@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fuw2gcnxtofr"]
+[gd_scene load_steps=14 format=3 uid="uid://fuw2gcnxtofr"]
 
 [ext_resource type="StyleBox" uid="uid://dtueudd02m8a1" path="res://Scenes/LayersMenu/LayerMenuRowBox.tres" id="1_atvwj"]
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
@@ -8,13 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cicu62skas0u" path="res://Assets/GUI/eye_closed.png" id="6_cqoqi"]
 [ext_resource type="Texture2D" uid="uid://dtf3bf6xw24er" path="res://Assets/GUI/rotation_arrow_left.png" id="7_oy1as"]
 [ext_resource type="Texture2D" uid="uid://darshk2wb54ik" path="res://Assets/GUI/rotation_arrow_right.png" id="8_j5t7p"]
+[ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_j5t7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbla2"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 5
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 6
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -93,6 +94,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cqoqi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(108.8, 100)
@@ -118,11 +120,12 @@ centered = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
@@ -130,6 +133,7 @@ custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 13
+theme_override_constants/margin_right = 13
 
 [node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -138,7 +142,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_hbla2")
 expand_mode = 3
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="VisibilityIconDisabled" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
@@ -152,22 +156,20 @@ stretch_mode = 4
 [node name="HBoxContainer" type="HBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 0
+size_flags_stretch_ratio = 0.8
+theme_override_constants/separation = 8
 
-[node name="Left" type="Button" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Left" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-action_mode = 0
-icon = ExtResource("7_oy1as")
-flat = true
-expand_icon = true
+texture = ExtResource("7_oy1as")
+expand_mode = 1
 
-[node name="Right" type="Button" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Right" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("8_j5t7p")
-flat = true
-expand_icon = true
+texture = ExtResource("8_j5t7p")
+expand_mode = 1
 
 [node name="Spacer" type="Container" parent="LayerMenuRow"]
 custom_minimum_size = Vector2(15, 0)
@@ -196,7 +198,8 @@ text = "100% Normal"
 [node name="LayerNumber" type="Label" parent="LayerMenuRow/TextDisplay/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("9_j5t7p")
+theme_override_font_sizes/font_size = 26
 text = "Layer 0"
 
 [node name="Area2D" type="Area2D" parent="LayerMenuRow"]
@@ -213,7 +216,9 @@ shape = SubResource("RectangleShape2D_atvwj")
 [connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_exited"]
 [connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_entered"]
 [connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_exited"]
-[connection signal="pressed" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_mouse_exited"]
+[connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_mouse_entered"]
+[connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_mouse_exited"]
 [connection signal="area_entered" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_exited"]

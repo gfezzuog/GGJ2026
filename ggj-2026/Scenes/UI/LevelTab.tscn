@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgtkvkh8eklqh"]
+[gd_scene load_steps=4 format=3 uid="uid://bgtkvkh8eklqh"]
 
 [ext_resource type="Texture2D" uid="uid://d1ml703dd7qhk" path="res://Assets/GUI/level_tab.png" id="1_c5egj"]
+[ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="1_fhxqw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3p4"]
 bg_color = Color(0.8980392, 0.36078432, 0.23529412, 1)
@@ -32,6 +33,7 @@ offset_right = 122.0
 offset_bottom = 11.5
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fhxqw")
 text = "Prova.jpg"
 
 [node name="X" type="Label" parent="."]
@@ -47,6 +49,7 @@ offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.5019608)
+theme_override_fonts/font = ExtResource("1_fhxqw")
 text = "X"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
