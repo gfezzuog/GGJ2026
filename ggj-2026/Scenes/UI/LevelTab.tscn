@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ml703dd7qhk" path="res://Assets/GUI/level_tab.png" id="1_c5egj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3p4"]
-bg_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+bg_color = Color(0.6789437, 0.6789437, 0.6789437, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 

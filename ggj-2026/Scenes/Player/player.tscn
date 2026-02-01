@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://uw8op58q5xpi" path="res://Assets/Player/jump_2.PNG" id="7_74mp2"]
 [ext_resource type="AudioStream" uid="uid://cmi17ygqxtpbw" path="res://Resources/Sound/Suonini-emilia-1-run.wav" id="9_gk6dx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
-size = Vector2(46, 67)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74mp2"]
+radius = 19.0
+height = 71.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dd0ac"]
 animations = [{
@@ -81,8 +82,8 @@ j_audio = ExtResource("4_06tpx")
 f_audio = ExtResource("3_oikmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6.5)
-shape = SubResource("RectangleShape2D_a3d8c")
+position = Vector2(0, -9.5)
+shape = SubResource("CapsuleShape2D_74mp2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
