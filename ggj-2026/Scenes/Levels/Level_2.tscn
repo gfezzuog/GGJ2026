@@ -81,6 +81,7 @@ shape = SubResource("RectangleShape2D_8nmnw")
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
 [node name="spine_sx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
@@ -89,6 +90,7 @@ texture = ExtResource("6_0jitg")
 centered = false
 
 [node name="spine_dx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
@@ -96,11 +98,11 @@ metadata/_custom_type_script = "uid://bulblyecrkaha"
 texture = ExtResource("7_rujef")
 centered = false
 
-[node name="Obj" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+[node name="black" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
-[node name="black" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/Obj"]
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/black"]
 texture = ExtResource("7_ck0i2")
 centered = false
 
