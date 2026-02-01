@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://t2ssio18qg27"]
+
+[ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://bs1rcr80a6j75" path="res://Assets/Placeholder/UI/Background.png" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://diolorlm1d1tq" path="res://Scenes/Levels/Level_1.tscn" id="2_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://bgtkvkh8eklqh" path="res://Scenes/UI/LevelTab.tscn" id="4_g14j6"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6uqi0")
+levels = Array[PackedScene]([ExtResource("2_ykrsh"), ExtResource("1_37kl0")])
+levelNames = Array[String](["Level 0", "Level 1"])
+levelTabScene = ExtResource("4_g14j6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8uh7m")
+centered = false
+
+[node name="LevelTabs" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 29)
+offset_left = 165.0
+offset_top = 59.0
+offset_right = 1131.0
+offset_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LevelContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 171.0
+offset_top = 92.0
+offset_right = 1805.0
+offset_bottom = 1058.0

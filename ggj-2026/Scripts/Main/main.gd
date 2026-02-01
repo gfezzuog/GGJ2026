@@ -29,8 +29,6 @@ func _ready() -> void:
 	
 	# Connetti i segnali
 	SignalBus.connect("doorReached", _goToNextLevel)
-	
-	pass
 
 
 # Per ogni livello disegna una tab sopra col nome del livello
@@ -52,6 +50,7 @@ func _initiateLevelTabs() -> void:
 			
 		# Aggiungi tab come figlia di LevelTabs
 		$LevelTabs.add_child(newTab)
+
 
 # da cambiare con funzione che prende il campo col nome dall'oggetto livello
 func _getLevelName(index: int) -> String:
@@ -85,10 +84,7 @@ func _goToNextLevel() -> void:
 		# cambia colore della nuova tab
 		if (currentLevelIndex < tabs.size()):
 			tabs[currentLevelIndex].add_theme_stylebox_override("panel", styleActiveTab)
-		
-		
-		
-	
+
 
 func finishGame():
 	print("hai vinto")

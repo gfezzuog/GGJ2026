@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4pi3juvwnr5"
-valid=false
+uid="uid://i7wdqhd7foc0"
+path="res://.godot/imported/colonna.png-9876f84d5f4d8163f9dbb3df340c364e.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/Level_1/3.jpg"
+source_file="res://Assets/Level_0/colonna.png"
+dest_files=["res://.godot/imported/colonna.png-9876f84d5f4d8163f9dbb3df340c364e.ctex"]
 
 [params]
 

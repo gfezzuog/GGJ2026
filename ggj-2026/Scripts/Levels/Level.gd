@@ -13,9 +13,11 @@ func _ready():
 	#change_mask(mask)
 	for child in $HBoxContainer/Canvas/Objs.get_children():
 		place_object(child)
-		
+	
 	# collega segnale su maschera abilitata
 	SignalBus.connect("mask_enabled", applyMask)
+	SignalBus.connect("mask_disabled", disableMask)
+
 
 func change_mask(mask):
 	#for child in $Objs.get_children():
@@ -36,12 +38,15 @@ func init_grid():
 			row.append(null)
 		grid.append(row)
 
+
 func place_object(obj) -> bool:
-	if ((obj.pos[0] + obj.size[0] >= GRID_SIZE) or (obj.pos[1] + obj.size[1] >= GRID_SIZE)):
+	if ((obj.pos[0] + obj.size[0] > GRID_SIZE) or (obj.pos[1] + obj.size[1] > GRID_SIZE)):
 		printerr("stai posizionando un oggetto fuori dalla griglia")
 		pass
 		
 	obj.position = obj.pos * CELL_SIZE
+	obj.get_child(0).position = -obj.position
+	
 	for i in obj.size.x:
 		#print("valore di i ", i)
 		for j in obj.size.y:
@@ -64,13 +69,32 @@ func place_object(obj) -> bool:
 func applyMask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
-		var objects = grid[coord.x][coord.y]
-		for ob in objects:
-			if (ob.layer == layer):
-				if ob not in objectsThatMustBeRemoved:
-					objectsThatMustBeRemoved.append(ob)
+		
+		var ob = grid[coord.x][coord.y]
+		#print("layer di apply mask")
+		#print(layer)
+		if (ob.layer == layer):
+			if ob not in objectsThatMustBeRemoved:
+				objectsThatMustBeRemoved.append(ob)
+	
+		# qua sotto e' se grid contiene liste
+		#var objects = grid[coord.x][coord.y]
+		#print(objects)
+		#for ob in objects:
+			#if (ob.layer == layer):
+				#if ob not in objectsThatMustBeRemoved:
+					#objectsThatMustBeRemoved.append(ob)
 					
 	for ob in objectsThatMustBeRemoved:
 		ob.applyMask(mask.coords)
 	
 	
+func disableMask(mask: Mask, layer: int):
+	var objectsThatMustBeRemoved = []
+	for coord in mask.coords:
+		var ob = grid[coord.x][coord.y]
+		if (ob.layer == layer):
+			if ob not in objectsThatMustBeRemoved:
+				objectsThatMustBeRemoved.append(ob)
+	for ob in objectsThatMustBeRemoved:
+		ob.disableMask(mask.coords)

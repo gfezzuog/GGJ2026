@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-const int MAX_RECTS = 8;
+const int MAX_RECTS = 21*21;
 
 uniform vec4 rects[MAX_RECTS]; // xy=center_uv, zw=size_uv
 uniform int rect_count = 0;

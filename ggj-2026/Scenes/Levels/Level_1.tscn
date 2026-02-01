@@ -1,0 +1,250 @@
+[gd_scene load_steps=28 format=4 uid="uid://diolorlm1d1tq"]
+
+[ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
+[ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
+[ext_resource type="Texture2D" uid="uid://byy0kseb0m3mx" path="res://Assets/Level_1/sfondo.png" id="2_hs11j"]
+[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="3_hs11j"]
+[ext_resource type="PackedScene" uid="uid://3w4xouxyjsd1" path="res://Scenes/Door/Door.tscn" id="4_o5ofx"]
+[ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="5_34y5i"]
+[ext_resource type="Texture2D" uid="uid://jjoc27g3b57a" path="res://Assets/Level_1/3.png" id="7_nlqrh"]
+[ext_resource type="Texture2D" uid="uid://c5datb28w56b0" path="res://Assets/Level_1/2.png" id="7_o5ofx"]
+[ext_resource type="Texture2D" uid="uid://cydwuays1go5p" path="res://Assets/Level_1/6.png" id="8_8nmnw"]
+[ext_resource type="Texture2D" uid="uid://d0j2byyq6to8q" path="res://Assets/Level_1/1.png" id="8_34y5i"]
+[ext_resource type="Texture2D" uid="uid://udsi23o5dc1s" path="res://Assets/Level_1/4.png" id="8_hs11j"]
+[ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
+[ext_resource type="Texture2D" uid="uid://beyg7hi6g02q8" path="res://Assets/Level_1/7.png" id="10_o5ofx"]
+[ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="11_trw0a"]
+[ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
+size = Vector2(368, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngxpw"]
+size = Vector2(322, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trw0a"]
+size = Vector2(138, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjcye"]
+size = Vector2(138, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_557vl"]
+size = Vector2(46, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjj3e"]
+size = Vector2(92, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxyq8"]
+size = Vector2(92, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6jrw"]
+size = Vector2(92, 92)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjcye"]
+resource_local_to_scene = true
+shader = ExtResource("11_trw0a")
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trw0a"]
+resource_local_to_scene = true
+shader = ExtResource("11_trw0a")
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_557vl"]
+resource_local_to_scene = true
+shader = ExtResource("11_trw0a")
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjj3e"]
+resource_local_to_scene = true
+shader = ExtResource("11_trw0a")
+shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/rect_count = 0
+
+[node name="Level1" type="Control"]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_iyh3f")
+metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -821.0
+offset_right = 821.0
+offset_bottom = 966.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Canvas" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(966, 966)
+layout_mode = 2
+
+[node name="Sfondo" type="TextureRect" parent="HBoxContainer/Canvas"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hs11j")
+
+[node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("2_ducwx")]
+layout_mode = 0
+offset_right = 966.0
+offset_bottom = 966.0
+
+[node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("3_hs11j")]
+position = Vector2(326, 605)
+gravity = 900.0
+
+[node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("4_o5ofx")]
+position = Vector2(23, 733)
+
+[node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/FixedSprites"]
+texture = ExtResource("7_o5ofx")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer/Canvas/FixedSprites"]
+texture = ExtResource("7_nlqrh")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="HBoxContainer/Canvas/FixedSprites"]
+texture = ExtResource("8_8nmnw")
+centered = false
+
+[node name="FixedCollisionShapes" type="Control" parent="HBoxContainer/Canvas"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_8nmnw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D2"]
+position = Vector2(-24, 26)
+shape = SubResource("RectangleShape2D_ngxpw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D3"]
+position = Vector2(-116, 670)
+shape = SubResource("RectangleShape2D_trw0a")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D4"]
+position = Vector2(22, 694)
+shape = SubResource("RectangleShape2D_tjcye")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D5"]
+position = Vector2(113, 716)
+shape = SubResource("RectangleShape2D_557vl")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D6"]
+position = Vector2(182, 670)
+shape = SubResource("RectangleShape2D_tjj3e")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D7"]
+position = Vector2(274, 693)
+shape = SubResource("RectangleShape2D_qxyq8")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D8"]
+position = Vector2(365, 716)
+shape = SubResource("RectangleShape2D_q6jrw")
+
+[node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
+
+[node name="scopa-dragone" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("5_34y5i")
+size = Vector2i(7, 9)
+pos = Vector2i(6, 0)
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/scopa-dragone"]
+material = SubResource("ShaderMaterial_tjcye")
+texture = ExtResource("8_34y5i")
+centered = false
+
+[node name="spine" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("5_34y5i")
+size = Vector2i(8, 3)
+pos = Vector2i(8, 10)
+layer = 1
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine"]
+material = SubResource("ShaderMaterial_trw0a")
+texture = ExtResource("8_hs11j")
+centered = false
+
+[node name="lupisco" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("5_34y5i")
+size = Vector2i(8, 10)
+pos = Vector2i(13, 11)
+layer = 1
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/lupisco"]
+material = SubResource("ShaderMaterial_557vl")
+texture = ExtResource("9_o5ofx")
+centered = false
+
+[node name="donna" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+script = ExtResource("5_34y5i")
+size = Vector2i(6, 5)
+pos = Vector2i(7, 14)
+layer = 2
+metadata/_custom_type_script = "uid://bulblyecrkaha"
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/donna"]
+material = SubResource("ShaderMaterial_tjj3e")
+texture = ExtResource("10_o5ofx")
+centered = false
+
+[node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(646, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Layers"]
+custom_minimum_size = Vector2(0, 966)
+layout_mode = 2
+color = Color(0.8474744, 0.84747446, 0.84747446, 1)
+
+[node name="LayersMenu" parent="." instance=ExtResource("14_ngxpw")]
+layout_mode = 0
+offset_left = 1141.0
+offset_top = 3.0
+offset_right = 1783.0
+offset_bottom = 963.0
