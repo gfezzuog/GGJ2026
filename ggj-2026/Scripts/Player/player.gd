@@ -19,9 +19,13 @@ func _ready() -> void:
 	print(position)
 	
 
-func game_over() -> void:
+func _do_game_over() -> void:
 	#print("MORTO COJONS")
 	SignalBus.emit_signal("game_over")
+
+
+func game_over():
+	call_deferred("_do_game_over")
 
 
 func _physics_process(delta: float) -> void:

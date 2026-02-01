@@ -34,3 +34,7 @@ func _ready() -> void:
 	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.
+
+
+func _on_exit_area_body_entered(_body: Node2D) -> void:
+	$HBoxContainer/Canvas/Player.game_over()
