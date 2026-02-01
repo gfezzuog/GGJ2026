@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://t2ssio18qg27"]
+[gd_scene load_steps=18 format=3 uid="uid://t2ssio18qg27"]
 
 [ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ds2ha8clmbeih" path="res://Assets/GUI/Menu_Layers/sfondo_menu_layers.png" id="5_00tp4"]
 [ext_resource type="Texture2D" uid="uid://clmtyoas2vl30" path="res://Assets/sfondo2.png" id="5_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://fokcmy1mowy1" path="res://Scenes/Popup/Popup.tscn" id="6_g14j6"]
-[ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://Resources/Sound/Soundtrack_lv2.wav" id="7_vbegm"]
 [ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="8_77dp3"]
 [ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_5tkv4"]
 [ext_resource type="Texture2D" uid="uid://b4uvj2f4fjern" path="res://Assets/GUI/Menu_Layers/retry.png" id="10_77dp3"]
+[ext_resource type="AudioStream" uid="uid://g2nnr6o720el" path="res://Resources/Sound/Music_Full.wav" id="10_00tp4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xersf"]
 content_margin_left = 0.0
@@ -68,8 +68,8 @@ corner_radius_bottom_left = 15
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6uqi0")
-levels = Array[PackedScene]([ExtResource("1_37kl0"), ExtResource("2_ykrsh")])
-levelNames = Array[String](["Level 0", "Level 1", "Level 2"])
+levels = Array[PackedScene]([ExtResource("4_vbegm"), ExtResource("1_37kl0"), ExtResource("2_ykrsh")])
+levelNames = Array[String](["Level 2", "Level 0", "Level 1"])
 levelTabScene = ExtResource("4_g14j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -196,8 +196,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ykrsh")
 position = Vector2(630, 534)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_vbegm")
-volume_db = -4.0
+stream = ExtResource("10_00tp4")
+volume_db = -7.0
 autoplay = true
 
 [node name="Pulsante chiusura gioco" type="Button" parent="."]

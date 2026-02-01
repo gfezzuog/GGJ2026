@@ -1,13 +1,15 @@
-[gd_scene load_steps=65 format=4 uid="uid://d6qqpoaqagm4"]
+[gd_scene load_steps=67 format=4 uid="uid://d6qqpoaqagm4"]
 
 [ext_resource type="Script" uid="uid://cliohxxeylmyn" path="res://Scenes/Levels/level_2.gd" id="1_cexhq"]
-[ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
+[ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://Assets/Level_2/sfondo_2.png" id="2_ooxlk"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="3_q5gq6"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="4_duc5e"]
 [ext_resource type="Script" uid="uid://ciximxt6hemft" path="res://Scripts/Door/door.gd" id="5_ck0i2"]
+[ext_resource type="Texture2D" uid="uid://dkvojj73t83yg" path="res://Assets/Level_2/layerbloccato.png" id="5_npaxn"]
 [ext_resource type="Texture2D" uid="uid://c4a48w2ctvl75" path="res://Assets/Level_2/spine_sx.png" id="6_0jitg"]
 [ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://Assets/porta_transp.png" id="6_cexhq"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="6_luow5"]
+[ext_resource type="Script" path="res://Scenes/OBJs/Dang_Obj.gd" id="6_npaxn"]
 [ext_resource type="Texture2D" uid="uid://bmjgc1bb0umno" path="res://Assets/Level_2/black.png" id="7_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://Assets/Level_2/spine_dx.png" id="7_rujef"]
 [ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://Assets/Level_2/lancette.png" id="8_rujef"]
@@ -192,18 +194,23 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_inorh")
+texture = ExtResource("2_ooxlk")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("3_q5gq6")]
+visible = false
 layout_mode = 0
 offset_right = 966.0
 offset_bottom = 966.0
 
 [node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("4_duc5e")]
-position = Vector2(23, 747)
+position = Vector2(395, 599)
 
 [node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/FixedSprites"]
+texture = ExtResource("5_npaxn")
+centered = false
 
 [node name="FixedCollisionShapes" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
@@ -507,7 +514,7 @@ shape = SubResource("RectangleShape2D_y0juf")
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
 [node name="spine_sx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-script = ExtResource("6_luow5")
+script = ExtResource("6_npaxn")
 size = Vector2i(4, 1)
 pos = Vector2i(6, 10)
 layer = 3
@@ -519,7 +526,7 @@ texture = ExtResource("6_0jitg")
 centered = false
 
 [node name="spine_dx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-script = ExtResource("6_luow5")
+script = ExtResource("6_npaxn")
 size = Vector2i(5, 1)
 pos = Vector2i(12, 10)
 layer = 2
