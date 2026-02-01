@@ -47,7 +47,7 @@ func _ready() -> void:
 	SignalBus.connect("game_over", _on_game_over)
 	
 	#print("apro un popup")
-	#SignalBus.open_popup.emit("Stai iniziando un livello")
+	#SignalBus.open_popup_ok.emit("Stai iniziando un livello")
 	
 func _on_game_over():
 	print("Game over → reload livello")
@@ -117,5 +117,23 @@ func _goToNextLevel() -> void:
 
 func finishGame():
 	print("hai vinto")
-	SignalBus.open_popup.emit("Hai vinto!!!!!")
+	SignalBus.open_popup_ok.emit("Hai vinto!!!!!")
 	pass
+
+
+# Pulsante chiusura gioco
+func _on_pulsante_chiusura_gioco_pressed() -> void:
+	# prima mi connetto alle risposte
+	SignalBus.connect("popup_pressed_yes", closeGame)
+	SignalBus.connect("popup_pressed_no", doNotCloseGame)
+	# poi mando il segnale
+	SignalBus.emit_signal("open_popup_yes_no", "Are you sure you want to quit the game?")
+	pass # Replace with function body.
+
+func closeGame():
+	print("closing game")
+	get_tree().quit()
+	
+func doNotCloseGame():
+	SignalBus.disconnect("popup_pressed_yes", closeGame)
+	print("not closing game")
