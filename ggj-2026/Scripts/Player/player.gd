@@ -15,6 +15,13 @@ extends CharacterBody2D
 
 var was_on_floor := false
 var prev_velocity_y := 0.0
+func _ready() -> void:
+	print(position)
+	
+
+func game_over() -> void:
+	#print("MORTO COJONS")
+	SignalBus.emit_signal("game_over")
 
 func _physics_process(delta: float) -> void:
 	# SALVO LA VELOCITÀ PRIMA DEL MOVIMENTO
@@ -27,8 +34,9 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 
 		if collider.collision_layer & (1 << 1):
-			print("MORTO COJONS")
-			#game_over()
+			game_over()
+			pass
+			#game_over() #placeholder
 	
 	# Add the gravity.
 	if not is_on_floor():

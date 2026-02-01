@@ -22,14 +22,18 @@ var styleActiveTab: StyleBoxFlat = null
 func _ready() -> void:
 	
 	# Inizializza i livelli
-	_goToNextLevel()
+	#_goToNextLevel()
 	
 	# Inizializza tab
 	_initiateLevelTabs()
 	
 	# Connetti i segnali
 	SignalBus.connect("doorReached", _goToNextLevel)
-
+	SignalBus.connect("game_over", _on_game_over)
+	
+func _on_game_over():
+	print("Reinstanziando scena...")
+	get_tree().reload_current_scene()
 
 # Per ogni livello disegna una tab sopra col nome del livello
 func _initiateLevelTabs() -> void:
