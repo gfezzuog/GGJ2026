@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d6qqpoaqagm4" path="res://Scenes/Levels/Level_2.tscn" id="4_vbegm"]
 [ext_resource type="Texture2D" uid="uid://clmtyoas2vl30" path="res://Assets/sfondo2.png" id="5_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://fokcmy1mowy1" path="res://Scenes/Popup/Popup.tscn" id="6_g14j6"]
-[ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://Resources/Sound/Soundtrack_lv2.wav" id="7_vbegm"]
 [ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="8_77dp3"]
 [ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_5tkv4"]
+[ext_resource type="AudioStream" uid="uid://g2nnr6o720el" path="res://Resources/Sound/Music_Full.wav" id="10_00tp4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xersf"]
 content_margin_left = 0.0
@@ -190,8 +190,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ykrsh")
 position = Vector2(630, 534)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_vbegm")
-volume_db = -4.0
+stream = ExtResource("10_00tp4")
+volume_db = -7.0
 autoplay = true
 
 [node name="Pulsante chiusura gioco" type="Button" parent="."]
