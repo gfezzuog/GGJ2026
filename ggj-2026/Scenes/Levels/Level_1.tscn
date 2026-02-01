@@ -350,6 +350,6 @@ color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 [node name="LayersMenu" parent="." instance=ExtResource("14_ngxpw")]
 layout_mode = 0
 offset_left = 999.0
-offset_top = -7.0
+offset_top = 469.0
 offset_right = 1641.0
 offset_bottom = 953.0
