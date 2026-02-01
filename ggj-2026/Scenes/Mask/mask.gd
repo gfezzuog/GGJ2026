@@ -81,9 +81,7 @@ func rotate_ninenty_antiorario():
 
 func _on_mouse_entered() -> void:
 	hovered = true
-	print("MOUSE ENTRATO")
 
 
 func _on_mouse_exited() -> void:
 	hovered = false
-	print("MOUSE USCITO")

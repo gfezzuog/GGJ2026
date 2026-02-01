@@ -17,11 +17,13 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 SignalBus="*res://SignalBus.gd"
+Cursor="*res://Cursor.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+mouse_cursor/custom_image="uid://cwqacwrd8m26k"
 
 [input]
 

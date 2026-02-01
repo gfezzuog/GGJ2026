@@ -4,10 +4,8 @@ extends Level
 func _ready() -> void:
 	super()
 	
-	print("LayersMenu position: ", %LayersMenu.position)
-	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
-	var level1 = levelInfo.get_level_info(0)
+	var level1 = levelInfo.get_level_info(2)
 	#print(level1["masks"])
 	
 	# Crea collisioni degli oggetti nascondibili con maschere
@@ -20,8 +18,8 @@ func _ready() -> void:
 			matrix.append(int(elem))
 		
 		var node: Obj = get_node("HBoxContainer/Canvas/Objs/" + name)
-		#print(node)
-		#print(matrix)
+		print(node)
+		print(matrix)
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
@@ -33,13 +31,11 @@ func _ready() -> void:
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
+		#%LayersMenu.layers_row[1].mask.disabled = true
 	%LayersMenu.create_masks()
-	
-	var rows: Array[LayerMenuRow] = %LayersMenu.layers_row
-	for row in rows:
-		row.rotation_disabled = true
-	
+		
 	pass # Replace with function body.
 
-func _on_exit_area_body_entered(_body: Node2D) -> void:
-	$HBoxContainer/Canvas/Player.game_over()
+func _on_exit_area_body_entered(body: Node2D) -> void:
+	SignalBus.emit_signal("game_over")
+	pass # Replace with function body.

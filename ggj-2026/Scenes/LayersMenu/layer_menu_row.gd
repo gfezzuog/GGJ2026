@@ -8,6 +8,9 @@ var mask: Mask
 var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBoxHovered.tres")
 var box_normal = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
 var in_visibility_icon = false
+var mouse_left_inside = false
+var mouse_right_inside = false
+var rotation_disabled = false : set = _set_rotation_disabled
 @onready var visibilityIcon = %VisibilityIcon
 
 
@@ -27,8 +30,13 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") and in_visibility_icon:
-		mask_disabled = not mask_disabled
+	if event.is_action_pressed("click"):
+		if in_visibility_icon:
+			mask_disabled = not mask_disabled
+		elif mouse_left_inside:
+			mask.rotate_ninenty_orario()
+		elif mouse_right_inside:
+			mask.rotate_ninenty_antiorario()
 
 
 func _set_layer_number(new_value: int) -> void:
@@ -52,6 +60,16 @@ func _set_disabled(new_value: bool) -> void:
 		if mask:
 			visibilityIcon.show()
 			SignalBus.mask_enabled.emit(mask, mask.layer)
+
+
+func _set_rotation_disabled(new_value: bool):
+	rotation_disabled = new_value
+	if rotation_disabled:
+		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left.hide()
+		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right.hide()
+	else:
+		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left.show()
+		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right.show()
 
 
 func get_mask() -> Mask:
@@ -173,12 +191,17 @@ func _on_mask_dragged(value: bool, dragged_mask: Mask):
 
 func _on_visibility_icon_mouse_entered() -> void:
 	in_visibility_icon = true
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	#Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	Cursor.change_in_hand()
+	#mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 
 func _on_visibility_icon_mouse_exited() -> void:
 	in_visibility_icon = false
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	#var image = load("res://Assets/GUI/right_arrow.png")
+	#Input.set_custom_mouse_cursor(image)
+	#mouse_default_cursor_shape = Control.CURSOR_ARROW
+	Cursor.change_in_arrow()
 
 
 func _on_left_pressed() -> void:
@@ -189,3 +212,23 @@ func _on_left_pressed() -> void:
 func _on_right_pressed() -> void:
 	if mask:
 		mask.rotate_ninenty_antiorario()
+
+
+func _on_left_mouse_entered() -> void:
+	mouse_left_inside = true
+	Cursor.change_in_hand()
+
+
+func _on_left_mouse_exited() -> void:
+	mouse_left_inside = false
+	Cursor.change_in_arrow()
+
+
+func _on_right_mouse_entered() -> void:
+	mouse_right_inside = true
+	Cursor.change_in_hand()
+
+
+func _on_right_mouse_exited() -> void:
+	mouse_right_inside = false
+	Cursor.change_in_arrow()
