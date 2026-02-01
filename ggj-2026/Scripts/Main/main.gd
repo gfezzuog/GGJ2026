@@ -19,8 +19,23 @@ var activeTabColor = Color(0.231, 0.47, 0.465, 1.0)
 var styleActiveTab: StyleBoxFlat = null
 
 
+func _reloadCurrentLevel() -> void:
+	if currentLevel == null:
+		return
+
+	print("Reload level ", currentLevelIndex)
+
+	# Distruggi livello corrente
+	currentLevel.queue_free()
+	currentLevel = null
+
+	# Istanzia di nuovo lo stesso livello
+	currentLevel = levels[currentLevelIndex].instantiate()
+	$LevelContainer.call_deferred("add_child", currentLevel)
+
 func _ready() -> void:
-	
+	for i in levels.size():
+		print("livelli nell'array", levels[i])
 	# Inizializza i livelli
 	_goToNextLevel()
 	
@@ -32,8 +47,9 @@ func _ready() -> void:
 	SignalBus.connect("game_over", _on_game_over)
 	
 func _on_game_over():
-	print("Reinstanziando scena...")
-	get_tree().reload_current_scene()
+	print("Game over → reload livello")
+	_reloadCurrentLevel()
+
 
 # Per ogni livello disegna una tab sopra col nome del livello
 func _initiateLevelTabs() -> void:
@@ -79,7 +95,8 @@ func _goToNextLevel() -> void:
 		if (currentLevel != null):
 			currentLevel.queue_free()
 			# distruggi tab
-			tabs[0].queue_free()
+			#tabs[0].queue_free()
+			tabs[currentLevelIndex - 1].queue_free()
 		
 		# istanzia nuovo livello come figlio del container per i livelli
 		currentLevel = levels[currentLevelIndex].instantiate()
