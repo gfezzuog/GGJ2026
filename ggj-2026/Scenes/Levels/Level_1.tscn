@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
-[ext_resource type="Texture2D" uid="uid://byy0kseb0m3mx" path="res://Assets/Level_1/sfondo.png" id="2_hs11j"]
+[ext_resource type="Texture2D" uid="uid://bhqgdqecq136p" path="res://Assets/Level_1/sfondo_alt.png" id="2_tjcye"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="3_hs11j"]
 [ext_resource type="PackedScene" uid="uid://3w4xouxyjsd1" path="res://Scenes/Door/Door.tscn" id="4_o5ofx"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="5_34y5i"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="11_trw0a"]
 [ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
-[ext_resource type="Texture2D" uid="uid://fgpj8edg8hu7" path="res://Assets/Level_1/4_red.png" id="13_tjcye"]
+[ext_resource type="Texture2D" uid="uid://r8c3cw21vc1w" path="res://Assets/Level_1/4_red_alt.png" id="13_tjcye"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
 [ext_resource type="Texture2D" uid="uid://ce4yokgyq8jmh" path="res://Assets/Level_1/7_mod.png" id="15_tjcye"]
 [ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://Assets/Level_1/layer_0.png" id="17_qxyq8"]
@@ -202,7 +202,7 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_hs11j")
+texture = ExtResource("2_tjcye")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("2_ducwx")]
 visible = false

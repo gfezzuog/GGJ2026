@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://t2ssio18qg27"]
 
 [ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
-[ext_resource type="Texture2D" uid="uid://bs1rcr80a6j75" path="res://Assets/Placeholder/UI/Background.png" id="1_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://diolorlm1d1tq" path="res://Scenes/Levels/Level_1.tscn" id="2_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://bgtkvkh8eklqh" path="res://Scenes/UI/LevelTab.tscn" id="4_g14j6"]
+[ext_resource type="Texture2D" uid="uid://clmtyoas2vl30" path="res://Assets/sfondo2.png" id="5_ykrsh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykrsh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,7 +25,7 @@ levelNames = Array[String](["Level 1", "Level 0", "Level 2"])
 levelTabScene = ExtResource("4_g14j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8uh7m")
+texture = ExtResource("5_ykrsh")
 centered = false
 
 [node name="LevelTabs" type="HBoxContainer" parent="."]
