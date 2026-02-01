@@ -135,6 +135,13 @@
 	"2" : {
 		"objects": [
 			{
+				"name":"croce",
+				"shape": [21,21],
+				"matrix":[
+					0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
+				]
+			},
+			{
 				"name":"tentacolo-pesce-intero",
 				"shape": [9,1],
 				"matrix":[
