@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bn552bcbw1hxe"]
+[gd_scene load_steps=22 format=4 uid="uid://bn552bcbw1hxe"]
 
 [ext_resource type="Script" uid="uid://bxc80h1i7tr6q" path="res://Scenes/Levels/level_0.gd" id="1_d8tld"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="2_03ysy"]
@@ -42,6 +42,12 @@ shader_parameter/rect_count = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omk35"]
 size = Vector2(1721, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_civ3f"]
+size = Vector2(33, 982)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55ow4"]
+size = Vector2(25, 983)
 
 [node name="Level0" type="Control"]
 physics_interpolation_mode = 0
@@ -182,5 +188,15 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 position = Vector2(550, 1041)
 shape = SubResource("RectangleShape2D_omk35")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="RightBorder" type="CollisionShape2D" parent="Borders"]
+position = Vector2(978.5, 479)
+shape = SubResource("RectangleShape2D_civ3f")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-11, 481)
+shape = SubResource("RectangleShape2D_55ow4")
 
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
