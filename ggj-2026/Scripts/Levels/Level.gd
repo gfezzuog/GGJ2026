@@ -93,7 +93,7 @@ func disableMask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
 		var ob = grid[coord.x][coord.y]
-		if (ob.layer == layer):
+		if (ob and ob.layer == layer):
 			if ob not in objectsThatMustBeRemoved:
 				objectsThatMustBeRemoved.append(ob)
 	for ob in objectsThatMustBeRemoved:

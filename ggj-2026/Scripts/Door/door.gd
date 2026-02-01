@@ -6,3 +6,5 @@ var enabled = true
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (enabled):
 		SignalBus.emit_signal("doorReached")
+		print("Area raggiunta!")
+		enabled = false

@@ -80,7 +80,7 @@ func applyMask(maskCoords: Array[Vector2i]):
 	print("collision shape size: ", collisionShapesForShader.size())
 	for collisionShape in collisionShapesForShader:
 		var local = to_local(collisionShape.global_position)
-		local = collisionShape.global_position - Vector2(139,0)
+		local = collisionShape.global_position - SignalBus.offset
 		
 		#tentativo anna
 		#local = position

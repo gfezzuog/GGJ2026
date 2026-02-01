@@ -5,7 +5,10 @@ extends Node
 signal doorReached
 
 # Quando il player muore
+signal game_over
 # TODO
 
 signal mask_disabled(mask, layer)
 signal mask_enabled(mask, layer)
+
+var offset = Vector2(171, 92.0)

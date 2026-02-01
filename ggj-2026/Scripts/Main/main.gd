@@ -29,7 +29,11 @@ func _ready() -> void:
 	
 	# Connetti i segnali
 	SignalBus.connect("doorReached", _goToNextLevel)
-
+	SignalBus.connect("game_over", _on_game_over)
+	
+func _on_game_over():
+	print("Reinstanziando scena...")
+	get_tree().reload_current_scene()
 
 # Per ogni livello disegna una tab sopra col nome del livello
 func _initiateLevelTabs() -> void:
@@ -79,7 +83,8 @@ func _goToNextLevel() -> void:
 		
 		# istanzia nuovo livello come figlio del container per i livelli
 		currentLevel = levels[currentLevelIndex].instantiate()
-		$LevelContainer.add_child(currentLevel)
+		print("CURRENT LAYER: ", currentLevel)
+		$LevelContainer.call_deferred("add_child", currentLevel)
 		
 		# cambia colore della nuova tab
 		if (currentLevelIndex < tabs.size()):
