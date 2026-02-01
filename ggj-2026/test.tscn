@@ -67,8 +67,8 @@ corner_radius_bottom_left = 15
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6uqi0")
-levels = Array[PackedScene]([ExtResource("1_37kl0"), ExtResource("2_ykrsh"), ExtResource("4_vbegm")])
-levelNames = Array[String](["Level 0", "Level 1", "Level 2"])
+levels = Array[PackedScene]([ExtResource("4_vbegm"), ExtResource("1_37kl0"), ExtResource("2_ykrsh")])
+levelNames = Array[String](["Level 2", "Level 0", "Level 1"])
 levelTabScene = ExtResource("4_g14j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
