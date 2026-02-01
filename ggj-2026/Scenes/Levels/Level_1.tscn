@@ -131,6 +131,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_hs11j")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("2_ducwx")]
+visible = false
 layout_mode = 0
 offset_right = 966.0
 offset_bottom = 966.0

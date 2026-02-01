@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4toply0pv7v"
+path="res://.godot/imported/Suonini emilia 3-atterro.wav-afd173bec699fbe0a94dcddefc997a6f.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Suonini emilia 3-atterro.wav"
+dest_files=["res://.godot/imported/Suonini emilia 3-atterro.wav-afd173bec699fbe0a94dcddefc997a6f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
