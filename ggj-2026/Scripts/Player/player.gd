@@ -37,9 +37,8 @@ func _physics_process(delta: float) -> void:
 		if collider == null:
 			continue
 		
-		if collider.collision_layer & (1 << 1):
+		if collider.collision_layer & (2):
 			game_over()
-			pass
 			#game_over() #placeholder
 	
 	# Add the gravity.
