@@ -117,14 +117,13 @@ func applyMask(maskCoords: Array[Vector2i]):
 # dell'oggetto. Poi, se le coordinate ottenute "cadono" dentro l'oggetto, vengono disattivate
 # le relative collisioni
 func disableCollision(x, y):
-	print(self)
-	print("coordinate: " + str(x) + " " + str(y))
-	print("pos 0: ", pos[0])
-	print("pos 1: ", pos[1])
-	#14,11
-	# pos di spine e' 8,10
-	var xLocal = x - pos[0]  # 6 -> colonna
-	var yLocal = y - pos[1]  # 1 -> riga
+	#print(self)
+	#print("coordinate: " + str(x) + " " + str(y))
+	#print("pos 0: ", pos[0])
+	#print("pos 1: ", pos[1])
+
+	var xLocal = x - pos[0]  # -> colonna
+	var yLocal = y - pos[1]  # -> riga
 
 	# se le coordinate cadono dentro l'oggetto
 	if (xLocal >= 0 and xLocal < size[0] and yLocal >= 0 and yLocal < size[1]):		# CORRETTO
@@ -136,7 +135,7 @@ func disableCollision(x, y):
 		#print(collisionShapes)
 		#print(xLocal*size[0] + yLocal)
 		if (collisionShape != null):
-			print("la collision esiste")
+			#print("la collision esiste")
 			# passo la collision shape allo shader
 			collisionShapesForShader.append(collisionShape)
 			

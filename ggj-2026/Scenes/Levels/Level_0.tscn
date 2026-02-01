@@ -85,7 +85,7 @@ offset_bottom = 966.0
 position = Vector2(31, 621)
 
 [node name="Door" parent="HBoxContainer/Canvas" instance=ExtResource("3_clgyd")]
-position = Vector2(940, 460)
+position = Vector2(940, 449)
 
 [node name="FixedCollisionShapes" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
