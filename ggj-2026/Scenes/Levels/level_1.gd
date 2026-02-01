@@ -23,7 +23,7 @@ func _ready() -> void:
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
-	%LayersMenu.mask_textures = [[], [], []]
+	%LayersMenu.mask_textures = [[], [], [], [], []]
 	
 	var masks = level1["masks"]
 	for mask in masks:
