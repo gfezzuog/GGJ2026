@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fokcmy1mowy1" path="res://Scenes/Popup/Popup.tscn" id="6_g14j6"]
 [ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="8_77dp3"]
 [ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_5tkv4"]
+[ext_resource type="AudioStream" uid="uid://dq0f2crrevc2b" path="res://Resources/Sound/Game jam Musica.wav" id="7_vbegm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xersf"]
 content_margin_left = 0.0
@@ -51,8 +52,6 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[ext_resource type="AudioStream" uid="uid://dq0f2crrevc2b" path="res://Resources/Sound/Game jam Musica.wav" id="7_vbegm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykrsh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
