@@ -6,6 +6,7 @@ signal doorReached
 
 # Quando il player muore
 signal game_over
+signal door_reached
 
 signal mask_disabled(mask, layer)
 signal mask_enabled(mask, layer)

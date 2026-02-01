@@ -9,6 +9,7 @@ func _ready() -> void:
 	size = dimension
 	$Panel.size = size
 	$Area2D/CollisionShape2D.shape.size = dimension
+	$Area2D/CollisionShape2D.position += dimension/2
 
 
 func _process(_delta: float) -> void:

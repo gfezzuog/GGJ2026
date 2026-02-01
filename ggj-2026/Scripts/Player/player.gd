@@ -67,6 +67,11 @@ func _physics_process(delta: float) -> void:
 		if collider.collision_layer & (2):
 			game_over()
 			#game_over() #placeholder
+		if collider.collision_layer & (3):
+			#print("eccoci")
+			#SignalBus.emit_signal("door_reached")
+			#game_over() #placeholder
+			pass
 	
 	# Add the gravity.
 	if not is_on_floor():

@@ -1,15 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1ddvbo2kppl1"]
+[gd_scene load_steps=6 format=3 uid="uid://c1ddvbo2kppl1"]
 
+[ext_resource type="Script" uid="uid://y43wc3xjr6rx" path="res://Scripts/Menu/menu.gd" id="1_3ymnh"]
 [ext_resource type="FontFile" uid="uid://c5jtbwqnthuki" path="res://Assets/Pinky Smush.otf" id="1_cqskg"]
+[ext_resource type="Texture2D" uid="uid://dnb156ljj1ayl" path="res://Assets/Menu/menu_wallpaper2.png" id="2_8inha"]
+[ext_resource type="Texture2D" uid="uid://bympvrdk8bc6b" path="res://Assets/Menu/start_buton.png" id="4_j7r1e"]
+[ext_resource type="Texture2D" uid="uid://dii5sk4ff4omo" path="res://Assets/Menu/prop_menu.png" id="5_8inha"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3ymnh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="Wallpaper" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.10747976, 0.10747973, 0.10747973, 1)
+texture = ExtResource("2_8inha")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -17,27 +22,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -156.0
-offset_top = -75.0
-offset_right = 156.0
-offset_bottom = 75.0
+offset_left = -226.0
+offset_top = 271.0
+offset_right = 213.0
+offset_bottom = 421.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
+size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_cqskg")
 theme_override_font_sizes/font_size = 128
-text = "START"
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -539.5
-offset_right = 539.5
-offset_bottom = 185.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_cqskg")
-theme_override_font_sizes/font_size = 128
-text = "La conquista di Fiume"
+[node name="ButtonImage" type="TextureRect" parent="CanvasLayer/Button"]
+layout_mode = 0
+offset_right = 313.0
+offset_bottom = 148.0
+texture = ExtResource("4_j7r1e")
+
+[node name="Prop" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("5_8inha")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

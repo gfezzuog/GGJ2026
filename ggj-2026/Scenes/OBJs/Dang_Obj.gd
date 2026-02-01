@@ -1,6 +1,5 @@
 #@tool
 class_name Dang_Obj extends Obj
-
 # Funzione che prende in input una matrice tipo [ [1, 0], [1, 1] ]
 # e crea una collision shape per ogni "1", organizzate come indica la matrice.
 # Poi salva le collision shape in un'altra matrice, mettendo "null" dove
