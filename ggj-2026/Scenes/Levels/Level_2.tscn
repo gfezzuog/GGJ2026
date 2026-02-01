@@ -203,7 +203,7 @@ offset_right = 966.0
 offset_bottom = 966.0
 
 [node name="Player" parent="HBoxContainer/Canvas" instance=ExtResource("4_duc5e")]
-position = Vector2(395, 599)
+position = Vector2(68, 661)
 
 [node name="FixedSprites" type="Control" parent="HBoxContainer/Canvas"]
 anchors_preset = 0
