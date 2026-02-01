@@ -3,7 +3,6 @@
 		"objects": [
 			{
 				"name":"colonna",
-				"shape": [2,5],
 				"matrix":[
 					1,1,
 					1,1,
@@ -14,7 +13,6 @@
 			},
 			{
 				"name":"arco",
-				"shape": [4,2],
 				"matrix":[
 					1,1,1,1,
 					1,1,1,1
@@ -23,7 +21,7 @@
 		],
 		"masks": [
 			{
-				"id":"1",
+				"id":"0",
 				"starting-layer": 0,
 				"coordinates": [
 					[10,5],[10,6],

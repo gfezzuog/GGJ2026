@@ -72,11 +72,12 @@ stereo = true
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_a3d8c")
+speed = 150.0
+jump_force = 400.0
+gravity = 700.0
 w_audio = ExtResource("9_gk6dx")
 j_audio = ExtResource("4_06tpx")
 f_audio = ExtResource("3_oikmp")
-jump_force = 400.0
-gravity = 700.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.5)

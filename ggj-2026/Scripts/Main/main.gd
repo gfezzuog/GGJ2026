@@ -22,7 +22,7 @@ var styleActiveTab: StyleBoxFlat = null
 func _ready() -> void:
 	
 	# Inizializza i livelli
-	#_goToNextLevel()
+	_goToNextLevel()
 	
 	# Inizializza tab
 	_initiateLevelTabs()
