@@ -15,7 +15,7 @@ var currentLevelIndex: int = -1
 var currentLevel = null
 
 # colore tab attiva
-var activeTabColor = Color(0.231, 0.47, 0.465, 1.0)
+var activeTabColor = Color.WHITE
 var styleActiveTab: StyleBoxFlat = null
 
 
