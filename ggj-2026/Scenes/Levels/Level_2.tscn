@@ -531,7 +531,6 @@ texture = ExtResource("7_rujef")
 centered = false
 
 [node name="black" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
@@ -541,7 +540,6 @@ texture = ExtResource("7_ck0i2")
 centered = false
 
 [node name="lancette" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-visible = false
 script = ExtResource("6_luow5")
 size = Vector2i(21, 21)
 layer = 1
@@ -572,10 +570,10 @@ texture = ExtResource("6_cexhq")
 [node name="LayersMenu" parent="." instance=ExtResource("16_qjwmo")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 225.0
-offset_right = 1694.0
-offset_bottom = 925.0
+offset_left = 1045.0
+offset_top = 120.0
+offset_right = 1686.0
+offset_bottom = 872.0
 number_layer = 4
 layers_preview = Array[Texture]([ExtResource("14_e0h1s"), ExtResource("14_p6wrx"), ExtResource("15_e0h1s"), ExtResource("16_ooxlk")])
 

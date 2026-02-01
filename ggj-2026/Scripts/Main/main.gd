@@ -121,6 +121,12 @@ func finishGame():
 	pass
 
 
+# Pulsante reload livello
+func _on_pulsante_reload_livello_pressed() -> void:
+	_reloadCurrentLevel()
+	pass # Replace with function body.
+
+
 # Pulsante chiusura gioco
 func _on_pulsante_chiusura_gioco_pressed() -> void:
 	# prima mi connetto alle risposte

@@ -590,10 +590,10 @@ shape = SubResource("RectangleShape2D_it58x")
 [node name="LayersMenu" parent="." instance=ExtResource("14_ngxpw")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 225.0
-offset_right = 1694.0
-offset_bottom = 925.0
+offset_left = 1045.0
+offset_top = 120.0
+offset_right = 1686.0
+offset_bottom = 872.0
 layers_preview = Array[Texture]([ExtResource("17_qxyq8"), ExtResource("18_q6jrw"), ExtResource("19_x6ugg")])
 
 [connection signal="body_entered" from="HBoxContainer/Canvas/ExitArea" to="." method="_on_exit_area_body_entered"]

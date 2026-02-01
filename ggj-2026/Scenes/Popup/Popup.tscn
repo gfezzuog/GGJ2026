@@ -9,10 +9,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je06i"]
 bg_color = Color(0, 0, 0, 0.22352941)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Popup" type="Node2D"]
 script = ExtResource("1_cqdh6")
@@ -22,8 +22,10 @@ visible = false
 position = Vector2(-243, -85)
 
 [node name="Ombra" type="Panel" parent="Content"]
-offset_right = 497.0
-offset_bottom = 199.0
+offset_left = -65.0
+offset_top = -25.0
+offset_right = 580.0
+offset_bottom = 241.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_je06i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Content"]
