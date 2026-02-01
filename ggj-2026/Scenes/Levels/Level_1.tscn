@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=66 format=4 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -138,6 +138,12 @@ size = Vector2(51, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxq0k"]
 size = Vector2(49, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbv5u"]
+size = Vector2(47, 985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qcdd"]
+size = Vector2(34, 985)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tjcye"]
 resource_local_to_scene = true
@@ -506,6 +512,16 @@ position = Vector2(185, 204)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D38"]
 position = Vector2(756.5, -124.5)
 shape = SubResource("RectangleShape2D_yxq0k")
+
+[node name="Borders" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+
+[node name="LeftBorder" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/Borders"]
+position = Vector2(-24.5, 482.5)
+shape = SubResource("RectangleShape2D_kbv5u")
+
+[node name="RightBorder" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/Borders"]
+position = Vector2(982, 483.5)
+shape = SubResource("RectangleShape2D_6qcdd")
 
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
