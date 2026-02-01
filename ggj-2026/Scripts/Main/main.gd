@@ -83,7 +83,8 @@ func _goToNextLevel() -> void:
 		
 		# istanzia nuovo livello come figlio del container per i livelli
 		currentLevel = levels[currentLevelIndex].instantiate()
-		$LevelContainer.add_child(currentLevel)
+		print("CURRENT LAYER: ", currentLevel)
+		$LevelContainer.call_deferred("add_child", currentLevel)
 		
 		# cambia colore della nuova tab
 		if (currentLevelIndex < tabs.size()):
