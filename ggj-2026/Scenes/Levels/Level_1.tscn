@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://fgpj8edg8hu7" path="res://Assets/Level_1/4_red.png" id="13_tjcye"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
 [ext_resource type="Texture2D" uid="uid://ce4yokgyq8jmh" path="res://Assets/Level_1/7_mod.png" id="15_tjcye"]
+[ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://Assets/Level_1/layer_0.png" id="17_qxyq8"]
+[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://Assets/Level_1/layer_1.png" id="18_q6jrw"]
+[ext_resource type="Texture2D" uid="uid://sd8he6hsiyne" path="res://Assets/Level_1/layer_2.png" id="19_x6ugg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
 size = Vector2(313, 184)
@@ -564,7 +567,8 @@ color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 
 [node name="LayersMenu" parent="." instance=ExtResource("14_ngxpw")]
 layout_mode = 0
-offset_left = 1141.0
-offset_top = 3.0
-offset_right = 1783.0
-offset_bottom = 963.0
+offset_left = 999.0
+offset_top = 469.0
+offset_right = 1641.0
+offset_bottom = 953.0
+layers_preview = Array[Texture]([ExtResource("17_qxyq8"), ExtResource("18_q6jrw"), ExtResource("19_x6ugg")])

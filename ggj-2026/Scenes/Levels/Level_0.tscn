@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://i7wdqhd7foc0" path="res://Assets/Level_0/colonna.png" id="8_10nac"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="8_ssf0w"]
 [ext_resource type="Texture2D" uid="uid://b5lyhd80d6n7b" path="res://Assets/Level_0/arco.png" id="9_10nac"]
+[ext_resource type="Texture2D" uid="uid://cvmh6tefkkvic" path="res://Assets/Level_0/layer_0.png" id="11_45ott"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10nac"]
 size = Vector2(414, 280)
@@ -169,10 +170,11 @@ color = Color(0.8474744, 0.84747446, 0.84747446, 1)
 [node name="LayersMenu" parent="." instance=ExtResource("8_ssf0w")]
 layout_mode = 0
 offset_left = 995.0
-offset_top = -2.0
+offset_top = 552.0
 offset_right = 1644.0
 offset_bottom = 961.0
 number_layer = 1
+layers_preview = Array[Texture]([ExtResource("11_45ott")])
 
 [node name="ExitArea" type="Area2D" parent="."]
 collision_mask = 4
