@@ -30,7 +30,7 @@ func _ready() -> void:
 		var coordinates: Array[Vector2i]
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
-		$LayersMenu.mask_textures[1] = coordinates
+		$LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.
