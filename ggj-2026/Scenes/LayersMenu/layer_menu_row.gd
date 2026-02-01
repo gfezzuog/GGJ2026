@@ -33,10 +33,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		if in_visibility_icon:
 			mask_disabled = not mask_disabled
+			$AudioStreamPlayer.play()
 		elif mouse_left_inside:
 			mask.rotate_ninenty_orario()
+			$AudioStreamPlayer.play()
 		elif mouse_right_inside:
 			mask.rotate_ninenty_antiorario()
+			$AudioStreamPlayer.play()
 
 
 func _set_layer_number(new_value: int) -> void:
