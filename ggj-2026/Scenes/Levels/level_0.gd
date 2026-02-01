@@ -20,8 +20,8 @@ func _ready() -> void:
 			matrix.append(int(elem))
 		
 		var node: Obj = get_node("HBoxContainer/Canvas/Objs/" + name)
-		print(node)
-		print(matrix)
+		#print(node)
+		#print(matrix)
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera

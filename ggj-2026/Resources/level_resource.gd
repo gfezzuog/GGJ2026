@@ -12,7 +12,7 @@ func _init() -> void:
 	var data: String
 	var json: JSON
 	var file = FileAccess.open(file_path, FileAccess.READ)
-	print(file)
+	#print(file)
 	data = file.get_as_text()
 	file.close()
 	json = JSON.new()

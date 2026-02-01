@@ -21,9 +21,9 @@ func _ready():
 
 func change_mask(mask):
 	#for child in $Objs.get_children():
-	print(grid)	#print(mask)
+	#print(grid)	#print(mask)
 	for i in range(mask.size()) :
-		print(mask[i])
+		#print(mask[i])
 		print("PEFFORZA", grid[mask[i].x][mask[i].y])
 		#for j in range(grid.size()) :
 			#if (mask[i] == grid[j]) :
@@ -52,9 +52,9 @@ func place_object(obj) -> bool:
 		for j in obj.size.y:
 			#print("valore di j ", j)
 			grid[obj.pos.x + i][obj.pos.y + j] = obj
-	for i in obj.size.x:
-		for j in obj.size.y:#grid.insert(obj.pos.x, obj.size.x)
-			print(grid[obj.pos.x + i][obj.pos.y + j])
+	#for i in obj.size.x:
+		#for j in obj.size.y:
+			#print(grid[obj.pos.x + i][obj.pos.y + j])
 	#print(grid)	#print(mask)
 	return true
 

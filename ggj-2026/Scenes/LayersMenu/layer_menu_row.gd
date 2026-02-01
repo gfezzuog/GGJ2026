@@ -12,6 +12,7 @@ var mouse_left_inside = false
 var mouse_right_inside = false
 var rotation_disabled = false : set = _set_rotation_disabled
 @onready var visibilityIcon = %VisibilityIcon
+var disabled = false : set = _set_row_disabled
 
 
 func _ready() -> void:
@@ -35,10 +36,10 @@ func _input(event: InputEvent) -> void:
 			mask_disabled = not mask_disabled
 			$AudioStreamPlayer.play()
 		elif mouse_left_inside:
-			mask.rotate_ninenty_orario()
+			_on_left_pressed()
 			$AudioStreamPlayer.play()
 		elif mouse_right_inside:
-			mask.rotate_ninenty_antiorario()
+			_on_right_pressed()
 			$AudioStreamPlayer.play()
 
 
@@ -73,6 +74,13 @@ func _set_rotation_disabled(new_value: bool):
 	else:
 		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left.show()
 		$LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right.show()
+
+
+func _set_row_disabled(new_value: bool):
+	disabled = new_value
+	if new_value == true:
+		$LayerMenuRow/Area2D.monitorable = false
+		$LayerMenuRow/Area2D.monitoring = false
 
 
 func get_mask() -> Mask:
@@ -209,16 +217,16 @@ func _on_visibility_icon_mouse_exited() -> void:
 
 func _on_left_pressed() -> void:
 	if mask:
-		SignalBus.mask_disabled.emit(mask, layer_number)
+		SignalBus.mask_disabled.emit(mask, mask.layer)
 		mask.rotate_ninenty_orario()
-		SignalBus.mask_enabled.emit(mask, layer_number)
+		SignalBus.mask_enabled.emit(mask, mask.layer)
 
 
 func _on_right_pressed() -> void:
 	if mask:
-		SignalBus.mask_disabled.emit(mask, layer_number)
+		SignalBus.mask_disabled.emit(mask, mask.layer)
 		mask.rotate_ninenty_antiorario()
-		SignalBus.mask_enabled.emit(mask, layer_number)
+		SignalBus.mask_enabled.emit(mask, mask.layer)
 
 
 func _on_left_mouse_entered() -> void:
