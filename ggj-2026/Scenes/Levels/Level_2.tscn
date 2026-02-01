@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d6qqpoaqagm4"]
+[gd_scene load_steps=22 format=3 uid="uid://d6qqpoaqagm4"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_npaxn"]
 [ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
@@ -17,7 +17,19 @@
 [ext_resource type="Texture2D" uid="uid://sd8he6hsiyne" path="res://Assets/Level_1/layer_2.png" id="19_sfgnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
-size = Vector2(313, 184)
+size = Vector2(231, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rujef"]
+size = Vector2(185, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6wrx"]
+size = Vector2(138, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0h1s"]
+size = Vector2(92, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ooxlk"]
+size = Vector2(46, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xng3"]
 size = Vector2(46, 92)
@@ -71,12 +83,39 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
-visible = false
 position = Vector2(185, 92)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D"]
-position = Vector2(-28.5, 0)
+position = Vector2(-69.5, 0)
 shape = SubResource("RectangleShape2D_8nmnw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D2"]
+position = Vector2(-92.5, 138.5)
+shape = SubResource("RectangleShape2D_rujef")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D3"]
+position = Vector2(-116, 230.5)
+shape = SubResource("RectangleShape2D_p6wrx")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D4"]
+position = Vector2(-139, 322)
+shape = SubResource("RectangleShape2D_e0h1s")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D5"]
+position = Vector2(-162, 414)
+shape = SubResource("RectangleShape2D_ooxlk")
 
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
