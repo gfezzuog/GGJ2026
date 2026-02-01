@@ -35,3 +35,7 @@ func _ready() -> void:
 	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.
+
+
+func _on_exit_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

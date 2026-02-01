@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=67 format=4 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -168,6 +168,9 @@ resource_local_to_scene = true
 shader = ExtResource("11_trw0a")
 shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/rect_count = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it58x"]
+size = Vector2(1284, 90.5)
 
 [node name="Level1" type="Control"]
 physics_interpolation_mode = 0
@@ -575,6 +578,14 @@ metadata/_custom_type_script = "uid://bulblyecrkaha"
 material = SubResource("ShaderMaterial_tjj3e")
 texture = ExtResource("15_tjcye")
 centered = false
+
+[node name="ExitArea" type="Area2D" parent="HBoxContainer/Canvas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/ExitArea"]
+visibility_layer = 2
+position = Vector2(488, 1031.25)
+shape = SubResource("RectangleShape2D_it58x")
 
 [node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(646, 0)
