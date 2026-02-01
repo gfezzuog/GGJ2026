@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://t2ssio18qg27"]
+[gd_scene load_steps=15 format=3 uid="uid://t2ssio18qg27"]
 
 [ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
@@ -7,6 +7,50 @@
 [ext_resource type="PackedScene" uid="uid://d6qqpoaqagm4" path="res://Scenes/Levels/Level_2.tscn" id="4_vbegm"]
 [ext_resource type="Texture2D" uid="uid://clmtyoas2vl30" path="res://Assets/sfondo2.png" id="5_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://fokcmy1mowy1" path="res://Scenes/Popup/Popup.tscn" id="6_g14j6"]
+[ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="8_77dp3"]
+[ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_5tkv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xersf"]
+content_margin_left = 0.0
+bg_color = Color(0.8980392, 0.36078432, 0.23529412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00tp4"]
+resource_local_to_scene = true
+bg_color = Color(0.5882353, 0.19607843, 0.101960786, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77dp3"]
+bg_color = Color(0.3168299, 0.08952845, 0.03504347, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tkv4"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.58927995, 0.19688109, 0.10386098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykrsh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -46,6 +90,93 @@ offset_left = 171.0
 offset_top = 92.0
 offset_right = 1805.0
 offset_bottom = 1058.0
+
+[node name="RightDisplay" type="Panel" parent="LevelContainer"]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 24.0
+offset_right = 1728.0
+offset_bottom = 959.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xersf")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelContainer/RightDisplay"]
+layout_mode = 0
+offset_right = 709.0
+offset_bottom = 935.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelContainer/RightDisplay/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 105)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 780)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_constants/separation = -4
+
+[node name="TextureRect" type="Panel" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(110, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_00tp4")
+
+[node name="Label" type="Label" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 0
+offset_right = 107.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("8_77dp3")
+theme_override_font_sizes/font_size = 24
+text = "Layers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="Panel" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(130, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_77dp3")
+
+[node name="Label" type="Label" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_5tkv4")
+theme_override_font_sizes/font_size = 24
+text = "Channels"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+
+[node name="ColorRect" type="ColorRect" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Node2D"]
+z_index = 2
+offset_left = 4.0
+offset_top = 41.0
+offset_right = 106.0
+offset_bottom = 57.0
+color = Color(0.5882353, 0.19607843, 0.101960786, 1)
+
+[node name="Panel" type="PanelContainer" parent="LevelContainer/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5tkv4")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 163.0
