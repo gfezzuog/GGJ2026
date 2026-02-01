@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://t2ssio18qg27"]
+[gd_scene load_steps=8 format=3 uid="uid://t2ssio18qg27"]
 
 [ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://diolorlm1d1tq" path="res://Scenes/Levels/Level_1.tscn" id="2_ykrsh"]
 [ext_resource type="PackedScene" uid="uid://bgtkvkh8eklqh" path="res://Scenes/UI/LevelTab.tscn" id="4_g14j6"]
 [ext_resource type="Texture2D" uid="uid://clmtyoas2vl30" path="res://Assets/sfondo2.png" id="5_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://fokcmy1mowy1" path="res://Scenes/Popup/Popup.tscn" id="6_g14j6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykrsh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -21,7 +22,7 @@ corner_radius_bottom_left = 15
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6uqi0")
 levels = Array[PackedScene]([ExtResource("1_37kl0"), ExtResource("2_ykrsh"), ExtResource("1_37kl0")])
-levelNames = Array[String](["Level 0", "Level 1", "Level 2"])
+levelNames = Array[String](["Tutorial", "Level 0", "Level 1"])
 levelTabScene = ExtResource("4_g14j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -51,3 +52,6 @@ offset_top = 89.0
 offset_right = 1134.0
 offset_bottom = 1060.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ykrsh")
+
+[node name="Popup" parent="." instance=ExtResource("6_g14j6")]
+position = Vector2(630, 534)

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d0j2byyq6to8q" path="res://Assets/Level_1/1.png" id="8_34y5i"]
 [ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="11_trw0a"]
-[ext_resource type="Script" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
+[ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
 [ext_resource type="Texture2D" uid="uid://r8c3cw21vc1w" path="res://Assets/Level_1/4_red_alt.png" id="13_tjcye"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
 [ext_resource type="Texture2D" uid="uid://ce4yokgyq8jmh" path="res://Assets/Level_1/7_mod.png" id="15_tjcye"]

@@ -46,7 +46,7 @@ func place_object(obj) -> bool:
 	for i in obj.size.x:
 		for j in obj.size.y:#grid.insert(obj.pos.x, obj.size.x)
 			print(grid[obj.pos.x + i][obj.pos.y + j])
-	print(grid)	#print(mask)
+	#print(grid)	#print(mask)
 	return true
 
 
