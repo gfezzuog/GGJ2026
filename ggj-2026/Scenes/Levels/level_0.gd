@@ -37,6 +37,5 @@ func _ready() -> void:
 	
 	pass # Replace with function body.
 
-
 func _on_exit_area_body_entered(_body: Node2D) -> void:
 	$HBoxContainer/Canvas/Player.game_over()

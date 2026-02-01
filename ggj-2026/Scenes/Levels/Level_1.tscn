@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=68 format=4 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -54,7 +54,7 @@ size = Vector2(92, 138)
 size = Vector2(92, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6ugg"]
-size = Vector2(582, 123)
+size = Vector2(556, 123)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6xvf"]
 size = Vector2(159, 25)
@@ -63,7 +63,10 @@ size = Vector2(159, 25)
 size = Vector2(92, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uigiy"]
-size = Vector2(46, 63)
+size = Vector2(73, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p57jc"]
+size = Vector2(20, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trgpn"]
 size = Vector2(62, 168)
@@ -168,6 +171,9 @@ resource_local_to_scene = true
 shader = ExtResource("11_trw0a")
 shader_parameter/rects = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/rect_count = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it58x"]
+size = Vector2(1284, 90.5)
 
 [node name="Level1" type="Control"]
 physics_interpolation_mode = 0
@@ -314,7 +320,7 @@ shape = SubResource("RectangleShape2D_q6jrw")
 position = Vector2(185, 204)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D9"]
-position = Vector2(168, 378.5)
+position = Vector2(155, 378.5)
 shape = SubResource("RectangleShape2D_x6ugg")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
@@ -335,8 +341,15 @@ shape = SubResource("RectangleShape2D_6vjt7")
 position = Vector2(185, 204)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D12"]
-position = Vector2(483, 408.5)
+position = Vector2(469.5, 408.5)
 shape = SubResource("RectangleShape2D_uigiy")
+
+[node name="StaticBody2D25" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 204)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D25"]
+position = Vector2(444, 355.5)
+shape = SubResource("RectangleShape2D_p57jc")
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
 position = Vector2(185, 204)
@@ -576,6 +589,14 @@ material = SubResource("ShaderMaterial_tjj3e")
 texture = ExtResource("15_tjcye")
 centered = false
 
+[node name="ExitArea" type="Area2D" parent="HBoxContainer/Canvas"]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/ExitArea"]
+visibility_layer = 2
+position = Vector2(488, 1031.25)
+shape = SubResource("RectangleShape2D_it58x")
+
 [node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(646, 0)
 layout_mode = 2
@@ -592,3 +613,5 @@ offset_top = 469.0
 offset_right = 1641.0
 offset_bottom = 953.0
 layers_preview = Array[Texture]([ExtResource("17_qxyq8"), ExtResource("18_q6jrw"), ExtResource("19_x6ugg")])
+
+[connection signal="body_entered" from="HBoxContainer/Canvas/ExitArea" to="." method="_on_exit_area_body_entered"]
