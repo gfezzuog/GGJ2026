@@ -98,6 +98,12 @@ func remove_mask():
 			visibilityIcon.hide()
 
 
+func disable():
+	hide()
+	$LayerMenuRow/Area2D.monitorable = false
+	$LayerMenuRow/Area2D.monitoring = false
+
+
 func _on_mask_mouse_entered() -> void:
 	var style_box: StyleBoxFlat = %PanelContainer.get_theme_stylebox("panel")
 	style_box.border_width_bottom = 8

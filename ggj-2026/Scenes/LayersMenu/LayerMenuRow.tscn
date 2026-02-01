@@ -37,13 +37,13 @@ resource_local_to_scene = true
 bg_color = Color(0.12721047, 0, 0.7215379, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atvwj"]
-size = Vector2(423, 128)
+size = Vector2(420, 128)
 
 [node name="LayerMenuRow" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 120)
 offset_right = 400.0
 offset_bottom = 84.0
-size_flags_vertical = 6
+size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("1_atvwj")
 script = ExtResource("1_urd4n")
 
@@ -78,6 +78,7 @@ texture = ExtResource("4_hbla2")
 centered = false
 
 [node name="MaskDisplay" type="MarginContainer" parent="LayerMenuRow"]
+visible = false
 custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,7 +199,7 @@ theme_override_font_sizes/font_size = 21
 text = "Layer 0"
 
 [node name="Area2D" type="Area2D" parent="LayerMenuRow"]
-position = Vector2(211.5, 64)
+position = Vector2(210, 64)
 collision_layer = 16
 collision_mask = 8
 monitorable = false
