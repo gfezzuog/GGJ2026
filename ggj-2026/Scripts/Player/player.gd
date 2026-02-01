@@ -6,7 +6,11 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	print(position)
+	
 
+func game_over() -> void:
+	#print("MORTO COJONS")
+	SignalBus.emit_signal("game_over")
 
 func _physics_process(delta: float) -> void:
 	
@@ -15,8 +19,9 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 
 		if collider.collision_layer & (1 << 1):
-			print("MORTO COJONS")
-			#game_over()
+			game_over()
+			pass
+			#game_over() #placeholder
 	
 	# Add the gravity.
 	if not is_on_floor():
