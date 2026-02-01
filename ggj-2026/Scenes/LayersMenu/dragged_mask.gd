@@ -7,6 +7,7 @@ var reference_mask: Mask : set = _set_reference_mask
 func _ready() -> void:
 	global_position = get_global_mouse_position()
 	size = dimension
+	$Panel.size = size
 	$Area2D/CollisionShape2D.shape.size = dimension
 
 

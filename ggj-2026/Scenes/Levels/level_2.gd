@@ -34,6 +34,7 @@ func _ready() -> void:
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 		#%LayersMenu.layers_row[1].mask.disabled = true
 	%LayersMenu.create_masks()
+	%LayersMenu.layers_row[0].disabled = true
 		
 	pass # Replace with function body.
 

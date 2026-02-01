@@ -15,8 +15,18 @@ extends CharacterBody2D
 
 var was_on_floor := false
 var prev_velocity_y := 0.0
+
+# diventa not active quando apri il popup
+var active = true
+
 func _ready() -> void:
 	print(position)
+	
+	# attiva/disattiva player col popup
+	SignalBus.connect("open_popup_ok", deactivate)
+	SignalBus.connect("open_popup_yes_no", deactivate)
+	SignalBus.connect("close_popup", activate)
+
 	
 
 func _do_game_over() -> void:
@@ -28,7 +38,20 @@ func game_over():
 	call_deferred("_do_game_over")
 
 
+func activate():
+	print("player attivato")
+	active = true
+	
+func deactivate(text):
+	print("player disattivato")
+	active = false
+
 func _physics_process(delta: float) -> void:
+	
+	# Se il popup e' aperto non fare nulla
+	if (!active):
+		return
+	
 	# SALVO LA VELOCITÀ PRIMA DEL MOVIMENTO
 	prev_velocity_y = velocity.y
 

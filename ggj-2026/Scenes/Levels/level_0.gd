@@ -20,12 +20,12 @@ func _ready() -> void:
 			matrix.append(int(elem))
 		
 		var node: Obj = get_node("HBoxContainer/Canvas/Objs/" + name)
-		print(node)
-		print(matrix)
+		#print(node)
+		#print(matrix)
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
-	%LayersMenu.mask_textures = [[], [], []]
+	%LayersMenu.mask_textures = [[], [], [], [], []]
 	
 	var masks = level1["masks"]
 	for mask in masks:
@@ -34,6 +34,10 @@ func _ready() -> void:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 	%LayersMenu.create_masks()
+	
+	var rows: Array[LayerMenuRow] = %LayersMenu.layers_row
+	for row in rows:
+		row.rotation_disabled = true
 	
 	pass # Replace with function body.
 

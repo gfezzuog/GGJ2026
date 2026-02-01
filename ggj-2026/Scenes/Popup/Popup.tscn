@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://fokcmy1mowy1"]
+
+[ext_resource type="Script" uid="uid://c8gl444yta0fp" path="res://Scenes/Popup/popup.gd" id="1_cqdh6"]
+[ext_resource type="Texture2D" uid="uid://bhu51c7122c40" path="res://Assets/GUI/Popup/popup_base.png" id="2_s0vir"]
+[ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="3_gxl3e"]
+[ext_resource type="Texture2D" uid="uid://c2dasiwy21w04" path="res://Assets/GUI/Popup/popup_ok.png" id="4_gxl3e"]
+[ext_resource type="Texture2D" uid="uid://ggmllbaruaao" path="res://Assets/GUI/Popup/popup_yes.png" id="5_m2hwa"]
+[ext_resource type="Texture2D" uid="uid://hqef1jehs7u1" path="res://Assets/GUI/Popup/popup_no.png" id="6_76qw0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_je06i"]
+bg_color = Color(0, 0, 0, 0.22352941)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Popup" type="Node2D"]
+script = ExtResource("1_cqdh6")
+
+[node name="Content" type="Node2D" parent="."]
+visible = false
+position = Vector2(-243, -85)
+
+[node name="Ombra" type="Panel" parent="Content"]
+offset_right = 497.0
+offset_bottom = 199.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_je06i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Content"]
+position = Vector2(243, 85)
+texture = ExtResource("2_s0vir")
+
+[node name="PanelContainer" type="Control" parent="Content"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = 26.0
+offset_right = 490.0
+offset_bottom = 182.0
+
+[node name="Label" type="Label" parent="Content/PanelContainer"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 501.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_gxl3e")
+theme_override_font_sizes/font_size = 27
+text = "Testo di questo bellissimo popup"
+horizontal_alignment = 1
+
+[node name="Button_ok" type="Button" parent="Content/PanelContainer"]
+visible = false
+layout_mode = 0
+offset_left = 129.0
+offset_top = 83.0
+offset_right = 367.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("4_gxl3e")
+flat = true
+
+[node name="Button_yes" type="Button" parent="Content/PanelContainer"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 83.0
+offset_right = 234.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_m2hwa")
+flat = true
+
+[node name="Button_no" type="Button" parent="Content/PanelContainer"]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 83.0
+offset_right = 499.0
+offset_bottom = 163.0
+mouse_default_cursor_shape = 2
+icon = ExtResource("6_76qw0")
+flat = true
+
+[connection signal="pressed" from="Content/PanelContainer/Button_ok" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Content/PanelContainer/Button_yes" to="." method="_on_button_yes_pressed"]
+[connection signal="pressed" from="Content/PanelContainer/Button_no" to="." method="_on_button_no_pressed"]

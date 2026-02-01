@@ -24,9 +24,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if hovered and Input.is_action_just_pressed("click") and not dragged:
 		dragged = true
+		Cursor.change_in_dragged()
 		mask_dragged.emit(true, self)
 	if Input.is_action_just_released("click") and dragged:
 		dragged = false
+		Cursor.change_in_arrow()
 		mask_dragged.emit(false, self)
 
 
@@ -81,9 +83,7 @@ func rotate_ninenty_antiorario():
 
 func _on_mouse_entered() -> void:
 	hovered = true
-	print("MOUSE ENTRATO")
 
 
 func _on_mouse_exited() -> void:
 	hovered = false
-	print("MOUSE USCITO")
