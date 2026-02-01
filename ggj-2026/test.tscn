@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://Resources/Sound/Soundtrack_lv2.wav" id="7_vbegm"]
 [ext_resource type="FontFile" uid="uid://sjl674ai10ho" path="res://Assets/Font/COMIC BOOK BOLD.OTF" id="8_77dp3"]
 [ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_5tkv4"]
+[ext_resource type="AudioStream" uid="uid://dq0f2crrevc2b" path="res://Resources/Sound/Game jam Musica.wav" id="7_vbegm"]
+[ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://Resources/Sound/Soundtrack_lv2.wav" id="7_vbegm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xersf"]
 content_margin_left = 0.0
