@@ -58,6 +58,10 @@ func get_mask() -> Mask:
 	return mask
 
 
+func set_layer_preview(texture: Texture) -> void:
+	$LayerMenuRow/LayerDisplay/Texture.texture = texture
+
+
 func add_mask(new_mask: Mask) -> void:
 	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count() == 0:
 		$LayerMenuRow/MaskDisplay/PanelContainer.add_child(new_mask)

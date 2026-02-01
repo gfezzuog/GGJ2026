@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://diolorlm1d1tq"]
+[gd_scene load_steps=43 format=4 uid="uid://diolorlm1d1tq"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_iyh3f"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="2_ducwx"]
@@ -10,12 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://c5datb28w56b0" path="res://Assets/Level_1/2.png" id="7_o5ofx"]
 [ext_resource type="Texture2D" uid="uid://cydwuays1go5p" path="res://Assets/Level_1/6.png" id="8_8nmnw"]
 [ext_resource type="Texture2D" uid="uid://d0j2byyq6to8q" path="res://Assets/Level_1/1.png" id="8_34y5i"]
-[ext_resource type="Texture2D" uid="uid://udsi23o5dc1s" path="res://Assets/Level_1/4.png" id="8_hs11j"]
 [ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
-[ext_resource type="Texture2D" uid="uid://beyg7hi6g02q8" path="res://Assets/Level_1/7.png" id="10_o5ofx"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="11_trw0a"]
 [ext_resource type="Script" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
+[ext_resource type="Texture2D" uid="uid://fgpj8edg8hu7" path="res://Assets/Level_1/4_red.png" id="13_tjcye"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
+[ext_resource type="Texture2D" uid="uid://ce4yokgyq8jmh" path="res://Assets/Level_1/7_mod.png" id="15_tjcye"]
+[ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://Assets/Level_1/layer_0.png" id="17_qxyq8"]
+[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://Assets/Level_1/layer_1.png" id="18_q6jrw"]
+[ext_resource type="Texture2D" uid="uid://sd8he6hsiyne" path="res://Assets/Level_1/layer_2.png" id="19_x6ugg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
 size = Vector2(368, 184)
@@ -311,7 +314,7 @@ layer = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine"]
 material = SubResource("ShaderMaterial_trw0a")
-texture = ExtResource("8_hs11j")
+texture = ExtResource("13_tjcye")
 centered = false
 
 [node name="lupisco" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
@@ -335,7 +338,7 @@ metadata/_custom_type_script = "uid://bulblyecrkaha"
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/donna"]
 material = SubResource("ShaderMaterial_tjj3e")
-texture = ExtResource("10_o5ofx")
+texture = ExtResource("15_tjcye")
 centered = false
 
 [node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
@@ -353,3 +356,4 @@ offset_left = 999.0
 offset_top = 469.0
 offset_right = 1641.0
 offset_bottom = 953.0
+layers_preview = Array[Texture]([ExtResource("17_qxyq8"), ExtResource("18_q6jrw"), ExtResource("19_x6ugg")])

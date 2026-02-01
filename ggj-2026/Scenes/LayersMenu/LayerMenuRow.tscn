@@ -80,12 +80,12 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 
 [node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
-[node name="Sprite2D2" type="Sprite2D" parent="LayerMenuRow/MaskDisplay"]
-position = Vector2(10, 10)
+[node name="Sprite2D2" type="Sprite2D" parent="LayerMenuRow/MaskDisplay/Disable"]
 scale = Vector2(0.46808517, 0.49541286)
 texture = ExtResource("4_hbla2")
 centered = false
