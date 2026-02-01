@@ -206,12 +206,16 @@ func _on_visibility_icon_mouse_exited() -> void:
 
 func _on_left_pressed() -> void:
 	if mask:
+		SignalBus.mask_disabled.emit(mask, layer_number)
 		mask.rotate_ninenty_orario()
+		SignalBus.mask_enabled.emit(mask, layer_number)
 
 
 func _on_right_pressed() -> void:
 	if mask:
+		SignalBus.mask_disabled.emit(mask, layer_number)
 		mask.rotate_ninenty_antiorario()
+		SignalBus.mask_enabled.emit(mask, layer_number)
 
 
 func _on_left_mouse_entered() -> void:

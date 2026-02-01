@@ -2,7 +2,7 @@ extends Node
 
 var arrow = load("res://Assets/Cursor/Arrow piccolo.png")
 var hand = load("res://Assets/Cursor/Hand piccolo.png")
-var close_hand = load("res://Assets/Cursor/Hand_Drag piccolo.png")
+var close_hand = load("res://Assets/Cursor/Hand_Drag piccolo_Resized.png")
 
 
 func change_in_arrow():
