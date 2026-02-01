@@ -23,7 +23,8 @@ func _ready() -> void:
 	print(position)
 	
 	# attiva/disattiva player col popup
-	SignalBus.connect("open_popup", deactivate)
+	SignalBus.connect("open_popup_ok", deactivate)
+	SignalBus.connect("open_popup_yes_no", deactivate)
 	SignalBus.connect("close_popup", activate)
 
 	
@@ -37,11 +38,11 @@ func game_over():
 	call_deferred("_do_game_over")
 
 
-func activate(text):
+func activate():
 	print("player attivato")
 	active = true
 	
-func deactivate():
+func deactivate(text):
 	print("player disattivato")
 	active = false
 

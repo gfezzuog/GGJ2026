@@ -193,3 +193,13 @@ position = Vector2(630, 534)
 stream = ExtResource("7_vbegm")
 volume_db = -4.0
 autoplay = true
+
+[node name="Pulsante chiusura gioco" type="Button" parent="."]
+offset_left = 1867.0
+offset_top = 7.0
+offset_right = 1912.0
+offset_bottom = 49.0
+mouse_default_cursor_shape = 2
+flat = true
+
+[connection signal="pressed" from="Pulsante chiusura gioco" to="." method="_on_pulsante_chiusura_gioco_pressed"]

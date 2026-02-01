@@ -531,6 +531,7 @@ texture = ExtResource("7_rujef")
 centered = false
 
 [node name="black" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
@@ -540,6 +541,7 @@ texture = ExtResource("7_ck0i2")
 centered = false
 
 [node name="lancette" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
+visible = false
 script = ExtResource("6_luow5")
 size = Vector2i(21, 21)
 layer = 1
