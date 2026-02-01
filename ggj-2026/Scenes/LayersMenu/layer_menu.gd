@@ -5,6 +5,7 @@ extends VBoxContainer
 @export var dragged_dimension := Vector2(20, 20)
 var mask_textures: Array
 var layers_row: Array[LayerMenuRow] = []
+@export var layers_preview: Array[Texture] = []
 
 
 func _ready() -> void:
@@ -12,6 +13,8 @@ func _ready() -> void:
 		var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
 		var row = packed_scene.instantiate()
 		row.layer_number = i
+		if layers_preview.size() > i:
+			row.set_layer_preview(layers_preview[i])
 		add_child(row)
 
 

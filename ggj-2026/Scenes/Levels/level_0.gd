@@ -4,6 +4,8 @@ extends Level
 func _ready() -> void:
 	super()
 	
+	print("LayersMenu position: ", $LayersMenu.position)
+	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
 	var level1 = levelInfo.get_level_info(0)
 	#print(level1["masks"])
@@ -32,5 +34,9 @@ func _ready() -> void:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
 		$LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 	$LayersMenu.create_masks()
-		
+	
 	pass # Replace with function body.
+
+
+func _on_exit_area_body_entered(_body: Node2D) -> void:
+	$HBoxContainer/Canvas/Player.game_over()
