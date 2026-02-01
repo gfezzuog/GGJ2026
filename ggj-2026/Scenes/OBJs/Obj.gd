@@ -24,7 +24,6 @@ var collisionShapes: Array[CollisionShape2D] = []
 #var areasCreated = false
 const SQUARE_SIZE = 46
 
-
 func _ready() -> void:
 #	createCollisionShapes(collisionInfo)
 	#applyMask( [Vector2i(14,11)] )
@@ -161,6 +160,7 @@ func disableMask(maskCoords: Array[Vector2i]):
 	if ($Sprite2D.material):
 		$Sprite2D.material.set_shader_parameter("rect_count", rect_data.size())
 		$Sprite2D.material.set_shader_parameter("rects", rect_data)
+	SignalBus.emit_signal("doorDisabled")
 
 func enableCollision(x, y):
 

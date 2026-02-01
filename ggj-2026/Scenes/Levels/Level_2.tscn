@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://Grid.tscn" id="3_q5gq6"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://Scenes/Player/player.tscn" id="4_duc5e"]
-[ext_resource type="Script" uid="uid://ciximxt6hemft" path="res://Scripts/Door/door.gd" id="5_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://c4a48w2ctvl75" path="res://Assets/Level_2/spine_sx.png" id="6_0jitg"]
 [ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://Assets/porta_transp.png" id="6_cexhq"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://Scenes/OBJs/Obj.gd" id="6_luow5"]
 [ext_resource type="Texture2D" uid="uid://bmjgc1bb0umno" path="res://Assets/Level_2/black.png" id="7_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://Assets/Level_2/spine_dx.png" id="7_rujef"]
 [ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://Assets/Level_2/lancette.png" id="8_rujef"]
+[ext_resource type="Script" uid="uid://cemstpp8dhwj0" path="res://Scenes/OBJs/Door_Obj.gd" id="10_cexhq"]
 [ext_resource type="Texture2D" uid="uid://cvmh6tefkkvic" path="res://Assets/Level_0/layer_0.png" id="13_cexhq"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="16_qjwmo"]
 
@@ -558,7 +558,7 @@ centered = false
 
 [node name="Door" type="Node2D" parent="HBoxContainer/Canvas"]
 position = Vector2(23, 733)
-script = ExtResource("5_ck0i2")
+script = ExtResource("10_cexhq")
 
 [node name="Area2D" type="Area2D" parent="HBoxContainer/Canvas/Door"]
 collision_mask = 4
@@ -567,9 +567,9 @@ collision_mask = 4
 position = Vector2(552, -182)
 shape = SubResource("RectangleShape2D_6xng3")
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Door/Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Door"]
 visible = false
-position = Vector2(-1.0000012, 5.375003)
+position = Vector2(-1.0000019, 5.375)
 scale = Vector2(0.79999995, 0.8616505)
 texture = ExtResource("6_cexhq")
 
