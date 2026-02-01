@@ -23,11 +23,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if hovered and Input.is_action_just_pressed("click") and not dragged:
-		print("MASK: Inizia il drag")
 		dragged = true
 		mask_dragged.emit(true, self)
 	if Input.is_action_just_released("click") and dragged:
-		print("MASK: Finisce il drag")
 		dragged = false
 		mask_dragged.emit(false, self)
 
@@ -55,6 +53,30 @@ func rectangle(image_screen:Image, pos_x:int, pos_y:int, width:int, height:int, 
 	for i in range(pos_x, pos_x + width): 
 		for j in range(pos_y, pos_y + height):             
 			image_screen.set_pixel(i,j,color) 
+
+
+func rotate_ninenty_orario():
+	var new_coords: Array[Vector2i] = []
+	for coord in coords:
+		var new_value = Vector2i(coord.y - 10, coord.x - 10)
+		new_value.y = -new_value.y
+		new_value += Vector2i(10, 10)
+		new_coords.push_back(new_value)
+	coords = new_coords
+	var new_tetxure: Texture = generate_texture(coords)
+	texture = new_tetxure
+
+
+func rotate_ninenty_antiorario():
+	var new_coords: Array[Vector2i] = []
+	for coord in coords:
+		var new_value = Vector2i(coord.y - 10, coord.x - 10)
+		new_value.x = -new_value.x
+		new_value += Vector2i(10, 10)
+		new_coords.push_back(new_value)
+	coords = new_coords
+	var new_tetxure: Texture = generate_texture(coords)
+	texture = new_tetxure
 
 
 func _on_mouse_entered() -> void:

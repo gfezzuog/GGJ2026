@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fuw2gcnxtofr"]
+[gd_scene load_steps=13 format=3 uid="uid://fuw2gcnxtofr"]
 
 [ext_resource type="StyleBox" uid="uid://dtueudd02m8a1" path="res://Scenes/LayersMenu/LayerMenuRowBox.tres" id="1_atvwj"]
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bylkduptfhnma" path="res://Assets/GUI/square.png" id="4_hbla2"]
 [ext_resource type="Texture2D" uid="uid://qv74x523hlcq" path="res://Assets/GUI/eye_open.png" id="5_hbla2"]
 [ext_resource type="Texture2D" uid="uid://cicu62skas0u" path="res://Assets/GUI/eye_closed.png" id="6_cqoqi"]
+[ext_resource type="Texture2D" uid="uid://dtf3bf6xw24er" path="res://Assets/GUI/rotation_arrow_left.png" id="7_oy1as"]
+[ext_resource type="Texture2D" uid="uid://darshk2wb54ik" path="res://Assets/GUI/rotation_arrow_right.png" id="8_j5t7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbla2"]
 bg_color = Color(1, 1, 1, 1)
@@ -19,6 +21,17 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqoqi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.46138418, 0.6352145, 0.66593987, 0.5294118)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
 bg_color = Color(0.12721047, 0, 0.7215379, 1)
@@ -30,7 +43,7 @@ size = Vector2(420, 128)
 custom_minimum_size = Vector2(0, 120)
 offset_right = 400.0
 offset_bottom = 84.0
-size_flags_vertical = 6
+size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("1_atvwj")
 script = ExtResource("1_urd4n")
 
@@ -66,29 +79,95 @@ centered = false
 
 [node name="MaskDisplay" type="MarginContainer" parent="LayerMenuRow"]
 visible = false
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 6
 
 [node name="PanelContainer" type="PanelContainer" parent="LayerMenuRow/MaskDisplay"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cqoqi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(108.8, 100)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 
-[node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
+[node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
-[node name="Sprite2D2" type="Sprite2D" parent="LayerMenuRow/MaskDisplay"]
-position = Vector2(10, 10)
+[node name="Sprite2D2" type="Sprite2D" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer/Disable"]
 scale = Vector2(0.46808517, 0.49541286)
 texture = ExtResource("4_hbla2")
 centered = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 13
+
+[node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_hbla2")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VisibilityIconDisabled" type="TextureRect" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_cqoqi")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Left" type="Button" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+action_mode = 0
+icon = ExtResource("7_oy1as")
+flat = true
+expand_icon = true
+
+[node name="Right" type="Button" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("8_j5t7p")
+flat = true
+expand_icon = true
 
 [node name="Spacer" type="Container" parent="LayerMenuRow"]
 custom_minimum_size = Vector2(15, 0)
@@ -101,32 +180,6 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 5.0
 theme_override_constants/separation = 10
 alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/TextDisplay"]
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
-visible = false
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_hbla2")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="VisibilityIconDisabled" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
-visible = false
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("6_cqoqi")
-expand_mode = 3
-stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LayerMenuRow/TextDisplay"]
 layout_mode = 2
@@ -156,9 +209,11 @@ monitorable = false
 shape = SubResource("RectangleShape2D_atvwj")
 
 [connection signal="resized" from="." to="." method="_on_resized"]
-[connection signal="mouse_entered" from="LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_entered"]
-[connection signal="mouse_exited" from="LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_exited"]
-[connection signal="mouse_entered" from="LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_entered"]
-[connection signal="mouse_exited" from="LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_exited"]
+[connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_entered"]
+[connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_exited"]
+[connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_entered"]
+[connection signal="mouse_exited" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIconDisabled" to="." method="_on_visibility_icon_mouse_exited"]
+[connection signal="pressed" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
 [connection signal="area_entered" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="LayerMenuRow/Area2D" to="." method="_on_area_2d_area_exited"]

@@ -10,12 +10,17 @@ var layers_row: Array[LayerMenuRow] = []
 
 func _ready() -> void:
 	for i in range(number_layer):
-		var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
-		var row = packed_scene.instantiate()
+		#var packed_scene: PackedScene = load("res://Scenes/LayersMenu/LayerMenuRow.tscn")
+		#var row = packed_scene.instantiate()
+		var row = get_child(i)
 		row.layer_number = i
 		if layers_preview.size() > i:
 			row.set_layer_preview(layers_preview[i])
-		add_child(row)
+		#add_child(row)
+	for j in range(5 - number_layer):
+		var row = get_child(j + number_layer)
+		row.layer_number = j + number_layer
+		row.disable()
 
 
 func create_masks():
@@ -27,7 +32,7 @@ func create_masks():
 			var texture = new_mask.generate_texture(coordinates)
 			new_mask.texture = texture
 			new_mask.coords = coordinates
-			var row = get_child(i + 1)
+			var row = get_child(i)
 			row.add_mask(new_mask)
 			row.mask_disabled = true
 			new_mask.mask_dragged.connect(_on_mask_dragged)
