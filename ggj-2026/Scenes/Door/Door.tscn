@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://3w4xouxyjsd1"]
+[gd_scene load_steps=4 format=3 uid="uid://3w4xouxyjsd1"]
 
 [ext_resource type="Script" uid="uid://ciximxt6hemft" path="res://Scripts/Door/door.gd" id="1_w2t8u"]
+[ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://Assets/porta_transp.png" id="2_cisc1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xng3"]
 size = Vector2(46, 92)
@@ -15,21 +16,9 @@ collision_mask = 4
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_6xng3")
 
-[node name="ColorRect" type="ColorRect" parent="Area2D"]
-offset_left = -23.0
-offset_top = -42.0
-offset_right = 23.0
-offset_bottom = 51.0
-color = Color(0.25882354, 1, 0.34901962, 1)
-
-[node name="Label" type="Label" parent="Area2D/ColorRect"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 14.0
-offset_right = 44.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "POR-
-TA"
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1.0000012, 5.375003)
+scale = Vector2(0.79999995, 0.8616505)
+texture = ExtResource("2_cisc1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
