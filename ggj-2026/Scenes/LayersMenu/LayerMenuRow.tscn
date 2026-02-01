@@ -1,32 +1,54 @@
-[gd_scene load_steps=8 format=3 uid="uid://fuw2gcnxtofr"]
+[gd_scene load_steps=10 format=3 uid="uid://fuw2gcnxtofr"]
 
 [ext_resource type="StyleBox" uid="uid://dtueudd02m8a1" path="res://Scenes/LayersMenu/LayerMenuRowBox.tres" id="1_atvwj"]
 [ext_resource type="Script" uid="uid://djd1jf0c25twj" path="res://Scenes/LayersMenu/layer_menu_row.gd" id="1_urd4n"]
-[ext_resource type="Texture2D" uid="uid://dw1xhg66jfu6y" path="res://Assets/Placeholder/UI/Eye.png" id="2_dbhnm"]
 [ext_resource type="Texture2D" uid="uid://cybpfg16atbrk" path="res://Assets/Placeholder/UI/livello_1_-_layer_0_rosa_layer_1_blu_con_spine_in_rosso_layer_2_giallo_porta_verde.webp" id="3_hbla2"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://Assets/icon.svg" id="4_dbhnm"]
+[ext_resource type="Texture2D" uid="uid://bylkduptfhnma" path="res://Assets/GUI/square.png" id="4_hbla2"]
+[ext_resource type="Texture2D" uid="uid://qv74x523hlcq" path="res://Assets/GUI/eye_open.png" id="5_hbla2"]
+[ext_resource type="Texture2D" uid="uid://cicu62skas0u" path="res://Assets/GUI/eye_closed.png" id="6_cqoqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbla2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atvwj"]
 resource_local_to_scene = true
 bg_color = Color(0.12721047, 0, 0.7215379, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atvwj"]
-size = Vector2(429, 80)
+size = Vector2(420, 128)
 
 [node name="LayerMenuRow" type="PanelContainer"]
-offset_right = 429.0
-offset_bottom = 80.0
-size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 120)
+offset_right = 400.0
+offset_bottom = 84.0
+size_flags_vertical = 6
 theme_override_styles/panel = ExtResource("1_atvwj")
 script = ExtResource("1_urd4n")
 
-[node name="LayerMenuRow" type="HBoxContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_styles/panel = SubResource("StyleBoxFlat_hbla2")
+
+[node name="LayerMenuRow" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(420, 84)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 5
 
 [node name="LayerDisplay" type="MarginContainer" parent="LayerMenuRow"]
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
@@ -34,13 +56,23 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_hbla2")
-expand_mode = 1
+expand_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="LayerMenuRow/LayerDisplay"]
+position = Vector2(11.000001, 10)
+scale = Vector2(0.46382976, 0.5)
+texture = ExtResource("4_hbla2")
+centered = false
 
 [node name="MaskDisplay" type="MarginContainer" parent="LayerMenuRow"]
+visible = false
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 10
 
 [node name="PanelContainer" type="PanelContainer" parent="LayerMenuRow/MaskDisplay"]
@@ -48,37 +80,53 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_atvwj")
 
 [node name="Disable" type="ColorRect" parent="LayerMenuRow/MaskDisplay"]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.42352942, 0.05490196, 0.050980393, 0.63529414)
 
+[node name="Sprite2D2" type="Sprite2D" parent="LayerMenuRow/MaskDisplay"]
+position = Vector2(10, 10)
+scale = Vector2(0.46808517, 0.49541286)
+texture = ExtResource("4_hbla2")
+centered = false
+
+[node name="Spacer" type="Container" parent="LayerMenuRow"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
 [node name="TextDisplay" type="VBoxContainer" parent="LayerMenuRow"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 size_flags_stretch_ratio = 5.0
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="LayerMenuRow/TextDisplay"]
+custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 3
+size_flags_vertical = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="VisibilityIcon" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
 visible = false
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("2_dbhnm")
-expand_mode = 1
+texture = ExtResource("5_hbla2")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="VisibilityIconDisabled" type="TextureRect" parent="LayerMenuRow/TextDisplay/MarginContainer"]
 visible = false
-custom_minimum_size = Vector2(25, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_dbhnm")
-expand_mode = 1
+texture = ExtResource("6_cqoqi")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LayerMenuRow/TextDisplay"]
 layout_mode = 2
@@ -86,17 +134,20 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="Normal" type="Label" parent="LayerMenuRow/TextDisplay/VBoxContainer"]
+visible = false
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 11
 text = "100% Normal"
 
 [node name="LayerNumber" type="Label" parent="LayerMenuRow/TextDisplay/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
 text = "Layer 0"
 
 [node name="Area2D" type="Area2D" parent="LayerMenuRow"]
-position = Vector2(214.5, 40)
+position = Vector2(210, 64)
 collision_layer = 16
 collision_mask = 8
 monitorable = false

@@ -61,8 +61,12 @@ func get_mask() -> Mask:
 func add_mask(new_mask: Mask) -> void:
 	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count() == 0:
 		$LayerMenuRow/MaskDisplay/PanelContainer.add_child(new_mask)
-		$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
-		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
+		$LayerMenuRow/MaskDisplay.show()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.show()
+		if mask_disabled:
+			$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.show()
+		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
+		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
 		mask.layer = self.layer_number
 		mask.layer_parent = self
@@ -79,8 +83,11 @@ func remove_mask():
 		mask.mouse_exited.disconnect(_on_mask_mouse_exited)
 		var child = $LayerMenuRow/MaskDisplay/PanelContainer.get_child(0)
 		$LayerMenuRow/MaskDisplay/PanelContainer.remove_child(child)
-		$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 0.0
-		$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
+		$LayerMenuRow/MaskDisplay.hide()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.hide()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.hide()
+		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 0.0
+		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
 		mask.layer_parent = null
 		mask = null
 		if visibilityIcon:
