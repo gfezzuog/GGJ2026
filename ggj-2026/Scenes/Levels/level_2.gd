@@ -5,11 +5,11 @@ func _ready() -> void:
 	super()
 	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
-	var level1 = levelInfo.get_level_info(2)
+	var level2 = levelInfo.get_level_info(2)
 	#print(level1["masks"])
 	
 	# Crea collisioni degli oggetti nascondibili con maschere
-	var objects = level1["objects"]
+	var objects = level2["objects"]
 	for obj in objects:
 		var name = obj["name"]
 		#var matrix = obj["matrix"]
@@ -23,19 +23,20 @@ func _ready() -> void:
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
-	%LayersMenu.mask_textures = [[], [], []]
+	%LayersMenu.mask_textures = [[], [], [], [], []]
 	
-	var masks = level1["masks"]
+	var masks = level2["masks"]
 	for mask in masks:
 		var coordinates: Array[Vector2i]
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
+		print("peffoh", mask["starting-layer"])
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 		#%LayersMenu.layers_row[1].mask.disabled = true
 	%LayersMenu.create_masks()
 		
 	pass # Replace with function body.
 
-func _on_exit_area_body_entered(body: Node2D) -> void:
-	SignalBus.emit_signal("game_over")
-	pass # Replace with function body.
+#func _on_exit_area_body_entered(body: Node2D) -> void:
+	#SignalBus.emit_signal("game_over")
+	#pass # Replace with function body.

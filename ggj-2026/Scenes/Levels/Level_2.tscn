@@ -525,7 +525,6 @@ shape = SubResource("RectangleShape2D_y0juf")
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
 [node name="spine_sx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
@@ -534,7 +533,6 @@ texture = ExtResource("6_0jitg")
 centered = false
 
 [node name="spine_dx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
-visible = false
 script = ExtResource("6_luow5")
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
