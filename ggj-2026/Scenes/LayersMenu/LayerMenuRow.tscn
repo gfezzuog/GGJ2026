@@ -157,6 +157,7 @@ theme_override_constants/separation = 0
 [node name="Left" type="Button" parent="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+action_mode = 0
 icon = ExtResource("7_oy1as")
 flat = true
 expand_icon = true
