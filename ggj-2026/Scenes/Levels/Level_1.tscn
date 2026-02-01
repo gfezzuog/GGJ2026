@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d0j2byyq6to8q" path="res://Assets/Level_1/1.png" id="8_34y5i"]
 [ext_resource type="Texture2D" uid="uid://bk7kcwkwuxcsa" path="res://Assets/Level_1/5.png" id="9_o5ofx"]
 [ext_resource type="Shader" uid="uid://dirwuw5x3ry5h" path="res://Scenes/Test/shader.gdshader" id="11_trw0a"]
-[ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
+[ext_resource type="Script" path="res://Scenes/OBJs/Dang_Obj.gd" id="12_tjcye"]
 [ext_resource type="Texture2D" uid="uid://r8c3cw21vc1w" path="res://Assets/Level_1/4_red_alt.png" id="13_tjcye"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="14_ngxpw"]
 [ext_resource type="Texture2D" uid="uid://ce4yokgyq8jmh" path="res://Assets/Level_1/7_mod.png" id="15_tjcye"]
@@ -590,10 +590,10 @@ shape = SubResource("RectangleShape2D_it58x")
 [node name="LayersMenu" parent="." instance=ExtResource("14_ngxpw")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 225.0
-offset_right = 1694.0
-offset_bottom = 925.0
+offset_left = 1045.0
+offset_top = 120.0
+offset_right = 1623.0
+offset_bottom = 872.0
 layers_preview = Array[Texture]([ExtResource("17_qxyq8"), ExtResource("18_q6jrw"), ExtResource("19_x6ugg")])
 
 [connection signal="body_entered" from="HBoxContainer/Canvas/ExitArea" to="." method="_on_exit_area_body_entered"]

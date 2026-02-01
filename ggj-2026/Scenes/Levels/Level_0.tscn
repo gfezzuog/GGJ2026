@@ -165,10 +165,10 @@ centered = false
 [node name="LayersMenu" parent="." instance=ExtResource("8_ssf0w")]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1053.0
-offset_top = 225.0
-offset_right = 1694.0
-offset_bottom = 925.0
+offset_left = 1045.0
+offset_top = 120.0
+offset_right = 1637.0
+offset_bottom = 872.0
 number_layer = 1
 layers_preview = Array[Texture]([ExtResource("11_45ott")])
 

@@ -15,6 +15,7 @@ border_color = Color(0, 0, 0, 1)
 
 [node name="DraggedMask" type="TextureRect"]
 top_level = true
+z_index = 40
 expand_mode = 1
 script = ExtResource("1_4jca5")
 
