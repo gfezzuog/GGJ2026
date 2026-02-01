@@ -4,7 +4,13 @@ extends VBoxContainer
 @export var number_layer = 3
 @export var dragged_dimension := Vector2(20, 20)
 var mask_textures: Array
-var layers_row: Array[LayerMenuRow] = []
+@onready var layers_row: Array[LayerMenuRow] = [
+	$LayerMenuRow,
+	$LayerMenuRow2,
+	$LayerMenuRow3,
+	$LayerMenuRow4,
+	$LayerMenuRow5,
+]
 @export var layers_preview: Array[Texture] = []
 
 

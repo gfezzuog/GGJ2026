@@ -35,6 +35,10 @@ func _ready() -> void:
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 	%LayersMenu.create_masks()
 	
+	var rows: Array[LayerMenuRow] = %LayersMenu.layers_row
+	for row in rows:
+		row.rotation_disabled = true
+	
 	pass # Replace with function body.
 
 func _on_exit_area_body_entered(_body: Node2D) -> void:

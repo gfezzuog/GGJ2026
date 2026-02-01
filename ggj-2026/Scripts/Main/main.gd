@@ -95,7 +95,7 @@ func _goToNextLevel() -> void:
 		if (currentLevel != null):
 			currentLevel.queue_free()
 			# distruggi tab
-			#tabs[0].queue_free()
+			#tabs[0].queue_free() 
 			tabs[currentLevelIndex - 1].queue_free()
 		
 		# istanzia nuovo livello come figlio del container per i livelli

@@ -33,6 +33,10 @@ func _ready() -> void:
 		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
 		#%LayersMenu.layers_row[1].mask.disabled = true
 	%LayersMenu.create_masks()
+	
+	var rows: Array[LayerMenuRow] = %LayersMenu.layers_row
+	for row in rows:
+		row.rotation_disabled = true
 		
 	pass # Replace with function body.
 
