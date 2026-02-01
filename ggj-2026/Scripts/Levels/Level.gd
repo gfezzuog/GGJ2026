@@ -73,7 +73,7 @@ func applyMask(mask: Mask, layer: int):
 		var ob = grid[coord.x][coord.y]
 		#print("layer di apply mask")
 		#print(layer)
-		if (ob and ob.layer == layer):
+		if (ob.layer == layer):
 			if ob not in objectsThatMustBeRemoved:
 				objectsThatMustBeRemoved.append(ob)
 	

@@ -8,7 +8,7 @@ var mask: Mask
 var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBoxHovered.tres")
 var box_normal = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
 var in_visibility_icon = false
-@onready var visibilityIcon = %VisibilityIcon
+@onready var visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon
 
 
 func _ready() -> void:
@@ -39,16 +39,16 @@ func _set_layer_number(new_value: int) -> void:
 func _set_disabled(new_value: bool) -> void:
 	mask_disabled = new_value
 	if new_value:
-		%Disable.show()
-		visibilityIcon = %VisibilityIconDisabled
-		%VisibilityIcon.hide()
+		$LayerMenuRow/MaskDisplay/Disable.show()
+		visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.hide()
 		if mask:
 			visibilityIcon.show()
 			SignalBus.mask_disabled.emit(mask, mask.layer)
 	else:
-		%Disable.hide()
-		visibilityIcon = %VisibilityIcon
-		%VisibilityIconDisabled.hide()
+		$LayerMenuRow/MaskDisplay/Disable.hide()
+		visibilityIcon = $LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.hide()
 		if mask:
 			visibilityIcon.show()
 			SignalBus.mask_enabled.emit(mask, mask.layer)
@@ -63,12 +63,12 @@ func set_layer_preview(texture: Texture) -> void:
 
 
 func add_mask(new_mask: Mask) -> void:
-	if %PanelContainer.get_child_count() == 0:
-		%PanelContainer.add_child(new_mask)
+	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count() == 0:
+		$LayerMenuRow/MaskDisplay/PanelContainer.add_child(new_mask)
 		$LayerMenuRow/MaskDisplay.show()
-		%VisibilityIcon.show()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.show()
 		if mask_disabled:
-			%VisibilityIconDisabled.show()
+			$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.show()
 		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
 		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
@@ -81,15 +81,15 @@ func add_mask(new_mask: Mask) -> void:
 
 
 func remove_mask():
-	if %PanelContainer.get_child_count():
+	if $LayerMenuRow/MaskDisplay/PanelContainer.get_child_count():
 		#mask_disabled = false
 		mask.mouse_entered.disconnect(_on_mask_mouse_entered)
 		mask.mouse_exited.disconnect(_on_mask_mouse_exited)
-		var child = %PanelContainer.get_child(0)
-		%PanelContainer.remove_child(child)
+		var child = $LayerMenuRow/MaskDisplay/PanelContainer.get_child(0)
+		$LayerMenuRow/MaskDisplay/PanelContainer.remove_child(child)
 		$LayerMenuRow/MaskDisplay.hide()
-		%VisibilityIcon.hide()
-		%VisibilityIconDisabled.hide()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIcon.hide()
+		$LayerMenuRow/TextDisplay/MarginContainer/VisibilityIconDisabled.hide()
 		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 0.0
 		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
 		mask.layer_parent = null
@@ -98,14 +98,8 @@ func remove_mask():
 			visibilityIcon.hide()
 
 
-func disable():
-	hide()
-	$LayerMenuRow/Area2D.monitorable = false
-	$LayerMenuRow/Area2D.monitoring = false
-
-
 func _on_mask_mouse_entered() -> void:
-	var style_box: StyleBoxFlat = %PanelContainer.get_theme_stylebox("panel")
+	var style_box: StyleBoxFlat = $LayerMenuRow/MaskDisplay/PanelContainer.get_theme_stylebox("panel")
 	style_box.border_width_bottom = 8
 	style_box.border_width_left = 8
 	style_box.border_width_right = 8
@@ -113,7 +107,7 @@ func _on_mask_mouse_entered() -> void:
 
 
 func _on_mask_mouse_exited() -> void:
-	var style_box: StyleBoxFlat = %PanelContainer.get_theme_stylebox("panel")
+	var style_box: StyleBoxFlat = $LayerMenuRow/MaskDisplay/PanelContainer.get_theme_stylebox("panel")
 	style_box.border_width_bottom = 0
 	style_box.border_width_left = 0
 	style_box.border_width_right = 0
@@ -179,13 +173,3 @@ func _on_visibility_icon_mouse_entered() -> void:
 func _on_visibility_icon_mouse_exited() -> void:
 	in_visibility_icon = false
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
-
-func _on_left_pressed() -> void:
-	if mask:
-		mask.rotate_ninenty_orario()
-
-
-func _on_right_pressed() -> void:
-	if mask:
-		mask.rotate_ninenty_antiorario()

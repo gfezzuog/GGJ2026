@@ -101,9 +101,8 @@ func _goToNextLevel() -> void:
 		# istanzia nuovo livello come figlio del container per i livelli
 		currentLevel = levels[currentLevelIndex].instantiate()
 		print("CURRENT LAYER: ", currentLevel)
-		#$LevelContainer.call_deferred("add_child", currentLevel)
-		$LevelContainer.add_child(currentLevel)
-		await get_tree().physics_frame
+		$LevelContainer.call_deferred("add_child", currentLevel)
+		
 		# cambia colore della nuova tab
 		if (currentLevelIndex < tabs.size()):
 			tabs[currentLevelIndex].add_theme_stylebox_override("panel", styleActiveTab)

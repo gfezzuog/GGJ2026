@@ -4,7 +4,7 @@ extends Level
 func _ready() -> void:
 	super()
 	
-	print("LayersMenu position: ", %LayersMenu.position)
+	print("LayersMenu position: ", $LayersMenu.position)
 	
 	var levelInfo: LevelInfo = load("res://Resources/level_resource.tres")
 	var level1 = levelInfo.get_level_info(0)
@@ -25,15 +25,15 @@ func _ready() -> void:
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
-	%LayersMenu.mask_textures = [[], [], []]
+	$LayersMenu.mask_textures = [[], [], []]
 	
 	var masks = level1["masks"]
 	for mask in masks:
 		var coordinates: Array[Vector2i]
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
-		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
-	%LayersMenu.create_masks()
+		$LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
+	$LayersMenu.create_masks()
 	
 	pass # Replace with function body.
 

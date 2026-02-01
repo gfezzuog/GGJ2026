@@ -23,16 +23,16 @@ func _ready() -> void:
 		node.createCollisionShapes(matrix)
 	
 	# Crea maschera
-	%LayersMenu.mask_textures = [[], [], []]
+	$LayersMenu.mask_textures = [[], [], []]
 	
 	var masks = level1["masks"]
 	for mask in masks:
 		var coordinates: Array[Vector2i]
 		for coord in mask["coordinates"]:
 			coordinates.push_back(Vector2i(int(coord.y), int(coord.x)))
-		%LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
-		#%LayersMenu.layers_row[1].mask.disabled = true
-	%LayersMenu.create_masks()
+		$LayersMenu.mask_textures[mask["starting-layer"]] = coordinates
+		#$LayersMenu.layers_row[1].mask.disabled = true
+	$LayersMenu.create_masks()
 		
 	pass # Replace with function body.
 
