@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dtf3bf6xw24er" path="res://Assets/GUI/rotation_arrow_left.png" id="7_oy1as"]
 [ext_resource type="Texture2D" uid="uid://darshk2wb54ik" path="res://Assets/GUI/rotation_arrow_right.png" id="8_j5t7p"]
 [ext_resource type="FontFile" uid="uid://c0jk4a3toofrt" path="res://Assets/Font/COMIC BOOK.OTF" id="9_j5t7p"]
+[ext_resource type="AudioStream" uid="uid://cwp76fvnkrftl" path="res://Resources/Sound/click.wav" id="9_j5t7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbla2"]
 bg_color = Color(1, 1, 1, 1)
@@ -210,6 +211,10 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LayerMenuRow/Area2D"]
 shape = SubResource("RectangleShape2D_atvwj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_j5t7p")
+volume_db = -10.0
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="mouse_entered" from="LayerMenuRow/MaskDisplay/PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VisibilityIcon" to="." method="_on_visibility_icon_mouse_entered"]
