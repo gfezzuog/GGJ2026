@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d6qqpoaqagm4"]
+[gd_scene load_steps=27 format=3 uid="uid://d6qqpoaqagm4"]
 
 [ext_resource type="Script" uid="uid://bcxywisod2j1g" path="res://Scenes/Levels/level_1.gd" id="1_npaxn"]
 [ext_resource type="Texture2D" uid="uid://71oteib5npal" path="res://Assets/Level_2/sfondo.png" id="2_inorh"]
@@ -11,10 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bmjgc1bb0umno" path="res://Assets/Level_2/black.png" id="7_ck0i2"]
 [ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://Assets/Level_2/spine_dx.png" id="7_rujef"]
 [ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://Assets/Level_2/lancette.png" id="8_rujef"]
+[ext_resource type="Texture2D" uid="uid://cvmh6tefkkvic" path="res://Assets/Level_0/layer_0.png" id="13_cexhq"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://Scenes/LayersMenu/LayerMenu.tscn" id="16_qjwmo"]
-[ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://Assets/Level_1/layer_0.png" id="17_xh4rd"]
-[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://Assets/Level_1/layer_1.png" id="18_gbysp"]
-[ext_resource type="Texture2D" uid="uid://sd8he6hsiyne" path="res://Assets/Level_1/layer_2.png" id="19_sfgnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
 size = Vector2(231, 184)
@@ -31,8 +29,59 @@ size = Vector2(92, 92)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ooxlk"]
 size = Vector2(46, 92)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jitg"]
+size = Vector2(43, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npaxn"]
+size = Vector2(692, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ca7a"]
+size = Vector2(278, 57)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6xng3"]
 size = Vector2(46, 92)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5gq6"]
+content_margin_left = 0.0
+bg_color = Color(0.8980392, 0.36078432, 0.23529412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duc5e"]
+resource_local_to_scene = true
+bg_color = Color(0.5882353, 0.19607843, 0.101960786, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqm3g"]
+bg_color = Color(0.3168299, 0.08952845, 0.03504347, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr2i1"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.58927995, 0.19688109, 0.10386098, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Level2" type="Control"]
 physics_interpolation_mode = 0
@@ -44,14 +93,9 @@ script = ExtResource("1_npaxn")
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -821.0
-offset_right = 821.0
+layout_mode = 0
+offset_right = 1642.0
 offset_bottom = 966.0
-grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 30
@@ -117,6 +161,27 @@ position = Vector2(185, 92)
 position = Vector2(-162, 414)
 shape = SubResource("RectangleShape2D_ooxlk")
 
+[node name="StaticBody2D6" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D6"]
+position = Vector2(69.5, -45)
+shape = SubResource("RectangleShape2D_0jitg")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D7"]
+position = Vector2(436, -69)
+shape = SubResource("RectangleShape2D_npaxn")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="HBoxContainer/Canvas/FixedCollisionShapes"]
+position = Vector2(185, 92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/Canvas/FixedCollisionShapes/StaticBody2D8"]
+position = Vector2(643, -18)
+shape = SubResource("RectangleShape2D_6ca7a")
+
 [node name="Objs" type="Node2D" parent="HBoxContainer/Canvas"]
 
 [node name="spine_sx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
@@ -170,21 +235,91 @@ position = Vector2(-1.0000012, 5.375003)
 scale = Vector2(0.79999995, 0.8616505)
 texture = ExtResource("6_cexhq")
 
-[node name="Layers" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(646, 0)
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Layers"]
-custom_minimum_size = Vector2(0, 966)
-layout_mode = 2
-color = Color(0.8474744, 0.84747446, 0.84747446, 1)
-
-[node name="LayersMenu" parent="." instance=ExtResource("16_qjwmo")]
+[node name="RightDisplay" type="Panel" parent="HBoxContainer/Canvas"]
 layout_mode = 0
-offset_left = 999.0
-offset_top = 469.0
-offset_right = 1641.0
-offset_bottom = 953.0
-layers_preview = Array[Texture]([ExtResource("17_xh4rd"), ExtResource("18_gbysp"), ExtResource("19_sfgnv")])
+offset_left = 1019.0
+offset_top = 24.0
+offset_right = 1728.0
+offset_bottom = 959.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5gq6")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Canvas/RightDisplay"]
+layout_mode = 0
+offset_right = 709.0
+offset_bottom = 935.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_constants/separation = -4
+
+[node name="TextureRect" type="Panel" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_duc5e")
+
+[node name="Label" type="Label" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+text = "Livelli"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="Panel" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xqm3g")
+
+[node name="Label" type="Label" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+layout_mode = 0
+offset_right = 99.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Canali"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/Node2D"]
+z_index = 2
+offset_left = 4.0
+offset_top = 41.0
+offset_right = 96.0
+offset_bottom = 57.0
+color = Color(0.5882353, 0.19607843, 0.101960786, 1)
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xr2i1")
+
+[node name="LayersMenu" parent="HBoxContainer/Canvas/RightDisplay/MarginContainer/VBoxContainer/VBoxContainer/Panel" instance=ExtResource("16_qjwmo")]
+unique_name_in_owner = true
+layout_mode = 2
+number_layer = 4
+layers_preview = Array[Texture]([ExtResource("13_cexhq")])
 
 [connection signal="body_entered" from="HBoxContainer/Canvas/Door/Area2D" to="HBoxContainer/Canvas/Door" method="_on_area_2d_body_entered"]
