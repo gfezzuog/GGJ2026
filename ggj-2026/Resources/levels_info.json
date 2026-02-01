@@ -135,7 +135,7 @@
 	"2" : {
 		"objects": [
 			{
-				"name":"croce",
+				"name":"lancette",
 				"shape": [21,21],
 				"matrix":[
 					0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
@@ -163,14 +163,14 @@
 				]
 			},
 			{
-				"name":"pesce-spine",
+				"name":"spine_sx",
 				"shape": [4,1],
 				"matrix":[
 					1,1,1,1
 				]
 			},
 			{
-				"name":"medusa",
+				"name":"spinde_dx",
 				"shape": [5,1],
 				"matrix":[
 					1,1,1,1,1
