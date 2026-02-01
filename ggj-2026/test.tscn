@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://t2ssio18qg27"]
+[gd_scene load_steps=16 format=3 uid="uid://t2ssio18qg27"]
 
 [ext_resource type="Script" uid="uid://lvos4j5gubuo" path="res://Scripts/Main/main.gd" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://bn552bcbw1hxe" path="res://Scenes/Levels/Level_0.tscn" id="1_37kl0"]
@@ -51,6 +51,8 @@ border_color = Color(0, 0, 0, 1)
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[ext_resource type="AudioStream" uid="uid://dq0f2crrevc2b" path="res://Resources/Sound/Game jam Musica.wav" id="7_vbegm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykrsh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -187,3 +189,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ykrsh")
 
 [node name="Popup" parent="." instance=ExtResource("6_g14j6")]
 position = Vector2(630, 534)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vbegm")
+autoplay = true

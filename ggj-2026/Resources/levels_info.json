@@ -170,7 +170,7 @@
 				]
 			},
 			{
-				"name":"spinde_dx",
+				"name":"spine_dx",
 				"shape": [5,1],
 				"matrix":[
 					1,1,1,1,1
