@@ -7,11 +7,8 @@ var mask_entered: bool = false
 var mask: Mask
 var box_hovered = load("res://Scenes/LayersMenu/LayerMenuRowBoxHovered.tres")
 var box_normal = load("res://Scenes/LayersMenu/LayerMenuRowBox.tres")
-var in_visibility_icon = false
-var mouse_left_inside = false
-var mouse_right_inside = false
 var rotation_disabled = false : set = _set_rotation_disabled
-@onready var visibilityIcon = %VisibilityIcon
+@onready var visibilityIcon = %VisibilityContainer/VisibilityIcon
 var disabled = false : set = _set_row_disabled
 
 
@@ -32,13 +29,13 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		if in_visibility_icon:
+		if %VisibilityContainer.inside:
 			mask_disabled = not mask_disabled
 			$AudioStreamPlayer.play()
-		elif mouse_left_inside:
+		elif %Left.inside:
 			_on_left_pressed()
 			$AudioStreamPlayer.play()
-		elif mouse_right_inside:
+		elif %Right.inside:
 			_on_right_pressed()
 			$AudioStreamPlayer.play()
 
@@ -52,15 +49,15 @@ func _set_disabled(new_value: bool) -> void:
 	mask_disabled = new_value
 	if new_value:
 		%Disable.show()
-		visibilityIcon = %VisibilityIconDisabled
-		%VisibilityIcon.hide()
+		visibilityIcon = %VisibilityContainer/VisibilityIconDisabled
+		%VisibilityContainer/VisibilityIcon.hide()
 		if mask:
 			visibilityIcon.show()
 			SignalBus.mask_disabled.emit(mask, mask.layer)
 	else:
 		%Disable.hide()
-		visibilityIcon = %VisibilityIcon
-		%VisibilityIconDisabled.hide()
+		visibilityIcon = %VisibilityContainer/VisibilityIcon
+		%VisibilityContainer/VisibilityIconDisabled.hide()
 		if mask:
 			visibilityIcon.show()
 			SignalBus.mask_enabled.emit(mask, mask.layer)
@@ -79,6 +76,8 @@ func _set_rotation_disabled(new_value: bool):
 func _set_row_disabled(new_value: bool):
 	disabled = new_value
 	if new_value == true:
+		$Sprite2D.hide()
+		$Notaivailable.show()
 		$LayerMenuRow/Area2D.monitorable = false
 		$LayerMenuRow/Area2D.monitoring = false
 
@@ -89,15 +88,16 @@ func get_mask() -> Mask:
 
 func set_layer_preview(texture: Texture) -> void:
 	$LayerMenuRow/LayerDisplay/Texture.texture = texture
+	$Zoom/ZoomLayer/ZoomLayerTexture.texture = texture
 
 
 func add_mask(new_mask: Mask) -> void:
 	if %PanelContainer.get_child_count() == 0:
 		%PanelContainer.add_child(new_mask)
 		$LayerMenuRow/MaskDisplay.show()
-		%VisibilityIcon.show()
+		%VisibilityContainer/VisibilityIcon.show()
 		if mask_disabled:
-			%VisibilityIconDisabled.show()
+			%VisibilityContainer/VisibilityIconDisabled.show()
 		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 1.0
 		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 4.0
 		mask = new_mask
@@ -117,8 +117,8 @@ func remove_mask():
 		var child = %PanelContainer.get_child(0)
 		%PanelContainer.remove_child(child)
 		$LayerMenuRow/MaskDisplay.hide()
-		%VisibilityIcon.hide()
-		%VisibilityIconDisabled.hide()
+		%VisibilityContainer/VisibilityIcon.hide()
+		%VisibilityContainer/VisibilityIconDisabled.hide()
 		#$LayerMenuRow/MaskDisplay.size_flags_stretch_ratio = 0.0
 		#$LayerMenuRow/TextDisplay.size_flags_stretch_ratio = 5.0
 		mask.layer_parent = null
@@ -200,50 +200,32 @@ func _on_mask_dragged(value: bool, dragged_mask: Mask):
 		#	SignalBus.mask_enabled.emit(dragged_mask, layer_number)
 
 
-func _on_visibility_icon_mouse_entered() -> void:
-	in_visibility_icon = true
-	#Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	Cursor.change_in_hand()
-	#mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-
-
-func _on_visibility_icon_mouse_exited() -> void:
-	in_visibility_icon = false
-	#var image = load("res://Assets/GUI/right_arrow.png")
-	#Input.set_custom_mouse_cursor(image)
-	#mouse_default_cursor_shape = Control.CURSOR_ARROW
-	Cursor.change_in_arrow()
-
-
 func _on_left_pressed() -> void:
 	if mask:
-		SignalBus.mask_disabled.emit(mask, mask.layer)
+		if not mask_disabled:
+			SignalBus.mask_disabled.emit(mask, mask.layer)
 		mask.rotate_ninenty_orario()
-		SignalBus.mask_enabled.emit(mask, mask.layer)
+		if not mask_disabled:
+			SignalBus.mask_enabled.emit(mask, mask.layer)
 
 
 func _on_right_pressed() -> void:
 	if mask:
-		SignalBus.mask_disabled.emit(mask, mask.layer)
+		if not mask_disabled:
+			SignalBus.mask_disabled.emit(mask, mask.layer)
 		mask.rotate_ninenty_antiorario()
-		SignalBus.mask_enabled.emit(mask, mask.layer)
+		if not mask_disabled:
+			SignalBus.mask_enabled.emit(mask, mask.layer)
 
 
-func _on_left_mouse_entered() -> void:
-	mouse_left_inside = true
-	Cursor.change_in_hand()
+func _on_layer_display_mouse_entered() -> void:
+	$Zoom/ZoomTimer.start()
 
 
-func _on_left_mouse_exited() -> void:
-	mouse_left_inside = false
-	Cursor.change_in_arrow()
+func _on_layer_display_mouse_exited() -> void:
+	$Zoom.hide()
+	$Zoom/ZoomTimer.stop()
 
 
-func _on_right_mouse_entered() -> void:
-	mouse_right_inside = true
-	Cursor.change_in_hand()
-
-
-func _on_right_mouse_exited() -> void:
-	mouse_right_inside = false
-	Cursor.change_in_arrow()
+func _on_zoom_timer_timeout() -> void:
+	$Zoom.show()

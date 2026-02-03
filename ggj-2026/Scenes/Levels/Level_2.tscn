@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://d6qqpoaqagm4"]
+[gd_scene load_steps=69 format=4 uid="uid://d6qqpoaqagm4"]
 
 [ext_resource type="Script" uid="uid://cliohxxeylmyn" path="res://Scenes/Levels/level_2.gd" id="1_cexhq"]
 [ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://Assets/Level_2/sfondo_2.png" id="2_ooxlk"]
@@ -169,6 +169,12 @@ shader_parameter/rect_count = 0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oixtd"]
 size = Vector2(97, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwhjj"]
+size = Vector2(47, 985)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aibja"]
+size = Vector2(34, 985)
+
 [node name="Level2" type="Control"]
 physics_interpolation_mode = 0
 layout_mode = 3
@@ -197,6 +203,7 @@ offset_bottom = 40.0
 texture = ExtResource("2_ooxlk")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("3_q5gq6")]
+visible = false
 layout_mode = 0
 offset_right = 966.0
 offset_bottom = 966.0
@@ -586,5 +593,15 @@ offset_right = 1617.0
 offset_bottom = 872.0
 number_layer = 4
 layers_preview = Array[Texture]([ExtResource("14_e0h1s"), ExtResource("14_p6wrx"), ExtResource("15_e0h1s"), ExtResource("16_ooxlk")])
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="LeftBorder" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-24.5, 482.5)
+shape = SubResource("RectangleShape2D_wwhjj")
+
+[node name="RightBorder" type="CollisionShape2D" parent="Borders"]
+position = Vector2(982, 483.5)
+shape = SubResource("RectangleShape2D_aibja")
 
 [connection signal="body_entered" from="HBoxContainer/Canvas/Objs/Door/Area2D" to="HBoxContainer/Canvas/Objs/Door" method="_on_area_2d_body_entered"]
