@@ -18,7 +18,7 @@ func _ready() -> void:
 			matrix.append(int(elem))
 		
 		var node: Obj = get_node("HBoxContainer/Canvas/Objs/" + name)
-		node.createCollisionShapes(matrix)
+		node.create_collision_shapes(matrix)
 	
 	# Crea maschera
 	%LayersMenu.mask_textures = [[], [], [], [], []]

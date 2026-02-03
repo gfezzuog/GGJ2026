@@ -27,11 +27,11 @@ func createCollisionShapes(collisionsInfo: Array[int]) -> void:
 				body.set_collision_mask_value(2, true)
 				
 				add_child(body)
-				collisionShapes.append(collisionShape)
+				collision_shapes.append(collisionShape)
 				
 			# altrimenti appendi null
 			else:
-				collisionShapes.append(null)
+				collision_shapes.append(null)
 	
 	#applyMask( [Vector2i(7,14), Vector2i(8,14), Vector2i(9,14), Vector2i(10,14), Vector2i(11,14),
 	#			Vector2i(7,15), Vector2i(8,15), Vector2i(9,15), Vector2i(10,15), Vector2i(11,15), Vector2i(12,15)] )

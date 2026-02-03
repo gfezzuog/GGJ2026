@@ -1,10 +1,12 @@
 class_name door_obj extends Obj
 
+
 func _ready() -> void:
 	print("eccoci 2")
 	#SignalBus.connect("door_reached", _on_player_collision)
 
 var enabled = true
+
 
 func _on_player_collision():
 	print("eccoci3")
@@ -37,11 +39,11 @@ func createCollisionShapes(collisionsInfo: Array[int]) -> void:
 				body.set_collision_mask_value(4, true)
 				
 				add_child(body)
-				collisionShapes.append(collisionShape)
+				collision_shapes.append(collisionShape)
 				
 			# altrimenti appendi null
 			else:
-				collisionShapes.append(null)
+				collision_shapes.append(null)
 
 func enableCollision(x, y):
 
@@ -53,8 +55,8 @@ func enableCollision(x, y):
 		#print("sono dentro l'oggetto")
 		
 		# se in quelle coordinate c'e' una collision shape
-		#print("collision shapes:", collisionShapes)
-		var collisionShape: CollisionShape2D = collisionShapes[yLocal*size[0] + xLocal] # deve fare 14
+		#print("collision shapes:", collision_shapes)
+		var collisionShape: CollisionShape2D = collision_shapes[yLocal*size[0] + xLocal] # deve fare 14
 
 		if (collisionShape != null):
 			#print("la collision esiste")
@@ -75,14 +77,14 @@ func disableCollision(x, y):
 		#print("sono dentro l'oggetto")
 		
 		# se in quelle coordinate c'e' una collision shape
-		#print("collision shapes:", collisionShapes)
-		var collisionShape: CollisionShape2D = collisionShapes[yLocal*size[0] + xLocal] # deve fare 14
-		#print(collisionShapes)
+		#print("collision shapes:", collision_shapes)
+		var collisionShape: CollisionShape2D = collision_shapes[yLocal*size[0] + xLocal] # deve fare 14
+		#print(collision_shapes)
 		#print(xLocal*size[0] + yLocal)
 		if (collisionShape != null):
 			#print("la collision esiste")
 			# passo la collision shape allo shader
-			collisionShapesForShader.append(collisionShape)
+			collision_shapes_for_shader.append(collisionShape)
 			
 			#print("disabilito collisione")
 			collisionShape.disabled = true

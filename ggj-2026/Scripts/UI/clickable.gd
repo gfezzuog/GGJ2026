@@ -9,12 +9,10 @@ func _ready() -> void:
 
 
 func _on_mouse_entered() -> void:
-	print("INSIDE: ", name)
 	inside = true
 	Cursor.change_in_hand()
 
 
 func _on_mouse_exited() -> void:
-	print("FUORI: ", name)
 	inside = false
 	Cursor.change_in_arrow()

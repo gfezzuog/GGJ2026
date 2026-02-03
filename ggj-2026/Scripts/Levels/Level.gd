@@ -15,8 +15,8 @@ func _ready():
 		place_object(child)
 	
 	# collega segnale su maschera abilitata
-	SignalBus.connect("mask_enabled", applyMask)
-	SignalBus.connect("mask_disabled", disableMask)
+	SignalBus.connect("mask_enabled", apply_mask)
+	SignalBus.connect("mask_disabled", disable_mask)
 
 
 func change_mask(mask):
@@ -66,7 +66,7 @@ func place_object(obj) -> bool:
 			#child.position = child.pos * GRID_SIZE
 
 # Level si connette al segnale mask_enabled che ci passa la maschera, e il layer su cui e' attiva
-func applyMask(mask: Mask, layer: int):
+func apply_mask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
 		
@@ -87,10 +87,10 @@ func applyMask(mask: Mask, layer: int):
 					#objectsThatMustBeRemoved.append(ob)
 					
 	for ob in objectsThatMustBeRemoved:
-		ob.applyMask(mask.coords)
-	
-	
-func disableMask(mask: Mask, layer: int):
+		ob.apply_mask(mask.coords)
+
+
+func disable_mask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
 		var list_ob = grid[coord.x][coord.y]
@@ -99,4 +99,4 @@ func disableMask(mask: Mask, layer: int):
 				if ob not in objectsThatMustBeRemoved:
 					objectsThatMustBeRemoved.append(ob)
 	for ob in objectsThatMustBeRemoved:
-		ob.disableMask(mask.coords)
+		ob.disable_mask(mask.coords)
