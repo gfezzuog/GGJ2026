@@ -35,7 +35,7 @@ func init_grid():
 	for y in GRID_SIZE:
 		var row := []
 		for x in GRID_SIZE:
-			row.append(null)
+			row.append([])
 		grid.append(row)
 
 
@@ -51,7 +51,7 @@ func place_object(obj) -> bool:
 		#print("valore di i ", i)
 		for j in obj.size.y:
 			#print("valore di j ", j)
-			grid[obj.pos.x + i][obj.pos.y + j] = obj
+			grid[obj.pos.x + i][obj.pos.y + j].append(obj)
 	#for i in obj.size.x:
 		#for j in obj.size.y:
 			#print(grid[obj.pos.x + i][obj.pos.y + j])
@@ -70,12 +70,13 @@ func applyMask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
 		
-		var ob = grid[coord.x][coord.y]
+		var list_ob = grid[coord.x][coord.y]
 		#print("layer di apply mask")
 		#print(layer)
-		if (ob and ob.layer == layer):
-			if ob not in objectsThatMustBeRemoved:
-				objectsThatMustBeRemoved.append(ob)
+		for ob in list_ob:
+			if (ob and ob.layer == layer):
+				if ob not in objectsThatMustBeRemoved:
+					objectsThatMustBeRemoved.append(ob)
 	
 		# qua sotto e' se grid contiene liste
 		#var objects = grid[coord.x][coord.y]
@@ -92,9 +93,10 @@ func applyMask(mask: Mask, layer: int):
 func disableMask(mask: Mask, layer: int):
 	var objectsThatMustBeRemoved = []
 	for coord in mask.coords:
-		var ob = grid[coord.x][coord.y]
-		if (ob and ob.layer == layer):
-			if ob not in objectsThatMustBeRemoved:
-				objectsThatMustBeRemoved.append(ob)
+		var list_ob = grid[coord.x][coord.y]
+		for ob in list_ob:
+			if (ob and ob.layer == layer):
+				if ob not in objectsThatMustBeRemoved:
+					objectsThatMustBeRemoved.append(ob)
 	for ob in objectsThatMustBeRemoved:
 		ob.disableMask(mask.coords)
