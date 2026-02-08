@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdqi57vchkvhl"]
+
+[ext_resource type="Script" uid="uid://cvlkvn03fsnb7" path="res://scenes/ui/layers_menu/layer_menu.gd" id="1_emsh5"]
+[ext_resource type="PackedScene" uid="uid://fuw2gcnxtofr" path="res://scenes/ui/layers_menu/layer_menu_row.tscn" id="2_emsh5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqafw"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xfdt"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcwsj"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0f586"]
+resource_local_to_scene = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptdvi"]
+
+[node name="LayersMenu" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 700)
+offset_bottom = 700.0
+theme_override_constants/separation = 28
+script = ExtResource("1_emsh5")
+
+[node name="LayerMenuRow" parent="." instance=ExtResource("2_emsh5")]
+layout_mode = 2
+
+[node name="LayerMenuRow2" parent="." instance=ExtResource("2_emsh5")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iqafw")
+
+[node name="LayerMenuRow3" parent="." instance=ExtResource("2_emsh5")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3xfdt")
+
+[node name="LayerMenuRow4" parent="." instance=ExtResource("2_emsh5")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wcwsj")
+
+[node name="LayerMenuRow5" parent="." instance=ExtResource("2_emsh5")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0f586")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ptdvi")
+
+[node name="Node" type="Node2D" parent="."]
