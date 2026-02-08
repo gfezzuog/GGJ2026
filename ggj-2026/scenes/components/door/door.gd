@@ -1,0 +1,11 @@
+extends Node2D
+
+# Da disattivare se la porta è in un livello ed e' coperta da una maschera
+var enabled = true
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	if (enabled):
+		print("Player entrato!")
+		SignalBus.door_reached.emit()
+		enabled = false
