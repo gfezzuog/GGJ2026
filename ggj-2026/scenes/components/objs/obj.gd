@@ -13,6 +13,8 @@ var collision_shapes: Array[CollisionShape2D] = []
 var disabled_coords: Array[int] = []
 
 var texture_dimension := Vector2(966,966)
+var disabled: bool = false : set = _set_disabled
+
 const SQUARE_SIZE = 46
 const SQUARE_NUMBER = 22
 
@@ -40,6 +42,19 @@ func _ready() -> void:
 		var varanoi_texture = _create_texture_mask_map(int(texture_dimension.x), int(texture_dimension.y), active_rel_coordinates)
 		$Sprite2D.material.set_shader_parameter("voronoi_id_texture", varanoi_texture)
 		ResourceSaver.save(varanoi_texture, "res://resources/voronoi_textures/"+id+".tres")
+
+
+func _set_disabled(new_value: bool) -> void:
+	if new_value == disabled:
+		return
+	
+	disabled = new_value
+	if disabled:
+		hide()
+	else:
+		show()
+	for shape in collision_shapes:
+		shape.disabled = disabled
 
 
 ## Funzione che prende in input una matrice tipo [ [1, 0], [1, 1] ]

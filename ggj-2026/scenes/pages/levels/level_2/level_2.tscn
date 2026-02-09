@@ -1,23 +1,29 @@
-[gd_scene load_steps=67 format=3 uid="uid://d6qqpoaqagm4"]
+[gd_scene load_steps=75 format=3 uid="uid://d6qqpoaqagm4"]
 
 [ext_resource type="Script" uid="uid://cliohxxeylmyn" path="res://scenes/pages/levels/level_2/level_2.gd" id="1_cexhq"]
 [ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://assets/images/levels/level_2/sfondo_2.png" id="2_ooxlk"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://scenes/grid.tscn" id="3_q5gq6"]
 [ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://scenes/components/player/player.tscn" id="4_duc5e"]
 [ext_resource type="Texture2D" uid="uid://dkvojj73t83yg" path="res://assets/images/levels/level_2/layerbloccato.png" id="5_npaxn"]
-[ext_resource type="Texture2D" uid="uid://c4a48w2ctvl75" path="res://assets/images/levels/level_2/spine_sx.png" id="6_0jitg"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://scenes/components/objs/obj.gd" id="6_luow5"]
 [ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://scenes/components/objs/dang_obj.gd" id="6_npaxn"]
 [ext_resource type="Shader" uid="uid://d2tnqq2bbe1m" path="res://resources/shaders/near_toggle.gdshader" id="7_p6wrx"]
-[ext_resource type="Texture2D" uid="uid://d2ibfo2t6u5wf" path="res://assets/images/levels/level_2/spine_dx.png" id="7_rujef"]
 [ext_resource type="Texture2D" path="res://resources/voronoi_textures/spine_sx.tres" id="8_npaxn"]
 [ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://assets/images/levels/level_2/lancette.png" id="8_rujef"]
+[ext_resource type="Texture2D" uid="uid://dw4f6gyeynasr" path="res://assets/images/levels/level_2/anim_spine_sx_1_red.png" id="9_1jkmb"]
 [ext_resource type="Texture2D" path="res://resources/voronoi_textures/spine_dx.tres" id="10_6ca7a"]
+[ext_resource type="Texture2D" uid="uid://dyj1gxgy3ehu2" path="res://assets/images/levels/level_2/anim_spine_sx_0_red.png" id="10_fk5eu"]
+[ext_resource type="Texture2D" uid="uid://bxl2ccugnv4p5" path="res://assets/images/levels/level_2/anim_spine_sx_2_red.png" id="11_mbqby"]
+[ext_resource type="Texture2D" uid="uid://ds0wi7rt0e8l0" path="res://assets/images/levels/level_2/anim_spine_sx_3_red.png" id="12_invof"]
 [ext_resource type="Texture2D" path="res://resources/voronoi_textures/lancette.tres" id="13_q5gq6"]
+[ext_resource type="Texture2D" uid="uid://yx8jy21g4ba2" path="res://assets/images/levels/level_2/anim_spine_dx_1_red.png" id="14_ghalq"]
 [ext_resource type="Texture2D" uid="uid://dsnxj2e40q3av" path="res://assets/images/levels/level_2/layer_2.png" id="15_e0h1s"]
+[ext_resource type="Texture2D" uid="uid://detywklv0p2cn" path="res://assets/images/levels/level_2/anim_spine_dx_2_red.png" id="15_vv10h"]
+[ext_resource type="Texture2D" uid="uid://cywp8jrghnu12" path="res://assets/images/levels/level_2/anim_spine_dx_3_red.png" id="16_jf4ub"]
 [ext_resource type="Texture2D" uid="uid://2dvgwnocnnyk" path="res://assets/images/levels/level_2/layerbloccatowithbackground.png" id="16_npaxn"]
 [ext_resource type="Texture2D" uid="uid://y8s0ie3tmuvo" path="res://assets/images/levels/level_2/layer_3.png" id="16_ooxlk"]
 [ext_resource type="PackedScene" uid="uid://cdqi57vchkvhl" path="res://scenes/ui/layers_menu/layer_menu.tscn" id="16_qjwmo"]
+[ext_resource type="Texture2D" uid="uid://podflfmpgoc0" path="res://assets/images/levels/level_2/anim_spine_dx_4_red.png" id="17_j4lr8"]
 [ext_resource type="Texture2D" uid="uid://b5klfcgxaqo5s" path="res://assets/images/levels/level_2/lancettewithbackground.png" id="17_npaxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nmnw"]
@@ -151,10 +157,56 @@ shader = ExtResource("7_p6wrx")
 shader_parameter/voronoi_id_texture = ExtResource("8_npaxn")
 shader_parameter/active_mask = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ti0in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_1jkmb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fk5eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mbqby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_invof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mbqby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fk5eu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p6wrx"]
 shader = ExtResource("7_p6wrx")
 shader_parameter/voronoi_id_texture = ExtResource("10_6ca7a")
 shader_parameter/active_mask = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o22u4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ghalq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vv10h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jf4ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_j4lr8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rujef"]
 shader = ExtResource("7_p6wrx")
@@ -175,6 +227,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_cexhq")
 level_id = 2
+layer_num = 4
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -196,7 +249,6 @@ offset_bottom = 40.0
 texture = ExtResource("2_ooxlk")
 
 [node name="Grid" parent="HBoxContainer/Canvas" instance=ExtResource("3_q5gq6")]
-visible = false
 layout_mode = 0
 offset_right = 966.0
 offset_bottom = 966.0
@@ -520,9 +572,10 @@ collision_pos = Vector2i(6, 10)
 layer = 3
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine_sx"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="HBoxContainer/Canvas/Objs/spine_sx"]
 material = SubResource("ShaderMaterial_0jitg")
-texture = ExtResource("6_0jitg")
+sprite_frames = SubResource("SpriteFrames_ti0in")
+autoplay = "default"
 centered = false
 
 [node name="spine_dx" type="Node2D" parent="HBoxContainer/Canvas/Objs"]
@@ -533,9 +586,10 @@ collision_pos = Vector2i(12, 10)
 layer = 2
 metadata/_custom_type_script = "uid://bulblyecrkaha"
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Canvas/Objs/spine_dx"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="HBoxContainer/Canvas/Objs/spine_dx"]
 material = SubResource("ShaderMaterial_p6wrx")
-texture = ExtResource("7_rujef")
+sprite_frames = SubResource("SpriteFrames_o22u4")
+autoplay = "default"
 centered = false
 
 [node name="lancette" type="Node2D" parent="HBoxContainer/Canvas/Objs"]

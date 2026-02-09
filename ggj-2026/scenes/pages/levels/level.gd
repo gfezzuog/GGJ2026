@@ -5,7 +5,9 @@ const CELL_SIZE := 46
 const SCREEN_SIZE := 966  # opzionale, solo per controllo
 
 @export var level_id: int = 0
-var grid := []
+@export var layer_num: int = 1
+var grid: Array[Array] = []
+var disabled_grid_elements: Array[Array] = []
 
 
 func _ready():
@@ -33,6 +35,13 @@ func _ready():
 	%LayersMenu.create_masks()
 
 
+## Viene richiamata da apply_mask e disabled_mask.
+## Da usare nel caso si voglia far accadere qualcosa quando sono
+## applicate determinate maschere.
+func _on_grid_disabled_update():
+	pass
+
+
 func init_grid():
 	grid.clear()
 	
@@ -40,6 +49,10 @@ func init_grid():
 		var row := []
 		for x in GRID_SIZE:
 			row.append([])
+			var disabled_to_add = []
+			for i in range(layer_num + 1):
+				disabled_to_add.append(0)
+			disabled_grid_elements.append(disabled_to_add)
 		grid.append(row)
 
 
@@ -68,9 +81,10 @@ func apply_mask(mask: Mask, layer: int):
 			if (ob and ob.layer == layer):
 				if ob not in objects_that_must_be_removed:
 					objects_that_must_be_removed.append(ob)
+					ob.apply_mask(mask.coords)
+		disabled_grid_elements[coord.y * GRID_SIZE + coord.x][layer] = 1
 	
-	for ob in objects_that_must_be_removed:
-		ob.apply_mask(mask.coords)
+	_on_grid_disabled_update()
 
 
 func disable_mask(mask: Mask, layer: int):
@@ -82,6 +96,7 @@ func disable_mask(mask: Mask, layer: int):
 			if (ob and ob.layer == layer):
 				if ob not in objects_that_must_be_removed:
 					objects_that_must_be_removed.append(ob)
+					ob.disable_mask(mask.coords)
+		disabled_grid_elements[coord.y * GRID_SIZE + coord.x][layer] = 0
 	
-	for ob in objects_that_must_be_removed:
-		ob.disable_mask(mask.coords)
+	_on_grid_disabled_update()

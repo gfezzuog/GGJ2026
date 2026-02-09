@@ -216,6 +216,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_iyh3f")
 level_id = 1
+layer_num = 3
 metadata/_custom_type_script = "uid://cfcoeuf5if1bu"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
