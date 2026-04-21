@@ -1,0 +1,180 @@
+[gd_scene load_steps=18 format=3 uid="uid://1mmmds4sg57b"]
+
+[ext_resource type="Script" uid="uid://cfn2cyv0iex0" path="res://scenes/ui/row/mask_container.gd" id="1_1u5np"]
+[ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="2_5rqna"]
+[ext_resource type="Texture2D" uid="uid://bsovhtw4gh7xk" path="res://assets/ui/new_ui/mask_container_empty.png" id="2_8pljx"]
+[ext_resource type="PackedScene" uid="uid://b62xpdpbwnoop" path="res://scenes/ui/button/layers_button.tscn" id="4_1u5np"]
+[ext_resource type="Shader" uid="uid://doj7fj7ale6wy" path="res://resources/shaders/dashed_border.gdshader" id="4_6gpv4"]
+[ext_resource type="Texture2D" uid="uid://57s1odso10r2" path="res://assets/ui/new_ui/rotation.png" id="5_8pljx"]
+[ext_resource type="Texture2D" uid="uid://b31eqpat5kbft" path="res://assets/ui/new_ui/eye_closed_disabled.png" id="6_dloem"]
+[ext_resource type="Texture2D" uid="uid://da68rbvxrmqdo" path="res://assets/ui/new_ui/rotation_disabled.png" id="6_vd84t"]
+[ext_resource type="Texture2D" uid="uid://b8cggssdxb4v0" path="res://assets/ui/new_ui/plus.png" id="8_6gpv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgper"]
+resource_local_to_scene = true
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.654902, 0.61960787, 0.6117647, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aujx5"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pljx"]
+resource_local_to_scene = true
+shader = ExtResource("2_5rqna")
+shader_parameter/corner_scale = 0.1600000076
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4axt0"]
+shader = ExtResource("2_5rqna")
+shader_parameter/corner_scale = 0.1600000076
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aujx5"]
+resource_local_to_scene = true
+shader = ExtResource("4_6gpv4")
+shader_parameter/radius = 30.000001425
+shader_parameter/thickness = 6.000000285
+shader_parameter/color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+shader_parameter/dash_count = 40.0000018525
+shader_parameter/dash_ratio = 0.8
+shader_parameter/speed = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gpv4"]
+resource_local_to_scene = true
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.654902, 0.61960787, 0.6117647, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd84t"]
+resource_local_to_scene = true
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.654902, 0.61960787, 0.6117647, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3xks"]
+size = Vector2(172, 172)
+
+[node name="MaskContainer" type="Control"]
+custom_minimum_size = Vector2(240, 190)
+layout_mode = 3
+anchor_right = 0.126
+anchor_bottom = 0.17600001
+offset_right = -1.9199982
+offset_bottom = -0.08001709
+script = ExtResource("1_1u5np")
+
+[node name="MainContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 190.0
+offset_bottom = 190.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hgper")
+
+[node name="PanelContainer" type="PanelContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aujx5")
+
+[node name="Mask" type="TextureRect" parent="MainContainer/PanelContainer"]
+visible = false
+material = SubResource("ShaderMaterial_8pljx")
+layout_mode = 2
+mouse_default_cursor_shape = 7
+expand_mode = 1
+
+[node name="DisabledOverlay" type="ColorRect" parent="MainContainer/PanelContainer"]
+visible = false
+material = SubResource("ShaderMaterial_4axt0")
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6627451)
+
+[node name="DashedBorder" type="TextureRect" parent="MainContainer"]
+material = SubResource("ShaderMaterial_aujx5")
+custom_minimum_size = Vector2(174, 174)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_8pljx")
+expand_mode = 1
+
+[node name="ViewButton" parent="." instance=ExtResource("4_1u5np")]
+layout_mode = 1
+offset_left = 190.0
+offset_top = 30.0
+offset_right = 233.76
+offset_bottom = 71.26
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gpv4")
+texture_disabled_toggled = ExtResource("6_dloem")
+disabled = true
+
+[node name="RotateButton" parent="." instance=ExtResource("4_1u5np")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 190.0
+offset_top = 110.0
+offset_right = 240.0
+offset_bottom = 160.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vd84t")
+texture = ExtResource("5_8pljx")
+texture_disabled = ExtResource("6_vd84t")
+toggle_mode = false
+disabled = true
+content_margin = {
+"bottom": 10,
+"left": 10,
+"right": 12,
+"top": 10
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2(95, 95)
+collision_layer = 16
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h3xks")
+
+[node name="Plus" type="Sprite2D" parent="."]
+position = Vector2(95, 95)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_6gpv4")
+
+[connection signal="mouse_entered" from="MainContainer/PanelContainer/Mask" to="." method="_on_mask_mouse_entered"]
+[connection signal="mouse_exited" from="MainContainer/PanelContainer/Mask" to="." method="_on_mask_mouse_exited"]
+[connection signal="pressed" from="ViewButton" to="." method="_on_view_button_pressed"]
+[connection signal="pressed" from="RotateButton" to="." method="_on_rotate_button_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_external_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_external_area_exited"]

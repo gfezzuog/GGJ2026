@@ -1,0 +1,17 @@
+{
+	"TUTORIAL_1": {
+		"default": ["#F2FF49"]
+	},
+	"TUTORIAL_2": {
+		"default": ["#F2FF49", "#F2FF49", "#F2FF49"]
+	},
+	"TUTORIAL_4": {
+		"default": ["#F2FF49"]
+	},
+	"TUTORIAL_5": {
+		"default": ["#F2FF49"]
+	},
+	"TUTORIAL_6": {
+		"default": ["#F2FF49"]
+	}
+}

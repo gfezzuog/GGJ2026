@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://cocpcgyy2dhr1"]
+
+[ext_resource type="Texture2D" uid="uid://c6wweyxvilko5" path="res://assets/ui/new_ui/rowlayer.png" id="1_42di5"]
+[ext_resource type="Script" uid="uid://ct3dlada843ey" path="res://scenes/ui/row/row_layer.gd" id="2_pyv87"]
+[ext_resource type="PackedScene" uid="uid://1mmmds4sg57b" path="res://scenes/ui/row/mask_container.tscn" id="2_stdaq"]
+[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://assets/images/levels/level_1/layer_1.png" id="3_na15o"]
+[ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="4_pyv87"]
+[ext_resource type="Texture2D" uid="uid://cq734h2w0f4li" path="res://assets/ui/new_ui/attach.png" id="5_na15o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyv87"]
+content_margin_left = 20.0
+content_margin_top = 9.0
+content_margin_right = 20.0
+content_margin_bottom = 9.0
+texture = ExtResource("1_42di5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na15o"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m4fe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmacn"]
+shader = ExtResource("4_pyv87")
+shader_parameter/corner_scale = 0.150000007125
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwyhy"]
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ircnc"]
+
+[node name="RowLayer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1328.0
+offset_bottom = -872.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pyv87")
+script = ExtResource("2_pyv87")
+layer_texture = ExtResource("3_na15o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureContainer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(222, 190)
+layout_mode = 2
+
+[node name="LayerImageContainer" type="PanelContainer" parent="HBoxContainer/TextureContainer"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 222.0
+offset_bottom = 190.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_na15o")
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer/TextureContainer/LayerImageContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2m4fe")
+
+[node name="LayerTexture" type="TextureRect" parent="HBoxContainer/TextureContainer/LayerImageContainer/Panel"]
+unique_name_in_owner = true
+texture_filter = 4
+material = SubResource("ShaderMaterial_hmacn")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture = ExtResource("3_na15o")
+expand_mode = 1
+
+[node name="LayerIndexContainer" type="PanelContainer" parent="HBoxContainer/TextureContainer"]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 32.0
+offset_bottom = 114.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bwyhy")
+
+[node name="LayerIndex" type="Label" parent="HBoxContainer/TextureContainer/LayerIndexContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.654902, 0.61960787, 0.6117647, 1)
+theme_override_font_sizes/font_size = 19
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator1" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ircnc")
+
+[node name="Attach" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_na15o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ircnc")
+
+[node name="MaskContainer" parent="HBoxContainer" instance=ExtResource("2_stdaq")]
+z_index = 1
+layout_mode = 2
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 207, 600, 207)
+width = 2.0
+default_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+
+[connection signal="mouse_entered" from="HBoxContainer/TextureContainer/LayerImageContainer/Panel/LayerTexture" to="." method="_on_layer_texture_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/TextureContainer/LayerImageContainer/Panel/LayerTexture" to="." method="_on_layer_texture_mouse_exited"]

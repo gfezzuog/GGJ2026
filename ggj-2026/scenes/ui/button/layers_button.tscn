@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://b62xpdpbwnoop"]
+
+[ext_resource type="Script" uid="uid://5l5guuahnf3i" path="res://scenes/ui/button/layers_button.gd" id="1_piofa"]
+[ext_resource type="Texture2D" uid="uid://b6sgbebnwf1rr" path="res://assets/ui/new_ui/eye_open.png" id="1_wjei7"]
+[ext_resource type="Texture2D" uid="uid://dcvdkyj5pmsts" path="res://assets/ui/new_ui/eye_open_disabled.png" id="3_2x83c"]
+[ext_resource type="Texture2D" uid="uid://yedlpxnfyjfx" path="res://assets/ui/new_ui/eye_closed.png" id="4_losr2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd84t"]
+resource_local_to_scene = true
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.827451, 0.7647059, 0.7254902, 1)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isurf"]
+resource_local_to_scene = true
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.09803922, 0.654902, 0.8901961, 1)
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+
+[node name="LayersButton" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.026
+anchor_bottom = 0.046000004
+offset_right = 0.07999802
+offset_bottom = 0.31999588
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vd84t")
+script = ExtResource("1_piofa")
+texture = ExtResource("1_wjei7")
+texture_disabled = ExtResource("3_2x83c")
+toggle_mode = true
+texture_toggled = ExtResource("4_losr2")
+content_margin = {
+"bottom": 8,
+"left": 8,
+"right": 10,
+"top": 8
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_isurf")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_wjei7")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

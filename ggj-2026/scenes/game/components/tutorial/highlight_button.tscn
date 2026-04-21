@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2kn5pvc52xft"]
+
+[ext_resource type="Shader" uid="uid://doj7fj7ale6wy" path="res://resources/shaders/dashed_border.gdshader" id="1_ioops"]
+[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="2_nqi5l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87uf6"]
+shader = ExtResource("1_ioops")
+shader_parameter/radius = 16.00000076
+shader_parameter/thickness = 4.00000019
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/dash_count = 20.0000009025
+shader_parameter/dash_ratio = 0.5
+shader_parameter/speed = 0.5
+
+[node name="TextureRect" type="TextureRect"]
+z_index = 10
+material = SubResource("ShaderMaterial_87uf6")
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+texture = ExtResource("2_nqi5l")

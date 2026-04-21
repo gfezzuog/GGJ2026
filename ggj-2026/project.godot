@@ -19,6 +19,8 @@ config/icon="res://assets/icon.svg"
 
 SignalBus="*res://singletons/SignalBus.gd"
 Cursor="*res://singletons/Cursor.gd"
+Colors="*res://singletons/Colors.gd"
+Constants="*res://singletons/Constants.gd"
 
 [display]
 
@@ -50,12 +52,29 @@ click={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(88, 11),"global_position":Vector2(95, 48),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+press={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(74, 22),"global_position":Vector2(81, 59),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/text/text.en.translation", "res://assets/text/text.it.translation")
 
 [layer_names]
 
 2d_physics/layer_1="ground"
 2d_physics/layer_2="player"
+2d_physics/layer_5="ui"
+2d_physics/layer_9="Game Layer 0"
+2d_physics/layer_10="Game Layer 1"
+2d_physics/layer_11="Game Layer 2"
+2d_physics/layer_12="Game Layer 3"
+2d_physics/layer_13="Game Layer 5"
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=7 format=3 uid="uid://xjw3xjet0bab"]
+
+[ext_resource type="Texture2D" uid="uid://c02atbnargwrm" path="res://assets/images/levels/level_1/layer_0.png" id="1_8dpr2"]
+[ext_resource type="Script" uid="uid://bbb2j3m761on2" path="res://scenes/ui/mask/mask.gd" id="1_sfdh2"]
+[ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://assets/images/levels/level_1/layer_1.png" id="2_rpy2t"]
+[ext_resource type="Script" uid="uid://djek1l2u0at7l" path="res://resources/levels/level_data.gd" id="2_yc005"]
+[ext_resource type="Texture2D" uid="uid://b5ehdcdktq8im" path="res://assets/images/levels/level_1/layer_2.png" id="3_2hak1"]
+[ext_resource type="Resource" uid="uid://qsk1kecro74j" path="res://resources/masks/level_1/mask_2.tres" id="7_d3w8w"]
+
+[resource]
+script = ExtResource("2_yc005")
+layers = Array[int]([4, 4, 12])
+layers_textures = Array[Texture]([ExtResource("1_8dpr2"), ExtResource("2_rpy2t"), ExtResource("3_2hak1")])
+masks = Array[ExtResource("1_sfdh2")]([null, null, ExtResource("7_d3w8w")])
+metadata/_custom_type_script = "uid://djek1l2u0at7l"
