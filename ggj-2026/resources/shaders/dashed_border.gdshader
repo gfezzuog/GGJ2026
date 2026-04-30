@@ -9,11 +9,20 @@ uniform float speed = 0.8;
 
 float roundedBoxSDF(vec2 p, vec2 b, float r) {
     vec2 q = abs(p) - b + r;
+	//q = vec2(10.0, 10.0);
     return length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - r;
 }
 
+varying vec2 pixel_pos;
+
+void vertex() {
+	pixel_pos = VERTEX;
+}
+
 void fragment() {
-    vec2 size = 1.0 / TEXTURE_PIXEL_SIZE;
+    //vec2 size = 1.0 / TEXTURE_PIXEL_SIZE;
+	vec2 size = pixel_pos / UV;		// con questo lo spessore del bordo viene sempre uguale
+
     vec2 p = (UV - 0.5) * size;
     vec2 b = size * 0.5;
     float r = min(radius, min(b.x, b.y));

@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ojf0"]
 shader = ExtResource("1_03bef")
 shader_parameter/radius = 14.000000665
-shader_parameter/thickness = 2.50000011875
+shader_parameter/thickness = 4.7850002272875
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/dash_count = 40.0000018525
 shader_parameter/dash_ratio = 0.6000000285
