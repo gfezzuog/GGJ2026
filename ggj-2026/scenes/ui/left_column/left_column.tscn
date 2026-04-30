@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfd4d1fwrv6hy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xduyi"]
+content_margin_top = 10.0
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+
+[node name="LeftColumn" type="PanelContainer"]
+custom_minimum_size = Vector2(108, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1812.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xduyi")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 2

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=6 format=3 uid="uid://civcewty0hhn6"]
+
+[ext_resource type="Script" uid="uid://bbb2j3m761on2" path="res://scenes/ui/mask/mask.gd" id="1_ak1t8"]
+[ext_resource type="Texture2D" uid="uid://cqy214cr134mn" path="res://assets/images/levels/level_0/layer_0.png" id="1_m1x4x"]
+[ext_resource type="Script" uid="uid://djek1l2u0at7l" path="res://resources/levels/level_data.gd" id="2_ocxh0"]
+[ext_resource type="Texture2D" uid="uid://b6h3mdrkhkrwl" path="res://assets/images/levels/level_0/layer_1.png" id="2_xeof7"]
+[ext_resource type="Resource" uid="uid://dt0ii6ljlmkc1" path="res://resources/masks/level_0/mask1.tres" id="3_xeof7"]
+
+[resource]
+script = ExtResource("2_ocxh0")
+layers = Array[int]([1, 14])
+layers_textures = Array[Texture]([ExtResource("1_m1x4x"), ExtResource("2_xeof7")])
+masks = Array[ExtResource("1_ak1t8")]([null, ExtResource("3_xeof7")])
+metadata/_custom_type_script = "uid://djek1l2u0at7l"

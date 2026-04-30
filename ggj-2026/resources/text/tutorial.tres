@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TextData" load_steps=2 format=3 uid="uid://bmwq5u4ewlrr7"]
+
+[ext_resource type="Script" uid="uid://wwrgl2bdjos7" path="res://scenes/ui/dialog_text.gd" id="1_f3t0j"]
+
+[resource]
+script = ExtResource("1_f3t0j")
+ids = Array[String](["TUTORIAL_1", "TUTORIAL_2", "TUTORIAL_3", "TUTORIAL_4", "TUTORIAL_5", "TUTORIAL_6"])
+speakers = Array[String](["SPEAKER_MAIN"])
+json_params_path = "res://resources/text/dialog_params.json"
+auto_progess = Array[bool]([true, false, true, true, false, true])
+metadata/_custom_type_script = "uid://wwrgl2bdjos7"

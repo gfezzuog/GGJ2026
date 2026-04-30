@@ -1,0 +1,116 @@
+class_name Level extends SubViewportContainer
+
+
+@export var mask_highlight_color := Color(Colors.HIGHLIGHT, 0.5)
+@export var layer_id: int = 0
+@export var player_starting_position: Vector2 
+var mask_to_draw: PackedVector2Array = []
+var player: Player
+
+
+func _ready() -> void:
+	var death_area := Area2D.new()
+	var collision_shape := CollisionShape2D.new()
+	collision_shape.shape = RectangleShape2D.new()
+	collision_shape.shape.size = Vector2(2800, 200)
+	death_area.monitorable = false
+	death_area.collision_mask = 2
+	death_area.add_child(collision_shape)
+	death_area.body_entered.connect(_on_death_area_body_entered)
+	death_area.position = Vector2(400, 1250)
+	$SubViewport.add_child(death_area)
+	
+	SignalBus.mask_activated.connect(_on_mask_enabled)
+	SignalBus.mask_disactivated.connect(_on_mask_disabled)
+	SignalBus.mask_rotated.connect(_on_mask_rotated)
+	SignalBus.show_mask.connect(show_mask)
+	SignalBus.hide_mask.connect(hide_mask)
+	SignalBus.highlight_layer.connect(highlight_layer)
+	SignalBus.game_over.connect(_on_game_over)
+
+
+func add_player(_player: Player) -> void:
+	player = _player
+	player.position = player_starting_position
+	$SubViewport.add_child(player)
+
+
+func remove_player() -> void:
+	$SubViewport.remove_child(player)
+
+
+func show_mask(polygons: Array[PackedVector2Array]) -> void:
+	$MaskShower.show_mask(polygons)
+
+
+func hide_mask() -> void:
+	$MaskShower.hide_mask()
+
+
+func apply_mask(layer: int, mask: Mask) -> void:
+	var mask_pol: Array[PackedVector2Array] = mask.get_polygons()
+	var layer_node = $SubViewport/Layers.get_child(layer)
+	
+	for obj: GameObj in layer_node.get_children():
+		obj.apply_difference(mask_pol)
+	
+	layer_node.material.set_shader_parameter("mask_texture", mask.get_texture())
+
+
+func reset_mask(layer: int) -> void:
+	var layer_node = $SubViewport/Layers.get_child(layer)
+	
+	for obj: GameObj in layer_node.get_children():
+		obj.reset()
+	
+	layer_node.material.set_shader_parameter("mask_texture", null)
+
+
+func highlight_layer(layer: int, value: bool) -> void:
+	var layer_node = $SubViewport/Layers.get_child(layer)
+	if value == false:
+		var tween = create_tween()
+		tween.tween_method(
+			func(v): layer_node.material.set_shader_parameter("highlight_enabled", v),
+			1.0, 0.0, 0.3
+		)
+	else:
+		var tween = create_tween()
+		tween.tween_method(
+			func(v): layer_node.material.set_shader_parameter("highlight_enabled", v),
+			0.0, 1.0, 0.3
+		)
+
+
+func change_child_material(node_path: String, new_material: Material) -> void:
+	var child: CanvasItem = get_node(node_path)
+	child.use_parent_material = false
+	child.material = new_material
+
+
+func reset_child_material(node_path: String) -> void:
+	var child: CanvasItem = get_node(node_path)
+	child.use_parent_material = true
+	child.material = null
+
+
+func _on_mask_enabled(mask: Mask, layer: int) -> void:
+	reset_mask(layer)
+	apply_mask(layer, mask)
+
+
+func _on_mask_disabled(layer: int) -> void:
+	reset_mask(layer)
+
+
+func _on_mask_rotated(mask: Mask, layer: int) -> void:
+	reset_mask(layer)
+	apply_mask(layer, mask)
+
+
+func _on_death_area_body_entered(body: Node2D) -> void:
+	body.game_over()
+
+
+func _on_game_over() -> void:
+	player.position = player_starting_position
