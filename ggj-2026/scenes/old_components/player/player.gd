@@ -4,7 +4,7 @@ class_name Player extends CharacterBody2D
 @export var jump_force: float = 250.0
 @export var gravity: float = 900
 
-@onready var animation = $AnimatedSprite2D
+@onready var animation = $Mask/AnimatedSprite2D
 @onready var walkAudio = $WalkAudio
 @onready var actionAudio = $ActionAudio
 @onready var landAudio = $LandAudio
@@ -19,11 +19,21 @@ var prev_velocity_y := 0.0
 # diventa not active quando apri il popup
 var active = true
 
+# diventa true quando arrivi a una porta
+var animating_toward_door = false
+var animating_toward_door_initial_x = 0
+var animating_toward_door_goal_x = 0
+var animating_toward_door_pos_holder = 0
+var player_width = 0.0 # settato in ready
+
+
 func _ready() -> void:
 	# attiva/disattiva player col popup
 	SignalBus.open_popup_ok.connect(deactivate)
 	SignalBus.open_popup_yes_no.connect(deactivate)
 	SignalBus.close_popup.connect(activate)
+	
+	player_width = $Mask.texture.get_width()
 
 
 func _do_game_over() -> void:
@@ -43,10 +53,55 @@ func deactivate(_text):
 
 
 func _physics_process(delta: float) -> void:
-	
+
 	# Se il popup e' aperto non fare nulla
 	if (!active):
 		return
+	
+	# ANIMAZIONE QUANDO ARRIVI A UNA PORTA
+	if (animating_toward_door):
+		
+		var dir = sign(animating_toward_door_goal_x - animating_toward_door_initial_x)
+		
+		# ANIMAZIONE FINITA
+		if ( (dir >= 0 && position.x + animating_toward_door_pos_holder >= animating_toward_door_goal_x) ||
+			 (dir < 0 && position.x + animating_toward_door_pos_holder <= animating_toward_door_goal_x)):
+			
+			# manda segnale che l'animazione e' finita
+			SignalBus.door_reached_animation_ended.emit()
+			
+			# resetta posizioni maschera e sprite
+			$Mask.position.x = 0
+			animation.position.x = 0
+				
+			animating_toward_door = false
+			
+		else:
+			# calcola a che percentuale dell'animazione sei arrivato
+			#var perc = position.x / abs(animating_toward_door_goal_x - animating_toward_door_initial_x)
+			
+			var vel = speed * 0.01 * dir
+			
+			# se non ti sei ancora spostato di meta' larghezza, muovi la maschera (insieme alla sprite figlia)
+			if (abs(animating_toward_door_pos_holder) < player_width / 2.5):
+				$Mask.position.x += vel
+			# altrimenti muovi solo la sprite
+			else:
+				animation.position.x += vel
+			
+			animating_toward_door_pos_holder += vel
+			
+			# Gestisci movimento del player
+			velocity.x = 0
+			if (velocity.y < 0):
+				velocity.y = 0	# comincia a farlo cadere subito se stava saltando
+			if not is_on_floor():
+				velocity.y += gravity * delta
+			move_and_slide()
+			animation.play("walk")
+			
+			return
+			
 	
 	# SALVO LA VELOCITÀ PRIMA DEL MOVIMENTO
 	prev_velocity_y = velocity.y
@@ -102,3 +157,29 @@ func _physics_process(delta: float) -> void:
 		landAudio.play()
 
 	was_on_floor = on_floor_now
+	
+	'''
+	# PROVA ANIMAZIONE VERSO PORTA
+	if Input.is_action_just_pressed("prova"):
+		print("prova animazione")
+		animating_toward_door_initial_x = position.x
+		animating_toward_door_goal_x = animating_toward_door_initial_x + player_width * 1.5
+		print(animating_toward_door_initial_x)
+		print(animating_toward_door_goal_x)
+		animating_toward_door = true
+	'''
+	
+
+func animate_toward_door(door_x, door_y):
+	animating_toward_door_initial_x = position.x
+	# se la porta e' a destra
+	if (door_x >= position.x):
+		animating_toward_door_goal_x = door_x + player_width * 0.5
+	# se la porta e' a sinistra
+	else:
+		animating_toward_door_goal_x = door_x - player_width * 0.5
+		
+	animating_toward_door_pos_holder = 0
+	animating_toward_door = true
+	
+	

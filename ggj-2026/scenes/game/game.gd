@@ -8,6 +8,7 @@ var level: Level
 
 func _ready() -> void:
 	SignalBus.door_reached.connect(_on_door_reached)
+	SignalBus.door_reached_animation_ended.connect(_on_door_reached_animation_ended)
 	
 	player = load("res://scenes/old_components/player/player.tscn").instantiate()
 	_load_level(level_indx)
@@ -50,7 +51,12 @@ func _load_level(indx: int) -> void:
 	level.add_player(player)
 
 
-func _on_door_reached() -> void:
+func _on_door_reached(door_x, door_y) -> void:
+	print("porta raggiunta")
+	player.animate_toward_door(door_x, door_y)
+	
+# ancora da connettere
+func _on_door_reached_animation_ended() -> void:
 	level.remove_player()
 	$LevelContainer.get_child(0).queue_free()
 	_set_level_indx.call_deferred(level_indx + 1)

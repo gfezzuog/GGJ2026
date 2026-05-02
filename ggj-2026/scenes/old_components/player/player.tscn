@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bo0grlbvum03a"]
+[gd_scene load_steps=16 format=4 uid="uid://bo0grlbvum03a"]
 
 [ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://scenes/old_components/player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://c3pbrkxvt62wa" path="res://assets/images/player/idle_0.PNG" id="3_mtuoh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bldvns6q6r0k7" path="res://assets/images/player/idle_1.PNG" id="4_htcer"]
 [ext_resource type="Texture2D" uid="uid://c5o534he8fs2y" path="res://assets/images/player/walk_0.PNG" id="5_dd0ac"]
 [ext_resource type="Texture2D" uid="uid://bg3a11j5tgjlb" path="res://assets/images/player/jump_0.PNG" id="5_gk6dx"]
+[ext_resource type="Texture2D" uid="uid://crryia0k61dar" path="res://assets/images/player/mask-thin.png" id="5_qd66v"]
 [ext_resource type="Texture2D" uid="uid://ln17eq6xrxku" path="res://assets/images/player/walk_1.PNG" id="6_0u5uq"]
 [ext_resource type="Texture2D" uid="uid://daodesqyjkxc6" path="res://assets/images/player/jump_1.PNG" id="6_jhyir"]
 [ext_resource type="Texture2D" uid="uid://uw8op58q5xpi" path="res://assets/images/player/jump_2.PNG" id="7_74mp2"]
@@ -84,8 +85,12 @@ f_audio = ExtResource("3_oikmp")
 position = Vector2(0, -9.5)
 shape = SubResource("CapsuleShape2D_74mp2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
 position = Vector2(0, -12)
+texture = ExtResource("5_qd66v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mask"]
 sprite_frames = SubResource("SpriteFrames_dd0ac")
 animation = &"walk"
 
@@ -98,4 +103,4 @@ autoplay = true
 [node name="LandAudio" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamWAV_jhyir")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="Mask/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
