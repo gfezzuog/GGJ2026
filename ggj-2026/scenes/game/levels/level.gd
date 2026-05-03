@@ -147,3 +147,4 @@ func _on_death_area_body_entered(body: Node2D) -> void:
 
 func _on_game_over() -> void:
 	player.position = player_starting_position
+	player.animate_death()

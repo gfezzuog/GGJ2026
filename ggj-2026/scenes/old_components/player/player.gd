@@ -183,3 +183,7 @@ func animate_toward_door(door_x, door_y):
 	animating_toward_door = true
 	
 	
+func animate_death():
+	$AnimationPlayer.play("death")
+	
+	

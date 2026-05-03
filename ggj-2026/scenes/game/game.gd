@@ -55,7 +55,6 @@ func _on_door_reached(door_x, door_y) -> void:
 	print("porta raggiunta")
 	player.animate_toward_door(door_x, door_y)
 	
-# ancora da connettere
 func _on_door_reached_animation_ended() -> void:
 	level.remove_player()
 	$LevelContainer.get_child(0).queue_free()
