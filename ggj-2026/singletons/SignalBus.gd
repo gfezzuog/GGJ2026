@@ -2,15 +2,18 @@ extends Node
 
 
 # Quando il player tocca una porta
-@warning_ignore("unused_signal")
-signal doorReached
+#@warning_ignore("unused_signal")
+#signal doorReached
 
 # Quando il player muore
 @warning_ignore("unused_signal")
 signal game_over
 
 @warning_ignore("unused_signal")
-signal door_reached
+signal door_reached(door_x: float, door_y: float)
+
+@warning_ignore("unused_signal")
+signal door_reached_animation_ended()
 
 @warning_ignore("unused_signal")
 signal mask_disabled(mask, layer)

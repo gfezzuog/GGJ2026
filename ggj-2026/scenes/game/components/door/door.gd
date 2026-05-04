@@ -48,5 +48,5 @@ func _apply_disable(value: bool) -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if (enabled):
-		SignalBus.door_reached.emit()
+		SignalBus.door_reached.emit(position.x, position.y)
 		enabled = false

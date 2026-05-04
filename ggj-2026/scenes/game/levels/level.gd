@@ -4,11 +4,13 @@ class_name Level extends SubViewportContainer
 @export var mask_highlight_color := Color(Colors.HIGHLIGHT, 0.5)
 @export var layer_id: int = 0
 @export var player_starting_position: Vector2 
+@export var showCollisionShapes: bool = true
 var mask_to_draw: PackedVector2Array = []
 var player: Player
 
 
 func _ready() -> void:
+	# Crea death zone sotto la canvas
 	var death_area := Area2D.new()
 	var collision_shape := CollisionShape2D.new()
 	collision_shape.shape = RectangleShape2D.new()
@@ -17,8 +19,27 @@ func _ready() -> void:
 	death_area.collision_mask = 2
 	death_area.add_child(collision_shape)
 	death_area.body_entered.connect(_on_death_area_body_entered)
-	death_area.position = Vector2(400, 1250)
+	death_area.position = Vector2(400, 1180)
 	$SubViewport.add_child(death_area)
+	
+	# Crea pareti laterali
+	var wall_left_area := StaticBody2D.new()
+	var wall_left_collision_shape := CollisionShape2D.new()
+	wall_left_collision_shape.shape = RectangleShape2D.new()
+	wall_left_collision_shape.shape.size = Vector2(200, 1100)
+	wall_left_area.collision_layer = 1
+	wall_left_area.add_child(wall_left_collision_shape)
+	wall_left_area.position = Vector2(-100, 550)
+	$SubViewport/Layers.add_child(wall_left_area)
+	var wall_right_area := StaticBody2D.new()
+	var wall_right_collision_shape := CollisionShape2D.new()
+	wall_right_collision_shape.shape = RectangleShape2D.new()
+	wall_right_collision_shape.shape.size = Vector2(200, 1100)
+	wall_right_area.collision_layer = 1
+	wall_right_area.add_child(wall_right_collision_shape)
+	wall_right_area.position = Vector2(1170, 550)
+	$SubViewport/Layers.add_child(wall_right_area)
+	
 	
 	SignalBus.mask_activated.connect(_on_mask_enabled)
 	SignalBus.mask_disactivated.connect(_on_mask_disabled)
@@ -27,6 +48,18 @@ func _ready() -> void:
 	SignalBus.hide_mask.connect(hide_mask)
 	SignalBus.highlight_layer.connect(highlight_layer)
 	SignalBus.game_over.connect(_on_game_over)
+	
+	# eventualmente nascondi le collisionShapes
+	if (!showCollisionShapes):
+		#print("finding shapes")
+		#var collShapes = find_children("SubViewport/Layers/*", "CollisionShape2D", true, false) as Array[CollisionShape2D]
+		var collShapes = find_children("*", "CollisionShape2D", true, false) as Array[CollisionShape2D]
+		for shape in collShapes:
+			shape.visible = false
+		var collShapes2 = find_children("*", "CollisionPolygon2D", true, false) as Array[CollisionShape2D]
+		for shape in collShapes2:
+			shape.visible = false
+		pass
 
 
 func add_player(_player: Player) -> void:
@@ -114,3 +147,4 @@ func _on_death_area_body_entered(body: Node2D) -> void:
 
 func _on_game_over() -> void:
 	player.position = player_starting_position
+	player.animate_death()
