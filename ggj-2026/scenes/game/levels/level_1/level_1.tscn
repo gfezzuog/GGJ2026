@@ -161,7 +161,8 @@ metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
 scale = Vector2(1.104, 1.104)
 sprite_frames = SubResource("SpriteFrames_6wbev")
 autoplay = "default"
-frame_progress = 0.79031724
+frame = 2
+frame_progress = 0.879032
 centered = false
 
 [node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer1/Spine"]
@@ -170,7 +171,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/Spine/StaticBody2D"]
-polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 754, 615, 767, 604, 649, 545, 468, 510)
+polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 767, 641, 796, 626, 765, 587, 649, 545, 468, 510)
 
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_wke4q")
