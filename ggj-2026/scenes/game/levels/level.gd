@@ -40,7 +40,7 @@ func _ready() -> void:
 	wall_right_area.position = Vector2(1170, 550)
 	$SubViewport/Layers.add_child(wall_right_area)
 	
-	
+	# Connette con i segnali
 	SignalBus.mask_activated.connect(_on_mask_enabled)
 	SignalBus.mask_disactivated.connect(_on_mask_disabled)
 	SignalBus.mask_rotated.connect(_on_mask_rotated)
@@ -49,17 +49,14 @@ func _ready() -> void:
 	SignalBus.highlight_layer.connect(highlight_layer)
 	SignalBus.game_over.connect(_on_game_over)
 	
-	# eventualmente nascondi le collisionShapes
+	# Eventualmente nascondi le collisionShapes
 	if (!showCollisionShapes):
-		#print("finding shapes")
-		#var collShapes = find_children("SubViewport/Layers/*", "CollisionShape2D", true, false) as Array[CollisionShape2D]
 		var collShapes = find_children("*", "CollisionShape2D", true, false) as Array[CollisionShape2D]
 		for shape in collShapes:
 			shape.visible = false
 		var collShapes2 = find_children("*", "CollisionPolygon2D", true, false) as Array[CollisionShape2D]
 		for shape in collShapes2:
 			shape.visible = false
-		pass
 
 
 func add_player(_player: Player) -> void:
