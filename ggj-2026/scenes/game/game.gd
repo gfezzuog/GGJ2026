@@ -12,16 +12,27 @@ func _ready() -> void:
 	
 	player = load("res://scenes/old_components/player/player.tscn").instantiate()
 	_load_level(level_indx)
+	_preload_level(level_indx+1)
 
 
 func _set_level_indx(new_value: int) -> void:
 	level_indx = new_value
 	if is_inside_tree():
 		_load_level(level_indx)
+		_preload_level(level_indx+1)
 
 
 func _set_player() -> void:
 	level.add_player(player)
+
+
+func _preload_level(indx: int) -> void:
+	var l_name: String = "level_" + str(indx)
+	var resource_path: String = "res://resources/levels/" + l_name + ".tres"
+	var level_path: String = "res://scenes/game/levels/" + l_name + "/" + l_name + ".tscn"
+	if FileAccess.file_exists(resource_path) and FileAccess.file_exists(level_path):
+		ResourceLoader.load_threaded_request(resource_path)
+		ResourceLoader.load_threaded_request(level_path)
 
 
 func _load_level(indx: int) -> void:
@@ -51,10 +62,10 @@ func _load_level(indx: int) -> void:
 	level.add_player(player)
 
 
-func _on_door_reached(door_x, door_y) -> void:
-	print("porta raggiunta")
-	player.animate_toward_door(door_x, door_y)
-	
+func _on_door_reached(door_x, _door_y) -> void:
+	player.animate_toward_door(door_x)
+
+
 func _on_door_reached_animation_ended() -> void:
 	level.remove_player()
 	$LevelContainer.get_child(0).queue_free()

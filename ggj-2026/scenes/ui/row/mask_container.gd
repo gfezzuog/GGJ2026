@@ -58,6 +58,8 @@ func _input(event: InputEvent) -> void:
 				active = false
 				deactivate()
 				$ViewButton.toggle_status = false
+			else:
+				activate()
 			dragged_mask_node.active_container.mask = dragged_mask_node.mask
 			dragged_mask_node.active_container.active = true
 			dragged_mask_node.active_container.activate()
@@ -218,7 +220,7 @@ func _on_rotate_button_pressed(_toggle_mode: bool) -> void:
 	if mask:
 		mask.rotate()
 		$MainContainer/PanelContainer/Mask.texture = mask.get_texture()
-		if layer_node:
+		if layer_node and !$ViewButton.toggle_status:
 			SignalBus.mask_rotated.emit(mask, layer_node.layer_index)
 
 

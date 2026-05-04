@@ -47,8 +47,8 @@ shader_parameter/corner_scale = 0.1600000076
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aujx5"]
 resource_local_to_scene = true
 shader = ExtResource("4_6gpv4")
-shader_parameter/radius = 30.000001425
-shader_parameter/thickness = 6.000000285
+shader_parameter/radius = 18.000000855
+shader_parameter/thickness = 4.00000019
 shader_parameter/color = Color(0.0627451, 0.13725491, 0.16470589, 1)
 shader_parameter/dash_count = 40.0000018525
 shader_parameter/dash_ratio = 0.8

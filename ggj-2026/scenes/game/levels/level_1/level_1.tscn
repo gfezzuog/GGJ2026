@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://6xvx3pdnwadp"]
+[gd_scene load_steps=22 format=3 uid="uid://6xvx3pdnwadp"]
 
 [ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_8ume5"]
 [ext_resource type="Texture2D" uid="uid://bhqgdqecq136p" path="res://assets/images/levels/level_1/sfondo.png" id="2_jeplg"]
@@ -25,22 +25,6 @@ shader_parameter/highlight_strength = 0.250000011875
 shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 1.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fpdro"]
-radius = 18.895508
-height = 65.03284
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdgch"]
-radius = 19.0
-height = 120.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_573nh"]
-radius = 11.0
-height = 48.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5eebh"]
-radius = 6.8005676
-height = 38.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d02v2"]
 resource_local_to_scene = true
@@ -120,28 +104,18 @@ centered = false
 [node name="Polygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
 polygon = PackedVector2Array(1067, 329, 1011, 317, 976, 302, 978, 262, 903, 259, 903, 303, 828, 298, 798, 279, 776, 243, 756, 268, 705, 259, 730, 303, 715, 336, 637, 329, 602, 334, 620, 308, 620, 193, 552, 152, 546, 162, 570, 184, 558, 182, 522, 155, 564, 99, 565, 60, 517, 4, 437, 7, 386, 50, 309, 60, 290, 114, 371, 114, 387, 94, 444, 114, 532, 71, 538, 84, 434, 152, 481, 218, 514, 220, 530, 254, 513, 262, 472, 258, 455, 320, 557, 431, 626, 454, 696, 426, 784, 421, 773, 456, 855, 497, 866, 457, 902, 500, 879, 523, 986, 461, 1038, 470, 1064, 566)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
-position = Vector2(646, 187.99998)
-rotation = -0.25307274
-shape = SubResource("CapsuleShape2D_fpdro")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
+polygon = PackedVector2Array(643, 269, 662, 257, 663, 271, 672, 271, 675, 299, 660, 301)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
-position = Vector2(578, 69)
-shape = SubResource("CapsuleShape2D_bdgch")
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
+polygon = PackedVector2Array(651, 249, 655, 239, 647, 229, 646, 218, 665, 214, 664, 164, 639, 157, 624, 175, 648, 205, 638, 204, 635, 234)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
-position = Vector2(664, 279)
-rotation = -0.63529986
-shape = SubResource("CapsuleShape2D_573nh")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
-position = Vector2(644, 232.99998)
-rotation = -0.5078908
-shape = SubResource("CapsuleShape2D_5eebh")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Brush/StaticBody2D"]
+polygon = PackedVector2Array(561, 130, 594, 125, 582, 83, 576, 84)
 
 [node name="Door" parent="SubViewport/Layers/Layer0" instance=ExtResource("7_vmqjx")]
-position = Vector2(29, 820)
-offset = Vector2(29, 820)
+position = Vector2(8, 775)
+offset = Vector2(8, 775)
 
 [node name="Layer1" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_d02v2")
@@ -177,7 +151,7 @@ centered = false
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer1/Bottom"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/Bottom/StaticBody2D"]
-polygon = PackedVector2Array(1, 867, 134, 861, 154, 892, 167, 910, 205, 902, 260, 898, 302, 902, 318, 936, 319, 952, 351, 948, 399, 878, 440, 882, 516, 923, 544, 923, 573, 938, 598, 943, 601, 952, 702, 981, 740, 973, 826, 970, 872, 961, 928, 959, 956, 956, 965, 895, 961, 778, 993, 716, 951, 584, 966, 569, 1069, 650, 1067, 1067, -1, 1067)
+polygon = PackedVector2Array(1, 867, 134, 861, 154, 892, 167, 910, 205, 902, 260, 898, 302, 902, 318, 936, 319, 952, 351, 948, 399, 878, 440, 882, 516, 923, 544, 923, 573, 938, 598, 943, 601, 952, 702, 981, 740, 973, 826, 970, 872, 961, 928, 959, 956, 956, 965, 895, 961, 778, 993, 716, 951, 584, 966, 569, 1069, 650, 1067, 1060, -1, 1060)
 
 [node name="Spine" type="Node2D" parent="SubViewport/Layers/Layer1"]
 script = ExtResource("11_wke4q")
@@ -187,7 +161,8 @@ metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
 scale = Vector2(1.104, 1.104)
 sprite_frames = SubResource("SpriteFrames_6wbev")
 autoplay = "default"
-frame_progress = 0.79031724
+frame = 2
+frame_progress = 0.879032
 centered = false
 
 [node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer1/Spine"]
@@ -196,7 +171,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/Spine/StaticBody2D"]
-polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 754, 615, 767, 604, 649, 545, 468, 510)
+polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 767, 641, 796, 626, 765, 587, 649, 545, 468, 510)
 
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_wke4q")

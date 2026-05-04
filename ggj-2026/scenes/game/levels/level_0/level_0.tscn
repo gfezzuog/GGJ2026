@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bx5u0i6jt144o"]
+[gd_scene load_steps=12 format=3 uid="uid://bx5u0i6jt144o"]
 
 [ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_45caq"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="2_bae2x"]
@@ -16,24 +16,6 @@ shader_parameter/highlight_strength = 0.250000011875
 shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdk7b"]
-size = Vector2(459.5, 304)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h814r"]
-size = Vector2(403.5, 306.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntxvd"]
-size = Vector2(233, 78.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ob41"]
-size = Vector2(199, 18.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1608"]
-size = Vector2(119, 57.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_spv64"]
-size = Vector2(96, 56)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_evm6c"]
 shader = ExtResource("2_cdk7b")
@@ -76,32 +58,15 @@ metadata/_custom_type_script = "uid://b710x5gr6742f"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer0/GameObj"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
 position = Vector2(228.25, 913)
-shape = SubResource("RectangleShape2D_cdk7b")
+polygon = PackedVector2Array(-228.25, -150, 226.75, -154, 227.75, 149, -228.25, 148)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(864.25, 912.75)
-shape = SubResource("RectangleShape2D_h814r")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(949.5, 718.25)
-shape = SubResource("RectangleShape2D_ntxvd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(967.5, 669.25)
-shape = SubResource("RectangleShape2D_3ob41")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(1005.5, 632.75)
-shape = SubResource("RectangleShape2D_q1608")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(1017, 574)
-shape = SubResource("RectangleShape2D_spv64")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(666, 761, 833, 760, 837, 688, 853, 690, 851, 679, 866, 678, 879, 669, 889, 669, 890, 660, 933, 658, 947, 651, 948, 631, 954, 631, 953, 619, 958, 602, 964, 602, 963, 580, 973, 579, 973, 565, 981, 563, 983, 547, 1066, 547, 1066, 1066, 667, 1067)
 
 [node name="Door" parent="SubViewport/Layers/Layer0" instance=ExtResource("5_evm6c")]
-position = Vector2(1025, 502)
+position = Vector2(1002, 458)
 offset = Vector2(1025, 502)
 
 [node name="Layer1" type="Node2D" parent="SubViewport/Layers"]

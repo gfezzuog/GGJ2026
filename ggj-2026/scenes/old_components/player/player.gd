@@ -67,15 +67,14 @@ func _physics_process(delta: float) -> void:
 		if ( (dir >= 0 && position.x + animating_toward_door_pos_holder >= animating_toward_door_goal_x) ||
 			 (dir < 0 && position.x + animating_toward_door_pos_holder <= animating_toward_door_goal_x)):
 			
-			# manda segnale che l'animazione e' finita
-			SignalBus.door_reached_animation_ended.emit()
-			
 			# resetta posizioni maschera e sprite
 			$Mask.position.x = 0
 			animation.position.x = 0
-				
+			
 			animating_toward_door = false
 			
+			# manda segnale che l'animazione e' finita
+			SignalBus.call_deferred("emit_signal", "door_reached_animation_ended")
 		else:
 			# calcola a che percentuale dell'animazione sei arrivato
 			#var perc = position.x / abs(animating_toward_door_goal_x - animating_toward_door_initial_x)
@@ -157,20 +156,9 @@ func _physics_process(delta: float) -> void:
 		landAudio.play()
 
 	was_on_floor = on_floor_now
-	
-	'''
-	# PROVA ANIMAZIONE VERSO PORTA
-	if Input.is_action_just_pressed("prova"):
-		print("prova animazione")
-		animating_toward_door_initial_x = position.x
-		animating_toward_door_goal_x = animating_toward_door_initial_x + player_width * 1.5
-		print(animating_toward_door_initial_x)
-		print(animating_toward_door_goal_x)
-		animating_toward_door = true
-	'''
-	
 
-func animate_toward_door(door_x, door_y):
+
+func animate_toward_door(door_x):
 	animating_toward_door_initial_x = position.x
 	# se la porta e' a destra
 	if (door_x >= position.x):
@@ -185,5 +173,3 @@ func animate_toward_door(door_x, door_y):
 	
 func animate_death():
 	$AnimationPlayer.play("death")
-	
-	
