@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://kp85g3biwggk"]
+[gd_scene load_steps=31 format=3 uid="uid://kp85g3biwggk"]
 
 [ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_k6khi"]
 [ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="2_cvlow"]
@@ -65,9 +65,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fxiw"]
 size = Vector2(159, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qo15"]
-size = Vector2(247, 59)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8n0fr"]
 shader = ExtResource("2_q4kfu")
 shader_parameter/highlight_color = Color(1, 1, 0, 1)
@@ -118,12 +115,6 @@ shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 0.5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f753d"]
-size = Vector2(1020, 55.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaeu0"]
-size = Vector2(50, 451)
-
 [node name="Level2" type="SubViewportContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -163,10 +154,9 @@ polygon = PackedVector2Array(2, 915, 29, 906, 29, 863, 54, 863, 54, 800, 122, 75
 [node name="Layer1" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_jt78c")
 
-[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer1" node_paths=PackedStringArray("sensor_area")]
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer1" node_paths=PackedStringArray("hide_by_layer")]
 script = ExtResource("4_2fxiw")
-hide_by_layer = true
-sensor_area = NodePath("SensorArea")
+hide_by_layer = NodePath("SensorArea")
 metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer1/GameObj"]
@@ -178,10 +168,11 @@ frame = 3
 frame_progress = 0.6947965
 centered = false
 
-[node name="SensorArea" type="Area2D" parent="SubViewport/Layers/Layer1/GameObj"]
+[node name="SensorArea" type="Area2D" parent="SubViewport/Layers/Layer1/GameObj" node_paths=PackedStringArray("node_to_disable")]
 collision_layer = 0
 collision_mask = 2048
 script = ExtResource("11_j2fvv")
+node_to_disable = NodePath("..")
 metadata/_custom_type_script = "uid://de3g77o2twora"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer1/GameObj/SensorArea"]
@@ -192,17 +183,15 @@ shape = SubResource("RectangleShape2D_2fxiw")
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer1/GameObj/StaticBody2D"]
-position = Vector2(736.5, 533.5)
-shape = SubResource("RectangleShape2D_6qo15")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(620, 510, 860, 510, 860, 560, 620, 560)
 
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_8n0fr")
 
-[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer2" node_paths=PackedStringArray("sensor_area")]
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer2" node_paths=PackedStringArray("hide_by_layer")]
 script = ExtResource("4_2fxiw")
-hide_by_layer = true
-sensor_area = NodePath("SensorArea")
+hide_by_layer = NodePath("SensorArea")
 metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
@@ -210,14 +199,14 @@ material = SubResource("ShaderMaterial_0okbq")
 scale = Vector2(1.104, 1.104)
 sprite_frames = SubResource("SpriteFrames_xjmxg")
 autoplay = "default"
-frame = 2
-frame_progress = 0.49067196
+frame_progress = 0.86483586
 centered = false
 
-[node name="SensorArea" type="Area2D" parent="SubViewport/Layers/Layer2/GameObj"]
+[node name="SensorArea" type="Area2D" parent="SubViewport/Layers/Layer2/GameObj" node_paths=PackedStringArray("node_to_disable")]
 collision_layer = 0
 collision_mask = 2048
 script = ExtResource("11_j2fvv")
+node_to_disable = NodePath("..")
 metadata/_custom_type_script = "uid://de3g77o2twora"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer2/GameObj/SensorArea"]
@@ -229,7 +218,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
-polygon = PackedVector2Array(346, 502, 314, 536, 328, 558, 509, 560, 526, 537, 490, 543, 464, 540, 442, 509)
+polygon = PackedVector2Array(346, 502, 314, 536, 328, 558, 492, 559, 490, 543, 464, 540, 442, 509)
 
 [node name="Layer3" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_uumrc")
@@ -246,16 +235,17 @@ centered = false
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/GameObj"]
 collision_layer = 2049
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
-position = Vector2(556, 534.75)
-shape = SubResource("RectangleShape2D_f753d")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
-position = Vector2(535, 278.5)
-shape = SubResource("RectangleShape2D_kaeu0")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(481, 568, 481, 595, 472, 617, 515, 680, 501, 684, 499, 730, 480, 732, 478, 794, 496, 817, 495, 935, 583, 936, 597, 849, 584, 748, 565, 732, 595, 713, 601, 656, 548, 563)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(47, 509, 1065, 509, 1065, 563, 47, 563)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(510, 503, 510, 53, 560, 53, 560, 503)
+
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("2_cvlow")
+
+[connection signal="shape_changed" from="SubViewport/Layers/Layer3/GameObj" to="SubViewport/Layers/Layer1/GameObj/SensorArea" method="_on_shape_changed"]
+[connection signal="shape_changed" from="SubViewport/Layers/Layer3/GameObj" to="SubViewport/Layers/Layer2/GameObj/SensorArea" method="_on_shape_changed"]

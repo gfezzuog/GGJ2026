@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw2x0y7bxufj8"]
+[gd_scene load_steps=3 format=3 uid="uid://bw2x0y7bxufj8"]
 
 [ext_resource type="Script" uid="uid://cj0n4iqc1iyww" path="res://scenes/game/components/door/door.gd" id="1_nh6ox"]
 [ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://assets/images/door.png" id="2_svpqt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_snus1"]
-size = Vector2(46, 92)
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_nh6ox")
@@ -13,13 +10,14 @@ script = ExtResource("1_nh6ox")
 use_parent_material = true
 scale = Vector2(0.79999995, 0.8616505)
 texture = ExtResource("2_svpqt")
+centered = false
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 use_parent_material = true
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 4.5)
-shape = SubResource("RectangleShape2D_snus1")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(25, 49)
+polygon = PackedVector2Array(-22, 39.5, 23, 39.5, 23, -45.5, -22, -45.5)
 
 [connection signal="body_entered" from="StaticBody2D" to="." method="_on_area_2d_body_entered"]
