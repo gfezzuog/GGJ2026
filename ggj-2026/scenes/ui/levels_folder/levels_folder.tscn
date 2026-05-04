@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgcngjeiav65p"]
+
+[ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_folder/levels_folder.gd" id="1_qfbtq"]
+[ext_resource type="Texture2D" uid="uid://d3idmxkfbvecj" path="res://assets/ui/new_ui/levels_folder.png" id="1_s8mr8"]
+[ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="2_s4wg6"]
+[ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_folder/level_unblocked.tscn" id="3_tb4or"]
+[ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_folder/level_blocked.tscn" id="4_qejkl"]
+
+[node name="LevelsFolder" type="Control"]
+z_index = 15
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qfbtq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.69803923)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 191.0
+offset_right = 3417.0
+offset_bottom = 2441.0
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("1_s8mr8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1259.0
+offset_top = 197.0
+offset_right = 1447.0
+offset_bottom = 371.0
+scale = Vector2(0.285, 0.285)
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_s4wg6")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 512.0
+offset_top = 198.0
+offset_right = 622.0
+offset_bottom = 243.0
+theme_override_colors/font_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "Levels"
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 277.0
+offset_right = 1275.0
+offset_bottom = 796.0
+columns = 4
+
+[node name="LevelUnblocked" parent="GridContainer" instance=ExtResource("3_tb4or")]
+layout_mode = 2
+
+[node name="LevelBlocked" parent="GridContainer" instance=ExtResource("4_qejkl")]
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
