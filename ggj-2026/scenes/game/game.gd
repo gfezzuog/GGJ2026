@@ -51,10 +51,10 @@ func _load_level(indx: int) -> void:
 	level.add_player(player)
 
 
-func _on_door_reached(door_x, door_y) -> void:
-	print("porta raggiunta")
-	player.animate_toward_door(door_x, door_y)
-	
+func _on_door_reached(door_x, _door_y) -> void:
+	player.animate_toward_door(door_x)
+
+
 func _on_door_reached_animation_ended() -> void:
 	level.remove_player()
 	$LevelContainer.get_child(0).queue_free()

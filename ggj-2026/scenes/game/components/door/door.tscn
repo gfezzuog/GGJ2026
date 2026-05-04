@@ -17,7 +17,6 @@ use_parent_material = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(25, 49)
-polygon = PackedVector2Array(-22, 39.5, 23, 39.5, 23, -45.5, -22, -45.5)
+polygon = PackedVector2Array(6, 88, 6, 5, 46, 5, 46, 88)
 
 [connection signal="body_entered" from="StaticBody2D" to="." method="_on_area_2d_body_entered"]

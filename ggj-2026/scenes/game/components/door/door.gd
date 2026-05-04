@@ -42,7 +42,6 @@ func _check_disabled() -> bool:
 
 
 func _apply_disable(value: bool) -> void:
-	print("Sta monitorando?: ", not value)
 	$StaticBody2D.monitoring = not value
 
 
