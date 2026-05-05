@@ -25,6 +25,9 @@ signal open_menu_settings()
 @warning_ignore("unused_signal")
 signal restart_level()
 
+@warning_ignore("unused_signal")
+signal go_to_level(indx: int)
+
 
 # SEGNALI MASCHERE
 

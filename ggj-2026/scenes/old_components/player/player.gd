@@ -48,7 +48,7 @@ func activate():
 	active = true
 
 
-func deactivate(_text):
+func deactivate():
 	active = false
 
 

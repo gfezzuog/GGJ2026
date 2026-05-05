@@ -18,6 +18,7 @@ func _ready() -> void:
 	SignalBus.resume_game.connect(_resume_game)
 	SignalBus.restart_level.connect(_restart_level)
 	SignalBus.open_menu_levels.connect(_open_menu_levels)
+	SignalBus.go_to_level.connect(_go_to_level)
 	
 	
 	player = load("res://scenes/old_components/player/player.tscn").instantiate()
@@ -91,8 +92,7 @@ func _open_menu_levels() -> void:
 	var menu = load(menu_levels_scene_path).instantiate()
 	var unblocked = latest_level_unblocked + 1
 	menu.set_levels(unblocked, levels - unblocked)
-	
-	$NewUI.add_child(menu)
+	add_child(menu)
 	
 
 func _on_door_reached(door_x, _door_y) -> void:
@@ -100,17 +100,20 @@ func _on_door_reached(door_x, _door_y) -> void:
 
 
 func _on_door_reached_animation_ended() -> void:
-	level.remove_player()
-	$LevelContainer.get_child(0).queue_free()
-	_set_level_indx.call_deferred(level_indx + 1)
+	_go_to_level(level_indx + 1)
+
+
+func _go_to_level(indx: int) -> void:
+	if (indx != level_indx):
+		level.remove_player()
+		$LevelContainer.get_child(0).queue_free()
+		_set_level_indx.call_deferred(indx)
 
 
 func _pause_game() -> void:
 	print("gioco in pausa")
-	### TODO
-	pass
+	player.deactivate()
 	
 func _resume_game() -> void:
 	print("gioco ripreso")
-	### TODO
-	pass
+	player.activate()

@@ -1,10 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgcngjeiav65p"]
+[gd_scene load_steps=7 format=3 uid="uid://dgcngjeiav65p"]
 
 [ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_menu/levels_menu.gd" id="1_115ed"]
-[ext_resource type="Texture2D" uid="uid://d3idmxkfbvecj" path="res://assets/ui/new_ui/levels_folder.png" id="2_spt12"]
 [ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="3_qh5ce"]
 [ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_menu/level_unblocked.tscn" id="4_7g8dh"]
 [ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_menu/level_blocked.tscn" id="5_jdh2n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_115ed"]
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+border_width_left = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spt12"]
+bg_color = Color(0.827451, 0.7647059, 0.7254902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
 
 [node name="LevelsMenu" type="Control"]
 z_index = 15
@@ -18,14 +36,23 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.69803923)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Panel-Bottom" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 492.0
+offset_top = 250.0
+offset_right = 1325.0
+offset_bottom = 827.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_115ed")
+
+[node name="Panel-Top" type="PanelContainer" parent="."]
+clip_contents = true
 layout_mode = 0
 offset_left = 492.0
 offset_top = 191.0
-offset_right = 3417.0
-offset_bottom = 2441.0
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("2_spt12")
+offset_right = 1325.0
+offset_bottom = 251.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_spt12")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -68,4 +95,4 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_close_button_pressed"]

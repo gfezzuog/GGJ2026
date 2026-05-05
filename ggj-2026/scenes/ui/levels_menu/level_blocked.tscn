@@ -11,6 +11,7 @@ offset_right = 150.0
 offset_bottom = 150.0
 size_flags_horizontal = 6
 size_flags_vertical = 2
+tooltip_text = "You haven't unlocked this level yet."
 script = ExtResource("1_v3ndk")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -41,3 +42,10 @@ theme_override_font_sizes/font_size = 29
 text = "Level"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 151.0
+disabled = true
+flat = true

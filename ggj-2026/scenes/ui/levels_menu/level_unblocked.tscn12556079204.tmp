@@ -4,10 +4,8 @@
 [ext_resource type="Script" uid="uid://b47v1t2txsnrv" path="res://scenes/ui/levels_menu/level_button.gd" id="1_kevxy"]
 [ext_resource type="Texture2D" uid="uid://cvmh6tefkkvic" path="res://assets/images/levels/level_0/old_layer_0.png" id="2_yttqy"]
 
-[node name="LevelUnblocked" type="Control"]
+[node name="LevelUnblocked" type="Button"]
 custom_minimum_size = Vector2(150, 150)
-layout_mode = 3
-anchors_preset = 0
 offset_right = 150.0
 offset_bottom = 150.0
 size_flags_horizontal = 6
@@ -58,5 +56,6 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 151.0
 offset_bottom = 150.0
-mouse_default_cursor_shape = 2
 flat = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
