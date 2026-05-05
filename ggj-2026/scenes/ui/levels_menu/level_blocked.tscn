@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgti4dlw7aawh"]
+
+[ext_resource type="Texture2D" uid="uid://b4ml0h70iv8nh" path="res://assets/ui/new_ui/level_blocked.png" id="1_8tcx6"]
+[ext_resource type="Script" uid="uid://b47v1t2txsnrv" path="res://scenes/ui/levels_menu/level_button.gd" id="1_v3ndk"]
+
+[node name="LevelBlocked" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 150.0
+size_flags_horizontal = 6
+size_flags_vertical = 2
+tooltip_text = "You haven't unlocked this level yet."
+script = ExtResource("1_v3ndk")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("1_8tcx6")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 140.0
+
+[node name="LevelName" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 96.0
+offset_right = 124.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 29
+text = "Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 151.0
+disabled = true
+flat = true

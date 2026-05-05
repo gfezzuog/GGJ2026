@@ -2,6 +2,8 @@
 
 extends Control
 
+var n_layers: int = 0		# serve per resettare le maschere quando restarti un livello
+
 
 func get_row_layer(indx: int) -> RowLayer:
 	return $RowLayerContainer/VBoxContainer.get_child(indx)
@@ -12,6 +14,7 @@ func set_n_layers(n: int) -> void:
 		$RowLayerContainer/VBoxContainer.get_child(i).show()
 	for i in range(n, 5):
 		$RowLayerContainer/VBoxContainer.get_child(i).hide()
+	n_layers = n
 
 
 func set_textures(textures: Array[Texture]) -> void:

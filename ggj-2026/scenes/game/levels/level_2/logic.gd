@@ -21,6 +21,14 @@ func init() -> void:
 	dialog.start_dialog()
 
 
+func reset() -> void:
+	SignalBus.start_line.disconnect(_on_start_line)
+	SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+	for child in get_children():
+		child.queue_free()
+	dialog = null
+
+
 func _on_start_line(text_id: String) -> void:
 	if text_id == "TUTORIAL_12":
 		var highlight_button: TextureRect = load("res://scenes/game/components/tutorial/highlight_button.tscn").instantiate()
@@ -49,5 +57,3 @@ func _on_dialog_finished() -> void:
 	dialog.queue_free()
 	dialog = null
 	level.player.activate()
-	SignalBus.start_line.disconnect(_on_start_line)
-	SignalBus.dialog_finished.disconnect(_on_dialog_finished)

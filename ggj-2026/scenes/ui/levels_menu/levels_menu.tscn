@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgcngjeiav65p"]
+
+[ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_menu/levels_menu.gd" id="1_115ed"]
+[ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="3_qh5ce"]
+[ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_menu/level_unblocked.tscn" id="4_7g8dh"]
+[ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_menu/level_blocked.tscn" id="5_jdh2n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_115ed"]
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+border_width_left = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spt12"]
+bg_color = Color(0.827451, 0.7647059, 0.7254902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[node name="LevelsMenu" type="Control"]
+z_index = 15
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_115ed")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.69803923)
+
+[node name="Panel-Bottom" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 492.0
+offset_top = 250.0
+offset_right = 1325.0
+offset_bottom = 827.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_115ed")
+
+[node name="Panel-Top" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 492.0
+offset_top = 191.0
+offset_right = 1325.0
+offset_bottom = 251.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_spt12")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1259.0
+offset_top = 197.0
+offset_right = 1447.0
+offset_bottom = 371.0
+scale = Vector2(0.285, 0.285)
+mouse_default_cursor_shape = 2
+icon = ExtResource("3_qh5ce")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 512.0
+offset_top = 198.0
+offset_right = 622.0
+offset_bottom = 243.0
+theme_override_colors/font_color = Color(0.0627451, 0.13725491, 0.16470589, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+text = "Levels"
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 277.0
+offset_right = 1275.0
+offset_bottom = 796.0
+columns = 4
+
+[node name="LevelUnblocked" parent="GridContainer" instance=ExtResource("4_7g8dh")]
+visible = false
+layout_mode = 2
+
+[node name="LevelBlocked" parent="GridContainer" instance=ExtResource("5_jdh2n")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_close_button_pressed"]
