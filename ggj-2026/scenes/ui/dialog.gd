@@ -34,6 +34,9 @@ func start_dialog() -> void:
 
 
 func continue_dialog() -> void:
+	if writing:
+		stop()
+	
 	$PanelContainer/VBoxContainer/RichTextLabel.mouse_filter = MOUSE_FILTER_PASS
 	$FakeButton.start()
 	

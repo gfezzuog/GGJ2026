@@ -10,7 +10,7 @@ func _ready() -> void:
 	SignalBus.door_reached.connect(_on_door_reached)
 	SignalBus.door_reached_animation_ended.connect(_on_door_reached_animation_ended)
 	
-	player = load("res://scenes/old_components/player/player.tscn").instantiate()
+	player = load("res://scenes/game/components/player/player.tscn").instantiate()
 	_load_level(level_indx)
 	_preload_level(level_indx+1)
 
@@ -45,21 +45,21 @@ func _load_level(indx: int) -> void:
 	if FileAccess.file_exists(resource_path) and FileAccess.file_exists(level_path):
 		var resource: LevelData = load(resource_path)
 		level = load(level_path).instantiate()
+		$LevelContainer.add_child(level)
 		
+		$NewUI.set_masks(resource.masks)
 		$NewUI.set_n_layers(resource.layers.size())
 		$NewUI.set_disability(resource.layers)
 		$NewUI.set_textures(resource.layers_textures)
-		$NewUI.set_masks(resource.masks)
-		
-		$LevelContainer.add_child(level)
+	
+	level.add_player(player)
 	
 	var logic_path = "res://scenes/game/levels/level_"+str(indx)+"/logic.gd"
 	if FileAccess.file_exists(logic_path):
 		var script: Script = load(logic_path)
 		$Logic.set_script(script)
+		$Logic.level = level
 		$Logic.init()
-
-	level.add_player(player)
 
 
 func _on_door_reached(door_x, _door_y) -> void:
@@ -68,5 +68,9 @@ func _on_door_reached(door_x, _door_y) -> void:
 
 func _on_door_reached_animation_ended() -> void:
 	level.remove_player()
-	$LevelContainer.get_child(0).queue_free()
+	
+	var old_level: Level = $LevelContainer.get_child(0)
+	old_level.queue_free()
+	
+	await old_level.tree_exited
 	_set_level_indx.call_deferred(level_indx + 1)

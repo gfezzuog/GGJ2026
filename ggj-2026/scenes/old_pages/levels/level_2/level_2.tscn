@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cliohxxeylmyn" path="res://scenes/old_pages/levels/level_2/level_2.gd" id="1_cexhq"]
 [ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://assets/images/levels/level_2/sfondo_2.png" id="2_ooxlk"]
 [ext_resource type="PackedScene" uid="uid://dko31yqepyse5" path="res://scenes/old_grid.tscn" id="3_q5gq6"]
-[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://scenes/old_components/player/player.tscn" id="4_duc5e"]
+[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://scenes/game/components/player/player.tscn" id="4_duc5e"]
 [ext_resource type="Texture2D" uid="uid://dkvojj73t83yg" path="res://assets/images/levels/level_2/layer_0_noback.png" id="5_npaxn"]
 [ext_resource type="Script" uid="uid://bulblyecrkaha" path="res://scenes/old_components/objs/obj.gd" id="6_luow5"]
 [ext_resource type="Script" uid="uid://c113vg3uwmvc0" path="res://scenes/old_components/objs/dang_obj.gd" id="6_npaxn"]

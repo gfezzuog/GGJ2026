@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cotufelyf6tbe" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://da1uio0vt52om" path="res://scenes/ui/ui.tscn" id="1_sul5r"]
-[ext_resource type="Script" uid="uid://cxmkxa47rum1" path="res://scenes/game/levels/level_0/logic.gd" id="3_0sr1o"]
+[ext_resource type="Script" uid="uid://dgi7qginfumrr" path="res://scenes/game/levels/level_1/logic.gd" id="3_0sr1o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h61r"]
 content_margin_left = 7.0

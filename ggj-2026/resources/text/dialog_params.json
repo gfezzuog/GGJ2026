@@ -13,5 +13,14 @@
 	},
 	"TUTORIAL_6": {
 		"default": ["#F2FF49"]
+	},
+	"TUTORIAL_7": {
+		"default": ["#F2FF49"]
+	},
+	"TUTORIAL_10": {
+		"default": ["#FFA146"]
+	},
+	"TUTORIAL_12": {
+		"default": ["#F2FF49", "#F2FF49"]
 	}
 }

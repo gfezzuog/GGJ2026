@@ -48,15 +48,11 @@ func activate():
 	active = true
 
 
-func deactivate(_text):
+func deactivate():
 	active = false
 
 
 func _physics_process(delta: float) -> void:
-
-	# Se il popup e' aperto non fare nulla
-	if (!active):
-		return
 	
 	# ANIMAZIONE QUANDO ARRIVI A UNA PORTA
 	if (animating_toward_door):
@@ -110,14 +106,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# JUMP (ONE SHOT GARANTITO)
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	
+	if Input.is_action_just_pressed("jump") and is_on_floor() and active:
 		velocity.y = -jump_force
 		actionAudio.stop()
 		actionAudio.stream = j_audio
 		actionAudio.play()
 
 	# MOVIMENTO ORIZZONTALE
-	var direction := Input.get_axis("left", "right")
+	var direction: float = Input.get_axis("left", "right") if active else 0.0
 	if direction != 0:
 		velocity.x = direction * speed
 	else:

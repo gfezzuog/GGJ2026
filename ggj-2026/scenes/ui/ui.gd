@@ -50,6 +50,8 @@ func set_disability(values: Array[int]) -> void:
 			var view_button: LayerButton = mask_container.get_view_button()
 			view_button.toggle_status = true
 			mask_container.update_status()
+		elif mask_container.mask:
+			SignalBus.mask_activated.emit(mask_container.mask, i)
 		
 		i += 1
 

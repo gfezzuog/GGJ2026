@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://bo0grlbvum03a"]
 
-[ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://scenes/old_components/player/player.gd" id="1_a3d8c"]
+[ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://scenes/game/components/player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://c3pbrkxvt62wa" path="res://assets/images/player/idle_0.PNG" id="3_mtuoh"]
 [ext_resource type="AudioStream" uid="uid://dr8qvhh1fh2p3" path="res://assets/audio/salto.wav" id="3_oikmp"]
 [ext_resource type="AudioStream" uid="uid://4toply0pv7v" path="res://assets/audio/atterraggio.wav" id="4_06tpx"]

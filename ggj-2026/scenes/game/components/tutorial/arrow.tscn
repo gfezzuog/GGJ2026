@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://83215vwfkwyp"]
+
+[ext_resource type="Script" uid="uid://bm817vx6vhiqd" path="res://scenes/game/components/tutorial/arrow.gd" id="1_v77gg"]
+
+[node name="Arrow" type="Node2D"]
+z_index = 20
+script = ExtResource("1_v77gg")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_top = 33.0
+offset_right = 60.0
+offset_bottom = 82.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+position = Vector2(30, 79.5)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-15, -7.5)
+polygon = PackedVector2Array(0, 0, 30, 0, 30, 15, 0, 15)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Control"]
+position = Vector2(30, 61.5)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-15, -7.5)
+polygon = PackedVector2Array(0, 0, 30, 0, 30, 15, 0, 15)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Control"]
+position = Vector2(30, 43.5)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-15, -7.5)
+polygon = PackedVector2Array(0, 0, 30, 0, 30, 15, 0, 15)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Control"]
+position = Vector2(30, 25.5)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-15, -7.5)
+polygon = PackedVector2Array(0, 0, 30, 0, 30, 15, 0, 15)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Control"]
+position = Vector2(30, 7.5)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-15, -7.5)
+polygon = PackedVector2Array(0, 0, 30, 0, 30, 15, 0, 15)
+
+[node name="Polygon2D6" type="Polygon2D" parent="."]
+position = Vector2(30, 15)
+color = Color(0.9490196, 1, 0.28627452, 1)
+offset = Vector2(-25, 15)
+polygon = PackedVector2Array(-5, 0, 55, 0, 25, -30)
