@@ -4,7 +4,6 @@ class_name Level extends SubViewportContainer
 @export var mask_highlight_color := Color(Colors.HIGHLIGHT, 0.5)
 @export var layer_id: int = 0
 @export var player_starting_position: Vector2 
-@export var showCollisionShapes: bool = true
 var mask_to_draw: PackedVector2Array = []
 var player: Player
 
@@ -49,21 +48,16 @@ func _ready() -> void:
 	SignalBus.highlight_layer.connect(highlight_layer)
 	SignalBus.game_over.connect(_on_game_over)
 	
-	# Eventualmente nascondi le collisionShapes
-	if (!showCollisionShapes):
-		var collShapes = find_children("*", "CollisionShape2D", true, false) as Array[CollisionShape2D]
-		for shape in collShapes:
-			shape.visible = false
-		var collShapes2 = find_children("*", "CollisionPolygon2D", true, false) as Array[CollisionShape2D]
-		for shape in collShapes2:
-			shape.visible = false
-
+	
 
 func add_player(_player: Player) -> void:
 	player = _player
 	player.position = player_starting_position
 	$SubViewport.add_child(player)
 
+func put_player_in_starting_position() -> void:
+	if (player):
+		player.position = player_starting_position
 
 func remove_player() -> void:
 	$SubViewport.remove_child(player)

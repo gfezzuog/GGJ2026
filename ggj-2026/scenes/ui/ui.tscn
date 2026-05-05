@@ -123,6 +123,7 @@ texture = ExtResource("5_0dwhk")
 layout_mode = 2
 title = "Change Level"
 description = "Cambia livello tra quelli che hai gia sbloccato"
+Function = 1
 
 [node name="HSeparator" type="HSeparator" parent="Panel/ButtonsContainer"]
 layout_mode = 2
@@ -140,3 +141,4 @@ description = "Esci dal gioco e torni al menu principale"
 texture = ExtResource("6_pfayw")
 offset_y = -212
 margin = Array[int]([10, 10, 10, 10])
+Function = 3

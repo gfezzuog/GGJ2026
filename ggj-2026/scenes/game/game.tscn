@@ -19,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7h61r")
-level_indx = 1
 
 [node name="NewUI" parent="." instance=ExtResource("1_sul5r")]
 layout_mode = 1

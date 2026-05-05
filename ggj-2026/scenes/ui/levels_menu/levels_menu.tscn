@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgcngjeiav65p"]
 
-[ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_folder/levels_folder.gd" id="1_qfbtq"]
-[ext_resource type="Texture2D" uid="uid://d3idmxkfbvecj" path="res://assets/ui/new_ui/levels_folder.png" id="1_s8mr8"]
-[ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="2_s4wg6"]
-[ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_folder/level_unblocked.tscn" id="3_tb4or"]
-[ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_folder/level_blocked.tscn" id="4_qejkl"]
+[ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_menu/levels_menu.gd" id="1_115ed"]
+[ext_resource type="Texture2D" uid="uid://d3idmxkfbvecj" path="res://assets/ui/new_ui/levels_folder.png" id="2_spt12"]
+[ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="3_qh5ce"]
+[ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_menu/level_unblocked.tscn" id="4_7g8dh"]
+[ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_menu/level_blocked.tscn" id="5_jdh2n"]
 
-[node name="LevelsFolder" type="Control"]
+[node name="LevelsMenu" type="Control"]
 z_index = 15
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_qfbtq")
+script = ExtResource("1_115ed")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -25,7 +25,7 @@ offset_top = 191.0
 offset_right = 3417.0
 offset_bottom = 2441.0
 scale = Vector2(0.285, 0.285)
-texture = ExtResource("1_s8mr8")
+texture = ExtResource("2_spt12")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -35,7 +35,7 @@ offset_right = 1447.0
 offset_bottom = 371.0
 scale = Vector2(0.285, 0.285)
 mouse_default_cursor_shape = 2
-icon = ExtResource("2_s4wg6")
+icon = ExtResource("3_qh5ce")
 flat = true
 
 [node name="Label" type="Label" parent="."]
@@ -60,10 +60,12 @@ offset_right = 1275.0
 offset_bottom = 796.0
 columns = 4
 
-[node name="LevelUnblocked" parent="GridContainer" instance=ExtResource("3_tb4or")]
+[node name="LevelUnblocked" parent="GridContainer" instance=ExtResource("4_7g8dh")]
+visible = false
 layout_mode = 2
 
-[node name="LevelBlocked" parent="GridContainer" instance=ExtResource("4_qejkl")]
+[node name="LevelBlocked" parent="GridContainer" instance=ExtResource("5_jdh2n")]
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

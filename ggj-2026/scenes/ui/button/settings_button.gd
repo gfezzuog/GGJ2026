@@ -16,6 +16,10 @@ var border_size: int = 2
 @onready var panel: StyleBoxFlat = $Button.get_theme_stylebox("panel")
 var inside: bool = false
 
+# Campo per scegliere quale funzione deve avere il pulsante
+enum ButtonOptions {RESTART_LEVEL, CHANGE_LEVEL, SETTINGS, EXIT}
+@export var Function: ButtonOptions
+
 
 func _ready() -> void:
 	$Node2D/PanelContainer/VBoxContainer/Title.text = "[b]" + title + "[/b]"
@@ -26,7 +30,36 @@ func _ready() -> void:
 	panel.content_margin_top = margin[1]
 	panel.content_margin_right = margin[2]
 	panel.content_margin_bottom = margin[3]
+	
+	match(Function):
+		ButtonOptions.RESTART_LEVEL:
+			pressed.connect(_restart_level)
+		ButtonOptions.CHANGE_LEVEL:
+			pressed.connect(_change_level)
+		ButtonOptions.SETTINGS:
+			pressed.connect(_open_settings)
+		ButtonOptions.EXIT:
+			pressed.connect(_exit)
+		pass
  
+
+# Funzioni da associare alle opzioni del campo "Function"
+func _restart_level() -> void:
+	print("premuto restart")
+	SignalBus.restart_level.emit()
+	
+func _change_level() -> void:
+	print("premuto change level")
+	SignalBus.open_menu_levels.emit()
+	
+func _open_settings() -> void:
+	print("premuto settings")
+	pass
+	
+func _exit() -> void:
+	print("premuto exit")
+	pass
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and inside:

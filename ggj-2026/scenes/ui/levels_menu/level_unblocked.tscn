@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgti4dlw7aawh"]
+[gd_scene load_steps=4 format=3 uid="uid://bbcs884g32mc5"]
 
-[ext_resource type="Texture2D" uid="uid://b4ml0h70iv8nh" path="res://assets/ui/new_ui/level_blocked.png" id="1_8tcx6"]
+[ext_resource type="Texture2D" uid="uid://cvrer76ufxedo" path="res://assets/ui/new_ui/level_unblocked.png" id="1_0gpqp"]
+[ext_resource type="Script" uid="uid://b47v1t2txsnrv" path="res://scenes/ui/levels_menu/level_button.gd" id="1_kevxy"]
+[ext_resource type="Texture2D" uid="uid://cvmh6tefkkvic" path="res://assets/images/levels/level_0/old_layer_0.png" id="2_yttqy"]
 
-[node name="LevelBlocked" type="Control"]
+[node name="LevelUnblocked" type="Control"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 3
 anchors_preset = 0
@@ -10,13 +12,14 @@ offset_right = 150.0
 offset_bottom = 150.0
 size_flags_horizontal = 6
 size_flags_vertical = 2
+script = ExtResource("1_kevxy")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.285, 0.285)
-texture = ExtResource("1_8tcx6")
+texture = ExtResource("1_0gpqp")
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true
@@ -25,6 +28,16 @@ offset_left = 11.0
 offset_top = 10.0
 offset_right = 140.0
 offset_bottom = 140.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 15.0
+offset_top = 0.9999995
+offset_right = 1169.1359
+offset_bottom = 1153.941
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("2_yttqy")
 
 [node name="LevelName" type="Label" parent="Control"]
 unique_name_in_owner = true

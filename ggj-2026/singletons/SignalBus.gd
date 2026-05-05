@@ -1,11 +1,9 @@
 extends Node
 
 
-# Quando il player tocca una porta
-#@warning_ignore("unused_signal")
-#signal doorReached
 
-# Quando il player muore
+# SEGNALI CONTROLLO DEL GIOCO
+
 @warning_ignore("unused_signal")
 signal game_over
 
@@ -14,6 +12,21 @@ signal door_reached(door_x: float, door_y: float)
 
 @warning_ignore("unused_signal")
 signal door_reached_animation_ended()
+
+@warning_ignore("unused_signal")
+signal resume_game()			# segnale mandato alla chiusura di un menu
+
+@warning_ignore("unused_signal")
+signal open_menu_levels()
+
+@warning_ignore("unused_signal")
+signal open_menu_settings()
+
+@warning_ignore("unused_signal")
+signal restart_level()
+
+
+# SEGNALI MASCHERE
 
 @warning_ignore("unused_signal")
 signal mask_disabled(mask, layer)
@@ -38,6 +51,7 @@ signal hide_mask()
 
 @warning_ignore("unused_signal")
 signal highlight_layer(layer: int, value: bool)
+
 
 #region DIALOG
 @warning_ignore("unused_signal")
