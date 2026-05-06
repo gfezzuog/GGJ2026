@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=13 format=3 uid="uid://dxoafdxhr0rd1"]
+
+[ext_resource type="Script" uid="uid://bbb2j3m761on2" path="res://scenes/ui/mask/mask.gd" id="1_onuep"]
+[ext_resource type="Texture2D" uid="uid://cmkmgv5r33gi5" path="res://assets/images/levels/level_3/l0.png" id="1_slpo0"]
+[ext_resource type="Texture2D" uid="uid://dp6dy2eayo55w" path="res://assets/images/levels/level_3/l1.png" id="2_elx16"]
+[ext_resource type="Script" uid="uid://djek1l2u0at7l" path="res://resources/levels/level_data.gd" id="2_mnyl5"]
+[ext_resource type="Texture2D" uid="uid://q6e14dhu73gy" path="res://assets/images/levels/level_3/l2.png" id="3_ngx10"]
+[ext_resource type="Texture2D" uid="uid://d3qfic5lo3clf" path="res://assets/images/levels/level_3/l3.png" id="4_dlu6a"]
+[ext_resource type="Texture2D" uid="uid://d1fyf16gv6glg" path="res://assets/images/levels/level_3/l2_ghirigoro_top.png" id="5_elx16"]
+[ext_resource type="Resource" uid="uid://drtljx6nwivym" path="res://resources/masks/level_3/mask_0.tres" id="6_lpvmc"]
+[ext_resource type="Resource" uid="uid://dmjhs5ugxpx80" path="res://resources/masks/level_3/mask_1.tres" id="7_jt5ii"]
+[ext_resource type="Resource" uid="uid://cbifjitnfs2ng" path="res://resources/masks/level_3/mask_2.tres" id="8_gmm2o"]
+[ext_resource type="Resource" uid="uid://dmc3s7epk5k22" path="res://resources/masks/level_3/mask_3.tres" id="9_2845u"]
+[ext_resource type="Resource" uid="uid://c5yjyob6kko5w" path="res://resources/masks/level_3/mask_4.tres" id="10_5qhsn"]
+
+[resource]
+script = ExtResource("2_mnyl5")
+layers = Array[int]([0, 0, 0, 0, 0])
+layers_textures = Array[Texture]([ExtResource("1_slpo0"), ExtResource("2_elx16"), ExtResource("3_ngx10"), ExtResource("4_dlu6a"), ExtResource("5_elx16")])
+masks = Array[ExtResource("1_onuep")]([ExtResource("6_lpvmc"), ExtResource("7_jt5ii"), ExtResource("8_gmm2o"), ExtResource("9_2845u"), ExtResource("10_5qhsn")])
+metadata/_custom_type_script = "uid://djek1l2u0at7l"

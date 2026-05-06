@@ -55,9 +55,11 @@ func add_player(_player: Player) -> void:
 	player.position = player_starting_position
 	$SubViewport.add_child(player)
 
+
 func put_player_in_starting_position() -> void:
 	if (player):
 		player.position = player_starting_position
+
 
 func remove_player() -> void:
 	$SubViewport.remove_child(player)

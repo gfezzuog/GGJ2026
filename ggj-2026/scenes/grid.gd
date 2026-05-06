@@ -1,9 +1,9 @@
 @tool
 extends Node2D
 
-@export var cell_size: int = 64
-@export var grid_width: int = 1024
-@export var grid_height: int = 1024
+@export var cell_size: int = 26
+@export var grid_width: int = 1066
+@export var grid_height: int = 1066
 @export var color: Color = Color(1, 1, 1, 0.2)
 @export var highlight_color: Color = Color(1, 0, 0, 0.3)
 
