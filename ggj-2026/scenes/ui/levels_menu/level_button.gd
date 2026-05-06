@@ -12,6 +12,7 @@ func _ready() -> void:
 func set_level_index(n: int):
 	level = n
 	$Control/LevelName.text = "Level " + str(n)
+	$Control/LevelNumber.text = str(n)
 
 func _on_button_pressed() -> void:
 	print("pressed")

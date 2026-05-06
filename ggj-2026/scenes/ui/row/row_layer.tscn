@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1mmmds4sg57b" path="res://scenes/ui/row/mask_container.tscn" id="2_stdaq"]
 [ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://assets/images/levels/level_1/layer_1.png" id="3_na15o"]
 [ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="4_pyv87"]
-[ext_resource type="Texture2D" uid="uid://cq734h2w0f4li" path="res://assets/ui/new_ui/attach.png" id="5_na15o"]
+[ext_resource type="Texture2D" uid="uid://dny5ak5ef2u0w" path="res://assets/ui/new_ui/icons/Link-H--Streamline-Unicons.png" id="5_i27i7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyv87"]
 content_margin_left = 20.0
@@ -119,9 +119,11 @@ size_flags_horizontal = 3
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ircnc")
 
 [node name="Attach" type="TextureRect" parent="HBoxContainer"]
+self_modulate = Color(0.37254903, 0.36862746, 0.39215687, 1)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("5_na15o")
+texture = ExtResource("5_i27i7")
 expand_mode = 1
 stretch_mode = 5
 

@@ -3,22 +3,17 @@ class_name SettingButtons extends Control
 
 signal pressed
 
-
 @export var title: String = "Test"
 @export var description: String = "Testo di prova"
 @export var texture: Texture = null : set = _set_texture
 @export var offset_y: int = 0
-@export var margin: Array[int] = [10, 15, 8, 0] ## Left, Top, Right, Bottom
+@export var margin: Array[int] = [8, 12, 8, 0] ## Left, Top, Right, Bottom
 var hover_color: Color = Color("#3d3b44")
 var pressed_color: Color = Color("#2e2c33")
 var shadow_size: int = 4
 var border_size: int = 2
 @onready var panel: StyleBoxFlat = $Button.get_theme_stylebox("panel")
 var inside: bool = false
-
-# Campo per scegliere quale funzione deve avere il pulsante
-enum ButtonOptions {RESTART_LEVEL, CHANGE_LEVEL, SETTINGS, EXIT}
-@export var Function: ButtonOptions
 
 
 func _ready() -> void:
@@ -31,36 +26,6 @@ func _ready() -> void:
 	panel.content_margin_right = margin[2]
 	panel.content_margin_bottom = margin[3]
 	
-	match(Function):
-		ButtonOptions.RESTART_LEVEL:
-			pressed.connect(_restart_level)
-		ButtonOptions.CHANGE_LEVEL:
-			pressed.connect(_change_level)
-		ButtonOptions.SETTINGS:
-			pressed.connect(_open_settings)
-		ButtonOptions.EXIT:
-			pressed.connect(_exit)
- 
-
-# Funzioni da associare alle opzioni del campo "Function"
-func _restart_level() -> void:
-	print("premuto restart")
-	SignalBus.restart_level.emit()
-
-
-func _change_level() -> void:
-	print("premuto change level")
-	SignalBus.open_menu_levels.emit()
-
-
-func _open_settings() -> void:
-	print("premuto settings")
-	pass
-
-
-func _exit() -> void:
-	print("premuto exit")
-	pass
 
 
 func _input(event: InputEvent) -> void:

@@ -67,3 +67,23 @@ func reset() -> void:
 		row.layer_texture = null
 		row.get_mask_container().reset()
 		row.show()
+		
+		
+		
+# Funzioni per i pulsanti laterali
+func _restart_level() -> void:
+	print("premuto restart")
+	SignalBus.restart_level.emit()
+
+func _change_level() -> void:
+	print("premuto change level")
+	SignalBus.open_menu_levels.emit()
+
+func _open_settings() -> void:
+	print("premuto settings")
+	SignalBus.open_menu_settings.emit()
+
+func _exit() -> void:
+	### TODO: fare che torni al menu principale invece di uscire
+	print("premuto exit")
+	get_tree().quit()

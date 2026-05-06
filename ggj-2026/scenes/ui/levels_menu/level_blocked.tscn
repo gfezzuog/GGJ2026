@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgti4dlw7aawh"]
+[gd_scene load_steps=5 format=3 uid="uid://bgti4dlw7aawh"]
 
 [ext_resource type="Texture2D" uid="uid://b4ml0h70iv8nh" path="res://assets/ui/new_ui/level_blocked.png" id="1_8tcx6"]
 [ext_resource type="Script" uid="uid://b47v1t2txsnrv" path="res://scenes/ui/levels_menu/level_button.gd" id="1_v3ndk"]
+
+[sub_resource type="FontVariation" id="FontVariation_v3ndk"]
+spacing_glyph = -1
+
+[sub_resource type="FontVariation" id="FontVariation_tyekq"]
+spacing_glyph = -1
 
 [node name="LevelBlocked" type="Control"]
 custom_minimum_size = Vector2(150, 150)
@@ -29,15 +35,35 @@ offset_top = 10.0
 offset_right = 140.0
 offset_bottom = 140.0
 
+[node name="LevelNumber" type="Label" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 2.000002
+offset_top = 13.999992
+offset_right = 126.0
+offset_bottom = 89.99999
+theme_override_colors/font_color = Color(0.9843137, 0.9607843, 0.9372549, 1)
+theme_override_colors/font_outline_color = Color(0.9843137, 0.9607843, 0.9372549, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontVariation_v3ndk")
+theme_override_font_sizes/font_size = 48
+text = "88"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LevelName" type="Label" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_top = 96.0
 offset_right = 124.0
 offset_bottom = 136.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.9843137, 0.9607843, 0.9372549, 1)
+theme_override_colors/font_outline_color = Color(0.9843137, 0.9607843, 0.9372549, 1)
 theme_override_constants/outline_size = 1
+theme_override_fonts/font = SubResource("FontVariation_tyekq")
 theme_override_font_sizes/font_size = 29
 text = "Level"
 horizontal_alignment = 1

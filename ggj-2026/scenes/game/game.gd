@@ -47,15 +47,15 @@ func _preload_level(indx: int) -> void:
 
 
 func _restart_level() -> void:
-	### TODO: se restarti quando sei posato sopra delle spine nascoste da una maschera,
-	### quando rimette 
+	_go_to_level(level_indx)
+	'''
+	# Questo modo era piu' leggero ma non funzionava
 	level.put_player_in_starting_position()
-	_reset_masks()
-
-
-func _reset_masks() -> void:
+	# resetta maschere
 	for l in $NewUI.n_layers:
 		level.reset_mask(l)
+	'''
+
 
 
 func _load_level(indx: int) -> void:
@@ -97,24 +97,29 @@ func _open_menu_levels() -> void:
 	
 
 func _on_door_reached(door_x, _door_y) -> void:
+	#print("raggiunta porta, il player e' in posizione:")
+	#print(player.global_position)
 	player.animate_toward_door(door_x)
 
 
 func _on_door_reached_animation_ended() -> void:
+	#print("finita animazione porta")
 	_go_to_level(level_indx + 1)
 
 
 func _go_to_level(indx: int) -> void:
-	if (indx != level_indx):
-		$Logic.reset()
-		
-		level.remove_player()
-		
-		var old_level: Level = $LevelContainer.get_child(0)
-		old_level.queue_free()
-		
-		await old_level.tree_exited
-		_set_level_indx.call_deferred(indx)
+	#if (indx != level_indx):
+	
+	$Logic.reset()
+	
+	player.deactivate()		# serve ad evitare che collida accidentalmente con una porta cambiando livello
+	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level
+	
+	var old_level: Level = $LevelContainer.get_child(0)
+	old_level.queue_free()
+	
+	await old_level.tree_exited
+	_set_level_indx.call_deferred(indx)
 
 
 func _pause_game() -> void:

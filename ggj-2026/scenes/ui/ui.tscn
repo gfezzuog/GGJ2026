@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://da1uio0vt52om"]
+[gd_scene load_steps=13 format=3 uid="uid://da1uio0vt52om"]
 
 [ext_resource type="Script" uid="uid://cvfev54biaohu" path="res://scenes/ui/ui.gd" id="1_aac20"]
 [ext_resource type="PackedScene" uid="uid://bfd4d1fwrv6hy" path="res://scenes/ui/left_column/left_column.tscn" id="1_oc6jb"]
 [ext_resource type="PackedScene" uid="uid://cocpcgyy2dhr1" path="res://scenes/ui/row/row_layer.tscn" id="2_aq4qh"]
 [ext_resource type="PackedScene" uid="uid://b3ua67euq02xd" path="res://scenes/ui/button/settings_button.tscn" id="4_g5kmx"]
-[ext_resource type="Texture2D" uid="uid://d02dnkfdpcdeo" path="res://assets/ui/new_ui/undo.png" id="5_0dwhk"]
+[ext_resource type="Texture2D" uid="uid://cyh782nubvb46" path="res://assets/ui/new_ui/icons/Sync--Streamline-Unicons.png" id="5_jcn1r"]
 [ext_resource type="Texture2D" uid="uid://d1qkhvjr68qqo" path="res://assets/ui/new_ui/exit.png" id="6_pfayw"]
+[ext_resource type="Texture2D" uid="uid://rqldx6j1u6x1" path="res://assets/ui/new_ui/icons/Folder--Streamline-Unicons.png" id="6_uegxj"]
+[ext_resource type="Texture2D" uid="uid://bhdcjjruxvw15" path="res://assets/ui/new_ui/icons/Setting--Streamline-Unicons.png" id="7_y220t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aac20"]
 bg_color = Color(0.2627451, 0.30980393, 0.33333334, 1)
@@ -117,13 +119,13 @@ theme_override_constants/separation = 40
 layout_mode = 2
 title = "Reset"
 description = "Ricomincia da capo il livello"
-texture = ExtResource("5_0dwhk")
+texture = ExtResource("5_jcn1r")
 
 [node name="ChangeLevel" parent="Panel/ButtonsContainer/GameButtons" instance=ExtResource("4_g5kmx")]
 layout_mode = 2
 title = "Change Level"
 description = "Cambia livello tra quelli che hai gia sbloccato"
-Function = 1
+texture = ExtResource("6_uegxj")
 
 [node name="HSeparator" type="HSeparator" parent="Panel/ButtonsContainer"]
 layout_mode = 2
@@ -133,6 +135,13 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_pfayw")
 [node name="GeneralButtons" type="VBoxContainer" parent="Panel/ButtonsContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Settings" parent="Panel/ButtonsContainer/GeneralButtons" instance=ExtResource("4_g5kmx")]
+layout_mode = 2
+title = "Settings"
+description = "Impostazioni"
+texture = ExtResource("7_y220t")
 
 [node name="Exit" parent="Panel/ButtonsContainer/GeneralButtons" instance=ExtResource("4_g5kmx")]
 layout_mode = 2
@@ -141,4 +150,8 @@ description = "Esci dal gioco e torni al menu principale"
 texture = ExtResource("6_pfayw")
 offset_y = -212
 margin = Array[int]([10, 10, 10, 10])
-Function = 3
+
+[connection signal="pressed" from="Panel/ButtonsContainer/GameButtons/ResetLevel" to="." method="_restart_level"]
+[connection signal="pressed" from="Panel/ButtonsContainer/GameButtons/ChangeLevel" to="." method="_change_level"]
+[connection signal="pressed" from="Panel/ButtonsContainer/GeneralButtons/Settings" to="." method="_open_settings"]
+[connection signal="pressed" from="Panel/ButtonsContainer/GeneralButtons/Exit" to="." method="_exit"]
