@@ -4,11 +4,12 @@ class_name LayerButton extends PanelContainer
 signal pressed(value: bool)
 
 @export var texture: Texture = null
-@export var texture_disabled: Texture = null
 @export var toggle_mode: bool = false : set = _set_toggle_mode
 @export var texture_toggled: Texture = null
-@export var texture_disabled_toggled: Texture = null
 @export var disabled: bool = false : set = _set_disabled
+
+@export var texture_color := Color("#10232a")
+@export var texture_disabled_color := Color("#5f5e64")
 
 @export_group("Colors")
 @export var color := Color("#19a7e3")
@@ -81,23 +82,22 @@ func _update_status():
 	if not is_inside_tree():
 		return
 	
+	if toggle_mode and toggle_status:
+		$PanelContainer/TextureRect.texture = texture_toggled
+	else:
+		$PanelContainer/TextureRect.texture = texture
+	
 	if disabled:
 		inside = false
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		inner_panel.bg_color = color_disabled
 		outer_panel.bg_color = color_disabled
-		if toggle_mode and toggle_status:
-			$PanelContainer/TextureRect.texture = texture_disabled_toggled
-		else:
-			$PanelContainer/TextureRect.texture = texture_disabled
+		$PanelContainer/TextureRect.self_modulate = texture_disabled_color
 	else:
 		mouse_filter = Control.MOUSE_FILTER_STOP
 		inner_panel.bg_color = color
 		outer_panel.bg_color = outer_color
-		if toggle_mode and toggle_status:
-			$PanelContainer/TextureRect.texture = texture_toggled
-		else:
-			$PanelContainer/TextureRect.texture = texture
+		$PanelContainer/TextureRect.self_modulate = texture_color
 
 
 func _set_content_margin(new_value: Dictionary) -> void:

@@ -86,7 +86,10 @@ func apply_mask(layer: int, mask: Mask) -> void:
 func reset_mask(layer: int) -> void:
 	var layer_node = $SubViewport/Layers.get_child(layer)
 	
-	for obj: GameObj in layer_node.get_children():
+	#for obj: GameObj in layer_node.get_children():
+	var children = layer_node.find_children("*", "GameObj", false)
+	#print(children)
+	for obj in children:
 		obj.reset()
 	
 	layer_node.material.set_shader_parameter("mask_texture", null)

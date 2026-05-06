@@ -45,19 +45,6 @@ func _preload_level(indx: int) -> void:
 		ResourceLoader.load_threaded_request(resource_path)
 		ResourceLoader.load_threaded_request(level_path)
 
-
-func _restart_level() -> void:
-	### TODO: se restarti quando sei posato sopra delle spine nascoste da una maschera,
-	### quando rimette 
-	level.put_player_in_starting_position()
-	_reset_masks()
-
-
-func _reset_masks() -> void:
-	for l in $NewUI.n_layers:
-		level.reset_mask(l)
-
-
 func _load_level(indx: int) -> void:
 	latest_level_unblocked = max(latest_level_unblocked, indx)
 	
@@ -88,6 +75,16 @@ func _load_level(indx: int) -> void:
 		$Logic.init()
 
 
+func _restart_level() -> void:
+	_go_to_level(level_indx, false)
+	'''
+	# Questo modo era piu' leggero ma non funzionava
+	level.put_player_in_starting_position()
+	# resetta maschere
+	for l in $NewUI.n_layers:
+		level.reset_mask(l)
+	'''
+
 func _open_menu_levels() -> void:
 	_pause_game()
 	var menu = load(menu_levels_scene_path).instantiate()
@@ -97,24 +94,29 @@ func _open_menu_levels() -> void:
 	
 
 func _on_door_reached(door_x, _door_y) -> void:
+	#print("raggiunta porta, il player e' in posizione:")
+	#print(player.global_position)
 	player.animate_toward_door(door_x)
 
 
 func _on_door_reached_animation_ended() -> void:
-	_go_to_level(level_indx + 1)
+	#print("finita animazione porta")
+	_go_to_level(level_indx + 1, true)
 
 
-func _go_to_level(indx: int) -> void:
-	if (indx != level_indx):
-		$Logic.reset()
-		
-		level.remove_player()
-		
-		var old_level: Level = $LevelContainer.get_child(0)
-		old_level.queue_free()
-		
-		await old_level.tree_exited
-		_set_level_indx.call_deferred(indx)
+func _go_to_level(indx: int, show_dialog: bool = true) -> void:
+
+	$Logic.reset()
+	$Logic.show_dialog = show_dialog
+	
+	player.deactivate()		# serve ad evitare che collida accidentalmente con una porta cambiando livello
+	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level
+	
+	var old_level: Level = $LevelContainer.get_child(0)
+	old_level.queue_free()
+	
+	await old_level.tree_exited
+	_set_level_indx.call_deferred(indx)
 
 
 func _pause_game() -> void:

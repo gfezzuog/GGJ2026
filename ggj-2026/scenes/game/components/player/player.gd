@@ -45,14 +45,30 @@ func game_over():
 
 
 func activate():
+	#print("sto attivando il player")
 	active = true
+	
+	set_collision_layer_value(2, true)
 
 
+# quando il player e' disattivato gli leviamo il collision layer cosi' non puo' collidere con una porta
+# (altrimenti succederebbe passando da un livello all'altro se il player e' in alcune posizioni)
 func deactivate():
+	#print("sto disattivando il player")
 	active = false
+	
+	set_collision_layer_value(2, false)
 
 
 func _physics_process(delta: float) -> void:
+	
+	'''
+	if (!active):
+		return
+	'''
+	
+	if !is_inside_tree():
+		return
 	
 	# ANIMAZIONE QUANDO ARRIVI A UNA PORTA
 	if (animating_toward_door):
@@ -70,7 +86,9 @@ func _physics_process(delta: float) -> void:
 			animating_toward_door = false
 			
 			# manda segnale che l'animazione e' finita
-			SignalBus.call_deferred("emit_signal", "door_reached_animation_ended")
+			#SignalBus.call_deferred("emit_signal", "door_reached_animation_ended")
+			SignalBus.door_reached_animation_ended.emit()
+			return
 		else:
 			# calcola a che percentuale dell'animazione sei arrivato
 			#var perc = position.x / abs(animating_toward_door_goal_x - animating_toward_door_initial_x)

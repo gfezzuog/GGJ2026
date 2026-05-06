@@ -5,8 +5,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2dkc"]
 resource_local_to_scene = true
-content_margin_left = 10.0
-content_margin_top = 15.0
+content_margin_left = 8.0
+content_margin_top = 12.0
 content_margin_right = 8.0
 content_margin_bottom = 0.0
 bg_color = Color(0.23921569, 0.23137255, 0.26666668, 0)
@@ -43,6 +43,7 @@ offset_right = 60.0
 offset_bottom = 60.0
 script = ExtResource("1_uqe6y")
 texture = ExtResource("2_71j1y")
+margin = Array[int]([10, 15, 8, 0])
 
 [node name="Button" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -87,7 +88,7 @@ fit_content = true
 [node name="Description" type="Label" parent="Node2D/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Questo testo è un esempio"
+text = "Testo di prova"
 horizontal_alignment = 2
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]

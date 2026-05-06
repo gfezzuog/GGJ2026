@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://1mmmds4sg57b"]
+[gd_scene load_steps=16 format=3 uid="uid://1mmmds4sg57b"]
 
 [ext_resource type="Script" uid="uid://cfn2cyv0iex0" path="res://scenes/ui/row/mask_container.gd" id="1_1u5np"]
 [ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="2_5rqna"]
 [ext_resource type="Texture2D" uid="uid://bsovhtw4gh7xk" path="res://assets/ui/new_ui/mask_container_empty.png" id="2_8pljx"]
 [ext_resource type="PackedScene" uid="uid://b62xpdpbwnoop" path="res://scenes/ui/button/layers_button.tscn" id="4_1u5np"]
 [ext_resource type="Shader" uid="uid://doj7fj7ale6wy" path="res://resources/shaders/dashed_border.gdshader" id="4_6gpv4"]
-[ext_resource type="Texture2D" uid="uid://57s1odso10r2" path="res://assets/ui/new_ui/rotation.png" id="5_8pljx"]
-[ext_resource type="Texture2D" uid="uid://b31eqpat5kbft" path="res://assets/ui/new_ui/eye_closed_disabled.png" id="6_dloem"]
-[ext_resource type="Texture2D" uid="uid://da68rbvxrmqdo" path="res://assets/ui/new_ui/rotation_disabled.png" id="6_vd84t"]
+[ext_resource type="Texture2D" uid="uid://c7h72new7x8kt" path="res://assets/ui/new_ui/icons/Redo--Streamline-Unicons-TINY.png" id="6_o3h6d"]
 [ext_resource type="Texture2D" uid="uid://b8cggssdxb4v0" path="res://assets/ui/new_ui/plus.png" id="8_6gpv4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgper"]
@@ -132,7 +130,6 @@ offset_right = 233.76
 offset_bottom = 71.26
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6gpv4")
-texture_disabled_toggled = ExtResource("6_dloem")
 disabled = true
 
 [node name="RotateButton" parent="." instance=ExtResource("4_1u5np")]
@@ -146,8 +143,7 @@ offset_right = 240.0
 offset_bottom = 160.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vd84t")
-texture = ExtResource("5_8pljx")
-texture_disabled = ExtResource("6_vd84t")
+texture = ExtResource("6_o3h6d")
 toggle_mode = false
 disabled = true
 content_margin = {
