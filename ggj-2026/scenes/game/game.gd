@@ -45,19 +45,6 @@ func _preload_level(indx: int) -> void:
 		ResourceLoader.load_threaded_request(resource_path)
 		ResourceLoader.load_threaded_request(level_path)
 
-
-func _restart_level() -> void:
-	_go_to_level(level_indx)
-	'''
-	# Questo modo era piu' leggero ma non funzionava
-	level.put_player_in_starting_position()
-	# resetta maschere
-	for l in $NewUI.n_layers:
-		level.reset_mask(l)
-	'''
-
-
-
 func _load_level(indx: int) -> void:
 	latest_level_unblocked = max(latest_level_unblocked, indx)
 	
@@ -88,6 +75,16 @@ func _load_level(indx: int) -> void:
 		$Logic.init()
 
 
+func _restart_level() -> void:
+	_go_to_level(level_indx, false)
+	'''
+	# Questo modo era piu' leggero ma non funzionava
+	level.put_player_in_starting_position()
+	# resetta maschere
+	for l in $NewUI.n_layers:
+		level.reset_mask(l)
+	'''
+
 func _open_menu_levels() -> void:
 	_pause_game()
 	var menu = load(menu_levels_scene_path).instantiate()
@@ -104,13 +101,13 @@ func _on_door_reached(door_x, _door_y) -> void:
 
 func _on_door_reached_animation_ended() -> void:
 	#print("finita animazione porta")
-	_go_to_level(level_indx + 1)
+	_go_to_level(level_indx + 1, true)
 
 
-func _go_to_level(indx: int) -> void:
-	#if (indx != level_indx):
-	
+func _go_to_level(indx: int, show_dialog: bool = true) -> void:
+
 	$Logic.reset()
+	$Logic.show_dialog = show_dialog
 	
 	player.deactivate()		# serve ad evitare che collida accidentalmente con una porta cambiando livello
 	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level

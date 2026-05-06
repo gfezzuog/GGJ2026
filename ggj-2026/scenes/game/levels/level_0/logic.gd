@@ -3,21 +3,32 @@ extends Node
 var level: Level
 var dialog: Dialog
 
+var show_dialog: bool = true
 
 func init() -> void:
-	level.player.deactivate()
-	level = get_parent().get_child(1).get_child(0)
-	SignalBus.start_line.connect(_on_start_line)
-	dialog = load("res://scenes/ui/Dialog.tscn").instantiate()
-	add_child(dialog)
-	dialog.size = Vector2(1000.0, 250.0)
-	dialog.position = Vector2(163.5, 800)
-	SignalBus.dialog_finished.connect(_on_dialog_finished)
 	
-	var text_data = load("res://resources/text/tutorial_0.tres")
-	text_data.init()
-	dialog.text_data = text_data
-	dialog.start_dialog()
+	if (show_dialog):
+		level.player.deactivate()
+		
+		level = get_parent().get_child(1).get_child(0)
+		SignalBus.start_line.connect(_on_start_line)
+		dialog = load("res://scenes/ui/Dialog.tscn").instantiate()
+		add_child(dialog)
+		dialog.size = Vector2(1000.0, 250.0)
+		dialog.position = Vector2(163.5, 800)
+		SignalBus.dialog_finished.connect(_on_dialog_finished)
+
+		var text_data = load("res://resources/text/tutorial_0.tres")
+		text_data.init()
+		dialog.text_data = text_data
+		dialog.start_dialog()
+			
+	else:
+		print("skipping dialog")
+		# attiva subito le funzioni che attiveresti durante il tutorial
+		var layer: RowLayer = get_parent().get_child(0).get_row_layer(1)
+		var mask_container: MaskContainer = layer.get_mask_container()
+		mask_container.visibility_disabled = false
 
 
 func reset() -> void:
