@@ -126,6 +126,7 @@ texture = ExtResource("5_ijx8i")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+ticks_position = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Volume/Music/HBoxContainer"]
 layout_mode = 2
@@ -157,6 +158,11 @@ texture = ExtResource("5_ijx8i")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+min_value = -15.0
+max_value = 15.0
+step = 3.0
+tick_count = 11
+ticks_position = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Volume/SoundEffects/HBoxContainer"]
 layout_mode = 2
@@ -212,4 +218,6 @@ popup/item_1/text = "Italiano"
 popup/item_1/id = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_close_button_pressed"]
+[connection signal="drag_ended" from="Volume/Music/HBoxContainer/HSlider" to="." method="_on_volume_music_slider_drag_ended"]
+[connection signal="drag_ended" from="Volume/SoundEffects/HBoxContainer/HSlider" to="." method="_on_volume_effects_slider_drag_ended"]
 [connection signal="item_selected" from="Language/Language/OptionButton" to="." method="_on_option_button_item_selected"]

@@ -16,6 +16,7 @@ class_name Player extends CharacterBody2D
 var was_on_floor := false
 var prev_velocity_y := 0.0
 
+
 # diventa not active quando apri il popup
 var active = true
 
@@ -34,6 +35,16 @@ func _ready() -> void:
 	SignalBus.close_popup.connect(activate)
 	
 	player_width = $Mask.texture.get_width()
+	
+	SignalBus.set_volume_effects.connect(_set_volume)
+
+
+func _set_volume(volume: float):
+	print("cambio volume effetti player a: " + str(volume))
+	walkAudio.volume_db = volume
+	actionAudio.volume_db = volume
+	landAudio.volume_db = volume
+
 
 
 func _do_game_over() -> void:
@@ -163,6 +174,7 @@ func _physics_process(delta: float) -> void:
 			walkAudio.play()
 	else:
 		walkAudio.stop()
+
 
 	# AUDIO LANDING — SOLO TRANSIZIONE REALE
 	var on_floor_now := is_on_floor()
