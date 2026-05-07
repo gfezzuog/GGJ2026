@@ -2,11 +2,10 @@ extends Node
 
 var level: Level
 var dialog: Dialog
-
 var show_dialog: bool = true
 
+
 func init() -> void:
-	
 	if (show_dialog):
 		level.player.deactivate()
 		
@@ -22,9 +21,7 @@ func init() -> void:
 		text_data.init()
 		dialog.text_data = text_data
 		dialog.start_dialog()
-
 	else:
-		print("skipping dialog")
 		# attiva subito le funzioni che attiveresti durante il tutorial
 		var layer: RowLayer = get_parent().get_child(0).get_row_layer(3)
 		var mask_container: MaskContainer = layer.get_mask_container()
@@ -36,8 +33,11 @@ func init() -> void:
 
 
 func reset() -> void:
-	SignalBus.start_line.disconnect(_on_start_line)
-	SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+	if SignalBus.start_line.is_connected(_on_start_line):
+		SignalBus.start_line.disconnect(_on_start_line)
+	if SignalBus.dialog_finished.is_connected(_on_dialog_finished):
+		SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+	
 	for child in get_children():
 		child.queue_free()
 	dialog = null

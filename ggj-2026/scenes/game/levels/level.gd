@@ -38,7 +38,9 @@ func _ready() -> void:
 	wall_right_area.add_child(wall_right_collision_shape)
 	wall_right_area.position = Vector2(1170, 550)
 	$SubViewport/Layers.add_child(wall_right_area)
-	
+
+
+func init() -> void:
 	# Connette con i segnali
 	SignalBus.mask_activated.connect(_on_mask_enabled)
 	SignalBus.mask_disactivated.connect(_on_mask_disabled)
@@ -47,8 +49,17 @@ func _ready() -> void:
 	SignalBus.hide_mask.connect(hide_mask)
 	SignalBus.highlight_layer.connect(highlight_layer)
 	SignalBus.game_over.connect(_on_game_over)
-	
-	
+
+
+func reset():
+	SignalBus.mask_activated.disconnect(_on_mask_enabled)
+	SignalBus.mask_disactivated.disconnect(_on_mask_disabled)
+	SignalBus.mask_rotated.disconnect(_on_mask_rotated)
+	SignalBus.show_mask.disconnect(show_mask)
+	SignalBus.hide_mask.disconnect(hide_mask)
+	SignalBus.highlight_layer.disconnect(highlight_layer)
+	SignalBus.game_over.disconnect(_on_game_over)
+
 
 func add_player(_player: Player) -> void:
 	player = _player

@@ -53,10 +53,18 @@ func set_disability(values: Array[int]) -> void:
 			var view_button: LayerButton = mask_container.get_view_button()
 			view_button.toggle_status = true
 			mask_container.update_status()
-		elif mask_container.mask:
-			SignalBus.mask_activated.emit(mask_container.mask, i)
 		
 		i += 1
+
+
+func trigger_masks():
+	for i in range(0, 5):
+		var row: RowLayer = $RowLayerContainer/VBoxContainer.get_child(i)
+		var mask_container: MaskContainer = row.get_mask_container()
+		if mask_container.disabled and mask_container.mask:
+			var view_button: LayerButton = mask_container.get_view_button()
+			if !view_button.toggle_status:
+				SignalBus.mask_activated.emit(mask_container.mask, i)
 
 
 func reset() -> void:
@@ -67,23 +75,21 @@ func reset() -> void:
 		row.layer_texture = null
 		row.get_mask_container().reset()
 		row.show()
-		
-		
-		
+
+
 # Funzioni per i pulsanti laterali
 func _restart_level() -> void:
-	print("premuto restart")
 	SignalBus.restart_level.emit()
 
+
 func _change_level() -> void:
-	print("premuto change level")
 	SignalBus.open_menu_levels.emit()
 
+
 func _open_settings() -> void:
-	print("premuto settings")
 	SignalBus.open_menu_settings.emit()
+
 
 func _exit() -> void:
 	### TODO: fare che torni al menu principale invece di uscire
-	print("premuto exit")
 	get_tree().quit()
