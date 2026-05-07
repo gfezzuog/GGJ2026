@@ -5,9 +5,7 @@ extends Control
 @export var levels: int = 3 ## Quantita' totale di livelli
 var player: Player
 var level: Level
-
 var menu_levels_scene_path = "res://scenes/ui/levels_menu/levels_menu.tscn"
-
 var latest_level_unblocked: int = 0
 
 
@@ -41,20 +39,83 @@ func _preload_level(indx: int) -> void:
 	var l_name: String = "level_" + str(indx)
 	var resource_path: String = "res://resources/levels/" + l_name + ".tres"
 	var level_path: String = "res://scenes/game/levels/" + l_name + "/" + l_name + ".tscn"
-	if FileAccess.file_exists(resource_path) and FileAccess.file_exists(level_path):
+	if ResourceLoader.exists(resource_path) and ResourceLoader.exists(level_path):
 		ResourceLoader.load_threaded_request(resource_path)
 		ResourceLoader.load_threaded_request(level_path)
+	
+	var logic_path = "res://scenes/game/levels/level_"+str(indx)+"/logic.gd"
+	if ResourceLoader.exists(logic_path):
+		ResourceLoader.load_threaded_request(logic_path)
+
+
+func _load_resources(paths: Array[String]) -> void:
+	for p in paths:
+		ResourceLoader.load_threaded_request(p)
+
+
+func _check_load(resources_path: Array[String]) -> bool:
+	for p in resources_path:
+		var status = ResourceLoader.load_threaded_get_status(p)
+		
+		if status == ResourceLoader.THREAD_LOAD_FAILED:
+			push_error("Failed loading: " + p)
+			return false
+		
+		if status != ResourceLoader.THREAD_LOAD_LOADED:
+			return false
+	
+	return true
+
+
+func _get_level_resource_paths(indx: int) -> Array[String]:
+	var paths: Array[String] = []
+	
+	var l_name: String = "level_" + str(indx)
+	paths.push_back("res://resources/levels/" + l_name + ".tres")
+	paths.push_back("res://scenes/game/levels/" + l_name + "/" + l_name + ".tscn")
+	if ResourceLoader.exists("res://scenes/game/levels/level_"+str(indx)+"/logic.gd"):
+		paths.push_back("res://scenes/game/levels/level_"+str(indx)+"/logic.gd")
+	
+	return paths
+
+
+func _start_level(indx: int) -> void:
+	latest_level_unblocked = max(latest_level_unblocked, indx)
+	
+	var resources_paths: Array[String] = _get_level_resource_paths(indx)
+	_load_resources(resources_paths)
+	while _check_load(resources_paths):
+		await get_tree().process_frame
+	
+	var level_data: LevelData = load(resources_paths[0])
+	$NewUI.set_masks(level_data.masks)
+	$NewUI.set_n_layers(level_data.layers.size())
+	$NewUI.set_disability(level_data.layers)
+	$NewUI.set_textures(level_data.layers_textures)
+	
+	level = load(resources_paths[1]).instantiate()
+	$LevelContainer.add_child(level)
+	
+	if resources_paths.size() == 3:
+		var script: Script = load(resources_paths[2])
+		$Logic.set_script(script)
+		$Logic.level = level
+	
+	level.init()
+	$Logic.init()
+	$NewUI.trigger_masks()
+
 
 func _load_level(indx: int) -> void:
 	latest_level_unblocked = max(latest_level_unblocked, indx)
 	
-	var l_name: String = "level_" + str(indx)
-	
 	$NewUI.reset()
+	
+	var l_name: String = "level_" + str(indx)
 	var resource_path: String = "res://resources/levels/" + l_name + ".tres"
 	var level_path: String = "res://scenes/game/levels/" + l_name + "/" + l_name + ".tscn"
 	
-	if FileAccess.file_exists(resource_path) and FileAccess.file_exists(level_path):
+	if ResourceLoader.exists(resource_path) and ResourceLoader.exists(level_path):
 		var resource: LevelData = load(resource_path)
 		level = load(level_path).instantiate()
 		$LevelContainer.add_child(level)
@@ -64,11 +125,12 @@ func _load_level(indx: int) -> void:
 		$NewUI.set_disability(resource.layers)
 		$NewUI.set_textures(resource.layers_textures)
 	
+	level.init()
 	level.add_player(player)
 	player.activate()
 	
 	var logic_path = "res://scenes/game/levels/level_"+str(indx)+"/logic.gd"
-	if FileAccess.file_exists(logic_path):
+	if ResourceLoader.exists(logic_path):
 		var script: Script = load(logic_path)
 		$Logic.set_script(script)
 		$Logic.level = level
@@ -84,6 +146,7 @@ func _restart_level() -> void:
 	for l in $NewUI.n_layers:
 		level.reset_mask(l)
 	'''
+
 
 func _open_menu_levels() -> void:
 	_pause_game()
@@ -113,9 +176,10 @@ func _go_to_level(indx: int, show_dialog: bool = true) -> void:
 	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level
 	
 	var old_level: Level = $LevelContainer.get_child(0)
+	old_level.clean_connection()
+	$LevelContainer.remove_child(old_level)
 	old_level.queue_free()
 	
-	await old_level.tree_exited
 	_set_level_indx.call_deferred(indx)
 
 

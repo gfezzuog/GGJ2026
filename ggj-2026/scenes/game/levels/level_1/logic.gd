@@ -2,14 +2,13 @@ extends Node
 
 var level: Level
 var dialog: Dialog
-
 var show_dialog: bool = true
 
+
 func init() -> void:
-	
 	if (show_dialog):
 		level.player.deactivate()
-	
+		
 		SignalBus.start_line.connect(_on_start_line)
 		SignalBus.dialog_finished.connect(_on_dialog_finished)
 		
@@ -17,21 +16,23 @@ func init() -> void:
 		add_child(dialog)
 		dialog.size = Vector2(1000.0, 250.0)
 		dialog.position = Vector2(163.5, 800)
-	
+		
 		var text_data = load("res://resources/text/tutorial_1.tres")
 		text_data.init()
 		dialog.text_data = text_data
 		dialog.start_dialog()
-		
 	else:
 		print("skipping dialog")
 		# attiva subito le funzioni che attiveresti durante il tutorial
 		# ...
-		
+
 
 func reset() -> void:
-	SignalBus.start_line.disconnect(_on_start_line)
-	SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+	if SignalBus.start_line.is_connected(_on_start_line):
+		SignalBus.start_line.disconnect(_on_start_line)
+	if SignalBus.dialog_finished.is_connected(_on_dialog_finished):
+		SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+	
 	for child in get_children():
 		child.queue_free()
 	dialog = null

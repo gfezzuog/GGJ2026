@@ -1,7 +1,7 @@
 @tool
 class_name Mask extends Resource
 
-const MASK_SIZE = 533.0
+const MASK_SIZE = 164.0
 const GAME_SIZE = 1066.0
 
 @export var polygons: Array[PackedVector2Array] = []

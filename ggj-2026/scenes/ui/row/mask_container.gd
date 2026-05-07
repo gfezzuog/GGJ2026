@@ -58,11 +58,12 @@ func _input(event: InputEvent) -> void:
 				active = false
 				deactivate()
 				$ViewButton.toggle_status = false
-			else:
+			elif !$ViewButton.toggle_status:
 				activate()
 			dragged_mask_node.active_container.mask = dragged_mask_node.mask
 			dragged_mask_node.active_container.active = true
-			dragged_mask_node.active_container.activate()
+			if !dragged_mask_node.active_container.get_view_button().toggle_status:
+				dragged_mask_node.active_container.activate()
 		remove_child(dragged_mask_node)
 		dragged_mask_node = null
 		$Area2D.monitoring = true
