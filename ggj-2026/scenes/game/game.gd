@@ -7,6 +7,7 @@ var player: Player
 var level: Level
 
 var menu_levels_scene_path = "res://scenes/ui/levels_menu/levels_menu.tscn"
+var menu_settings_scene_path = "res://scenes/ui/settings_menu/settings_menu.tscn"
 
 var latest_level_unblocked: int = 0
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	SignalBus.resume_game.connect(_resume_game)
 	SignalBus.restart_level.connect(_restart_level)
 	SignalBus.open_menu_levels.connect(_open_menu_levels)
+	SignalBus.open_menu_settings.connect(_open_menu_settings)
 	SignalBus.go_to_level.connect(_go_to_level)
 	
 	player = load("res://scenes/game/components/player/player.tscn").instantiate()
@@ -90,6 +92,12 @@ func _open_menu_levels() -> void:
 	var menu = load(menu_levels_scene_path).instantiate()
 	var unblocked = latest_level_unblocked + 1
 	menu.set_levels(unblocked, levels - unblocked)
+	add_child(menu)
+	
+	
+func _open_menu_settings() -> void:
+	_pause_game()
+	var menu = load(menu_settings_scene_path).instantiate()
 	add_child(menu)
 	
 
