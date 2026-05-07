@@ -185,7 +185,7 @@ func _go_to_level(indx: int, show_dialog: bool = true) -> void:
 	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level
 	
 	var old_level: Level = $LevelContainer.get_child(0)
-	old_level.clean_connection()
+	#old_level.clean_connection()	# questa funzione mi da' che non esiste e crasha tutto
 	$LevelContainer.remove_child(old_level)
 	old_level.queue_free()
 	
