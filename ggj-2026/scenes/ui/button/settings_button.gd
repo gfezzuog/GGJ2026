@@ -7,7 +7,8 @@ signal pressed
 @export var description: String = "Testo di prova"
 @export var texture: Texture = null : set = _set_texture
 @export var offset_y: int = 0
-@export var margin: Array[int] = [8, 12, 8, 0] ## Left, Top, Right, Bottom
+#@export var margin: Array[int] = [8, 8, 8, 0] ## Left, Top, Right, Bottom
+var margin: Array[int] = [8, 8, 8, 0]
 var hover_color: Color = Color("#3d3b44")
 var pressed_color: Color = Color("#2e2c33")
 var shadow_size: int = 4

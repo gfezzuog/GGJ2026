@@ -58,7 +58,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_isurf")
 [node name="TextureRect" type="Sprite2D" parent="PanelContainer"]
 self_modulate = Color(0.0627451, 0.13725491, 0.16470589, 1)
 position = Vector2(21.515, 19.795)
-scale = Vector2(0.215, 0.215)
+scale = Vector2(0.925, 0.925)
 texture = ExtResource("2_cs414")
 region_rect = Rect2(0, 0, 302, 303)
 
