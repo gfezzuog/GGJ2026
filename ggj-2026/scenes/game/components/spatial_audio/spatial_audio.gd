@@ -47,7 +47,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	#print("player e' entrato nell'area")
 	player = body
 	max_distance = global_position.distance_to(player.global_position)
-	audio_player.play()
+	if (!disabled):
+		audio_player.play()
 	
 
 # smetti di tracciare il player e stoppa audio
