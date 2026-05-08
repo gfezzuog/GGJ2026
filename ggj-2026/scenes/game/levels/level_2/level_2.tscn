@@ -1,26 +1,66 @@
-[gd_scene load_steps=32 format=3 uid="uid://kp85g3biwggk"]
+[gd_scene load_steps=74 format=3 uid="uid://kp85g3biwggk"]
 
-[ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_k6khi"]
+[ext_resource type="Script" uid="uid://bf8j715mylqv2" path="res://scenes/game/levels/level_2/level_2.gd" id="1_5ws08"]
 [ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="2_cvlow"]
-[ext_resource type="Texture2D" uid="uid://8uwwfjlfui4o" path="res://assets/images/levels/level_2/background.png" id="2_jt78c"]
+[ext_resource type="Texture2D" uid="uid://b1fow8qtpicbk" path="res://assets/images/levels/level_2/background.png" id="2_jt78c"]
 [ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="2_q4kfu"]
 [ext_resource type="Script" uid="uid://c7jg37rm3m8jc" path="res://scenes/game/components/obj/dang_obj.gd" id="4_2fxiw"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="4_8n0fr"]
 [ext_resource type="Shader" uid="uid://d2tnqq2bbe1m" path="res://resources/old_shaders/near_toggle.gdshader" id="5_582x1"]
-[ext_resource type="Texture2D" uid="uid://d33csj5uhrcev" path="res://assets/images/levels/level_2/l0.png" id="5_jt78c"]
-[ext_resource type="Texture2D" uid="uid://bs21j2l20xtcd" path="res://assets/images/levels/level_2/l3.png" id="6_egdmw"]
+[ext_resource type="Texture2D" uid="uid://dkvojj73t83yg" path="res://assets/images/levels/level_2/l0.png" id="5_jt78c"]
+[ext_resource type="Texture2D" uid="uid://cglsc74eapuhh" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0000.png" id="6_1ygv4"]
+[ext_resource type="Texture2D" uid="uid://wwu33y871rf7" path="res://assets/images/levels/level_2/tentacoli-idle-verde/1.png" id="6_5ws08"]
+[ext_resource type="Texture2D" uid="uid://cw4x3a5fi4fc4" path="res://assets/images/levels/level_2/l3.png" id="6_egdmw"]
 [ext_resource type="Texture2D" path="res://resources/voronoi_textures/spine_dx.tres" id="6_j2fvv"]
-[ext_resource type="Texture2D" uid="uid://cfx0oojft6x6t" path="res://assets/images/levels/level_2/l1/anim_medusa_1_red.png" id="7_2fxiw"]
-[ext_resource type="Texture2D" uid="uid://elm6t8xloh6r" path="res://assets/images/levels/level_2/l1/anim_medusa_2_red.png" id="8_qsswq"]
-[ext_resource type="Texture2D" uid="uid://bixrenykrtaxt" path="res://assets/images/levels/level_2/l1/anim_medusa_3_red.png" id="9_f753d"]
-[ext_resource type="Texture2D" uid="uid://b7gb4p6q3a0np" path="res://assets/images/levels/level_2/l1/anim_medusa_4_red.png" id="10_kaeu0"]
+[ext_resource type="Texture2D" uid="uid://yx8jy21g4ba2" path="res://assets/images/levels/level_2/l1/anim_medusa_1_red.png" id="7_2fxiw"]
+[ext_resource type="Texture2D" uid="uid://ddq801g64nwi4" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0002.png" id="7_6tb60"]
+[ext_resource type="Texture2D" uid="uid://15o1ovun56fe" path="res://assets/images/levels/level_2/tentacoli-idle-verde/3.png" id="7_t1o8v"]
+[ext_resource type="Texture2D" uid="uid://clkm68g1u0j3k" path="res://assets/images/levels/level_2/tentacoli-idle-verde/2.png" id="8_hyu80"]
+[ext_resource type="Texture2D" uid="uid://detywklv0p2cn" path="res://assets/images/levels/level_2/l1/anim_medusa_2_red.png" id="8_qsswq"]
+[ext_resource type="Texture2D" uid="uid://dmh1r7vimasbn" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0004.png" id="8_sib3s"]
+[ext_resource type="Texture2D" uid="uid://cpaxyokfxhnxo" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0007.png" id="9_cc75u"]
+[ext_resource type="Texture2D" uid="uid://cywp8jrghnu12" path="res://assets/images/levels/level_2/l1/anim_medusa_3_red.png" id="9_f753d"]
+[ext_resource type="Texture2D" uid="uid://dh8h4j8gimfax" path="res://assets/images/levels/level_2/tentacoli-idle-verde/4.png" id="9_sh7ey"]
+[ext_resource type="Texture2D" uid="uid://podflfmpgoc0" path="res://assets/images/levels/level_2/l1/anim_medusa_4_red.png" id="10_kaeu0"]
+[ext_resource type="Texture2D" uid="uid://c3hna01ng1uc8" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0009.png" id="10_wvrix"]
 [ext_resource type="Texture2D" path="res://resources/voronoi_textures/spine_sx.tres" id="11_6qo15"]
 [ext_resource type="Script" uid="uid://de3g77o2twora" path="res://scenes/game/components/sensor_area.gd" id="11_j2fvv"]
-[ext_resource type="Texture2D" uid="uid://dt2ac1fwmoi0p" path="res://assets/images/levels/level_2/l2/anim_lisca_1_red.png" id="12_5ws08"]
-[ext_resource type="Texture2D" uid="uid://b18oc8x0pbmnr" path="res://assets/images/levels/level_2/l2/anim_lisca_0_red.png" id="13_t1o8v"]
-[ext_resource type="Texture2D" uid="uid://c17jbjg57hicw" path="res://assets/images/levels/level_2/l2/anim_lisca_2_red.png" id="14_hyu80"]
-[ext_resource type="Texture2D" uid="uid://cqg2de8cxvavc" path="res://assets/images/levels/level_2/l2/anim_lisca_3_red.png" id="15_sh7ey"]
+[ext_resource type="Texture2D" uid="uid://cnwjkcnicyfyh" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0011.png" id="11_rrdik"]
+[ext_resource type="Texture2D" uid="uid://dw4f6gyeynasr" path="res://assets/images/levels/level_2/l2/anim_lisca_1_red.png" id="12_5ws08"]
+[ext_resource type="Texture2D" uid="uid://dhc2dej61ftfj" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0012.png" id="12_cikfs"]
+[ext_resource type="Texture2D" uid="uid://bhqdma45vvd8d" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0014.png" id="13_6jpst"]
+[ext_resource type="Texture2D" uid="uid://dyj1gxgy3ehu2" path="res://assets/images/levels/level_2/l2/anim_lisca_0_red.png" id="13_t1o8v"]
+[ext_resource type="Texture2D" uid="uid://7g5isqgsv2ea" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0016.png" id="14_hbys0"]
+[ext_resource type="Texture2D" uid="uid://bxl2ccugnv4p5" path="res://assets/images/levels/level_2/l2/anim_lisca_2_red.png" id="14_hyu80"]
+[ext_resource type="Texture2D" uid="uid://cnh6pmxf3cxwe" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0019.png" id="15_fp2n8"]
+[ext_resource type="Texture2D" uid="uid://ds0wi7rt0e8l0" path="res://assets/images/levels/level_2/l2/anim_lisca_3_red.png" id="15_sh7ey"]
+[ext_resource type="Texture2D" uid="uid://bl0qk0wamofim" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0021.png" id="16_6od16"]
+[ext_resource type="Texture2D" uid="uid://c6l12prtxhv23" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0023.png" id="17_2vc4s"]
+[ext_resource type="Texture2D" uid="uid://cj0cpjd5irx68" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0024.png" id="18_tsr7c"]
+[ext_resource type="Texture2D" uid="uid://dxrmjetr864h1" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0026.png" id="19_pc2g0"]
+[ext_resource type="Texture2D" uid="uid://cy57gca2q2c0t" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0028.png" id="20_i3hqc"]
+[ext_resource type="Texture2D" uid="uid://drnxlyh05svv4" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0031.png" id="21_6qsua"]
 [ext_resource type="AudioStream" uid="uid://cyfpu8mso1kxv" path="res://assets/audio/Soundtrack_lv3.wav" id="21_qsswq"]
+[ext_resource type="Texture2D" uid="uid://cl2q2jcob4s3s" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0033.png" id="22_oiyvh"]
+[ext_resource type="Texture2D" uid="uid://bubmsofoawljq" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0035.png" id="23_1j27v"]
+[ext_resource type="Texture2D" uid="uid://cockt77mh2rus" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0036.png" id="24_8o3mk"]
+[ext_resource type="Texture2D" uid="uid://sww1ma75mywt" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0038.png" id="25_7ct2q"]
+[ext_resource type="Texture2D" uid="uid://d1yyxxr2hoypw" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0040.png" id="26_vmaim"]
+[ext_resource type="Texture2D" uid="uid://b28tw6nm1g3qu" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0043.png" id="27_uveub"]
+[ext_resource type="Texture2D" uid="uid://b6ewfiv4rqrka" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0045.png" id="28_cxkqx"]
+[ext_resource type="Texture2D" uid="uid://dqbwi0teogyyb" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0047.png" id="29_4lgcq"]
+[ext_resource type="Texture2D" uid="uid://dpsyom41eixih" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0048.png" id="30_ldtxt"]
+[ext_resource type="Texture2D" uid="uid://cyp1e18b3mw5y" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0050.png" id="31_bbxqj"]
+[ext_resource type="Texture2D" uid="uid://c550d8vtdfqrc" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0052.png" id="32_w4cju"]
+[ext_resource type="Texture2D" uid="uid://cftsmynkd7ya6" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0053.png" id="33_f115m"]
+[ext_resource type="Texture2D" uid="uid://cmg742yf5b0i4" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0054.png" id="34_3oqu0"]
+[ext_resource type="Texture2D" uid="uid://c06trkpqqio80" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0056.png" id="35_iyj5o"]
+[ext_resource type="Texture2D" uid="uid://0epahpjxn1fg" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0058.png" id="36_f55fk"]
+[ext_resource type="Texture2D" uid="uid://cuheem7udoq7q" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0059.png" id="37_hvf2t"]
+[ext_resource type="Texture2D" uid="uid://baxjn57tidxb2" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0060.png" id="38_oubly"]
+[ext_resource type="Texture2D" uid="uid://dh5p2xgagwb5y" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0061.png" id="39_cd40m"]
+[ext_resource type="Texture2D" uid="uid://c4a8quofy4t5q" path="res://assets/images/levels/level_2/tentacoli-porta-fotogrammi/tentacoli-porta-timeline0062.png" id="40_r65ag"]
+[ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="45_4s3lu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysfbt"]
 shader = ExtResource("2_q4kfu")
@@ -29,6 +69,138 @@ shader_parameter/highlight_strength = 1.0
 shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clsxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1ygv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6tb60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sib3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cc75u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wvrix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rrdik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cikfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6jpst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hbys0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fp2n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6od16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2vc4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tsr7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_pc2g0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_i3hqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_6qsua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_oiyvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1j27v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8o3mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7ct2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_vmaim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_uveub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_cxkqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_4lgcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_ldtxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_bbxqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_w4cju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_f115m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_3oqu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_iyj5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_f55fk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_hvf2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_oubly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_cd40m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_r65ag")
+}],
+"loop": false,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5ws08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t1o8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hyu80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sh7ey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6siwx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jt78c"]
 shader = ExtResource("2_q4kfu")
@@ -119,7 +291,7 @@ shader_parameter/dark_threshold = 0.5
 [node name="Level2" type="SubViewportContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_k6khi")
+script = ExtResource("1_5ws08")
 player_starting_position = Vector2(28, 826)
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -151,6 +323,36 @@ collision_layer = 1025
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(2, 915, 29, 906, 29, 863, 54, 863, 54, 800, 122, 754, 99, 712, 104, 659, 156, 659, 156, 555, 198, 555, 216, 507, 203, 464, 229, 458, 255, 458, 253, 425, 280, 386, 314, 379, 304, 326, 310, 289, 346, 257, 390, 252, 408, 202, 423, 196, 430, 166, 467, 163, 466, 137, 482, 137, 487, 154, 857, 152, 857, 135, 883, 135, 883, 152, 912, 156, 921, 242, 903, 242, 907, 272, 930, 271, 931, 288, 917, 294, 915, 317, 906, 323, 916, 663, 710, 660, 709, 718, 568, 711, 563, 456, 456, 459, 456, 405, 774, 406, 738, 476, 686, 453, 615, 461, 621, 645, 656, 655, 692, 606, 759, 603, 779, 618, 816, 616, 826, 627, 845, 627, 865, 597, 855, 261, 410, 263, 394, 278, 347, 281, 349, 482, 309, 514, 303, 608, 400, 611, 404, 711, 458, 714, 454, 792, 471, 817, 499, 817, 498, 837, 475, 860, 486, 884, 545, 883, 568, 865, 817, 864, 820, 814, 863, 814, 888, 768, 1013, 769, 1004, 76, 961, 81, 900, 53, 299, 55, 302, 102, 249, 103, 247, 200, 194, 200, 195, 305, 154, 305, 151, 407, 102, 406, 102, 513, 51, 516, 51, 608, -4, 608, 0, 0, 1067, 1, 1066, 1065, 0, 1066)
+
+[node name="Conchiglia" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer0/GameObj"]
+position = Vector2(638.5, 625)
+scale = Vector2(1.0892857, 1.0824744)
+sprite_frames = SubResource("SpriteFrames_clsxk")
+animation = &"Door"
+autoplay = "default"
+frame = 34
+frame_progress = 1.0
+
+[node name="ConchigliaArea" type="Area2D" parent="SubViewport/Layers/Layer0/GameObj"]
+position = Vector2(720, 593)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/ConchigliaArea"]
+shape = SubResource("RectangleShape2D_6siwx")
+
+[node name="Door" parent="SubViewport/Layers/Layer0/GameObj" instance=ExtResource("45_4s3lu")]
+visible = false
+position = Vector2(634, 572)
+
+[node name="Sprite2D" parent="SubViewport/Layers/Layer0/GameObj/Door" index="0"]
+visible = false
+
+[node name="StaticBody2D" parent="SubViewport/Layers/Layer0/GameObj/Door" index="1"]
+monitoring = false
+
+[node name="CollisionShape2D" parent="SubViewport/Layers/Layer0/GameObj/Door/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-5, 97, -3, -15, 58, -15, 59, 103)
 
 [node name="Layer1" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_jt78c")
@@ -255,5 +457,8 @@ autoplay = true
 bus = &"Music"
 playback_type = 1
 
+[connection signal="body_entered" from="SubViewport/Layers/Layer0/GameObj/ConchigliaArea" to="." method="_on_conchiglia_area_body_entered"]
 [connection signal="shape_changed" from="SubViewport/Layers/Layer3/GameObj" to="SubViewport/Layers/Layer1/DangObj/SensorArea" method="_on_shape_changed"]
 [connection signal="shape_changed" from="SubViewport/Layers/Layer3/GameObj" to="SubViewport/Layers/Layer2/DangObj/SensorArea" method="_on_shape_changed"]
+
+[editable path="SubViewport/Layers/Layer0/GameObj/Door"]

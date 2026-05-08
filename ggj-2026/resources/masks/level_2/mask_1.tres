@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_0xoc4")
-polygons = Array[PackedVector2Array]([PackedVector2Array(545, 560, 545, 500, 875, 500, 875, 560)])
+polygons = Array[PackedVector2Array]([PackedVector2Array(545, 570, 545, 500, 875, 500, 875, 570)])
 metadata/_custom_type_script = "uid://bbb2j3m761on2"
