@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cob251a474web"]
+[gd_scene load_steps=18 format=3 uid="uid://cob251a474web"]
 
 [ext_resource type="Script" uid="uid://crw147bowya17" path="res://scenes/game/levels/level_3/level_3.gd" id="1_wbl54"]
 [ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="2_a4juv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dp6dy2eayo55w" path="res://assets/images/levels/level_3/l1.png" id="5_caa5o"]
 [ext_resource type="Texture2D" uid="uid://q6e14dhu73gy" path="res://assets/images/levels/level_3/l2.png" id="6_wbl54"]
 [ext_resource type="Texture2D" uid="uid://d3qfic5lo3clf" path="res://assets/images/levels/level_3/l3.png" id="7_tim6v"]
+[ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="8_tim6v"]
 [ext_resource type="Texture2D" uid="uid://yxkhvv0bh6ts" path="res://assets/images/levels/level_3/l4.png" id="10_wbl54"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0o1ox"]
@@ -148,6 +149,9 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/DangerousObj/StaticBody2D"]
 polygon = PackedVector2Array(457, 407, 458, 494, 481, 498, 519, 474, 518, 416, 480, 404)
+
+[node name="Door" parent="SubViewport/Layers/Layer1" instance=ExtResource("8_tim6v")]
+position = Vector2(145, 904)
 
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_qresh")
