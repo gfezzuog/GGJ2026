@@ -2,21 +2,24 @@ extends Control
 
 
 @onready var language_picker = $Language/Language/OptionButton
+
 @onready var volume_slider_music = $Volume/Music/HBoxContainer/HSlider
 @onready var volume_slider_effects = $Volume/SoundEffects/HBoxContainer/HSlider
 
 # PARAMETRI
-const volume_max = 24.0		# guadagno massimo in generale
+const volume_max = 15.0		# guadagno massimo in generale
 const volume_min = - volume_max
 const volume_slider_ticks = 11
 const volume_slider_step = (volume_max - volume_min) / (volume_slider_ticks - 1)
 
 
 func _ready() -> void:
-	language_picker.select(_locale_to_id(TranslationServer.get_locale()))	
-	volume_slider_music.value = Constants.volume_music
-	volume_slider_effects.value = Constants.volume_effects
 	
+	#volume_slider_music = get_node("Volume/Music/HBoxContainer/HSlider")
+	
+	language_picker.select(_locale_to_id(TranslationServer.get_locale()))	
+	
+	# Imposta parametri
 	volume_slider_music.max_value = volume_max
 	volume_slider_music.min_value = volume_min
 	volume_slider_music.tick_count = volume_slider_ticks
@@ -26,6 +29,12 @@ func _ready() -> void:
 	volume_slider_effects.min_value = volume_min
 	volume_slider_effects.tick_count = volume_slider_ticks
 	volume_slider_effects.step = volume_slider_step
+	
+	
+	#print("all'apertura risulta volume musica " + str(Constants.volume_music) + " e volume effetti " + str(Constants.volume_effects))
+	volume_slider_music.value = Constants.volume_music
+	volume_slider_effects.value = Constants.volume_effects
+	#print(volume_slider_music.value)
 	
 
 func _locale_to_id(locale: String) -> int:
