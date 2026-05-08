@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6xvx3pdnwadp"]
+[gd_scene load_steps=25 format=3 uid="uid://6xvx3pdnwadp"]
 
 [ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_8ume5"]
 [ext_resource type="Texture2D" uid="uid://bhqgdqecq136p" path="res://assets/images/levels/level_1/sfondo.png" id="2_jeplg"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://cnp3sx7pafajp" path="res://assets/images/levels/level_1/spin_anim_1.png" id="12_wke4q"]
 [ext_resource type="Texture2D" uid="uid://bfowid40exwh7" path="res://assets/images/levels/level_1/spine_anim_2.png" id="13_x6dsg"]
 [ext_resource type="Texture2D" uid="uid://buido3msky8b1" path="res://assets/images/levels/level_1/spine_anim_3.png" id="14_j0b4l"]
+[ext_resource type="PackedScene" uid="uid://bngv4xly2ggn2" path="res://scenes/game/components/spatial_audio/SpatialAudio.tscn" id="16_6wbev"]
+[ext_resource type="AudioStream" uid="uid://cwknc4i127kkg" path="res://assets/audio/Spine_Sfx_Maeskaape.wav" id="16_j0b4l"]
+[ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://assets/audio/Soundtrack_lv2.wav" id="18_x6dsg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdgch"]
 shader = ExtResource("3_1bqqx")
@@ -173,6 +176,11 @@ monitorable = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/Spine/StaticBody2D"]
 polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 767, 641, 796, 626, 765, 587, 649, 545, 468, 510)
 
+[node name="SpatialAudio" parent="SubViewport/Layers/Layer1/Spine" instance=ExtResource("16_6wbev")]
+position = Vector2(493, 550)
+scale = Vector2(2, 2)
+audio = ExtResource("16_j0b4l")
+
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_wke4q")
 
@@ -192,3 +200,9 @@ polygon = PackedVector2Array(644, 948, 661, 881, 651, 823, 637, 787, 573, 758, 3
 
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("5_fpdro")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_x6dsg")
+autoplay = true
+bus = &"Music"
+playback_type = 1

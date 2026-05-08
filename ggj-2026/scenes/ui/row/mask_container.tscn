@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1mmmds4sg57b"]
+[gd_scene load_steps=17 format=3 uid="uid://1mmmds4sg57b"]
 
 [ext_resource type="Script" uid="uid://cfn2cyv0iex0" path="res://scenes/ui/row/mask_container.gd" id="1_1u5np"]
 [ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="2_5rqna"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://doj7fj7ale6wy" path="res://resources/shaders/dashed_border.gdshader" id="4_6gpv4"]
 [ext_resource type="Texture2D" uid="uid://c7h72new7x8kt" path="res://assets/ui/new_ui/icons/Redo--Streamline-Unicons-TINY.png" id="6_o3h6d"]
 [ext_resource type="Texture2D" uid="uid://b8cggssdxb4v0" path="res://assets/ui/new_ui/plus.png" id="8_6gpv4"]
+[ext_resource type="AudioStream" uid="uid://dmcgujkbefnmx" path="res://assets/audio/Mask_Drop_Sfx_Maeskape.wav" id="8_l3is5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgper"]
 resource_local_to_scene = true
@@ -167,6 +168,10 @@ shape = SubResource("RectangleShape2D_h3xks")
 position = Vector2(95, 95)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_6gpv4")
+
+[node name="AudioMaskDrop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_l3is5")
+bus = &"Effects"
 
 [connection signal="mouse_entered" from="MainContainer/PanelContainer/Mask" to="." method="_on_mask_mouse_entered"]
 [connection signal="mouse_exited" from="MainContainer/PanelContainer/Mask" to="." method="_on_mask_mouse_exited"]

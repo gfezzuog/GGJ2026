@@ -17,6 +17,7 @@ class_name Player extends CharacterBody2D
 var was_on_floor := false
 var prev_velocity_y := 0.0
 
+
 # diventa not active quando apri il popup
 var active = true
 
@@ -35,6 +36,7 @@ func _ready() -> void:
 	SignalBus.close_popup.connect(activate)
 	
 	player_width = $Mask.texture.get_width()
+	
 
 
 func _do_game_over() -> void:
@@ -165,6 +167,7 @@ func _physics_process(delta: float) -> void:
 			walkAudio.play()
 	else:
 		walkAudio.stop()
+
 
 	# AUDIO LANDING — SOLO TRANSIZIONE REALE
 	var on_floor_now := is_on_floor()

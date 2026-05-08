@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bx5u0i6jt144o"]
+[gd_scene load_steps=13 format=3 uid="uid://bx5u0i6jt144o"]
 
 [ext_resource type="Script" uid="uid://tus0si3701mr" path="res://scenes/game/levels/level.gd" id="1_45caq"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="2_bae2x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://i7wdqhd7foc0" path="res://assets/images/levels/level_0/colonna.png" id="3_bbsw7"]
 [ext_resource type="Texture2D" uid="uid://b5lyhd80d6n7b" path="res://assets/images/levels/level_0/arco.png" id="4_cdk7b"]
 [ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="5_evm6c"]
+[ext_resource type="AudioStream" uid="uid://b74kiprctfpia" path="res://assets/audio/Soundtrack_lv1.wav" id="9_cmiiq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h814r"]
 shader = ExtResource("2_cdk7b")
@@ -125,3 +126,9 @@ shape = SubResource("RectangleShape2D_evm6c")
 
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("2_ri3oe")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_cmiiq")
+autoplay = true
+bus = &"Music"
+playback_type = 1

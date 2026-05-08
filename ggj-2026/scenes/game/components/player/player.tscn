@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bo0grlbvum03a"]
+[gd_scene load_steps=20 format=4 uid="uid://bo0grlbvum03a"]
 
 [ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://scenes/game/components/player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://c3pbrkxvt62wa" path="res://assets/images/player/idle_0.PNG" id="3_mtuoh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://daodesqyjkxc6" path="res://assets/images/player/jump_1.PNG" id="6_jhyir"]
 [ext_resource type="Texture2D" uid="uid://uw8op58q5xpi" path="res://assets/images/player/jump_2.PNG" id="7_74mp2"]
 [ext_resource type="AudioStream" uid="uid://cmi17ygqxtpbw" path="res://assets/audio/run.wav" id="9_gk6dx"]
+[ext_resource type="AudioStream" uid="uid://cwknc4i127kkg" path="res://assets/audio/Spine_Sfx_Maeskaape.wav" id="13_m81m1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74mp2"]
 radius = 19.0
@@ -131,18 +132,25 @@ texture = ExtResource("5_qd66v")
 sprite_frames = SubResource("SpriteFrames_dd0ac")
 animation = &"walk"
 
-[node name="WalkAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="WalkAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_gk6dx")
 autoplay = true
+bus = &"Effects"
 
-[node name="ActionAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="ActionAudio" type="AudioStreamPlayer" parent="."]
+bus = &"Effects"
 
-[node name="LandAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="LandAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_jhyir")
+bus = &"Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_xbkoc")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_m81m1")
+autoplay = true
 
 [connection signal="animation_finished" from="Mask/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

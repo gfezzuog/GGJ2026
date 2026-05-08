@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgcngjeiav65p"]
+[gd_scene load_steps=8 format=3 uid="uid://dgcngjeiav65p"]
 
 [ext_resource type="Script" uid="uid://3bobsq28vbci" path="res://scenes/ui/levels_menu/levels_menu.gd" id="1_115ed"]
 [ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="3_qh5ce"]
 [ext_resource type="PackedScene" uid="uid://bbcs884g32mc5" path="res://scenes/ui/levels_menu/level_unblocked.tscn" id="4_7g8dh"]
+[ext_resource type="AudioStream" uid="uid://duvhmpkq7i0ty" path="res://assets/audio/Ui_Click_Sfx_Maeskape.wav" id="5_115ed"]
 [ext_resource type="PackedScene" uid="uid://bgti4dlw7aawh" path="res://scenes/ui/levels_menu/level_blocked.tscn" id="5_jdh2n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_115ed"]
@@ -94,5 +95,9 @@ layout_mode = 2
 [node name="LevelBlocked" parent="GridContainer" instance=ExtResource("5_jdh2n")]
 visible = false
 layout_mode = 2
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_115ed")
+bus = &"Effects"
 
 [connection signal="pressed" from="Button" to="." method="_on_close_button_pressed"]

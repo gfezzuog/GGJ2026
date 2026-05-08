@@ -7,7 +7,8 @@ signal pressed
 @export var description: String = "Testo di prova"
 @export var texture: Texture = null : set = _set_texture
 @export var offset_y: int = 0
-@export var margin: Array[int] = [8, 12, 8, 0] ## Left, Top, Right, Bottom
+#@export var margin: Array[int] = [8, 8, 8, 0] ## Left, Top, Right, Bottom
+var margin: Array[int] = [8, 8, 8, 0]
 var hover_color: Color = Color("#3d3b44")
 var pressed_color: Color = Color("#2e2c33")
 var shadow_size: int = 4
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and inside:
+		$AudioClick.play()
 		panel.bg_color = pressed_color
 	elif event.is_action_released("click") and inside:
 		panel.bg_color = hover_color

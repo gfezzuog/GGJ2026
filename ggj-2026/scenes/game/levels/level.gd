@@ -40,7 +40,7 @@ func _ready() -> void:
 	wall_right_area.add_child(wall_right_collision_shape)
 	wall_right_area.position = Vector2(1170, 550)
 	$SubViewport/Layers.add_child(wall_right_area)
-
+	
 
 func init() -> void:
 	# Connette con i segnali

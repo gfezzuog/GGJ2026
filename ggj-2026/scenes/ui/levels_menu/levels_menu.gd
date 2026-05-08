@@ -19,6 +19,7 @@ func set_levels(unblocked: int, blocked: int) -> void:
 
 func _on_close_button_pressed() -> void:
 	# Unpausa gioco
+	$AudioClick.play()
 	SignalBus.resume_game.emit()
 	queue_free()
 

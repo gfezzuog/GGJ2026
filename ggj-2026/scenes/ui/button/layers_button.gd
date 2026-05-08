@@ -55,6 +55,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and inside:
+		$AudioClick.play()
 		_pressed()
 		_apply_state(state_pressed)
 	elif event.is_action_released("click") and inside:
