@@ -27,19 +27,29 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_MUSIC_NAME), Constants.INITIAL_VOLUME_MUSIC)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_EFFECTS_NAME), Constants.INITIAL_VOLUME_EFFECTS)
 	
-	_load_level(level_indx)
+	if level_indx == -1:
+		_load_start_page()
+	else:
+		_load_level(level_indx)
 	_preload_level(level_indx+1)
 
 
 func _set_level_indx(new_value: int) -> void:
 	level_indx = new_value
 	if is_inside_tree():
-		_load_level(level_indx)
+		if level_indx == -1:
+			_load_start_page()
+		else:
+			_load_level(level_indx)
 		_preload_level(level_indx+1)
 
 
 func _set_player() -> void:
 	level.add_player(player)
+
+
+func _load_start_page() -> void:
+	$NewUI.empty_visualitazion = true
 
 
 func _preload_level(indx: int) -> void:
@@ -207,3 +217,11 @@ func _pause_game() -> void:
 
 func _resume_game() -> void:
 	player.activate()
+
+
+func _on_start_button_pressed() -> void:
+	$ColorRect.queue_free()
+	$StartButton.queue_free()
+	if level_indx == -1:
+		$NewUI.empty_visualitazion = false
+		level_indx = 0
