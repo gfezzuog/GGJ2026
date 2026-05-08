@@ -156,6 +156,7 @@ polygon = PackedVector2Array(2, 915, 29, 906, 29, 863, 54, 863, 54, 800, 122, 75
 material = SubResource("ShaderMaterial_jt78c")
 
 [node name="DangObj" type="Node2D" parent="SubViewport/Layers/Layer1" node_paths=PackedStringArray("hide_by_layer")]
+visible = false
 script = ExtResource("4_2fxiw")
 hide_by_layer = NodePath("SensorArea")
 metadata/_custom_type_script = "uid://c7jg37rm3m8jc"

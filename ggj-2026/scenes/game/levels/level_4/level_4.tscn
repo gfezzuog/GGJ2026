@@ -1,36 +1,39 @@
-[gd_scene load_steps=46 format=3 uid="uid://eqt5pj7bjl72"]
+[gd_scene load_steps=49 format=3 uid="uid://eqt5pj7bjl72"]
 
 [ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://darihqg58xjfy" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
+[ext_resource type="Texture2D" uid="uid://bcukntfpwbqg6" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
 [ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="3_frj8a"]
 [ext_resource type="Script" uid="uid://dgs44wk02m313" path="res://scenes/game/levels/level_4/sensor_area.gd" id="3_twasi"]
 [ext_resource type="PackedScene" uid="uid://kv8rvpcs3ox5" path="res://scenes/game/components/obj/lvl4/ball.tscn" id="3_vjl14"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="4_bn4i8"]
 [ext_resource type="Script" uid="uid://de3g77o2twora" path="res://scenes/game/components/sensor_area.gd" id="4_dop50"]
-[ext_resource type="Texture2D" uid="uid://y6nft3hpimhv" path="res://assets/images/levels/level_4/l0.png" id="5_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://6tsda0pdtbua" path="res://assets/images/levels/level_4/l1.png" id="6_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://b2dw8jemu5xit" path="res://assets/images/levels/level_4/l2.png" id="7_1heun"]
+[ext_resource type="Texture2D" uid="uid://b57p0piwkoswy" path="res://assets/images/levels/level_4/l0.png" id="5_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://dve2sdoe27oj3" path="res://assets/images/levels/level_4/l1.png" id="6_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://bq4xcf867jfob" path="res://assets/images/levels/level_4/l2.png" id="7_1heun"]
 [ext_resource type="Script" uid="uid://ckmpcy1t1jv4d" path="res://scenes/game/levels/level_4/conchiglia.gd" id="7_dop50"]
 [ext_resource type="PackedScene" uid="uid://ci3hdiak42p5c" path="res://scenes/game/components/obj/lvl4/tongue.tscn" id="7_pb8xk"]
 [ext_resource type="Texture2D" uid="uid://cmcmob8h1qpwq" path="res://assets/images/levels/level_4/l0_conchiglia.png" id="8_mk6kx"]
-[ext_resource type="Texture2D" uid="uid://blsjjd4sk1kjy" path="res://assets/images/levels/level_4/l3.png" id="8_vjl14"]
+[ext_resource type="Texture2D" uid="uid://71jgarg7eydx" path="res://assets/images/levels/level_4/l3.png" id="8_vjl14"]
 [ext_resource type="Script" uid="uid://c7jg37rm3m8jc" path="res://scenes/game/components/obj/dang_obj.gd" id="9_1heun"]
 [ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="10_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://rnw7ycjm356n" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
+[ext_resource type="Texture2D" uid="uid://saqlitah2pv" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
 [ext_resource type="Script" uid="uid://dg2gmxqhjkybw" path="res://scenes/game/levels/level_4/layer2.gd" id="14_2l11y"]
-[ext_resource type="Texture2D" uid="uid://nksrldska3dl" path="res://assets/images/levels/level_4/l2_sfera_bottom.png" id="14_e78ox"]
+[ext_resource type="Texture2D" uid="uid://cq4a13s1570o3" path="res://assets/images/levels/level_4/l2_sfera_bottom.png" id="14_e78ox"]
 [ext_resource type="Script" uid="uid://bxk3mkd2ttp3b" path="res://scenes/game/levels/level_4/smoke.gd" id="14_mk6kx"]
 [ext_resource type="Texture2D" uid="uid://c6lx05e54ts1t" path="res://assets/images/levels/level_4/fumo.png" id="15_2iroc"]
-[ext_resource type="Texture2D" uid="uid://ek1eidoi483d" path="res://assets/images/levels/level_4/l2_sfera_top.png" id="16_bmymc"]
-[ext_resource type="Texture2D" uid="uid://olv7nfcx1spe" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
-[ext_resource type="Texture2D" uid="uid://d2invscy31vxo" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
-[ext_resource type="Texture2D" uid="uid://dk0fgukflpwd" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
+[ext_resource type="AudioStream" uid="uid://dhckes264ncta" path="res://assets/audio/Pesce_Sfx_Maeskape_loopp.wav" id="15_140ss"]
+[ext_resource type="Texture2D" uid="uid://nssvephu3voh" path="res://assets/images/levels/level_4/l2_sfera_top.png" id="16_bmymc"]
+[ext_resource type="Texture2D" uid="uid://in11m3o5i1lp" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
+[ext_resource type="Texture2D" uid="uid://cl8wcj6apl4km" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
+[ext_resource type="Texture2D" uid="uid://0yip88ejfbuj" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
 [ext_resource type="Texture2D" uid="uid://dr6lpwi8fr2us" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_1.png" id="25_gveu0"]
 [ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="25_twasi"]
 [ext_resource type="Texture2D" uid="uid://cupfbphfg5w24" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_2.png" id="26_e5ar6"]
 [ext_resource type="Texture2D" uid="uid://2xa6mvmrwnqm" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_3.png" id="27_140ss"]
 [ext_resource type="Texture2D" uid="uid://dp2syrvq42f4m" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_4.png" id="28_bm1g4"]
 [ext_resource type="Texture2D" uid="uid://bmdhufw365qwy" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_5.png" id="29_hv4q4"]
+[ext_resource type="PackedScene" uid="uid://bngv4xly2ggn2" path="res://scenes/game/components/spatial_audio/SpatialAudio.tscn" id="30_e5ar6"]
+[ext_resource type="AudioStream" uid="uid://dnxipvq5nme6w" path="res://assets/audio/Fuoco_Drago_Sfx_Maeskape.wav" id="32_bm1g4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2b8q"]
 size = Vector2(23, 19)
@@ -260,6 +263,11 @@ metadata/_custom_type_script = "uid://de3g77o2twora"
 position = Vector2(33, 0)
 shape = SubResource("RectangleShape2D_lksf7")
 
+[node name="SpatialAudio" parent="SubViewport/Layers/Layer0/DangerousObj" instance=ExtResource("30_e5ar6")]
+position = Vector2(504, 144)
+scale = Vector2(1.43, 1.43)
+audio = ExtResource("15_140ss")
+
 [node name="Layer1" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_q7b6b")
 
@@ -415,6 +423,11 @@ sprite_frames = SubResource("SpriteFrames_jseqm")
 autoplay = "default"
 frame_progress = 0.8101774
 centered = false
+
+[node name="SpatialAudio" parent="SubViewport/Layers/Layer3/DangerousObj" instance=ExtResource("30_e5ar6")]
+position = Vector2(427, 956)
+scale = Vector2(2.255, 2.255)
+audio = ExtResource("32_bm1g4")
 
 [node name="Area2D" type="Area2D" parent="SubViewport"]
 position = Vector2(368, 933)
