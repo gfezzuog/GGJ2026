@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 @onready var walkAudio = $WalkAudio
 @onready var actionAudio = $ActionAudio
 @onready var landAudio = $LandAudio
+@onready var deathAudio = $DeathAudio
 
 @export var w_audio : AudioStream
 @export var j_audio : AudioStream
@@ -41,6 +42,7 @@ func _ready() -> void:
 
 func _do_game_over() -> void:
 	SignalBus.game_over.emit()
+	deathAudio.play()
 
 
 func game_over():

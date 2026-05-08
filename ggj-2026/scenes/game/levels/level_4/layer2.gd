@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_teleport_area_body_entered(_body: Node2D) -> void:
+	$AudioTeleport.play()
 	_body.position = Vector2(940, 692)
 
 

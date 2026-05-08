@@ -9,7 +9,7 @@ var disabled = false		# questo viene settato dagli oggetti padre, non qui
 var audio_max = 0.0
 var audio_min = -20.0
 
-var min_distance = 20.0 	# da questa dist in poi (a diminuire) si sente al massimo
+var min_distance = 100.0 	# da questa dist in poi (a diminuire) si sente al massimo
 var max_distance = 0.1 		# viene settata quando il player entra nell'area
 
 # il player viene preso quando entra nell'area e viene salvato per tracciare la distanza

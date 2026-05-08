@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://eqt5pj7bjl72"]
+[gd_scene load_steps=51 format=3 uid="uid://eqt5pj7bjl72"]
 
 [ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
 [ext_resource type="Texture2D" uid="uid://bcukntfpwbqg6" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://in11m3o5i1lp" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
 [ext_resource type="Texture2D" uid="uid://cl8wcj6apl4km" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
 [ext_resource type="Texture2D" uid="uid://0yip88ejfbuj" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
+[ext_resource type="AudioStream" uid="uid://c1pmnflhccwcm" path="res://assets/audio/Bolla_Teletraspoto_Sfx_Maeskape.wav" id="24_hv4q4"]
 [ext_resource type="Texture2D" uid="uid://dr6lpwi8fr2us" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_1.png" id="25_gveu0"]
 [ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="25_twasi"]
 [ext_resource type="Texture2D" uid="uid://cupfbphfg5w24" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_2.png" id="26_e5ar6"]
@@ -34,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bmdhufw365qwy" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_5.png" id="29_hv4q4"]
 [ext_resource type="PackedScene" uid="uid://bngv4xly2ggn2" path="res://scenes/game/components/spatial_audio/SpatialAudio.tscn" id="30_e5ar6"]
 [ext_resource type="AudioStream" uid="uid://dnxipvq5nme6w" path="res://assets/audio/Fuoco_Drago_Sfx_Maeskape.wav" id="32_bm1g4"]
+[ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://assets/audio/Soundtrack_lv2.wav" id="36_jseqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2b8q"]
 size = Vector2(23, 19)
@@ -340,6 +342,10 @@ collision_mask = 2
 position = Vector2(2.5, -4.5)
 shape = SubResource("RectangleShape2D_53qkh")
 
+[node name="AudioTeleport" type="AudioStreamPlayer" parent="SubViewport/Layers/Layer2/GameObj"]
+stream = ExtResource("24_hv4q4")
+bus = &"Effects"
+
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
 script = ExtResource("9_1heun")
 metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
@@ -470,6 +476,11 @@ position = Vector2(1012, 672)
 
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("10_gv6a2")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_jseqm")
+autoplay = true
+bus = &"Music"
 
 [connection signal="covered" from="SubViewport/SensorArea" to="SubViewport/Layers/Layer2/GameObj" method="_on_sensor_area_covered"]
 [connection signal="body_entered" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_entered"]
