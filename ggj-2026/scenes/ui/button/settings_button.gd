@@ -31,6 +31,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and inside:
+		$AudioClick.play()
 		panel.bg_color = pressed_color
 	elif event.is_action_released("click") and inside:
 		panel.bg_color = hover_color

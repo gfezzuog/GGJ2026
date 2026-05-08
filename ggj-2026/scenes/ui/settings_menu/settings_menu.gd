@@ -81,5 +81,6 @@ func _on_volume_effects_slider_drag_ended(value_changed: bool) -> void:
 # Chiudi menu
 func _on_close_button_pressed() -> void:
 	# Unpausa gioco
+	$AudioClick.play()
 	SignalBus.resume_game.emit()
 	queue_free()

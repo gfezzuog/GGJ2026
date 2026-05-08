@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxx5qpacihknx"]
+[gd_scene load_steps=8 format=3 uid="uid://bxx5qpacihknx"]
 
 [ext_resource type="Script" uid="uid://bmcu0i0rjlotu" path="res://scenes/ui/settings_menu/settings_menu.gd" id="1_ijx8i"]
 [ext_resource type="Texture2D" uid="uid://c305rkx2k6k7s" path="res://assets/ui/new_ui/close_button.png" id="2_8qsoo"]
 [ext_resource type="Texture2D" uid="uid://dd7nec362q7v4" path="res://assets/ui/new_ui/icons/Volume-Off--Streamline-Unicons-TINY.png" id="5_ijx8i"]
+[ext_resource type="AudioStream" uid="uid://duvhmpkq7i0ty" path="res://assets/audio/Ui_Click_Sfx_Maeskape.wav" id="5_ying2"]
 [ext_resource type="Texture2D" uid="uid://bytwcdnclcnor" path="res://assets/ui/new_ui/icons/Volume--Streamline-Unicons-TINY.png" id="6_i64by"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0t3o"]
@@ -216,6 +217,10 @@ popup/item_0/text = "English"
 popup/item_0/id = 0
 popup/item_1/text = "Italiano"
 popup/item_1/id = 1
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ying2")
+bus = &"Effects"
 
 [connection signal="pressed" from="Button" to="." method="_on_close_button_pressed"]
 [connection signal="drag_ended" from="Volume/Music/HBoxContainer/HSlider" to="." method="_on_volume_music_slider_drag_ended"]

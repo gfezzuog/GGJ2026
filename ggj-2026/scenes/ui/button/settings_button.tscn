@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3ua67euq02xd"]
 
 [ext_resource type="Script" uid="uid://b71d7ydfu5fuu" path="res://scenes/ui/button/settings_button.gd" id="1_uqe6y"]
-[ext_resource type="Texture2D" uid="uid://dph3qloj8ismx" path="res://assets/ui/new_ui/folder.png" id="2_71j1y"]
 [ext_resource type="Texture2D" uid="uid://rqldx6j1u6x1" path="res://assets/ui/new_ui/icons/Folder--Streamline-Unicons.png" id="2_a2dkc"]
+[ext_resource type="AudioStream" uid="uid://duvhmpkq7i0ty" path="res://assets/audio/Ui_Click_Sfx_Maeskape.wav" id="3_71j1y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2dkc"]
 resource_local_to_scene = true
-content_margin_left = 10.0
-content_margin_top = 15.0
+content_margin_left = 8.0
+content_margin_top = 8.0
 content_margin_right = 8.0
 content_margin_bottom = 0.0
 bg_color = Color(0.23921569, 0.23137255, 0.26666668, 0)
@@ -55,7 +55,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_a2dkc")
 [node name="TextureRect" type="TextureRect" parent="Button"]
 modulate = Color(0.23921569, 0.3019608, 0.33333334, 1)
 layout_mode = 2
-texture = ExtResource("2_71j1y")
+texture = ExtResource("2_a2dkc")
 expand_mode = 1
 stretch_mode = 4
 
@@ -90,6 +90,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Testo di prova"
 horizontal_alignment = 2
+
+[node name="AudioClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_71j1y")
+bus = &"Effects"
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_mouse_exited"]

@@ -127,7 +127,7 @@ shape = SubResource("RectangleShape2D_evm6c")
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("2_ri3oe")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_cmiiq")
 autoplay = true
 bus = &"Music"
