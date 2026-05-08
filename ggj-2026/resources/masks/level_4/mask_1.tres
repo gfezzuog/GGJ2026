@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Mask" load_steps=2 format=3 uid="uid://c7kdhwyyn7a6i"]
+
+[ext_resource type="Script" uid="uid://bbb2j3m761on2" path="res://scenes/ui/mask/mask.gd" id="1_x688s"]
+
+[resource]
+script = ExtResource("1_x688s")
+polygons = Array[PackedVector2Array]([PackedVector2Array(104, 312, 240, 312, 240, 470, 104, 470), PackedVector2Array(104, 598, 240, 598, 240, 754, 104, 754)])
+metadata/_custom_type_script = "uid://bbb2j3m761on2"

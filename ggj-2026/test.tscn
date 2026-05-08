@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhqxtlalcvas3"]
+
+[ext_resource type="PackedScene" uid="uid://ci3hdiak42p5c" path="res://scenes/game/components/obj/lvl4/tongue.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://bo0grlbvum03a" path="res://scenes/game/components/player/player.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://kv8rvpcs3ox5" path="res://scenes/game/components/obj/lvl4/ball.tscn" id="3_ppyta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37kl0"]
+size = Vector2(200, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykrsh"]
+size = Vector2(161, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(16, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_37kl0")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="GameObj" parent="." instance=ExtResource("1_8uh7m")]
+
+[node name="Player" parent="." instance=ExtResource("3_6uqi0")]
+position = Vector2(129, 936)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(100, 1001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(63.5, 0)
+shape = SubResource("RectangleShape2D_ykrsh")
+
+[node name="Ball" parent="." instance=ExtResource("3_ppyta")]
+position = Vector2(142, 831)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(150, 862)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_6uqi0")

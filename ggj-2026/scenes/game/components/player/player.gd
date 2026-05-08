@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_force: float = 250.0
 @export var gravity: float = 900
+@export var push_force: float = 80.0
 
 @onready var animation = $Mask/AnimatedSprite2D
 @onready var walkAudio = $WalkAudio
@@ -41,6 +42,7 @@ func _do_game_over() -> void:
 
 
 func game_over():
+	print("Game Over")
 	call_deferred("_do_game_over")
 
 
@@ -171,6 +173,30 @@ func _physics_process(delta: float) -> void:
 		landAudio.play()
 
 	was_on_floor = on_floor_now
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+
+func crush(vel: Vector2, size: Vector2) -> void:
+
+	if vel.y > 0:
+		var duration = size.y / vel.y
+		var tween = create_tween()
+
+		tween.tween_property(
+			$Mask,
+			"scale:y",
+			0.0,
+			duration
+		)
+		
+		tween.tween_callback(func():
+			$Mask.scale.y = 1.0
+			game_over()
+		)
 
 
 func animate_toward_door(door_x):

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci3hdiak42p5c"]
+
+[ext_resource type="Script" uid="uid://dpyhvmhdygfp2" path="res://scenes/game/components/obj/lvl4/tongue.gd" id="1_twnt4"]
+[ext_resource type="Texture2D" uid="uid://qwprwk4f6ekm" path="res://assets/images/levels/level_4/l0_lingua.png" id="2_nwyua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
+size = Vector2(38, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnt4"]
+size = Vector2(44, 988)
+
+[node name="GameObj" type="Node2D" node_paths=PackedStringArray("body")]
+script = ExtResource("1_twnt4")
+body = NodePath("CharacterBody2D")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.521, 0.521)
+texture = ExtResource("2_nwyua")
+centered = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(22, 82, 66, 82, 66, 1070, 22, 1070)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(47, 62)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -17)
+shape = SubResource("RectangleShape2D_ppyta")
+
+[node name="BottomArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea2D"]
+position = Vector2(44, 576)
+shape = SubResource("RectangleShape2D_twnt4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="BottomArea2D" to="." method="_on_bottom_area_2d_body_entered"]
+[connection signal="body_exited" from="BottomArea2D" to="." method="_on_bottom_area_2d_body_exited"]

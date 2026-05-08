@@ -1,0 +1,327 @@
+[gd_scene load_steps=29 format=3 uid="uid://eqt5pj7bjl72"]
+
+[ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://darihqg58xjfy" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
+[ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="3_frj8a"]
+[ext_resource type="PackedScene" uid="uid://kv8rvpcs3ox5" path="res://scenes/game/components/obj/lvl4/ball.tscn" id="3_vjl14"]
+[ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="4_bn4i8"]
+[ext_resource type="Script" uid="uid://de3g77o2twora" path="res://scenes/game/components/sensor_area.gd" id="4_dop50"]
+[ext_resource type="Texture2D" uid="uid://y6nft3hpimhv" path="res://assets/images/levels/level_4/l0.png" id="5_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://6tsda0pdtbua" path="res://assets/images/levels/level_4/l1.png" id="6_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://b2dw8jemu5xit" path="res://assets/images/levels/level_4/l2.png" id="7_1heun"]
+[ext_resource type="Script" uid="uid://ckmpcy1t1jv4d" path="res://scenes/game/levels/level_4/conchiglia.gd" id="7_dop50"]
+[ext_resource type="PackedScene" uid="uid://ci3hdiak42p5c" path="res://scenes/game/components/obj/lvl4/tongue.tscn" id="7_pb8xk"]
+[ext_resource type="Texture2D" uid="uid://cmcmob8h1qpwq" path="res://assets/images/levels/level_4/l0_conchiglia.png" id="8_mk6kx"]
+[ext_resource type="Texture2D" uid="uid://blsjjd4sk1kjy" path="res://assets/images/levels/level_4/l3.png" id="8_vjl14"]
+[ext_resource type="Script" uid="uid://c7jg37rm3m8jc" path="res://scenes/game/components/obj/dang_obj.gd" id="9_1heun"]
+[ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="10_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://rnw7ycjm356n" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
+[ext_resource type="Script" uid="uid://bxk3mkd2ttp3b" path="res://scenes/game/levels/level_4/smoke.gd" id="14_mk6kx"]
+[ext_resource type="Texture2D" uid="uid://c6lx05e54ts1t" path="res://assets/images/levels/level_4/fumo.png" id="15_2iroc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4iu41"]
+shader = ExtResource("3_frj8a")
+shader_parameter/highlight_color = Color(1, 1, 0, 1)
+shader_parameter/highlight_strength = 1.0
+shader_parameter/highlight_enabled = 0.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e78ox"]
+size = Vector2(97, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lksf7"]
+size = Vector2(86, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7b6b"]
+shader = ExtResource("3_frj8a")
+shader_parameter/highlight_color = Color(1, 1, 0, 1)
+shader_parameter/highlight_strength = 1.0
+shader_parameter/highlight_enabled = 0.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtnbr"]
+shader = ExtResource("3_frj8a")
+shader_parameter/highlight_color = Color(1, 1, 0, 1)
+shader_parameter/highlight_strength = 1.0
+shader_parameter/highlight_enabled = 0.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jvuq"]
+shader = ExtResource("3_frj8a")
+shader_parameter/highlight_color = Color(1, 1, 0, 1)
+shader_parameter/highlight_strength = 1.0
+shader_parameter/highlight_enabled = 0.0
+shader_parameter/pulse_speed = 3.0
+shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iroc"]
+size = Vector2(138, 206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l11y"]
+size = Vector2(20, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmymc"]
+size = Vector2(39, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uaq7"]
+size = Vector2(35, 49)
+
+[node name="Level" type="SubViewportContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gv6a2")
+player_starting_position = Vector2(148, 942)
+checkpoints = Array[Vector2]([Vector2(95, 49), Vector2(148, 942), Vector2(724, 79)])
+metadata/_custom_type_script = "uid://tus0si3701mr"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1066, 1066)
+render_target_update_mode = 4
+
+[node name="Background" type="TextureRect" parent="SubViewport"]
+offset_right = 1066.0
+offset_bottom = 1066.0
+texture = ExtResource("2_bn4i8")
+expand_mode = 1
+
+[node name="Layers" type="Node2D" parent="SubViewport"]
+
+[node name="Layer0" type="Node2D" parent="SubViewport/Layers"]
+material = SubResource("ShaderMaterial_4iu41")
+
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer0"]
+script = ExtResource("4_bn4i8")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer0/GameObj"]
+scale = Vector2(0.5205078, 0.5205078)
+texture = ExtResource("5_gv6a2")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer0/GameObj"]
+collision_layer = 257
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(295, 336, 331, 336, 345, 644, 311, 644, 297, 703, 279, 705, 285, 622, 307, 618, 307, 557, 277, 522, 294, 395)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(75, 610, 74, 893, 99, 994, 149, 994, 149, 1047, 100, 1049, 75, 1065, 358, 1066, 357, 992, 258, 994, 225, 979, 217, 962, 211, 961, 210, 972, 158, 967, 127, 968, 126, 958, 118, 944, 125, 893, 136, 893, 135, 883, 125, 883, 114, 869, 112, 851, 126, 817, 121, 744, 182, 744, 178, 887, 213, 890, 222, 823, 230, 819, 250, 851, 263, 864, 282, 890, 306, 887, 324, 855, 344, 853, 355, 838, 364, 808, 367, 763, 351, 718, 320, 705, 270, 706, 231, 737, 221, 679, 225, 651, 197, 606, 164, 604, 163, 621, 153, 631, 168, 649, 175, 660, 119, 647, 113, 618, 147, 609, 144, 600)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(73, 77, 128, 78, 125, 98, 103, 100, 100, 152, 113, 152, 113, 162, 133, 182, 132, 197, 97, 195, 97, 208, 116, 218, 120, 211, 122, 211, 127, 266, 102, 309, 106, 312, 118, 314, 112, 354, 126, 356, 126, 379, 109, 377, 113, 366, 105, 354, 89, 349, 107, 401, 105, 425, 122, 425, 124, 411, 129, 411, 137, 460, 122, 469, 93, 471, 99, 491, 123, 520, 123, 546, 110, 558, 113, 592, 107, 601, 75, 594, 108, 587, 100, 563, 79, 563, 72, 513, 102, 513, 79, 484, 87, 459, 75, 455, 73, 343)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(214, 95, 226, 91, 242, 15, 306, 20, 319, 1, 357, 4, 360, 53, 336, 54, 334, 103, 346, 153, 358, 236, 352, 271, 318, 308, 315, 324, 282, 326, 266, 305, 231, 276, 226, 292, 192, 272, 202, 254, 181, 233, 182, 146)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(133, 416, 152, 416, 154, 402, 165, 403, 171, 425, 173, 458, 182, 455, 189, 445, 195, 444, 203, 420, 184, 390, 177, 333, 201, 302, 246, 304, 246, 315, 217, 332, 231, 355, 223, 374, 218, 482, 190, 520, 193, 537, 200, 545, 205, 519, 228, 516, 232, 536, 213, 556, 220, 591, 200, 558, 182, 548, 180, 523, 208, 465, 206, 448, 196, 448, 174, 470, 160, 460, 157, 430, 140, 430)
+
+[node name="Tongue" parent="SubViewport/Layers/Layer0" instance=ExtResource("7_pb8xk")]
+
+[node name="Conchiglia" type="Node2D" parent="SubViewport/Layers/Layer0"]
+script = ExtResource("7_dop50")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
+scale = Vector2(0.521, 0.521)
+texture = ExtResource("8_mk6kx")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Conchiglia/StaticBody2D"]
+polygon = PackedVector2Array(278, 756, 278, 812, 226, 812, 226, 756)
+
+[node name="Ball" parent="SubViewport/Layers/Layer0/Conchiglia" instance=ExtResource("3_vjl14")]
+process_mode = 4
+position = Vector2(251, 782)
+collision_layer = 5
+
+[node name="Area2D" type="Area2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
+position = Vector2(236, 784)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Conchiglia/Area2D"]
+position = Vector2(-5.5, -24.5)
+shape = SubResource("RectangleShape2D_e78ox")
+
+[node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer0" node_paths=PackedStringArray("hide_by_layer")]
+script = ExtResource("9_1heun")
+hide_by_layer = NodePath("SensorArea")
+metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer0/DangerousObj"]
+position = Vector2(82, 40.999996)
+scale = Vector2(0.43652344, 0.4228516)
+texture = ExtResource("11_b0lph")
+centered = false
+
+[node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer0/DangerousObj"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/DangerousObj/StaticBody2D"]
+polygon = PackedVector2Array(448, 112, 491, 91, 538, 102, 575, 100, 570, 170, 548, 192, 459, 189, 419, 166)
+
+[node name="SensorArea" type="Area2D" parent="SubViewport/Layers/Layer0/DangerousObj" node_paths=PackedStringArray("node_to_disable")]
+position = Vector2(467, 140)
+script = ExtResource("4_dop50")
+node_to_disable = NodePath("..")
+metadata/_custom_type_script = "uid://de3g77o2twora"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/DangerousObj/SensorArea"]
+position = Vector2(33, 0)
+shape = SubResource("RectangleShape2D_lksf7")
+
+[node name="Layer1" type="Node2D" parent="SubViewport/Layers"]
+material = SubResource("ShaderMaterial_q7b6b")
+
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer1"]
+script = ExtResource("4_bn4i8")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer1/GameObj"]
+scale = Vector2(0.5205078, 0.5205078)
+texture = ExtResource("6_gv6a2")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer1/GameObj"]
+collision_layer = 513
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(377, 110, 755, 111, 785, 74, 790, 29, 814, 2, 834, 1, 816, 58, 878, 57, 938, 94, 950, 130, 1046, 204, 1046, 248, 1018, 308, 1060, 305, 1062, 655, 1027, 657, 969, 597, 973, 478, 893, 438, 882, 365, 895, 307, 919, 264, 945, 244, 932, 220, 893, 219, 838, 238, 785, 226, 748, 235, 618, 235, 597, 179, 368, 181)
+
+[node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
+material = SubResource("ShaderMaterial_qtnbr")
+
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
+script = ExtResource("4_bn4i8")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+scale = Vector2(0.5205078, 0.5205078)
+texture = ExtResource("7_1heun")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer2/GameObj"]
+collision_layer = 1025
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(11, 423, 58, 425, 69, 809, 18, 813)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(361, 102, 394, 53, 376, 35, 377, 11, 648, 5, 650, 51, 651, 94, 596, 107, 581, 80, 570, 81, 550, 101, 515, 91, 496, 103, 473, 76, 463, 76, 421, 105, 418, 83, 398, 79)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(833, 473, 959, 477, 958, 589, 864, 600, 836, 652, 872, 651, 876, 684, 848, 686, 837, 745, 855, 816, 894, 774, 849, 767, 865, 727, 865, 764, 904, 761, 1060, 757, 1060, 1066, 702, 1061, 695, 1034, 671, 1027, 684, 977, 670, 975, 673, 962, 686, 965, 687, 972, 708, 956, 731, 955, 730, 936, 756, 934, 755, 972, 831, 965, 834, 786)
+
+[node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
+script = ExtResource("9_1heun")
+metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer2/DangerousObj"]
+
+[node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer2/DangerousObj"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/DangerousObj/StaticBody2D"]
+polygon = PackedVector2Array(126, 524, 126, 550, 176, 550, 176, 524)
+
+[node name="DangerousObj2" type="Node2D" parent="SubViewport/Layers/Layer2"]
+script = ExtResource("9_1heun")
+metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer2/DangerousObj2"]
+
+[node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer2/DangerousObj2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/DangerousObj2/StaticBody2D"]
+polygon = PackedVector2Array(752, 759, 753, 786, 829, 786, 829, 758)
+
+[node name="Layer3" type="Node2D" parent="SubViewport/Layers"]
+material = SubResource("ShaderMaterial_8jvuq")
+
+[node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer3"]
+script = ExtResource("4_bn4i8")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer3/GameObj"]
+scale = Vector2(0.51697385, 0.5205078)
+texture = ExtResource("8_vjl14")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/GameObj"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(419, 196, 592, 187, 578, 231, 534, 262, 567, 287, 623, 277, 650, 234, 699, 236, 705, 292, 761, 290, 754, 254, 810, 241, 872, 248, 892, 278, 877, 307, 826, 322, 799, 360, 828, 389, 780, 369, 741, 350, 746, 313, 684, 320, 682, 366, 714, 369, 739, 396, 729, 453, 695, 466, 668, 466, 643, 445, 617, 481, 634, 554, 666, 597, 672, 686, 656, 712, 708, 743, 738, 809, 713, 867, 755, 875, 738, 933, 703, 926, 694, 930, 669, 957, 671, 957, 636, 942, 594, 1027, 566, 1036, 552, 1026, 494, 957, 449, 882, 472, 835, 442, 833, 426, 796, 418, 732, 433, 689, 481, 680, 478, 651, 518, 570, 483, 571, 435, 538, 426, 493, 438, 447, 451, 427, 440, 425, 459, 403, 482, 392, 468, 379, 445, 371, 444, 345, 422, 302)
+
+[node name="Smoke" type="Node2D" parent="SubViewport/Layers/Layer3"]
+process_mode = 4
+visible = false
+position = Vector2(0, 780)
+script = ExtResource("14_mk6kx")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer3/Smoke"]
+scale = Vector2(0.718, 0.718)
+texture = ExtResource("15_2iroc")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/Smoke"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/Smoke/StaticBody2D"]
+polygon = PackedVector2Array(372, 196, 406, 196, 406, 1000, 372, 1000)
+
+[node name="Area2D" type="Area2D" parent="SubViewport"]
+position = Vector2(368, 933)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Area2D"]
+position = Vector2(59, 30)
+shape = SubResource("RectangleShape2D_2iroc")
+
+[node name="CheckPointArea1" type="Area2D" parent="SubViewport"]
+position = Vector2(98, 64)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/CheckPointArea1"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_2l11y")
+
+[node name="CheckPointArea2" type="Area2D" parent="SubViewport"]
+position = Vector2(168, 947)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/CheckPointArea2"]
+position = Vector2(-9.5, -17)
+shape = SubResource("RectangleShape2D_bmymc")
+
+[node name="CheckPointArea3" type="Area2D" parent="SubViewport"]
+position = Vector2(726, 276)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/CheckPointArea3"]
+position = Vector2(7.5, -14.5)
+shape = SubResource("RectangleShape2D_7uaq7")
+
+[node name="MaskShower" type="Node2D" parent="."]
+script = ExtResource("10_gv6a2")
+
+[connection signal="body_entered" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="SubViewport/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="SubViewport/CheckPointArea1" to="." method="_on_check_point_area_1_body_entered"]
+[connection signal="body_entered" from="SubViewport/CheckPointArea2" to="." method="_on_check_point_area_2_body_entered"]
+[connection signal="body_entered" from="SubViewport/CheckPointArea3" to="." method="_on_check_point_area_3_body_entered"]

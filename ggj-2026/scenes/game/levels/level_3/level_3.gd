@@ -11,4 +11,3 @@ func _process(delta: float) -> void:
 		direction = -1.0
 	elif $SubViewport/Layers/Layer4/GameObj.position.x >= 1.0:
 		direction = 1.0
-	

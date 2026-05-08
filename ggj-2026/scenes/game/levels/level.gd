@@ -3,9 +3,11 @@ class_name Level extends SubViewportContainer
 
 @export var mask_highlight_color := Color(Colors.HIGHLIGHT, 0.5)
 @export var layer_id: int = 0
-@export var player_starting_position: Vector2 
+@export var player_starting_position: Vector2
+@export var checkpoints: Array[Vector2] = []
 var mask_to_draw: PackedVector2Array = []
 var player: Player
+var checkpoints_counter: int = 0
 
 
 func _ready() -> void:
@@ -153,5 +155,8 @@ func _on_death_area_body_entered(body: Node2D) -> void:
 
 
 func _on_game_over() -> void:
-	player.position = player_starting_position
+	if checkpoints.size() and checkpoints_counter:
+		player.position = checkpoints[checkpoints_counter - 1]
+	else:
+		player.position = player_starting_position
 	player.animate_death()

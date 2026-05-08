@@ -5,11 +5,14 @@ signal shape_changed
 @export var hide_by_mask: bool = true ## Disabilita l'oggetto se la maschera lo copre
 @export var hide_by_layer: SensorArea = null ## Disabilita l'oggetto se è coperto da altri layer
 @export var offset: Vector2 = Vector2(0, 0)
+@export var body = null
 var originals_collision_pol: Array[PackedVector2Array]
 var current_collision_pol: Array[PackedVector2Array]
 
 
 func _ready() -> void:
+	if body == null:
+		body = $StaticBody2D
 	_populate_collision_array()
 	
 	use_parent_material = true
@@ -22,9 +25,10 @@ func _ready() -> void:
 
 
 func _populate_collision_array():
-	if has_node("StaticBody2D"):
-		for child in $StaticBody2D.get_children():
-			originals_collision_pol.append(child.polygon)
+	if body:
+		for child in body.get_children():
+			if child is CollisionPolygon2D:
+				originals_collision_pol.append(child.polygon)
 		current_collision_pol = originals_collision_pol.duplicate()
 
 
@@ -70,14 +74,14 @@ func apply_difference(polygons: Array[PackedVector2Array]) -> void:
 		for i in range(poly.size()):
 			poly.set(i, poly[i] - offset)
 	
-	for child in $StaticBody2D.get_children():
+	for child in body.get_children():
 		child.queue_free()
 	current_collision_pol.clear()
 	
 	for p in new_polygons:
 		var new_coll_pol = CollisionPolygon2D.new()
 		new_coll_pol.polygon = p
-		$StaticBody2D.add_child(new_coll_pol)
+		body.add_child(new_coll_pol)
 		current_collision_pol.append(p)
 	
 	shape_changed.emit()
@@ -85,14 +89,14 @@ func apply_difference(polygons: Array[PackedVector2Array]) -> void:
 
 
 func reset():
-	for child in $StaticBody2D.get_children():
+	for child in body.get_children():
 		child.queue_free()
 	current_collision_pol.clear()
 	
 	for p in originals_collision_pol:
 		var new_coll_pol = CollisionPolygon2D.new()
 		new_coll_pol.polygon = p
-		$StaticBody2D.add_child(new_coll_pol)
+		body.add_child(new_coll_pol)
 		current_collision_pol.append(p)
 	
 	shape_changed.emit()

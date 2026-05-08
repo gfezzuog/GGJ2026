@@ -138,7 +138,12 @@ func _load_level(indx: int) -> void:
 
 
 func _restart_level() -> void:
+	var c = 0
+	if level.checkpoints and level.checkpoints_counter:
+		c = level.checkpoints_counter
 	_go_to_level(level_indx, false)
+	if c:
+		player.position = level.checkpoints[c - 1]
 	'''
 	# Questo modo era piu' leggero ma non funzionava
 	level.put_player_in_starting_position()
@@ -176,7 +181,7 @@ func _go_to_level(indx: int, show_dialog: bool = true) -> void:
 	level.remove_player()		# sgancia player come figlio di level cosi' non viene eliminato insieme a level
 	
 	var old_level: Level = $LevelContainer.get_child(0)
-	old_level.clean_connection()
+	old_level.reset()
 	$LevelContainer.remove_child(old_level)
 	old_level.queue_free()
 	
