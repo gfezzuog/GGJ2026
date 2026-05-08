@@ -18,7 +18,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if stopped:
 		return
-	if position.y <= 1 and direction == -1.0:
+	if position.y <= 80 and direction == -1.0:
 		stopped = true
 		coming_back.start()
 	elif position.y >= 780.0 and direction == 1.0:

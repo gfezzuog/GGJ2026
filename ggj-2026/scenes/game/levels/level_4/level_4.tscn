@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://eqt5pj7bjl72"]
+[gd_scene load_steps=46 format=3 uid="uid://eqt5pj7bjl72"]
 
 [ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
 [ext_resource type="Texture2D" uid="uid://darihqg58xjfy" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
 [ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="3_frj8a"]
+[ext_resource type="Script" uid="uid://dgs44wk02m313" path="res://scenes/game/levels/level_4/sensor_area.gd" id="3_twasi"]
 [ext_resource type="PackedScene" uid="uid://kv8rvpcs3ox5" path="res://scenes/game/components/obj/lvl4/ball.tscn" id="3_vjl14"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="4_bn4i8"]
 [ext_resource type="Script" uid="uid://de3g77o2twora" path="res://scenes/game/components/sensor_area.gd" id="4_dop50"]
@@ -16,8 +17,23 @@
 [ext_resource type="Script" uid="uid://c7jg37rm3m8jc" path="res://scenes/game/components/obj/dang_obj.gd" id="9_1heun"]
 [ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="10_gv6a2"]
 [ext_resource type="Texture2D" uid="uid://rnw7ycjm356n" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
+[ext_resource type="Script" uid="uid://dg2gmxqhjkybw" path="res://scenes/game/levels/level_4/layer2.gd" id="14_2l11y"]
+[ext_resource type="Texture2D" uid="uid://nksrldska3dl" path="res://assets/images/levels/level_4/l2_sfera_bottom.png" id="14_e78ox"]
 [ext_resource type="Script" uid="uid://bxk3mkd2ttp3b" path="res://scenes/game/levels/level_4/smoke.gd" id="14_mk6kx"]
 [ext_resource type="Texture2D" uid="uid://c6lx05e54ts1t" path="res://assets/images/levels/level_4/fumo.png" id="15_2iroc"]
+[ext_resource type="Texture2D" uid="uid://ek1eidoi483d" path="res://assets/images/levels/level_4/l2_sfera_top.png" id="16_bmymc"]
+[ext_resource type="Texture2D" uid="uid://olv7nfcx1spe" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
+[ext_resource type="Texture2D" uid="uid://d2invscy31vxo" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
+[ext_resource type="Texture2D" uid="uid://dk0fgukflpwd" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
+[ext_resource type="Texture2D" uid="uid://dr6lpwi8fr2us" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_1.png" id="25_gveu0"]
+[ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="25_twasi"]
+[ext_resource type="Texture2D" uid="uid://cupfbphfg5w24" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_2.png" id="26_e5ar6"]
+[ext_resource type="Texture2D" uid="uid://2xa6mvmrwnqm" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_3.png" id="27_140ss"]
+[ext_resource type="Texture2D" uid="uid://dp2syrvq42f4m" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_4.png" id="28_bm1g4"]
+[ext_resource type="Texture2D" uid="uid://bmdhufw365qwy" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_5.png" id="29_hv4q4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2b8q"]
+size = Vector2(23, 19)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4iu41"]
 shader = ExtResource("3_frj8a")
@@ -28,7 +44,7 @@ shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e78ox"]
-size = Vector2(97, 107)
+size = Vector2(119, 143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lksf7"]
 size = Vector2(86, 20)
@@ -49,6 +65,26 @@ shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 0.5
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_640ip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_0hef1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_53qkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_twasi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53qkh"]
+size = Vector2(51, 13)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jvuq"]
 shader = ExtResource("3_frj8a")
 shader_parameter/highlight_color = Color(1, 1, 0, 1)
@@ -56,6 +92,38 @@ shader_parameter/highlight_strength = 1.0
 shader_parameter/highlight_enabled = 0.0
 shader_parameter/pulse_speed = 3.0
 shader_parameter/dark_threshold = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jseqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_gveu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_e5ar6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_140ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_bm1g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_hv4q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_bm1g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_140ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_e5ar6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iroc"]
 size = Vector2(138, 206)
@@ -73,8 +141,8 @@ size = Vector2(35, 49)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_gv6a2")
-player_starting_position = Vector2(148, 942)
-checkpoints = Array[Vector2]([Vector2(95, 49), Vector2(148, 942), Vector2(724, 79)])
+player_starting_position = Vector2(110, 1024)
+checkpoints = Array[Vector2]([Vector2(95, 49), Vector2(148, 942), Vector2(724, 260)])
 metadata/_custom_type_script = "uid://tus0si3701mr"
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -87,6 +155,18 @@ offset_right = 1066.0
 offset_bottom = 1066.0
 texture = ExtResource("2_bn4i8")
 expand_mode = 1
+
+[node name="SensorArea" type="Area2D" parent="SubViewport" node_paths=PackedStringArray("node_to_disable")]
+position = Vector2(-7, 61)
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("3_twasi")
+node_to_disable = NodePath("../Layers/Layer1/GameObj")
+metadata/_custom_type_script = "uid://de3g77o2twora"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/SensorArea"]
+position = Vector2(912.5, 648.5)
+shape = SubResource("RectangleShape2D_h2b8q")
 
 [node name="Layers" type="Node2D" parent="SubViewport"]
 
@@ -126,6 +206,13 @@ polygon = PackedVector2Array(133, 416, 152, 416, 154, 402, 165, 403, 171, 425, 1
 script = ExtResource("7_dop50")
 metadata/_custom_type_script = "uid://b710x5gr6742f"
 
+[node name="Ball" parent="SubViewport/Layers/Layer0/Conchiglia" instance=ExtResource("3_vjl14")]
+process_mode = 4
+visible = false
+show_behind_parent = true
+position = Vector2(251, 782)
+collision_layer = 5
+
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
 scale = Vector2(0.521, 0.521)
 texture = ExtResource("8_mk6kx")
@@ -136,18 +223,13 @@ centered = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/Conchiglia/StaticBody2D"]
 polygon = PackedVector2Array(278, 756, 278, 812, 226, 812, 226, 756)
 
-[node name="Ball" parent="SubViewport/Layers/Layer0/Conchiglia" instance=ExtResource("3_vjl14")]
-process_mode = 4
-position = Vector2(251, 782)
-collision_layer = 5
-
 [node name="Area2D" type="Area2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
 position = Vector2(236, 784)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Conchiglia/Area2D"]
-position = Vector2(-5.5, -24.5)
+position = Vector2(5.5, -6.5)
 shape = SubResource("RectangleShape2D_e78ox")
 
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer0" node_paths=PackedStringArray("hide_by_layer")]
@@ -196,12 +278,25 @@ collision_layer = 513
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(377, 110, 755, 111, 785, 74, 790, 29, 814, 2, 834, 1, 816, 58, 878, 57, 938, 94, 950, 130, 1046, 204, 1046, 248, 1018, 308, 1060, 305, 1062, 655, 1027, 657, 969, 597, 973, 478, 893, 438, 882, 365, 895, 307, 919, 264, 945, 244, 932, 220, 893, 219, 838, 238, 785, 226, 748, 235, 618, 235, 597, 179, 368, 181)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer1/GameObj/StaticBody2D"]
+polygon = PackedVector2Array(878, 761, 961, 761, 960, 693, 910, 691, 906, 682, 895, 682, 905, 614, 968, 600, 963, 588, 876, 604)
+
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]
 material = SubResource("ShaderMaterial_qtnbr")
 
 [node name="GameObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
-script = ExtResource("4_bn4i8")
+script = ExtResource("14_2l11y")
 metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="SphereEffectBottom" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(721, 994.99994)
+scale = Vector2(0.521, 0.521)
+texture = ExtResource("14_e78ox")
+
+[node name="SphereEffectTop" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(944, 658)
+scale = Vector2(0.521, 0.521)
+texture = ExtResource("16_bmymc")
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
 scale = Vector2(0.5205078, 0.5205078)
@@ -219,6 +314,23 @@ polygon = PackedVector2Array(361, 102, 394, 53, 376, 35, 377, 11, 648, 5, 650, 5
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(833, 473, 959, 477, 958, 589, 864, 600, 836, 652, 872, 651, 876, 684, 848, 686, 837, 745, 855, 816, 894, 774, 849, 767, 865, 727, 865, 764, 904, 761, 1060, 757, 1060, 1066, 702, 1061, 695, 1034, 671, 1027, 684, 977, 670, 975, 673, 962, 686, 965, 687, 972, 708, 956, 731, 955, 730, 936, 756, 934, 755, 972, 831, 965, 834, 786)
+
+[node name="AnimationPlayer" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+visible = false
+position = Vector2(721, 999.99994)
+scale = Vector2(0.521, 0.521)
+sprite_frames = SubResource("SpriteFrames_640ip")
+frame = 1
+frame_progress = 0.5015124
+
+[node name="TeleportArea" type="Area2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(709, 966)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer2/GameObj/TeleportArea"]
+position = Vector2(2.5, -4.5)
+shape = SubResource("RectangleShape2D_53qkh")
 
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
 script = ExtResource("9_1heun")
@@ -261,7 +373,7 @@ centered = false
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/GameObj"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
-polygon = PackedVector2Array(419, 196, 592, 187, 578, 231, 534, 262, 567, 287, 623, 277, 650, 234, 699, 236, 705, 292, 761, 290, 754, 254, 810, 241, 872, 248, 892, 278, 877, 307, 826, 322, 799, 360, 828, 389, 780, 369, 741, 350, 746, 313, 684, 320, 682, 366, 714, 369, 739, 396, 729, 453, 695, 466, 668, 466, 643, 445, 617, 481, 634, 554, 666, 597, 672, 686, 656, 712, 708, 743, 738, 809, 713, 867, 755, 875, 738, 933, 703, 926, 694, 930, 669, 957, 671, 957, 636, 942, 594, 1027, 566, 1036, 552, 1026, 494, 957, 449, 882, 472, 835, 442, 833, 426, 796, 418, 732, 433, 689, 481, 680, 478, 651, 518, 570, 483, 571, 435, 538, 426, 493, 438, 447, 451, 427, 440, 425, 459, 403, 482, 392, 468, 379, 445, 371, 444, 345, 422, 302)
+polygon = PackedVector2Array(419, 196, 592, 187, 578, 231, 534, 262, 567, 287, 623, 277, 650, 234, 699, 236, 705, 292, 761, 290, 754, 254, 810, 241, 872, 248, 892, 278, 877, 307, 826, 322, 799, 360, 828, 389, 780, 369, 741, 350, 746, 313, 684, 320, 682, 366, 714, 369, 739, 396, 729, 453, 695, 466, 668, 466, 643, 445, 617, 481, 634, 554, 666, 597, 672, 686, 656, 712, 708, 743, 738, 809, 713, 867, 669, 957, 671, 957, 636, 942, 594, 1027, 566, 1036, 552, 1026, 494, 957, 449, 882, 472, 835, 442, 833, 426, 796, 418, 732, 433, 689, 481, 680, 478, 651, 518, 570, 483, 571, 435, 538, 426, 493, 438, 447, 451, 427, 440, 425, 459, 403, 482, 392, 468, 379, 445, 371, 444, 345, 422, 302)
 
 [node name="Smoke" type="Node2D" parent="SubViewport/Layers/Layer3"]
 process_mode = 4
@@ -279,6 +391,30 @@ centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/Smoke/StaticBody2D"]
 polygon = PackedVector2Array(372, 196, 406, 196, 406, 1000, 372, 1000)
+
+[node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer3"]
+script = ExtResource("9_1heun")
+metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
+
+[node name="StaticBody2D" type="Area2D" parent="SubViewport/Layers/Layer3/DangerousObj"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/DangerousObj/StaticBody2D"]
+polygon = PackedVector2Array(362, 1050, 364, 914, 400, 860, 443, 860, 487, 970, 532, 1016, 528, 1055)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer3/DangerousObj"]
+scale = Vector2(0.521, 0.521)
+sprite_frames = SubResource("SpriteFrames_jseqm")
+frame_progress = 0.21728487
+centered = false
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer3/DangerousObj"]
+scale = Vector2(0.521, 0.521)
+sprite_frames = SubResource("SpriteFrames_jseqm")
+autoplay = "default"
+frame_progress = 0.8101774
+centered = false
 
 [node name="Area2D" type="Area2D" parent="SubViewport"]
 position = Vector2(368, 933)
@@ -316,11 +452,16 @@ collision_mask = 2
 position = Vector2(7.5, -14.5)
 shape = SubResource("RectangleShape2D_7uaq7")
 
+[node name="Door" parent="SubViewport" instance=ExtResource("25_twasi")]
+position = Vector2(1012, 672)
+
 [node name="MaskShower" type="Node2D" parent="."]
 script = ExtResource("10_gv6a2")
 
+[connection signal="covered" from="SubViewport/SensorArea" to="SubViewport/Layers/Layer2/GameObj" method="_on_sensor_area_covered"]
 [connection signal="body_entered" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="SubViewport/Layers/Layer2/GameObj/TeleportArea" to="SubViewport/Layers/Layer2/GameObj" method="_on_teleport_area_body_entered"]
 [connection signal="body_entered" from="SubViewport/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="SubViewport/CheckPointArea1" to="." method="_on_check_point_area_1_body_entered"]
 [connection signal="body_entered" from="SubViewport/CheckPointArea2" to="." method="_on_check_point_area_2_body_entered"]

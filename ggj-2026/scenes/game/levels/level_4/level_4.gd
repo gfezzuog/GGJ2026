@@ -15,18 +15,19 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	_body.queue_free.call_deferred()
 	$SubViewport/Layers/Layer3/Smoke.show()
 	$SubViewport/Layers/Layer3/Smoke.process_mode = Node.PROCESS_MODE_INHERIT
+	$SubViewport/Layers/Layer3/DangerousObj.queue_free()
 
 
 func _on_check_point_area_1_body_entered(_body: Node2D) -> void:
 	checkpoints_counter = 1
-	$SubViewport/CheckPointArea1.monitoring = false
+	$SubViewport/CheckPointArea1.set.call_deferred("monitoring", false)
 
 
 func _on_check_point_area_2_body_entered(_body: Node2D) -> void:
 	checkpoints_counter = 2
-	$SubViewport/CheckPointArea2.monitoring = false
+	$SubViewport/CheckPointArea2.set.call_deferred("monitoring", false)
 
 
 func _on_check_point_area_3_body_entered(_body: Node2D) -> void:
 	checkpoints_counter = 3
-	$SubViewport/CheckPointArea3.monitoring = false
+	$SubViewport/CheckPointArea3.set.call_deferred("monitoring", false)
