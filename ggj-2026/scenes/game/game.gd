@@ -23,6 +23,10 @@ func _ready() -> void:
 	
 	player = load("res://scenes/game/components/player/player.tscn").instantiate()
 	
+	# Imposta volumi iniziali
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_MUSIC_NAME), Constants.INITIAL_VOLUME_MUSIC)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_EFFECTS_NAME), Constants.INITIAL_VOLUME_EFFECTS)
+	
 	_load_level(level_indx)
 	_preload_level(level_indx+1)
 

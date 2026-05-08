@@ -29,15 +29,6 @@ signal restart_level()
 signal go_to_level(indx: int)
 
 
-# SEGNALI VOLUME
-
-@warning_ignore("unused_signal")
-signal set_volume_effects(volume: float)
-
-@warning_ignore("unused_signal")
-signal set_volume_music(volume: float)
-
-
 # SEGNALI MASCHERE
 
 @warning_ignore("unused_signal")

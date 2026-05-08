@@ -6,9 +6,10 @@ extends Control
 @onready var volume_slider_music = $Volume/Music/HBoxContainer/HSlider
 @onready var volume_slider_effects = $Volume/SoundEffects/HBoxContainer/HSlider
 
+
 # PARAMETRI
-const volume_max = 15.0		# guadagno massimo in generale
-const volume_min = - volume_max
+const volume_max = 0.0		# guadagno massimo in generale
+const volume_min = - 30.0
 const volume_slider_ticks = 11
 const volume_slider_step = (volume_max - volume_min) / (volume_slider_ticks - 1)
 
@@ -32,9 +33,10 @@ func _ready() -> void:
 	
 	
 	#print("all'apertura risulta volume musica " + str(Constants.volume_music) + " e volume effetti " + str(Constants.volume_effects))
-	volume_slider_music.value = Constants.volume_music
-	volume_slider_effects.value = Constants.volume_effects
-	#print(volume_slider_music.value)
+	
+	# Imposta i valori degli slider
+	volume_slider_music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_MUSIC_NAME))
+	volume_slider_effects.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_EFFECTS_NAME))
 	
 
 func _locale_to_id(locale: String) -> int:
@@ -62,17 +64,18 @@ func _on_option_button_item_selected(index: int) -> void:
 # Cambio volume musica
 func _on_volume_music_slider_drag_ended(value_changed: bool) -> void:
 	if (value_changed):
-		print("nuovo volume music: " +  str(volume_slider_music.value))
-		SignalBus.set_volume_music.emit(volume_slider_music.value)
-		Constants.volume_music = volume_slider_music.value
-	
+		var bus_idx = AudioServer.get_bus_index(Constants.AUDIO_BUS_MUSIC_NAME)
+		AudioServer.set_bus_volume_db(bus_idx, volume_slider_music.value)				# imposta volume
+		AudioServer.set_bus_mute(bus_idx, volume_slider_music.value <= volume_min)		# muta / attiva se raggiungi o no il volume minimo
+				
 	
 # Cambio volume effetti
 func _on_volume_effects_slider_drag_ended(value_changed: bool) -> void:
 	if (value_changed):
-		print("nuovo volume effects: " +  str(volume_slider_effects.value))
-		SignalBus.set_volume_effects.emit(volume_slider_effects.value)
-		Constants.volume_effects = volume_slider_effects.value
+		var bus_idx = AudioServer.get_bus_index(Constants.AUDIO_BUS_EFFECTS_NAME)
+		AudioServer.set_bus_volume_db(bus_idx, volume_slider_effects.value)				# imposta volume
+		AudioServer.set_bus_mute(bus_idx, volume_slider_effects.value <= volume_min)		# muta / attiva se raggiungi o no il volume minimo
+
 	
 	
 # Chiudi menu

@@ -39,15 +39,6 @@ func _ready() -> void:
 	wall_right_area.position = Vector2(1170, 550)
 	$SubViewport/Layers.add_child(wall_right_area)
 	
-	# Connetti segnale volume
-	SignalBus.set_volume_music.connect(_set_volume)
-	$AudioStreamPlayer.play()
-
-
-func _set_volume(volume: float):
-	print("cambio volume musica livello a: " + str(volume))
-	$AudioStreamPlayer.volume_db = volume
-
 
 func init() -> void:
 	# Connette con i segnali

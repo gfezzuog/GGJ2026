@@ -36,15 +36,6 @@ func _ready() -> void:
 	
 	player_width = $Mask.texture.get_width()
 	
-	SignalBus.set_volume_effects.connect(_set_volume)
-
-
-func _set_volume(volume: float):
-	print("cambio volume effetti player a: " + str(volume))
-	walkAudio.volume_db = volume
-	actionAudio.volume_db = volume
-	landAudio.volume_db = volume
-
 
 
 func _do_game_over() -> void:
