@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cotufelyf6tbe" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://da1uio0vt52om" path="res://scenes/ui/ui.tscn" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://dgi7qginfumrr" path="res://scenes/game/levels/level_1/logic.gd" id="3_0sr1o"]
-[ext_resource type="Texture2D" uid="uid://dl8ltix8rmsc1" path="res://assets/ui/new_ui/main_page.png" id="3_kelw5"]
+[ext_resource type="Texture2D" uid="uid://lplx0xvg6vdu" path="res://assets/ui/new_ui/main_page.png" id="3_kelw5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h61r"]
 content_margin_left = 7.0
