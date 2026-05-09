@@ -21,5 +21,5 @@ func _apply_disable(value: bool) -> void:
 			audio.set_disabled(false)
 
 
-func _on_body_entered(body: Node2D) -> void:
-	body.game_over()
+func _on_body_entered(_body: Node2D) -> void:
+	_body.game_over()

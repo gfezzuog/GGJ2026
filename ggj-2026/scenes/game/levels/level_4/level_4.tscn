@@ -1,39 +1,45 @@
-[gd_scene load_steps=51 format=3 uid="uid://eqt5pj7bjl72"]
+[gd_scene load_steps=63 format=3 uid="uid://eqt5pj7bjl72"]
 
 [ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://bcukntfpwbqg6" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
+[ext_resource type="Texture2D" uid="uid://darihqg58xjfy" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
 [ext_resource type="Shader" uid="uid://8v550dc7pltk" path="res://resources/shaders/mask.gdshader" id="3_frj8a"]
 [ext_resource type="Script" uid="uid://dgs44wk02m313" path="res://scenes/game/levels/level_4/sensor_area.gd" id="3_twasi"]
 [ext_resource type="PackedScene" uid="uid://kv8rvpcs3ox5" path="res://scenes/game/components/obj/lvl4/ball.tscn" id="3_vjl14"]
 [ext_resource type="Script" uid="uid://b710x5gr6742f" path="res://scenes/game/components/obj/game_obj.gd" id="4_bn4i8"]
 [ext_resource type="Script" uid="uid://de3g77o2twora" path="res://scenes/game/components/sensor_area.gd" id="4_dop50"]
-[ext_resource type="Texture2D" uid="uid://b57p0piwkoswy" path="res://assets/images/levels/level_4/l0.png" id="5_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://dve2sdoe27oj3" path="res://assets/images/levels/level_4/l1.png" id="6_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://bq4xcf867jfob" path="res://assets/images/levels/level_4/l2.png" id="7_1heun"]
+[ext_resource type="Texture2D" uid="uid://y6nft3hpimhv" path="res://assets/images/levels/level_4/l0.png" id="5_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://6tsda0pdtbua" path="res://assets/images/levels/level_4/l1.png" id="6_gv6a2"]
+[ext_resource type="Texture2D" uid="uid://b2dw8jemu5xit" path="res://assets/images/levels/level_4/l2.png" id="7_1heun"]
 [ext_resource type="Script" uid="uid://ckmpcy1t1jv4d" path="res://scenes/game/levels/level_4/conchiglia.gd" id="7_dop50"]
-[ext_resource type="PackedScene" uid="uid://ci3hdiak42p5c" path="res://scenes/game/components/obj/lvl4/tongue.tscn" id="7_pb8xk"]
-[ext_resource type="Texture2D" uid="uid://cmcmob8h1qpwq" path="res://assets/images/levels/level_4/l0_conchiglia.png" id="8_mk6kx"]
-[ext_resource type="Texture2D" uid="uid://71jgarg7eydx" path="res://assets/images/levels/level_4/l3.png" id="8_vjl14"]
+[ext_resource type="PackedScene" uid="uid://c6yaal4pj8ky2" path="res://scenes/game/components/obj/lvl4/tongue.tscn" id="7_pb8xk"]
+[ext_resource type="Texture2D" uid="uid://blsjjd4sk1kjy" path="res://assets/images/levels/level_4/l3.png" id="8_vjl14"]
 [ext_resource type="Script" uid="uid://c7jg37rm3m8jc" path="res://scenes/game/components/obj/dang_obj.gd" id="9_1heun"]
 [ext_resource type="Script" uid="uid://i5whe1ji4qba" path="res://scenes/game/levels/mask_shower.gd" id="10_gv6a2"]
-[ext_resource type="Texture2D" uid="uid://saqlitah2pv" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
+[ext_resource type="Texture2D" uid="uid://ckkgobqq7ajnb" path="res://assets/images/levels/level_4/conchiglia_small.png" id="10_jseqm"]
+[ext_resource type="Texture2D" uid="uid://rnw7ycjm356n" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
 [ext_resource type="Script" uid="uid://dg2gmxqhjkybw" path="res://scenes/game/levels/level_4/layer2.gd" id="14_2l11y"]
-[ext_resource type="Texture2D" uid="uid://cq4a13s1570o3" path="res://assets/images/levels/level_4/l2_sfera_bottom.png" id="14_e78ox"]
 [ext_resource type="Script" uid="uid://bxk3mkd2ttp3b" path="res://scenes/game/levels/level_4/smoke.gd" id="14_mk6kx"]
 [ext_resource type="Texture2D" uid="uid://c6lx05e54ts1t" path="res://assets/images/levels/level_4/fumo.png" id="15_2iroc"]
 [ext_resource type="AudioStream" uid="uid://dhckes264ncta" path="res://assets/audio/Pesce_Sfx_Maeskape_loopp.wav" id="15_140ss"]
-[ext_resource type="Texture2D" uid="uid://nssvephu3voh" path="res://assets/images/levels/level_4/l2_sfera_top.png" id="16_bmymc"]
-[ext_resource type="Texture2D" uid="uid://in11m3o5i1lp" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
-[ext_resource type="Texture2D" uid="uid://cl8wcj6apl4km" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
-[ext_resource type="Texture2D" uid="uid://0yip88ejfbuj" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
+[ext_resource type="Texture2D" uid="uid://olv7nfcx1spe" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
+[ext_resource type="Texture2D" uid="uid://d2invscy31vxo" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
+[ext_resource type="Texture2D" uid="uid://dk0fgukflpwd" path="res://assets/images/levels/level_4/glow_effect_3.png" id="20_twasi"]
+[ext_resource type="Texture2D" uid="uid://c8fafx78xu6ps" path="res://assets/images/levels/level_4/glow_effect/glow_1.png" id="21_nvtgh"]
+[ext_resource type="Texture2D" uid="uid://dqx4yhav8meeb" path="res://assets/images/levels/level_4/glow_effect/glow_2.png" id="22_qe2bk"]
+[ext_resource type="Texture2D" uid="uid://cn10wvoehyrhv" path="res://assets/images/levels/level_4/glow_effect/glow_3.png" id="23_r2qsv"]
+[ext_resource type="Texture2D" uid="uid://dcgjiumt0akle" path="res://assets/images/levels/level_4/glow_effect/glow_4.png" id="24_3pjmh"]
 [ext_resource type="AudioStream" uid="uid://c1pmnflhccwcm" path="res://assets/audio/Bolla_Teletraspoto_Sfx_Maeskape.wav" id="24_hv4q4"]
 [ext_resource type="Texture2D" uid="uid://dr6lpwi8fr2us" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_1.png" id="25_gveu0"]
+[ext_resource type="Texture2D" uid="uid://8bmdwpmncefh" path="res://assets/images/levels/level_4/glow_effect/glow_5.png" id="25_kaklc"]
 [ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="25_twasi"]
 [ext_resource type="Texture2D" uid="uid://cupfbphfg5w24" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_2.png" id="26_e5ar6"]
+[ext_resource type="Texture2D" uid="uid://crgnmwbaqbh6m" path="res://assets/images/levels/level_4/glow_effect/glow_6.png" id="26_gdwy1"]
 [ext_resource type="Texture2D" uid="uid://2xa6mvmrwnqm" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_3.png" id="27_140ss"]
+[ext_resource type="Texture2D" uid="uid://bdxo57iq3qedb" path="res://assets/images/levels/level_4/glow_effect/glow_7.png" id="27_m8q1k"]
 [ext_resource type="Texture2D" uid="uid://dp2syrvq42f4m" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_4.png" id="28_bm1g4"]
 [ext_resource type="Texture2D" uid="uid://bmdhufw365qwy" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_5.png" id="29_hv4q4"]
 [ext_resource type="PackedScene" uid="uid://bngv4xly2ggn2" path="res://scenes/game/components/spatial_audio/SpatialAudio.tscn" id="30_e5ar6"]
+[ext_resource type="Texture2D" uid="uid://kt0b8o0q60wd" path="res://assets/images/levels/level_4/particle.png" id="30_qe2bk"]
 [ext_resource type="AudioStream" uid="uid://dnxipvq5nme6w" path="res://assets/audio/Fuoco_Drago_Sfx_Maeskape.wav" id="32_bm1g4"]
 [ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://assets/audio/Soundtrack_lv2.wav" id="36_jseqm"]
 
@@ -50,6 +56,44 @@ shader_parameter/dark_threshold = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e78ox"]
 size = Vector2(119, 143)
+
+[sub_resource type="Animation" id="Animation_toiuf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i05tu"]
+resource_name = "default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.17453292519943295, 0.0, -0.17453292519943295, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xn7b1"]
+_data = {
+&"RESET": SubResource("Animation_toiuf"),
+&"default": SubResource("Animation_i05tu")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lksf7"]
 size = Vector2(86, 20)
@@ -85,10 +129,73 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_nvtgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qe2bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_r2qsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_3pjmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kaklc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gdwy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_m8q1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_m8q1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gdwy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kaklc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_3pjmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_r2qsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qe2bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_nvtgh")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53qkh"]
 size = Vector2(51, 13)
+
+[sub_resource type="Gradient" id="Gradient_nvtgh"]
+offsets = PackedFloat32Array(0.012345679, 0.6419753, 0.7592593, 0.99382716)
+colors = PackedColorArray(0.4633326, 0.39419243, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.8433735, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qe2bk"]
+gradient = SubResource("Gradient_nvtgh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r2qsv"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+gravity = Vector3(0, -80, 0)
+color = Color(0.5226325, 0.10089601, 0.9999998, 1)
+color_ramp = SubResource("GradientTexture1D_qe2bk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jvuq"]
 shader = ExtResource("3_frj8a")
@@ -219,9 +326,10 @@ position = Vector2(251, 782)
 collision_layer = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
+position = Vector2(296, 848)
 scale = Vector2(0.521, 0.521)
-texture = ExtResource("8_mk6kx")
-centered = false
+texture = ExtResource("10_jseqm")
+offset = Vector2(0, -100)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer0/Conchiglia"]
 
@@ -236,6 +344,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Layers/Layer0/Conchiglia/Area2D"]
 position = Vector2(5.5, -6.5)
 shape = SubResource("RectangleShape2D_e78ox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Layers/Layer0/Conchiglia"]
+libraries = {
+&"": SubResource("AnimationLibrary_xn7b1")
+}
+autoplay = "default"
 
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer0" node_paths=PackedStringArray("hide_by_layer")]
 script = ExtResource("9_1heun")
@@ -298,15 +412,20 @@ material = SubResource("ShaderMaterial_qtnbr")
 script = ExtResource("14_2l11y")
 metadata/_custom_type_script = "uid://b710x5gr6742f"
 
-[node name="SphereEffectBottom" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
-position = Vector2(721, 994.99994)
+[node name="GlowAnimationBottom" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(720, 995.99994)
 scale = Vector2(0.521, 0.521)
-texture = ExtResource("14_e78ox")
+sprite_frames = SubResource("SpriteFrames_640ip")
+animation = &"glow"
+autoplay = "glow"
+frame_progress = 0.6221094
 
-[node name="SphereEffectTop" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
-position = Vector2(944, 658)
-scale = Vector2(0.521, 0.521)
-texture = ExtResource("16_bmymc")
+[node name="GlowAnimationTop" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(944.99994, 658.00006)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_640ip")
+animation = &"glow"
+frame = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
 scale = Vector2(0.5205078, 0.5205078)
@@ -325,14 +444,6 @@ polygon = PackedVector2Array(361, 102, 394, 53, 376, 35, 377, 11, 648, 5, 650, 5
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer2/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(833, 473, 959, 477, 958, 589, 864, 600, 836, 652, 872, 651, 876, 684, 848, 686, 837, 745, 855, 816, 894, 774, 849, 767, 865, 727, 865, 764, 904, 761, 1060, 757, 1060, 1066, 702, 1061, 695, 1034, 671, 1027, 684, 977, 670, 975, 673, 962, 686, 965, 687, 972, 708, 956, 731, 955, 730, 936, 756, 934, 755, 972, 831, 965, 834, 786)
 
-[node name="AnimationPlayer" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer2/GameObj"]
-visible = false
-position = Vector2(721, 999.99994)
-scale = Vector2(0.521, 0.521)
-sprite_frames = SubResource("SpriteFrames_640ip")
-frame = 1
-frame_progress = 0.5015124
-
 [node name="TeleportArea" type="Area2D" parent="SubViewport/Layers/Layer2/GameObj"]
 position = Vector2(709, 966)
 collision_layer = 0
@@ -345,6 +456,14 @@ shape = SubResource("RectangleShape2D_53qkh")
 [node name="AudioTeleport" type="AudioStreamPlayer" parent="SubViewport/Layers/Layer2/GameObj"]
 stream = ExtResource("24_hv4q4")
 bus = &"Effects"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="SubViewport/Layers/Layer2/GameObj"]
+position = Vector2(708.00006, 954)
+rotation = -0.31939524
+emitting = false
+amount = 12
+texture = ExtResource("30_qe2bk")
+process_material = SubResource("ParticleProcessMaterial_r2qsv")
 
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer2"]
 script = ExtResource("9_1heun")
