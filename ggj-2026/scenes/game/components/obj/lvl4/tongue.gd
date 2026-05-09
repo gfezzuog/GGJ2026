@@ -9,6 +9,7 @@ var coming_back: Timer = Timer.new()
 
 func _ready() -> void:
 	super._ready()
+	print(body)
 	coming_back.timeout.connect(_on_coming_back_timeout)
 	coming_back.one_shot = true
 	coming_back.autostart = false
