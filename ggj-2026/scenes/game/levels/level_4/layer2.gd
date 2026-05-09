@@ -1,13 +1,5 @@
 extends GameObj
 
-var free_effect_top: bool = false
-
-
-func _physics_process(delta: float) -> void:
-	$SphereEffectBottom.rotation += 1*delta
-	if free_effect_top:
-		$SphereEffectTop.rotation += 1*delta
-
 
 func _on_teleport_area_body_entered(_body: Node2D) -> void:
 	$AudioTeleport.play()
@@ -16,10 +8,10 @@ func _on_teleport_area_body_entered(_body: Node2D) -> void:
 
 func _on_sensor_area_covered(value: bool) -> void:
 	if !value:
-		free_effect_top = true
-		$AnimationPlayer.show()
+		$GlowAnimationTop.play("glow")
+		$GPUParticles2D.emitting = true
 		$TeleportArea.monitoring = true
 	else:
-		free_effect_top = false
-		$AnimationPlayer.hide()
+		$GlowAnimationTop.stop()
+		$GPUParticles2D.emitting = false
 		$TeleportArea.monitoring = false

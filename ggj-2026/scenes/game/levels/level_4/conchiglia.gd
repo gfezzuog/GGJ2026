@@ -6,13 +6,13 @@ extends GameObj
 
 func _apply_disable(value: bool) -> void:
 	if value:
-		$Sprite2D.hide()
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("RESET")
 		if ball:
-			print("La palla c'è")
 			ball.show()
 			ball.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
-		$Sprite2D.show()
+		$AnimationPlayer.play("default")
 		if ball:
 			ball.hide()
 			ball.process_mode = Node.PROCESS_MODE_DISABLED

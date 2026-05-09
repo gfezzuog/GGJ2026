@@ -14,5 +14,5 @@
 script = ExtResource("2_7xi47")
 layers = Array[int]([0, 0, 0, 0])
 layers_textures = Array[Texture]([ExtResource("1_rkf6i"), ExtResource("2_si2pv"), ExtResource("3_t0xhj"), ExtResource("4_ehxvd")])
-masks = Array[ExtResource("1_hrksf")]([ExtResource("2_575p4"), ExtResource("3_kbucj"), ExtResource("4_od1oh"), null])
+masks = Array[ExtResource("1_hrksf")]([null, ExtResource("3_kbucj"), ExtResource("4_od1oh"), ExtResource("2_575p4")])
 metadata/_custom_type_script = "uid://djek1l2u0at7l"

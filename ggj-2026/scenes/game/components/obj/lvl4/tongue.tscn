@@ -1,29 +1,65 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci3hdiak42p5c"]
+[gd_scene load_steps=8 format=3 uid="uid://c6yaal4pj8ky2"]
 
-[ext_resource type="Script" uid="uid://dpyhvmhdygfp2" path="res://scenes/game/components/obj/lvl4/tongue.gd" id="1_twnt4"]
-[ext_resource type="Texture2D" uid="uid://qwprwk4f6ekm" path="res://assets/images/levels/level_4/l0_lingua.png" id="2_nwyua"]
+[ext_resource type="Script" uid="uid://dpyhvmhdygfp2" path="res://scenes/game/components/obj/lvl4/tongue.gd" id="1_pg4sr"]
+[ext_resource type="Texture2D" uid="uid://qwprwk4f6ekm" path="res://assets/images/levels/level_4/l0_lingua.png" id="2_lbttg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyta"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgvuv"]
 size = Vector2(38, 72)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnt4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6i28s"]
 size = Vector2(44, 988)
 
-[node name="GameObj" type="Node2D"]
-script = ExtResource("1_twnt4")
-body = Object(CharacterBody2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":1,"collision_mask":1,"collision_priority":1.0,"input_pickable":false,"motion_mode":0,"up_direction":Vector2(0, -1),"velocity":Vector2(0, 0),"slide_on_ceiling":true,"max_slides":4,"wall_min_slide_angle":0.2617994,"floor_stop_on_slope":true,"floor_constant_speed":false,"floor_block_on_wall":true,"floor_max_angle":0.7853982,"floor_snap_length":1.0,"platform_on_leave":0,"platform_floor_layers":4294967295,"platform_wall_layers":0,"safe_margin":0.08,"script":null)
+[sub_resource type="Animation" id="Animation_blgv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
+[sub_resource type="Animation" id="Animation_i2s6t"]
+resource_name = "idle"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.19999999, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -12.999998), Vector2(0, 4.9999995), Vector2(0, 4.8652773), Vector2(0, -12.734022)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aat6c"]
+_data = {
+&"RESET": SubResource("Animation_blgv5"),
+&"idle": SubResource("Animation_i2s6t")
+}
+
+[node name="GameObj" type="Node2D"]
+script = ExtResource("1_pg4sr")
 metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(22, 82, 66, 82, 66, 1070, 22, 1070)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.521, 0.521)
-texture = ExtResource("2_nwyua")
+texture = ExtResource("2_lbttg")
 centered = false
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
-polygon = PackedVector2Array(22, 82, 66, 82, 66, 1070, 22, 1070)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(47, 62)
@@ -32,7 +68,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -17)
-shape = SubResource("RectangleShape2D_ppyta")
+shape = SubResource("RectangleShape2D_mgvuv")
 
 [node name="BottomArea2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -40,7 +76,12 @@ collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea2D"]
 position = Vector2(44, 576)
-shape = SubResource("RectangleShape2D_twnt4")
+shape = SubResource("RectangleShape2D_6i28s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aat6c")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
