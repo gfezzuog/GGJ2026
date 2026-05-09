@@ -13,8 +13,11 @@ func _on_game_over() -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	_body.queue_free.call_deferred()
-	$SubViewport/Layers/Layer3/Smoke.show()
+	$AudioStreamPlayer2D.play()
+	$SubViewport/Layers/Layer3/Smoke/Sprite2D.show()
 	$SubViewport/Layers/Layer3/Smoke.process_mode = Node.PROCESS_MODE_INHERIT
+	$SubViewport/Layers/Layer3/Fumo/Sprite2D.show()
+	$SubViewport/Layers/Layer3/Fumo.process_mode = Node.PROCESS_MODE_INHERIT
 	$SubViewport/Layers/Layer3/DangerousObj.queue_free()
 
 

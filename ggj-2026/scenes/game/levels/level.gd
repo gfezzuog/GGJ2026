@@ -8,6 +8,7 @@ class_name Level extends SubViewportContainer
 var mask_to_draw: PackedVector2Array = []
 var player: Player
 var checkpoints_counter: int = 0
+var timer_mask_rotated := Timer.new()
 
 
 func _ready() -> void:
@@ -41,6 +42,12 @@ func _ready() -> void:
 	wall_right_area.position = Vector2(1170, 550)
 	$SubViewport/Layers.add_child(wall_right_area)
 	
+	timer_mask_rotated.wait_time = 1.0
+	timer_mask_rotated.autostart = false
+	timer_mask_rotated.one_shot = true
+	timer_mask_rotated.timeout.connect(_on_timer_mask_rotated_timeout)
+	add_child(timer_mask_rotated)
+
 
 func init() -> void:
 	# Connette con i segnali
@@ -79,6 +86,7 @@ func remove_player() -> void:
 
 
 func show_mask(polygons: Array[PackedVector2Array]) -> void:
+	timer_mask_rotated.stop()
 	$MaskShower.show_mask(polygons)
 
 
@@ -146,8 +154,17 @@ func _on_mask_disabled(layer: int) -> void:
 
 
 func _on_mask_rotated(mask: Mask, layer: int) -> void:
+	timer_mask_rotated.stop()
+	$MaskShower.hide_mask()
+	$MaskShower.show_mask(mask.get_polygons())
+	timer_mask_rotated.start()
+	
 	reset_mask(layer)
 	apply_mask(layer, mask)
+
+
+func _on_timer_mask_rotated_timeout():
+	$MaskShower.hide_mask()
 
 
 func _on_death_area_body_entered(body: Node2D) -> void:

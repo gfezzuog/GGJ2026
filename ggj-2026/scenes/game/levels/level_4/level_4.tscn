@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://eqt5pj7bjl72"]
+[gd_scene load_steps=65 format=3 uid="uid://eqt5pj7bjl72"]
 
 [ext_resource type="Script" uid="uid://brbh6q8sxfc5a" path="res://scenes/game/levels/level_4/level_4.gd" id="1_gv6a2"]
 [ext_resource type="Texture2D" uid="uid://darihqg58xjfy" path="res://assets/images/levels/level_4/background.png" id="2_bn4i8"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://rnw7ycjm356n" path="res://assets/images/levels/level_4/l3_scaglie.png" id="11_b0lph"]
 [ext_resource type="Script" uid="uid://dg2gmxqhjkybw" path="res://scenes/game/levels/level_4/layer2.gd" id="14_2l11y"]
 [ext_resource type="Script" uid="uid://bxk3mkd2ttp3b" path="res://scenes/game/levels/level_4/smoke.gd" id="14_mk6kx"]
-[ext_resource type="Texture2D" uid="uid://c6lx05e54ts1t" path="res://assets/images/levels/level_4/fumo.png" id="15_2iroc"]
 [ext_resource type="AudioStream" uid="uid://dhckes264ncta" path="res://assets/audio/Pesce_Sfx_Maeskape_loopp.wav" id="15_140ss"]
 [ext_resource type="Texture2D" uid="uid://olv7nfcx1spe" path="res://assets/images/levels/level_4/glow_effect_1.png" id="18_0hef1"]
 [ext_resource type="Texture2D" uid="uid://d2invscy31vxo" path="res://assets/images/levels/level_4/glow_effect_2.png" id="19_53qkh"]
@@ -29,19 +28,22 @@
 [ext_resource type="Texture2D" uid="uid://cn10wvoehyrhv" path="res://assets/images/levels/level_4/glow_effect/glow_3.png" id="23_r2qsv"]
 [ext_resource type="Texture2D" uid="uid://dcgjiumt0akle" path="res://assets/images/levels/level_4/glow_effect/glow_4.png" id="24_3pjmh"]
 [ext_resource type="AudioStream" uid="uid://c1pmnflhccwcm" path="res://assets/audio/Bolla_Teletraspoto_Sfx_Maeskape.wav" id="24_hv4q4"]
-[ext_resource type="Texture2D" uid="uid://dr6lpwi8fr2us" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_1.png" id="25_gveu0"]
 [ext_resource type="Texture2D" uid="uid://8bmdwpmncefh" path="res://assets/images/levels/level_4/glow_effect/glow_5.png" id="25_kaklc"]
 [ext_resource type="PackedScene" uid="uid://bw2x0y7bxufj8" path="res://scenes/game/components/door/door.tscn" id="25_twasi"]
-[ext_resource type="Texture2D" uid="uid://cupfbphfg5w24" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_2.png" id="26_e5ar6"]
 [ext_resource type="Texture2D" uid="uid://crgnmwbaqbh6m" path="res://assets/images/levels/level_4/glow_effect/glow_6.png" id="26_gdwy1"]
-[ext_resource type="Texture2D" uid="uid://2xa6mvmrwnqm" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_3.png" id="27_140ss"]
 [ext_resource type="Texture2D" uid="uid://bdxo57iq3qedb" path="res://assets/images/levels/level_4/glow_effect/glow_7.png" id="27_m8q1k"]
-[ext_resource type="Texture2D" uid="uid://dp2syrvq42f4m" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_4.png" id="28_bm1g4"]
-[ext_resource type="Texture2D" uid="uid://bmdhufw365qwy" path="res://assets/images/levels/level_4/l3_fuoco_placeholder_5.png" id="29_hv4q4"]
 [ext_resource type="PackedScene" uid="uid://bngv4xly2ggn2" path="res://scenes/game/components/spatial_audio/SpatialAudio.tscn" id="30_e5ar6"]
 [ext_resource type="Texture2D" uid="uid://kt0b8o0q60wd" path="res://assets/images/levels/level_4/particle.png" id="30_qe2bk"]
 [ext_resource type="AudioStream" uid="uid://dnxipvq5nme6w" path="res://assets/audio/Fuoco_Drago_Sfx_Maeskape.wav" id="32_bm1g4"]
+[ext_resource type="Texture2D" uid="uid://dfr61kiywrrt0" path="res://assets/images/levels/level_4/fumo.PNG" id="33_qe2bk"]
+[ext_resource type="Texture2D" uid="uid://bhcmd2q5evtu" path="res://assets/images/levels/level_4/fuoco/fuoco0.png" id="34_qe2bk"]
+[ext_resource type="Texture2D" uid="uid://b6lsj02dlcwwp" path="res://assets/images/levels/level_4/fuoco/fuoco1.png" id="35_r2qsv"]
+[ext_resource type="Texture2D" uid="uid://cit2x58f01lb0" path="res://assets/images/levels/level_4/fuoco/fuoco2.png" id="36_3pjmh"]
 [ext_resource type="AudioStream" uid="uid://bk6hl3b4h4qm0" path="res://assets/audio/Soundtrack_lv2.wav" id="36_jseqm"]
+[ext_resource type="Texture2D" uid="uid://c1hnyxd7oj5nc" path="res://assets/images/levels/level_4/fuoco/fuoco3.png" id="37_kaklc"]
+[ext_resource type="Texture2D" uid="uid://crn6pmlqk5w8o" path="res://assets/images/levels/level_4/fuoco/fuoco4.png" id="38_gdwy1"]
+[ext_resource type="Texture2D" uid="uid://shaqd6n6tv76" path="res://assets/images/levels/level_4/fumo_statico.png" id="40_r2qsv"]
+[ext_resource type="AudioStream" uid="uid://dhl3q2y8vhii0" path="res://assets/audio/WaterBomb_01_Sfx_Maeskape.wav" id="44_3pjmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2b8q"]
 size = Vector2(23, 19)
@@ -209,28 +211,31 @@ shader_parameter/dark_threshold = 0.5
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("25_gveu0")
+"texture": ExtResource("34_qe2bk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_e5ar6")
+"texture": ExtResource("35_r2qsv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_140ss")
+"texture": ExtResource("36_3pjmh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_bm1g4")
+"texture": ExtResource("37_kaklc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_hv4q4")
+"texture": ExtResource("38_gdwy1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_bm1g4")
+"texture": ExtResource("38_gdwy1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_140ss")
+"texture": ExtResource("37_kaklc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_e5ar6")
+"texture": ExtResource("36_3pjmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_r2qsv")
 }],
 "loop": true,
 "name": &"default",
@@ -508,23 +513,6 @@ centered = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(419, 196, 592, 187, 578, 231, 534, 262, 567, 287, 623, 277, 650, 234, 699, 236, 705, 292, 761, 290, 754, 254, 810, 241, 872, 248, 892, 278, 877, 307, 826, 322, 799, 360, 828, 389, 780, 369, 741, 350, 746, 313, 684, 320, 682, 366, 714, 369, 739, 396, 729, 453, 695, 466, 668, 466, 643, 445, 617, 481, 634, 554, 666, 597, 672, 686, 656, 712, 708, 743, 738, 809, 713, 867, 669, 957, 671, 957, 636, 942, 594, 1027, 566, 1036, 552, 1026, 494, 957, 449, 882, 472, 835, 442, 833, 426, 796, 418, 732, 433, 689, 481, 680, 478, 651, 518, 570, 483, 571, 435, 538, 426, 493, 438, 447, 451, 427, 440, 425, 459, 403, 482, 392, 468, 379, 445, 371, 444, 345, 422, 302)
 
-[node name="Smoke" type="Node2D" parent="SubViewport/Layers/Layer3"]
-process_mode = 4
-visible = false
-position = Vector2(0, 780)
-script = ExtResource("14_mk6kx")
-metadata/_custom_type_script = "uid://b710x5gr6742f"
-
-[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer3/Smoke"]
-scale = Vector2(0.718, 0.718)
-texture = ExtResource("15_2iroc")
-centered = false
-
-[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/Smoke"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/Smoke/StaticBody2D"]
-polygon = PackedVector2Array(372, 196, 406, 196, 406, 1000, 372, 1000)
-
 [node name="DangerousObj" type="Node2D" parent="SubViewport/Layers/Layer3"]
 script = ExtResource("9_1heun")
 metadata/_custom_type_script = "uid://c7jg37rm3m8jc"
@@ -539,7 +527,8 @@ polygon = PackedVector2Array(362, 1050, 364, 914, 400, 860, 443, 860, 487, 970, 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer3/DangerousObj"]
 scale = Vector2(0.521, 0.521)
 sprite_frames = SubResource("SpriteFrames_jseqm")
-frame_progress = 0.21728487
+autoplay = "default"
+frame_progress = 0.59192556
 centered = false
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SubViewport/Layers/Layer3/DangerousObj"]
@@ -553,6 +542,40 @@ centered = false
 position = Vector2(427, 956)
 scale = Vector2(2.255, 2.255)
 audio = ExtResource("32_bm1g4")
+
+[node name="Fumo" type="Node2D" parent="SubViewport/Layers/Layer3"]
+process_mode = 4
+script = ExtResource("4_bn4i8")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer3/Fumo"]
+visible = false
+position = Vector2(71.99999, 0)
+scale = Vector2(0.48584378, 0.521)
+texture = ExtResource("40_r2qsv")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/Fumo"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/Fumo/StaticBody2D"]
+polygon = PackedVector2Array(368, 953, 369, 1056, 545, 1059, 542, 975)
+
+[node name="Smoke" type="Node2D" parent="SubViewport/Layers/Layer3"]
+process_mode = 4
+position = Vector2(0, 700)
+script = ExtResource("14_mk6kx")
+metadata/_custom_type_script = "uid://b710x5gr6742f"
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/Layers/Layer3/Smoke"]
+visible = false
+scale = Vector2(0.521, 0.521)
+texture = ExtResource("33_qe2bk")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer3/Smoke"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer3/Smoke/StaticBody2D"]
+polygon = PackedVector2Array(373, 245, 407, 245, 403, 941, 373, 937)
 
 [node name="Area2D" type="Area2D" parent="SubViewport"]
 position = Vector2(368, 933)
@@ -600,6 +623,10 @@ script = ExtResource("10_gv6a2")
 stream = ExtResource("36_jseqm")
 autoplay = true
 bus = &"Music"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_3pjmh")
+bus = &"Effects"
 
 [connection signal="covered" from="SubViewport/SensorArea" to="SubViewport/Layers/Layer2/GameObj" method="_on_sensor_area_covered"]
 [connection signal="body_entered" from="SubViewport/Layers/Layer0/Conchiglia/Area2D" to="SubViewport/Layers/Layer0/Conchiglia" method="_on_area_2d_body_entered"]

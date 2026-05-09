@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kv8rvpcs3ox5"]
 
 [ext_resource type="Script" uid="uid://k5dvmtafu04d" path="res://scenes/game/components/obj/lvl4/ball.gd" id="1_0o8r5"]
-[ext_resource type="Texture2D" uid="uid://p3cdctn0ut45" path="res://assets/images/levels/level_4/ball.png" id="2_3ypha"]
+[ext_resource type="Texture2D" uid="uid://c273a10o1c170" path="res://assets/images/levels/level_4/perla.png" id="2_de6yp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykrsh"]
 radius = 16.03122
@@ -12,8 +12,9 @@ collision_mask = 3
 script = ExtResource("1_0o8r5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_3ypha")
+position = Vector2(0.49999905, -1.000001)
+scale = Vector2(1.0312499, 1.0625)
+texture = ExtResource("2_de6yp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ykrsh")
