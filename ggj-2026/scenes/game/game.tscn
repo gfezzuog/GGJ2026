@@ -33,12 +33,12 @@ offset_right = 1203.5
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7h61r")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="MainPage" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 130.5
-offset_top = 7.0
-offset_right = 1196.5
-offset_bottom = 1073.0
+offset_left = 118.0
+offset_top = 10.0
+offset_right = 1818.0
+offset_bottom = 1070.0
 texture = ExtResource("3_kelw5")
 expand_mode = 1
 

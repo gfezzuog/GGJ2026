@@ -12,10 +12,14 @@ func _set_empty_visualitazion(value: bool) -> void:
 		$RowLayerContainer/VBoxContainer.hide()
 		$PanelContainer/Label.hide()
 		$Panel/ButtonsContainer.hide()
+		$RowLayerContainer.hide()
+		$PanelContainer.hide()
 	else:
 		$RowLayerContainer/VBoxContainer.show()
 		$PanelContainer/Label.show()
 		$Panel/ButtonsContainer.show()
+		$RowLayerContainer.show()
+		$PanelContainer.show()
 
 
 func get_row_layer(indx: int) -> RowLayer:

@@ -49,6 +49,7 @@ func _set_player() -> void:
 
 
 func _load_start_page() -> void:
+	$LevelContainer.hide()
 	$NewUI.empty_visualitazion = true
 
 
@@ -220,8 +221,9 @@ func _resume_game() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	$ColorRect.queue_free()
+	$MainPage.queue_free()
 	$StartButton.queue_free()
 	if level_indx == -1:
+		$LevelContainer.show()
 		$NewUI.empty_visualitazion = false
 		level_indx = 0
