@@ -177,8 +177,8 @@ monitorable = false
 polygon = PackedVector2Array(430, 515, 440, 539, 499, 522, 665, 562, 734, 606, 767, 641, 796, 626, 765, 587, 649, 545, 468, 510)
 
 [node name="SpatialAudio" parent="SubViewport/Layers/Layer1/Spine" instance=ExtResource("16_6wbev")]
-position = Vector2(493, 550)
-scale = Vector2(2, 2)
+position = Vector2(499, 521)
+scale = Vector2(2.765, 2.765)
 audio = ExtResource("16_j0b4l")
 
 [node name="Layer2" type="Node2D" parent="SubViewport/Layers"]

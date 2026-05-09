@@ -41,8 +41,14 @@ func _check_covered_by_mask() -> bool:
 func _apply_disable(value: bool) -> void:
 	if value:
 		hide()
+		var audio = get_node_or_null("SpatialAudio")
+		if (audio):
+			audio.set_disabled(true)
 	else:
 		show()
+		var audio = get_node_or_null("SpatialAudio")
+		if (audio):
+			audio.set_disabled(false)
 
 
 func _check_and_apply_disable() -> void:

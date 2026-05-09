@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw2x0y7bxufj8"]
+[gd_scene load_steps=4 format=3 uid="uid://bw2x0y7bxufj8"]
 
 [ext_resource type="Script" uid="uid://cj0n4iqc1iyww" path="res://scenes/game/components/door/door.gd" id="1_nh6ox"]
 [ext_resource type="Texture2D" uid="uid://c2h6ltps2s3rj" path="res://assets/images/door.png" id="2_svpqt"]
+[ext_resource type="AudioStream" uid="uid://bq2yl1at8ft26" path="res://assets/audio/Porta_Sfx_Maeskape.wav" id="3_svpqt"]
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_nh6ox")
@@ -18,5 +19,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(6, 88, 6, 5, 46, 5, 46, 88)
+
+[node name="AudioDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_svpqt")
+bus = &"Effects"
 
 [connection signal="body_entered" from="StaticBody2D" to="." method="_on_area_2d_body_entered"]

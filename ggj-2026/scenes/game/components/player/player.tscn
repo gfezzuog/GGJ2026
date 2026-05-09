@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bo0grlbvum03a"]
+[gd_scene load_steps=21 format=4 uid="uid://bo0grlbvum03a"]
 
 [ext_resource type="Script" uid="uid://qr4upyhehscv" path="res://scenes/game/components/player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://c3pbrkxvt62wa" path="res://assets/images/player/idle_0.PNG" id="3_mtuoh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://daodesqyjkxc6" path="res://assets/images/player/jump_1.PNG" id="6_jhyir"]
 [ext_resource type="Texture2D" uid="uid://uw8op58q5xpi" path="res://assets/images/player/jump_2.PNG" id="7_74mp2"]
 [ext_resource type="AudioStream" uid="uid://cmi17ygqxtpbw" path="res://assets/audio/run.wav" id="9_gk6dx"]
+[ext_resource type="AudioStream" uid="uid://t2ecsybhl4us" path="res://assets/audio/game_over.wav" id="13_d8piq"]
 [ext_resource type="AudioStream" uid="uid://cwknc4i127kkg" path="res://assets/audio/Spine_Sfx_Maeskaape.wav" id="13_m81m1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_74mp2"]
@@ -142,6 +143,10 @@ bus = &"Effects"
 
 [node name="LandAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_jhyir")
+bus = &"Effects"
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_d8piq")
 bus = &"Effects"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
