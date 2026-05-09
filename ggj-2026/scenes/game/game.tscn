@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://e2xlnylg34x1"]
+[gd_scene load_steps=6 format=3 uid="uid://e2xlnylg34x1"]
 
 [ext_resource type="Script" uid="uid://cotufelyf6tbe" path="res://scenes/game/game.gd" id="1_7h61r"]
 [ext_resource type="PackedScene" uid="uid://da1uio0vt52om" path="res://scenes/ui/ui.tscn" id="1_sul5r"]
 [ext_resource type="Script" uid="uid://dgi7qginfumrr" path="res://scenes/game/levels/level_1/logic.gd" id="3_0sr1o"]
+[ext_resource type="Texture2D" uid="uid://dl8ltix8rmsc1" path="res://assets/ui/new_ui/main_page.png" id="3_kelw5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h61r"]
 content_margin_left = 7.0
@@ -19,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7h61r")
-level_indx = 4
+level_indx = -1
 levels = 5
 
 [node name="NewUI" parent="." instance=ExtResource("1_sul5r")]
@@ -32,5 +33,25 @@ offset_right = 1203.5
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7h61r")
 
+[node name="MainPage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 10.0
+offset_right = 1818.0
+offset_bottom = 1070.0
+texture = ExtResource("3_kelw5")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 657.0
+offset_right = 762.0
+offset_bottom = 839.0
+theme_override_font_sizes/font_size = 80
+text = "Start"
+
 [node name="Logic" type="Node" parent="."]
 script = ExtResource("3_0sr1o")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

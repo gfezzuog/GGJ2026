@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://0lqn80ajc63e"]
+
+[ext_resource type="Texture2D" uid="uid://dnb156ljj1ayl" path="res://assets/images/starting_page/menu_wallpaper.png" id="1_vjtqc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_vjtqc")

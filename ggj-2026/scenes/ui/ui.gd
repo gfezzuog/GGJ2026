@@ -3,6 +3,23 @@
 extends Control
 
 var n_layers: int = 0		# serve per resettare le maschere quando restarti un livello
+var empty_visualitazion: bool = false : set = _set_empty_visualitazion
+
+
+func _set_empty_visualitazion(value: bool) -> void:
+	empty_visualitazion = value
+	if empty_visualitazion:
+		$RowLayerContainer/VBoxContainer.hide()
+		$PanelContainer/Label.hide()
+		$Panel/ButtonsContainer.hide()
+		$RowLayerContainer.hide()
+		$PanelContainer.hide()
+	else:
+		$RowLayerContainer/VBoxContainer.show()
+		$PanelContainer/Label.show()
+		$Panel/ButtonsContainer.show()
+		$RowLayerContainer.show()
+		$PanelContainer.show()
 
 
 func get_row_layer(indx: int) -> RowLayer:
