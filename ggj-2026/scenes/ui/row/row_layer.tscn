@@ -1,18 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cocpcgyy2dhr1"]
+[gd_scene load_steps=12 format=3 uid="uid://cocpcgyy2dhr1"]
 
-[ext_resource type="Texture2D" uid="uid://c6wweyxvilko5" path="res://assets/ui/new_ui/rowlayer.png" id="1_42di5"]
 [ext_resource type="Script" uid="uid://ct3dlada843ey" path="res://scenes/ui/row/row_layer.gd" id="2_pyv87"]
 [ext_resource type="PackedScene" uid="uid://1mmmds4sg57b" path="res://scenes/ui/row/mask_container.tscn" id="2_stdaq"]
 [ext_resource type="Texture2D" uid="uid://bk0sy88gv66qx" path="res://assets/images/levels/level_1/layer_1.png" id="3_na15o"]
 [ext_resource type="Shader" uid="uid://cx52mshjiyu47" path="res://resources/shaders/clip_texture_rect.gdshader" id="4_pyv87"]
-[ext_resource type="Texture2D" uid="uid://dny5ak5ef2u0w" path="res://assets/ui/new_ui/icons/Link-H--Streamline-Unicons.png" id="5_i27i7"]
+[ext_resource type="Texture2D" uid="uid://cvbpfqwt747so" path="res://assets/ui/new_ui/icons/Link-H--Streamline-Unicons.png" id="5_i27i7"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyv87"]
-content_margin_left = 20.0
-content_margin_top = 9.0
-content_margin_right = 20.0
-content_margin_bottom = 9.0
-texture = ExtResource("1_42di5")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7o48w"]
+bg_color = Color(1, 0.7882353, 0.54901963, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na15o"]
 content_margin_left = 7.0
@@ -65,7 +60,7 @@ offset_right = -1328.0
 offset_bottom = -872.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_pyv87")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7o48w")
 script = ExtResource("2_pyv87")
 layer_texture = ExtResource("3_na15o")
 
