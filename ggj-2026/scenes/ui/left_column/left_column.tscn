@@ -2,7 +2,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xduyi"]
 content_margin_top = 10.0
-bg_color = Color(0.23921569, 0.3019608, 0.33333334, 1)
+bg_color = Color(0.23921569, 0.3019608, 0.33333334, 0.5372549)
 
 [node name="LeftColumn" type="PanelContainer"]
 custom_minimum_size = Vector2(108, 1080)
@@ -14,5 +14,5 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xduyi")
 
-[node name="MainContainer" type="VBoxContainer" parent="."]
+[node name="MainVBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
