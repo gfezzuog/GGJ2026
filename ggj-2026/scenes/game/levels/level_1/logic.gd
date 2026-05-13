@@ -13,7 +13,6 @@ func init() -> void:
 		
 		dialog = load("res://scenes/ui/Dialog.tscn").instantiate()
 		add_child(dialog)
-		print(dialog)
 		dialog.size = Vector2(1000.0, 250.0)
 		dialog.position = Vector2(163.5, 800)
 		

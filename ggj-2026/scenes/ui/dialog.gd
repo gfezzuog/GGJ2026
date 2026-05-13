@@ -22,7 +22,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") and inside and not not_clickable:
+	if (event.is_action_pressed("click") and inside and not not_clickable) \
+	or (event.is_action_pressed("space") and not not_clickable):
 		_manage_pressed()
 		not_clickable = true
 		timer.start()
@@ -37,6 +38,7 @@ func continue_dialog() -> void:
 	if writing:
 		stop()
 	
+	set_process_input(true)
 	$PanelContainer/VBoxContainer/RichTextLabel.mouse_filter = MOUSE_FILTER_PASS
 	$FakeButton.start()
 	
@@ -68,6 +70,7 @@ func write_text(text_block: TextData.TextBlock) -> void:
 
 func end() -> void:
 	if not current_block.auto_progess:
+		set_process_input(false)
 		inside = false
 		$PanelContainer/VBoxContainer/RichTextLabel.mouse_filter = MOUSE_FILTER_STOP
 	SignalBus.end_line.emit(current_block.id)
