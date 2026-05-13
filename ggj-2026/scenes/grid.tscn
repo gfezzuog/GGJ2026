@@ -12,7 +12,7 @@ offset_top = 530.0
 offset_right = -25.0
 offset_bottom = 616.0
 theme_override_font_sizes/font_size = 60
-text = "Indice: (14, 12)"
+text = "Indice: (13, 4)"
 
 [node name="Label2" type="Label" parent="."]
 top_level = true
@@ -21,7 +21,7 @@ offset_top = -157.0
 offset_right = 672.0
 offset_bottom = -71.0
 theme_override_font_sizes/font_size = 60
-text = "Indice: (15, 9)"
+text = "Indice: (13, 4)"
 
 [node name="Label3" type="Label" parent="."]
 top_level = true
@@ -30,4 +30,4 @@ offset_top = 1104.0
 offset_right = 703.0
 offset_bottom = 1190.0
 theme_override_font_sizes/font_size = 60
-text = "Indice: (15, 9)"
+text = "Indice: (13, 4)"

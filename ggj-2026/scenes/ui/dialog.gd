@@ -25,6 +25,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and inside and not not_clickable:
 		_manage_pressed()
 		not_clickable = true
+		if !timer.is_inside_tree():
+			print(self)
 		timer.start()
 
 

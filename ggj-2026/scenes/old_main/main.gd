@@ -25,8 +25,6 @@ func _reload_current_level() -> void:
 	if current_level == null:
 		return
 
-	print("Reload level ", current_level_index)
-
 	# Distruggi livello corrente
 	current_level.queue_free()
 	current_level = null

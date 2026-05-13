@@ -46,12 +46,10 @@ func _do_game_over() -> void:
 
 
 func game_over():
-	print("Game Over")
 	call_deferred("_do_game_over")
 
 
 func activate():
-	#print("sto attivando il player")
 	active = true
 	
 	set_collision_layer_value(2, true)
@@ -60,7 +58,6 @@ func activate():
 # quando il player e' disattivato gli leviamo il collision layer cosi' non puo' collidere con una porta
 # (altrimenti succederebbe passando da un livello all'altro se il player e' in alcune posizioni)
 func deactivate():
-	#print("sto disattivando il player")
 	active = false
 	
 	set_collision_layer_value(2, false)

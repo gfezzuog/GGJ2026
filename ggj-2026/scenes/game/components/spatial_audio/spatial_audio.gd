@@ -22,7 +22,7 @@ func _ready() -> void:
 	$Area2D.body_exited.connect(_on_area_2d_body_exited)
 	
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (!disabled && player != null):
 		var dist = global_position.distance_to(player.global_position)
 		# proporzione:
@@ -44,7 +44,6 @@ func set_disabled(dis: bool):
 
 # comincia a tracciare il player e a riprodurre l'audio
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	#print("player e' entrato nell'area")
 	player = body
 	max_distance = global_position.distance_to(player.global_position)
 	if (!disabled):
@@ -52,7 +51,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 
 # smetti di tracciare il player e stoppa audio
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	#print("player e' uscito")
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	player = null
 	audio_player.stop()

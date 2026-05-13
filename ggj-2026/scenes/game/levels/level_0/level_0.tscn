@@ -60,8 +60,7 @@ metadata/_custom_type_script = "uid://b710x5gr6742f"
 [node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Layers/Layer0/GameObj"]
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
-position = Vector2(228.25, 913)
-polygon = PackedVector2Array(-228.25, -150, 226.75, -154, 227.75, 149, -228.25, 148)
+polygon = PackedVector2Array(0, 760, 454, 760, 458, 1060, 8, 1060)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SubViewport/Layers/Layer0/GameObj/StaticBody2D"]
 polygon = PackedVector2Array(666, 761, 833, 760, 837, 688, 853, 690, 851, 679, 866, 678, 879, 669, 889, 669, 890, 660, 933, 658, 947, 651, 948, 631, 954, 631, 953, 619, 958, 602, 964, 602, 963, 580, 973, 579, 973, 565, 981, 563, 983, 547, 1066, 547, 1066, 1066, 667, 1067)

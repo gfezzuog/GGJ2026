@@ -3,6 +3,7 @@ extends Node
 var level: Level
 var dialog: Dialog
 var show_dialog: bool = true
+var current_text_id: String
 
 
 func init() -> void:
@@ -38,25 +39,46 @@ func reset() -> void:
 	if SignalBus.dialog_finished.is_connected(_on_dialog_finished):
 		SignalBus.dialog_finished.disconnect(_on_dialog_finished)
 	
-	for child in get_children():
-		child.queue_free()
-	dialog = null
+	_reset_status(current_text_id)
+	current_text_id = ""
+	
+	if dialog:
+		dialog.text_data.reset()
+		remove_child(dialog)
+		dialog.queue_free()
+		dialog = null
+
+
+func _reset_status(text_id: String):
+	if text_id == "TUTORIAL_12":
+		var layer: RowLayer = get_parent().get_parent().get_child(0).get_row_layer(3)
+		var mask_container: MaskContainer = layer.get_mask_container()
+		mask_container.rotation_disabled = true
+		remove_child(get_child(1))
+	elif text_id == "TUTORIAL_13":
+		for i in range(1, 3):
+			var layer: RowLayer = get_parent().get_parent().get_child(0).get_row_layer(i)
+			var mask_container: MaskContainer = layer.get_mask_container()
+			mask_container.rotation_disabled = true
 
 
 func _on_start_line(text_id: String) -> void:
+	current_text_id = text_id
 	if text_id == "TUTORIAL_12":
 		var highlight_button: TextureRect = load("res://scenes/game/components/tutorial/highlight_button.tscn").instantiate()
 		highlight_button.position = Vector2(1700.0, 750.0)
 		highlight_button.material.set_shader_parameter("color", Color("#F2FF49"))
 		add_child(highlight_button)
+		
 		SignalBus.mask_rotated.connect(_on_mask_rotated)
-		var layer: RowLayer = get_parent().get_child(0).get_row_layer(3)
+		var layer: RowLayer = get_parent().get_parent().get_child(0).get_row_layer(3)
 		var mask_container: MaskContainer = layer.get_mask_container()
 		mask_container.rotation_disabled = false
+	
 	elif text_id == "TUTORIAL_13":
 		remove_child(get_child(1))
 		for i in range(1, 3):
-			var layer: RowLayer = get_parent().get_child(0).get_row_layer(i)
+			var layer: RowLayer = get_parent().get_parent().get_child(0).get_row_layer(i)
 			var mask_container: MaskContainer = layer.get_mask_container()
 			mask_container.rotation_disabled = false
 
@@ -68,6 +90,13 @@ func _on_mask_rotated(_mask: Mask, layer: int) -> void:
 
 
 func _on_dialog_finished() -> void:
-	dialog.queue_free()
-	dialog = null
 	level.player.activate()
+	
+	if SignalBus.start_line.is_connected(_on_start_line):
+		SignalBus.start_line.disconnect(_on_start_line)
+	if SignalBus.dialog_finished.is_connected(_on_dialog_finished):
+		SignalBus.dialog_finished.disconnect(_on_dialog_finished)
+
+	remove_child.call_deferred(dialog)
+	dialog.queue_free.call_deferred()
+	dialog = null
