@@ -47,7 +47,5 @@ func _apply_disable(value: bool) -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if (enabled):
-		#print("sono una porta e sono stata raggiunta, sono in posizione:")
-		#print(global_position)
 		SignalBus.door_reached.emit(position.x, position.y)
 		$AudioDoor.play()

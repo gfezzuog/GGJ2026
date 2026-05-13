@@ -90,4 +90,5 @@ func get_next_text() -> TextBlock:
 
 
 func reset() -> void:
+	texts.clear()
 	counter = 0

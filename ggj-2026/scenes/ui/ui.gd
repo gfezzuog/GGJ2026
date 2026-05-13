@@ -4,7 +4,10 @@ extends Control
 
 var n_layers: int = 0		# serve per resettare le maschere quando restarti un livello
 var empty_visualitazion: bool = false : set = _set_empty_visualitazion
+var level_data: LevelData
 
+
+#region SETTER
 
 func _set_empty_visualitazion(value: bool) -> void:
 	empty_visualitazion = value
@@ -22,19 +25,17 @@ func _set_empty_visualitazion(value: bool) -> void:
 		$PanelContainer.show()
 
 
-func get_row_layer(indx: int) -> RowLayer:
-	return $RowLayerContainer/VBoxContainer.get_child(indx)
-
-
-func set_n_layers(n: int) -> void:
+func _set_n_layers(n: int) -> void:
 	for i in range(n):
 		$RowLayerContainer/VBoxContainer.get_child(i).show()
+		$RowLayerContainer/VBoxContainer.get_child(i).process_mode = Node.PROCESS_MODE_INHERIT
 	for i in range(n, 5):
+		$RowLayerContainer/VBoxContainer.get_child(i).process_mode = Node.PROCESS_MODE_DISABLED
 		$RowLayerContainer/VBoxContainer.get_child(i).hide()
 	n_layers = n
 
 
-func set_textures(textures: Array[Texture]) -> void:
+func _set_textures(textures: Array[Texture]) -> void:
 	var i: int = 0
 	
 	while i < 5 and i < textures.size():
@@ -43,7 +44,7 @@ func set_textures(textures: Array[Texture]) -> void:
 		i += 1
 
 
-func set_masks(masks: Array[Mask]) -> void:
+func _set_masks(masks: Array[Mask]) -> void:
 	var i: int = 0
 	
 	while i < 5 and i < masks.size():
@@ -54,7 +55,7 @@ func set_masks(masks: Array[Mask]) -> void:
 		i += 1
 
 
-func set_disability(values: Array[int]) -> void:
+func _set_disability(values: Array[int]) -> void:
 	var i: int = 0
 	
 	while i < 5 and i < values.size():
@@ -73,6 +74,46 @@ func set_disability(values: Array[int]) -> void:
 		
 		i += 1
 
+#endregion
+
+
+func get_row_layer(indx: int) -> RowLayer:
+	return $RowLayerContainer/VBoxContainer.get_child(indx)
+
+
+#region INIT-RESET 
+
+func reset() -> void:
+	for i in range(5):
+		var row: RowLayer = get_row_layer(i)
+		row.get_mask_container().reset()
+		row.disabled = false
+		row.mask = null
+		row.layer_texture = null
+		row.show()
+		level_data = null
+
+
+func init_level() -> void:
+	if level_data:
+		_set_masks(level_data.masks)
+		_set_n_layers(level_data.layers.size())
+		_set_disability(level_data.layers)
+		_set_textures(level_data.layers_textures)
+		trigger_masks()
+
+
+func reset_level() -> void:
+	for i in range(5):
+		var row: RowLayer = get_row_layer(i)
+		row.get_mask_container().reset()
+	for mask: Mask in level_data.masks:
+		if mask:
+			mask.index = 0
+	init_level()
+
+#endregion
+
 
 func trigger_masks():
 	for i in range(0, 5):
@@ -84,17 +125,8 @@ func trigger_masks():
 				SignalBus.mask_activated.emit(mask_container.mask, i)
 
 
-func reset() -> void:
-	for i in range(5):
-		var row: RowLayer = $RowLayerContainer/VBoxContainer.get_child(i)
-		row.disabled = false
-		row.mask = null
-		row.layer_texture = null
-		row.get_mask_container().reset()
-		row.show()
+#region LATERAL BUTTON
 
-
-# Funzioni per i pulsanti laterali
 func _restart_level() -> void:
 	SignalBus.restart_level.emit()
 
@@ -110,3 +142,5 @@ func _open_settings() -> void:
 func _exit() -> void:
 	### TODO: fare che torni al menu principale invece di uscire
 	get_tree().quit()
+
+#endregion

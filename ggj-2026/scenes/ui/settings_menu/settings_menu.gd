@@ -31,9 +31,6 @@ func _ready() -> void:
 	volume_slider_effects.tick_count = volume_slider_ticks
 	volume_slider_effects.step = volume_slider_step
 	
-	
-	#print("all'apertura risulta volume musica " + str(Constants.volume_music) + " e volume effetti " + str(Constants.volume_effects))
-	
 	# Imposta i valori degli slider
 	volume_slider_music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_MUSIC_NAME))
 	volume_slider_effects.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(Constants.AUDIO_BUS_EFFECTS_NAME))

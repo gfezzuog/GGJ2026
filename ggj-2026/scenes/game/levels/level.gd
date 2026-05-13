@@ -32,7 +32,7 @@ func _ready() -> void:
 	wall_left_area.collision_layer = 1
 	wall_left_area.add_child(wall_left_collision_shape)
 	wall_left_area.position = Vector2(-100, 550)
-	$SubViewport/Layers.add_child(wall_left_area)
+	$SubViewport.add_child(wall_left_area)
 	var wall_right_area := StaticBody2D.new()
 	var wall_right_collision_shape := CollisionShape2D.new()
 	wall_right_collision_shape.shape = RectangleShape2D.new()
@@ -40,7 +40,7 @@ func _ready() -> void:
 	wall_right_area.collision_layer = 1
 	wall_right_area.add_child(wall_right_collision_shape)
 	wall_right_area.position = Vector2(1170, 550)
-	$SubViewport/Layers.add_child(wall_right_area)
+	$SubViewport.add_child(wall_right_area)
 	
 	timer_mask_rotated.wait_time = 1.0
 	timer_mask_rotated.autostart = false
@@ -48,6 +48,8 @@ func _ready() -> void:
 	timer_mask_rotated.timeout.connect(_on_timer_mask_rotated_timeout)
 	add_child(timer_mask_rotated)
 
+
+#region INIT-RESET
 
 func init() -> void:
 	# Connette con i segnali
@@ -58,6 +60,8 @@ func init() -> void:
 	SignalBus.hide_mask.connect(hide_mask)
 	SignalBus.highlight_layer.connect(highlight_layer)
 	SignalBus.game_over.connect(_on_game_over)
+	
+	player.activate()
 
 
 func reset():
@@ -68,7 +72,20 @@ func reset():
 	SignalBus.hide_mask.disconnect(hide_mask)
 	SignalBus.highlight_layer.disconnect(highlight_layer)
 	SignalBus.game_over.disconnect(_on_game_over)
+	
+	player.deactivate()
+	player.position = player_starting_position
+	
+	checkpoints_counter = 0
+	timer_mask_rotated.stop()
+	
+	for i in range($SubViewport/Layers.get_child_count()):
+		reset_mask(i)
 
+#endregion
+
+
+#region PLAYER
 
 func add_player(_player: Player) -> void:
 	player = _player
@@ -83,6 +100,8 @@ func put_player_in_starting_position() -> void:
 
 func remove_player() -> void:
 	$SubViewport.remove_child(player)
+
+#endregion
 
 
 func show_mask(polygons: Array[PackedVector2Array]) -> void:
@@ -109,7 +128,6 @@ func reset_mask(layer: int) -> void:
 	
 	#for obj: GameObj in layer_node.get_children():
 	var children = layer_node.find_children("*", "GameObj", false)
-	#print(children)
 	for obj in children:
 		obj.reset()
 	
@@ -144,6 +162,8 @@ func reset_child_material(node_path: String) -> void:
 	child.material = null
 
 
+#region SIGNALS
+
 func _on_mask_enabled(mask: Mask, layer: int) -> void:
 	reset_mask(layer)
 	apply_mask(layer, mask)
@@ -177,3 +197,5 @@ func _on_game_over() -> void:
 	else:
 		player.position = player_starting_position
 	player.animate_death()
+
+#endregion

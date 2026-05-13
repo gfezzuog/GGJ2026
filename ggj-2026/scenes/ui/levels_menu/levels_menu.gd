@@ -25,6 +25,5 @@ func _on_close_button_pressed() -> void:
 
 
 func _go_to_level(level: int) -> void:
-	print("Il livello è: ", level)
 	SignalBus.go_to_level.emit(level)
 	queue_free()

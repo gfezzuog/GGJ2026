@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://cvlkvn03fsnb7" path="res://scenes/old_ui/layers_menu/layer_menu.gd" id="1_emsh5"]
 [ext_resource type="PackedScene" uid="uid://fuw2gcnxtofr" path="res://scenes/old_ui/layers_menu/layer_menu_row.tscn" id="2_emsh5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vomyl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj77u"]
 resource_local_to_scene = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5rka"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t2op"]
 resource_local_to_scene = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw4df"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4puo3"]
 resource_local_to_scene = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57sy4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmh3a"]
 resource_local_to_scene = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptdvi"]
@@ -28,19 +28,19 @@ layout_mode = 2
 
 [node name="LayerMenuRow2" parent="." instance=ExtResource("2_emsh5")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vomyl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cj77u")
 
 [node name="LayerMenuRow3" parent="." instance=ExtResource("2_emsh5")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_y5rka")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0t2op")
 
 [node name="LayerMenuRow4" parent="." instance=ExtResource("2_emsh5")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hw4df")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4puo3")
 
 [node name="LayerMenuRow5" parent="." instance=ExtResource("2_emsh5")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_57sy4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmh3a")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2

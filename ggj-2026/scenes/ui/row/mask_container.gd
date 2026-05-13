@@ -41,7 +41,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if on_mask and event.is_action_pressed("press"):
-		#print("sono dentro action_pressed(press) e mask == null")
 		$Area2D.monitoring = false
 		dragged_mask_node = load("res://scenes/ui/dragged_mask/dragged_mask.tscn").instantiate()
 		dragged_mask_node.mask = mask
@@ -56,13 +55,11 @@ func _input(event: InputEvent) -> void:
 		if dragged_mask_node.active_container:
 			mask = dragged_mask_node.active_container.mask
 			if mask == null:
-				print("sono dentro action_released(press) e mask == null")
 				$AudioMaskDrop.play()
 				active = false
 				deactivate()
 				$ViewButton.toggle_status = false
 			elif !$ViewButton.toggle_status:
-				#print("sono dentro action_released(press) e mask != null")
 				activate()
 			dragged_mask_node.active_container.mask = dragged_mask_node.mask
 			dragged_mask_node.active_container.active = true
@@ -211,6 +208,7 @@ func reset() -> void:
 	visibility_disabled = false
 	rotation_disabled = false
 	$ViewButton.toggle_status = false
+	update_status()
 
 
 func _on_view_button_pressed(toggle_status: bool) -> void:
